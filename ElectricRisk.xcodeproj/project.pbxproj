@@ -13,6 +13,12 @@
 		015259BB1D70918F00AD3E67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259B91D70918F00AD3E67 /* Main.storyboard */; };
 		015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015259BC1D70918F00AD3E67 /* Assets.xcassets */; };
 		015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */; };
+		BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718901D71453D009AB399 /* RiskMainViewController.m */; };
+		BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718931D714F87009AB399 /* RiskSearchViewController.m */; };
+		BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718941D714F87009AB399 /* RiskSearchViewController.xib */; };
+		BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718981D7179FF009AB399 /* RiskDetailViewController.m */; };
+		BAE7189B1D7179FF009AB399 /* RiskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718991D7179FF009AB399 /* RiskDetailViewController.xib */; };
+		C0FBD52A6B656522062415BC /* Pods_ElectricRisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,17 @@
 		015259BC1D70918F00AD3E67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015259BF1D70918F00AD3E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		015259C11D70918F00AD3E67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
+		7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
+		BAE7188F1D71453D009AB399 /* RiskMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskMainViewController.h; path = class/controller/risk/RiskMainViewController.h; sourceTree = "<group>"; };
+		BAE718901D71453D009AB399 /* RiskMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskMainViewController.m; path = class/controller/risk/RiskMainViewController.m; sourceTree = "<group>"; };
+		BAE718921D714F87009AB399 /* RiskSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskSearchViewController.h; path = class/controller/risk/RiskSearchViewController.h; sourceTree = "<group>"; };
+		BAE718931D714F87009AB399 /* RiskSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskSearchViewController.m; path = class/controller/risk/RiskSearchViewController.m; sourceTree = "<group>"; };
+		BAE718941D714F87009AB399 /* RiskSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskSearchViewController.xib; path = class/controller/risk/RiskSearchViewController.xib; sourceTree = "<group>"; };
+		BAE718971D7179FF009AB399 /* RiskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailViewController.h; path = class/controller/risk/RiskDetailViewController.h; sourceTree = "<group>"; };
+		BAE718981D7179FF009AB399 /* RiskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskDetailViewController.m; path = class/controller/risk/RiskDetailViewController.m; sourceTree = "<group>"; };
+		BAE718991D7179FF009AB399 /* RiskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskDetailViewController.xib; path = class/controller/risk/RiskDetailViewController.xib; sourceTree = "<group>"; };
+		FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectricRisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0FBD52A6B656522062415BC /* Pods_ElectricRisk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +62,8 @@
 			children = (
 				015259AF1D70918F00AD3E67 /* ElectricRisk */,
 				015259AE1D70918F00AD3E67 /* Products */,
+				B12ED3D5D160AC61E12512BB /* Pods */,
+				7EEB6ED4AD958E19C3A4B958 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,14 +78,7 @@
 		015259AF1D70918F00AD3E67 /* ElectricRisk */ = {
 			isa = PBXGroup;
 			children = (
-				015259B31D70918F00AD3E67 /* AppDelegate.h */,
-				015259B41D70918F00AD3E67 /* AppDelegate.m */,
-				015259B61D70918F00AD3E67 /* LoginViewController.h */,
-				015259B71D70918F00AD3E67 /* LoginViewController.m */,
-				015259B91D70918F00AD3E67 /* Main.storyboard */,
-				015259BC1D70918F00AD3E67 /* Assets.xcassets */,
-				015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */,
-				015259C11D70918F00AD3E67 /* Info.plist */,
+				BAE718871D712F84009AB399 /* class */,
 				015259B01D70918F00AD3E67 /* Supporting Files */,
 			);
 			path = ElectricRisk;
@@ -74,9 +87,105 @@
 		015259B01D70918F00AD3E67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				015259BC1D70918F00AD3E67 /* Assets.xcassets */,
+				015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */,
+				015259C11D70918F00AD3E67 /* Info.plist */,
 				015259B11D70918F00AD3E67 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7EEB6ED4AD958E19C3A4B958 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B12ED3D5D160AC61E12512BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */,
+				5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BAE718871D712F84009AB399 /* class */ = {
+			isa = PBXGroup;
+			children = (
+				BAE718891D712F92009AB399 /* controller */,
+			);
+			name = class;
+			sourceTree = "<group>";
+		};
+		BAE718881D712F8D009AB399 /* system */ = {
+			isa = PBXGroup;
+			children = (
+				015259B31D70918F00AD3E67 /* AppDelegate.h */,
+				015259B41D70918F00AD3E67 /* AppDelegate.m */,
+			);
+			name = system;
+			sourceTree = "<group>";
+		};
+		BAE718891D712F92009AB399 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				BAE718881D712F8D009AB399 /* system */,
+				BAE7188A1D712FBA009AB399 /* login */,
+				BAE7188B1D714152009AB399 /* risk */,
+				BAE7188C1D714176009AB399 /* check */,
+				BAE7188D1D714194009AB399 /* message */,
+				BAE7188E1D714199009AB399 /* setting */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		BAE7188A1D712FBA009AB399 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				015259B61D70918F00AD3E67 /* LoginViewController.h */,
+				015259B71D70918F00AD3E67 /* LoginViewController.m */,
+				015259B91D70918F00AD3E67 /* Main.storyboard */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		BAE7188B1D714152009AB399 /* risk */ = {
+			isa = PBXGroup;
+			children = (
+				BAE7188F1D71453D009AB399 /* RiskMainViewController.h */,
+				BAE718901D71453D009AB399 /* RiskMainViewController.m */,
+				BAE718921D714F87009AB399 /* RiskSearchViewController.h */,
+				BAE718931D714F87009AB399 /* RiskSearchViewController.m */,
+				BAE718941D714F87009AB399 /* RiskSearchViewController.xib */,
+				BAE718971D7179FF009AB399 /* RiskDetailViewController.h */,
+				BAE718981D7179FF009AB399 /* RiskDetailViewController.m */,
+				BAE718991D7179FF009AB399 /* RiskDetailViewController.xib */,
+			);
+			name = risk;
+			sourceTree = "<group>";
+		};
+		BAE7188C1D714176009AB399 /* check */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = check;
+			sourceTree = "<group>";
+		};
+		BAE7188D1D714194009AB399 /* message */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = message;
+			sourceTree = "<group>";
+		};
+		BAE7188E1D714199009AB399 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = setting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 015259C41D70918F00AD3E67 /* Build configuration list for PBXNativeTarget "ElectricRisk" */;
 			buildPhases = (
+				64D938EF2DA53DBEB46981C0 /* [CP] Check Pods Manifest.lock */,
 				015259A91D70918F00AD3E67 /* Sources */,
 				015259AA1D70918F00AD3E67 /* Frameworks */,
 				015259AB1D70918F00AD3E67 /* Resources */,
+				D9CD6550FA6116577317CB71 /* [CP] Embed Pods Frameworks */,
+				D88CF2AE9EE789658C6B0F20 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,21 +248,74 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE7189B1D7179FF009AB399 /* RiskDetailViewController.xib in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
 				015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */,
 				015259BB1D70918F00AD3E67 /* Main.storyboard in Resources */,
+				BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		64D938EF2DA53DBEB46981C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D88CF2AE9EE789658C6B0F20 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9CD6550FA6116577317CB71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		015259A91D70918F00AD3E67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */,
+				BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
+				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +426,7 @@
 		};
 		015259C51D70918F00AD3E67 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -273,6 +439,7 @@
 		};
 		015259C61D70918F00AD3E67 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -302,6 +469,7 @@
 				015259C61D70918F00AD3E67 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
