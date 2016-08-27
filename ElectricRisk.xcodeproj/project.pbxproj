@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		015259B21D70918F00AD3E67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B11D70918F00AD3E67 /* main.m */; };
 		015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B41D70918F00AD3E67 /* AppDelegate.m */; };
-		015259B81D70918F00AD3E67 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B71D70918F00AD3E67 /* ViewController.m */; };
+		015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B71D70918F00AD3E67 /* LoginViewController.m */; };
 		015259BB1D70918F00AD3E67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259B91D70918F00AD3E67 /* Main.storyboard */; };
 		015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015259BC1D70918F00AD3E67 /* Assets.xcassets */; };
 		015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */; };
@@ -20,8 +20,8 @@
 		015259B11D70918F00AD3E67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		015259B31D70918F00AD3E67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		015259B41D70918F00AD3E67 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		015259B61D70918F00AD3E67 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		015259B71D70918F00AD3E67 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		015259B61D70918F00AD3E67 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		015259B71D70918F00AD3E67 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		015259BA1D70918F00AD3E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		015259BC1D70918F00AD3E67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015259BF1D70918F00AD3E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,8 +60,8 @@
 			children = (
 				015259B31D70918F00AD3E67 /* AppDelegate.h */,
 				015259B41D70918F00AD3E67 /* AppDelegate.m */,
-				015259B61D70918F00AD3E67 /* ViewController.h */,
-				015259B71D70918F00AD3E67 /* ViewController.m */,
+				015259B61D70918F00AD3E67 /* LoginViewController.h */,
+				015259B71D70918F00AD3E67 /* LoginViewController.m */,
 				015259B91D70918F00AD3E67 /* Main.storyboard */,
 				015259BC1D70918F00AD3E67 /* Assets.xcassets */,
 				015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */,
@@ -149,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				015259B81D70918F00AD3E67 /* ViewController.m in Sources */,
+				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
 			);
@@ -263,6 +263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.ElectricRisk;
@@ -274,6 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.ElectricRisk;

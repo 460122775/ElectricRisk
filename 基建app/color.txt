@@ -1,0 +1,18 @@
+<color name="color_press">#05806B</color><!--53868B-->
+    <color name="gray">#55000000</color>
+    <color name="gray1">#33000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="red">#FF0000</color>
+    <color name="me">#388E8E</color>
+    <!--风险等级颜色-->
+    <color name="onegrade">#5CACEE</color>
+    <color name="twograde">#FFB90F</color>
+    <color name="threegrade">#FF8C00</color>
+    <color name="fourgrade">#FFD700</color>
+    <color name="fivegrade">#FF3030</color>
+
+    <!--loading-->
+    <color name="book_loading_background">#00ffffff</color>
+    <color name="book_loading_book">#009D91</color>
+    <color name="book_loading_page">#ffffff</color>
