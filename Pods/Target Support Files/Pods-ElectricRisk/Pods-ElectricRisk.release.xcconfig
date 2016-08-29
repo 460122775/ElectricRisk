@@ -1,0 +1,11 @@
+CLANG_MODULES_AUTOLINK = YES
+EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/BPushSDK"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/BPushSDK/Official-Sources/normalversion"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/AFNetworking.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Charts.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/GTMBase64.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/JTToast.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/MBProgressHUD.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/MJRefresh.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Realm.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/RealmSwift.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/ZHDropDownMenu.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/BPushSDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"BPush" -l"z" -framework "AFNetworking" -framework "Charts" -framework "CoreTelephony" -framework "Foundation" -framework "GTMBase64" -framework "JTToast" -framework "MBProgressHUD" -framework "MJRefresh" -framework "Realm" -framework "RealmSwift" -framework "SystemConfiguration" -framework "ZHDropDownMenu"
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-ElectricRisk
+PODS_ROOT = ${SRCROOT}/Pods

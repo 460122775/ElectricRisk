@@ -14,6 +14,8 @@ target 'ElectricRisk' do
  	pod 'JTToast', '~> 1.1.0'
  	pod 'Charts/Realm'
 	pod 'ZHDropDownMenu'
+    pod 'GTMBase64'
+    pod 'BPushSDK/normal'
 end
 
  

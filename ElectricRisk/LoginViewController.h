@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GTMBase64.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController{
+    MBProgressHUD *HUD;
+}
 
+@property (strong, nonatomic) IBOutlet UITextField *nameTF;
+@property (strong, nonatomic) IBOutlet UITextField *pwdTF;
+
+- (IBAction)loginBtnClick:(id)sender;
 
 @end
 

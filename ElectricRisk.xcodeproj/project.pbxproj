@@ -13,6 +13,8 @@
 		015259BB1D70918F00AD3E67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259B91D70918F00AD3E67 /* Main.storyboard */; };
 		015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015259BC1D70918F00AD3E67 /* Assets.xcassets */; };
 		015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */; };
+		0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11A1D72B11E0066D8B7 /* SystemConfig.m */; };
+		0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */; };
 		BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718901D71453D009AB399 /* RiskMainViewController.m */; };
 		BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718931D714F87009AB399 /* RiskSearchViewController.m */; };
 		BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718941D714F87009AB399 /* RiskSearchViewController.xib */; };
@@ -32,6 +34,12 @@
 		015259BC1D70918F00AD3E67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015259BF1D70918F00AD3E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		015259C11D70918F00AD3E67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0154B1171D72B04B0066D8B7 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = class/model/system/PrefixHeader.pch; sourceTree = "<group>"; };
+		0154B1181D72B08D0066D8B7 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonDefine.h; path = class/model/system/CommonDefine.h; sourceTree = "<group>"; };
+		0154B1191D72B11E0066D8B7 /* SystemConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemConfig.h; path = class/model/system/SystemConfig.h; sourceTree = "<group>"; };
+		0154B11A1D72B11E0066D8B7 /* SystemConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemConfig.m; path = class/model/system/SystemConfig.m; sourceTree = "<group>"; };
+		0154B11E1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MBProgressHUDView.h"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.h"; sourceTree = "<group>"; };
+		0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
 		5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
 		7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
 		BAE7188F1D71453D009AB399 /* RiskMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskMainViewController.h; path = class/controller/risk/RiskMainViewController.h; sourceTree = "<group>"; };
@@ -95,6 +103,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0154B1151D72AFA10066D8B7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0154B1161D72AFCA0066D8B7 /* system */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		0154B1161D72AFCA0066D8B7 /* system */ = {
+			isa = PBXGroup;
+			children = (
+				0154B1171D72B04B0066D8B7 /* PrefixHeader.pch */,
+				0154B1181D72B08D0066D8B7 /* CommonDefine.h */,
+				0154B1191D72B11E0066D8B7 /* SystemConfig.h */,
+				0154B11A1D72B11E0066D8B7 /* SystemConfig.m */,
+			);
+			name = system;
+			sourceTree = "<group>";
+		};
+		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				0154B1211D72BE460066D8B7 /* HUD */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		0154B1211D72BE460066D8B7 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				0154B11E1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.h */,
+				0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */,
+			);
+			name = HUD;
+			sourceTree = "<group>";
+		};
 		7EEB6ED4AD958E19C3A4B958 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				BAE718891D712F92009AB399 /* controller */,
+				0154B1151D72AFA10066D8B7 /* model */,
+				0154B11D1D72BE030066D8B7 /* ThirdParty */,
 			);
 			name = class;
 			sourceTree = "<group>";
@@ -125,6 +171,7 @@
 			children = (
 				015259B31D70918F00AD3E67 /* AppDelegate.h */,
 				015259B41D70918F00AD3E67 /* AppDelegate.m */,
+				015259B91D70918F00AD3E67 /* Main.storyboard */,
 			);
 			name = system;
 			sourceTree = "<group>";
@@ -147,7 +194,6 @@
 			children = (
 				015259B61D70918F00AD3E67 /* LoginViewController.h */,
 				015259B71D70918F00AD3E67 /* LoginViewController.m */,
-				015259B91D70918F00AD3E67 /* Main.storyboard */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -201,6 +247,7 @@
 				015259AB1D70918F00AD3E67 /* Resources */,
 				D9CD6550FA6116577317CB71 /* [CP] Embed Pods Frameworks */,
 				D88CF2AE9EE789658C6B0F20 /* [CP] Copy Pods Resources */,
+				5D0B1118A01EA0560774484E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -259,6 +306,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5D0B1118A01EA0560774484E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		64D938EF2DA53DBEB46981C0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -314,6 +376,8 @@
 				BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */,
 				BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
+				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
+				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
 				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
@@ -369,6 +433,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ElectricRisk/class/model/system/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -411,6 +476,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/ElectricRisk/class/model/system/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

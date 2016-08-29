@@ -1,0 +1,1 @@
+../../../JTToast/Pod/Classes/JTToastConfiguration.h
