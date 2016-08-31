@@ -659,11 +659,11 @@
         <image name="fx_press" width="42" height="42"/>
         <image name="home" width="42" height="42"/>
         <image name="home_press" width="42" height="42"/>
-        <image name="logo" width="186" height="157"/>
+        <image name="logo" width="93" height="78"/>
         <image name="logo_white" width="48" height="48"/>
         <image name="me" width="42" height="42"/>
         <image name="me_press" width="42" height="42"/>
-        <image name="search" width="48" height="48"/>
+        <image name="search" width="22" height="22"/>
         <image name="set" width="42" height="42"/>
         <image name="set_press" width="42" height="42"/>
     </resources>

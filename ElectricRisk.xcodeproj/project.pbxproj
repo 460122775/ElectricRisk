@@ -106,6 +106,7 @@
 		0154B1151D72AFA10066D8B7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				0154B1221D7653A40066D8B7 /* vo */,
 				0154B1161D72AFCA0066D8B7 /* system */,
 			);
 			name = model;
@@ -137,6 +138,13 @@
 				0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */,
 			);
 			name = HUD;
+			sourceTree = "<group>";
+		};
+		0154B1221D7653A40066D8B7 /* vo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = vo;
 			sourceTree = "<group>";
 		};
 		7EEB6ED4AD958E19C3A4B958 /* Frameworks */ = {
