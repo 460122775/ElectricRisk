@@ -53,6 +53,11 @@
 #define Check_State_Yes 3
 #define Check_State_Publish 4
 
+/** Notice State **/
+#define Notice_State_Not 0
+#define Notice_State_Read 1
+#define Notice_State_Reply 2
+
 #define singleton_interface(className) \
 + (className *)instance;
 
