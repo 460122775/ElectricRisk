@@ -24,6 +24,8 @@
 		015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */; };
 		0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11A1D72B11E0066D8B7 /* SystemConfig.m */; };
 		0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */; };
+		BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */ = {isa = PBXBuildFile; fileRef = BA55C6941D78010000FDA2F6 /* RequestModal.m */; };
+		BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */; };
 		BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718901D71453D009AB399 /* RiskMainViewController.m */; };
 		BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718931D714F87009AB399 /* RiskSearchViewController.m */; };
 		BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718941D714F87009AB399 /* RiskSearchViewController.xib */; };
@@ -69,6 +71,9 @@
 		0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
 		5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
 		7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
+		BA55C6931D78010000FDA2F6 /* RequestModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestModal.h; path = class/model/conn/RequestModal.h; sourceTree = "<group>"; };
+		BA55C6941D78010000FDA2F6 /* RequestModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestModal.m; path = class/model/conn/RequestModal.m; sourceTree = "<group>"; };
+		BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Release-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
 		BAE7188F1D71453D009AB399 /* RiskMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskMainViewController.h; path = class/controller/risk/RiskMainViewController.h; sourceTree = "<group>"; };
 		BAE718901D71453D009AB399 /* RiskMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskMainViewController.m; path = class/controller/risk/RiskMainViewController.m; sourceTree = "<group>"; };
 		BAE718921D714F87009AB399 /* RiskSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskSearchViewController.h; path = class/controller/risk/RiskSearchViewController.h; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */,
 				C0FBD52A6B656522062415BC /* Pods_ElectricRisk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +178,7 @@
 		0154B1151D72AFA10066D8B7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				BA55C6921D7800E300FDA2F6 /* conn */,
 				0154B1221D7653A40066D8B7 /* vo */,
 				0154B1161D72AFCA0066D8B7 /* system */,
 			);
@@ -219,6 +226,7 @@
 		7EEB6ED4AD958E19C3A4B958 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */,
 				FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */,
 			);
 			name = Frameworks;
@@ -231,6 +239,15 @@
 				5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		BA55C6921D7800E300FDA2F6 /* conn */ = {
+			isa = PBXGroup;
+			children = (
+				BA55C6931D78010000FDA2F6 /* RequestModal.h */,
+				BA55C6941D78010000FDA2F6 /* RequestModal.m */,
+			);
+			name = conn;
 			sourceTree = "<group>";
 		};
 		BAE718871D712F84009AB399 /* class */ = {
@@ -463,6 +480,7 @@
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
 				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,
+				BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
 				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,
 				015056551D77A3DD00C1F8D8 /* RiskReportDetailVo.m in Sources */,
@@ -582,6 +600,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.ElectricRisk;
@@ -595,6 +617,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
+				);
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.ElectricRisk;

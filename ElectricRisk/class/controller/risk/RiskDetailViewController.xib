@@ -342,8 +342,8 @@
         </view>
     </objects>
     <resources>
-        <image name="back" width="88" height="88"/>
-        <image name="stop" width="52" height="48"/>
-        <image name="write" width="48" height="48"/>
+        <image name="back" width="22" height="22"/>
+        <image name="stop" width="22" height="22"/>
+        <image name="write" width="22" height="22"/>
     </resources>
 </document>

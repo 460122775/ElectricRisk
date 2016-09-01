@@ -131,6 +131,7 @@
                     <connections>
                         <outlet property="nameTF" destination="078-rh-7Gk" id="dV3-ah-vdY"/>
                         <outlet property="pwdTF" destination="Fhg-X6-Ilc" id="1PV-TB-pbF"/>
+                        <segue destination="ZHx-aw-n61" kind="show" identifier="LoginToHome" id="6Ng-d1-PrE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -57,13 +57,15 @@
     NSDictionary *dict = @{@"username":self.nameTF.text,
                            @"password":self.pwdTF.text};
     //设置请求
-    [self requestServer:HTTP_METHED_POST Url:BUILD_SERVICE_URL(PATH_LOGIN) parameter:dict content:LOGINACTION success:^(id responseObject) {
-        NSDictionary *result = responseObject;
-        _model.password =  _model.password;
-        _model.account = _model.account;
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_LOGIN) parameter:dict header:nil content:nil success:^(id responseData) {
+        NSDictionary *result = responseData;
+        
+        [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        
+    } failed:^(id responseData) {
+        [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
     }];
 }
-
 
 + (NSString*)encrypt:(NSString*)plainText {
     NSData* data = [plainText dataUsingEncoding:NSUTF8StringEncoding];

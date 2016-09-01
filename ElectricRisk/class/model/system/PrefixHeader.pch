@@ -19,5 +19,6 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "CommonDefine.h"
 #import "SystemConfig.h"
+#import "RequestModal.h"
 
 #endif /* PrefixHeader_pch */
