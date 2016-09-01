@@ -18,6 +18,11 @@
 		0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150565D1D77A5D700C1F8D8 /* WarnListVo.m */; };
 		0150566B1D78722A00C1F8D8 /* RiskMainListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056691D78722A00C1F8D8 /* RiskMainListCell.m */; };
 		0150566C1D78722A00C1F8D8 /* RiskMainListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0150566A1D78722A00C1F8D8 /* RiskMainListCell.xib */; };
+		0150566F1D7894A000C1F8D8 /* CheckVerifyMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150566E1D7894A000C1F8D8 /* CheckVerifyMainViewController.m */; };
+		015056731D789BB500C1F8D8 /* CheckMainListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056711D789BB500C1F8D8 /* CheckMainListCell.m */; };
+		015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015056721D789BB500C1F8D8 /* CheckMainListCell.xib */; };
+		015056781D789EAF00C1F8D8 /* VerifyMainListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056761D789EAF00C1F8D8 /* VerifyMainListCell.m */; };
+		015056791D789EAF00C1F8D8 /* VerifyMainListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015056771D789EAF00C1F8D8 /* VerifyMainListCell.xib */; };
 		015259B21D70918F00AD3E67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B11D70918F00AD3E67 /* main.m */; };
 		015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B41D70918F00AD3E67 /* AppDelegate.m */; };
 		015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B71D70918F00AD3E67 /* LoginViewController.m */; };
@@ -58,6 +63,14 @@
 		015056681D78722A00C1F8D8 /* RiskMainListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskMainListCell.h; path = class/controller/risk/RiskMainListCell.h; sourceTree = "<group>"; };
 		015056691D78722A00C1F8D8 /* RiskMainListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskMainListCell.m; path = class/controller/risk/RiskMainListCell.m; sourceTree = "<group>"; };
 		0150566A1D78722A00C1F8D8 /* RiskMainListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskMainListCell.xib; path = class/controller/risk/RiskMainListCell.xib; sourceTree = "<group>"; };
+		0150566D1D7894A000C1F8D8 /* CheckVerifyMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckVerifyMainViewController.h; path = class/controller/check/CheckVerifyMainViewController.h; sourceTree = "<group>"; };
+		0150566E1D7894A000C1F8D8 /* CheckVerifyMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckVerifyMainViewController.m; path = class/controller/check/CheckVerifyMainViewController.m; sourceTree = "<group>"; };
+		015056701D789BB500C1F8D8 /* CheckMainListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckMainListCell.h; path = class/controller/check/CheckMainListCell.h; sourceTree = "<group>"; };
+		015056711D789BB500C1F8D8 /* CheckMainListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckMainListCell.m; path = class/controller/check/CheckMainListCell.m; sourceTree = "<group>"; };
+		015056721D789BB500C1F8D8 /* CheckMainListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CheckMainListCell.xib; path = class/controller/check/CheckMainListCell.xib; sourceTree = "<group>"; };
+		015056751D789EAF00C1F8D8 /* VerifyMainListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerifyMainListCell.h; path = class/controller/check/VerifyMainListCell.h; sourceTree = "<group>"; };
+		015056761D789EAF00C1F8D8 /* VerifyMainListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerifyMainListCell.m; path = class/controller/check/VerifyMainListCell.m; sourceTree = "<group>"; };
+		015056771D789EAF00C1F8D8 /* VerifyMainListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VerifyMainListCell.xib; path = class/controller/check/VerifyMainListCell.xib; sourceTree = "<group>"; };
 		015259AD1D70918F00AD3E67 /* ElectricRisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricRisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015259B11D70918F00AD3E67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		015259B31D70918F00AD3E67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -318,6 +331,14 @@
 		BAE7188C1D714176009AB399 /* check */ = {
 			isa = PBXGroup;
 			children = (
+				0150566D1D7894A000C1F8D8 /* CheckVerifyMainViewController.h */,
+				0150566E1D7894A000C1F8D8 /* CheckVerifyMainViewController.m */,
+				015056701D789BB500C1F8D8 /* CheckMainListCell.h */,
+				015056711D789BB500C1F8D8 /* CheckMainListCell.m */,
+				015056721D789BB500C1F8D8 /* CheckMainListCell.xib */,
+				015056751D789EAF00C1F8D8 /* VerifyMainListCell.h */,
+				015056761D789EAF00C1F8D8 /* VerifyMainListCell.m */,
+				015056771D789EAF00C1F8D8 /* VerifyMainListCell.xib */,
 			);
 			name = check;
 			sourceTree = "<group>";
@@ -399,8 +420,10 @@
 			files = (
 				BAE7189B1D7179FF009AB399 /* RiskDetailViewController.xib in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
+				015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */,
 				015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */,
 				0150566C1D78722A00C1F8D8 /* RiskMainListCell.xib in Resources */,
+				015056791D789EAF00C1F8D8 /* VerifyMainListCell.xib in Resources */,
 				015259BB1D70918F00AD3E67 /* Main.storyboard in Resources */,
 				BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */,
 			);
@@ -481,7 +504,9 @@
 				0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */,
 				BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */,
 				0150565B1D77A57700C1F8D8 /* NoticeMyListVo.m in Sources */,
+				0150566F1D7894A000C1F8D8 /* CheckVerifyMainViewController.m in Sources */,
 				0150564F1D77A29E00C1F8D8 /* RiskCheckVo.m in Sources */,
+				015056731D789BB500C1F8D8 /* CheckMainListCell.m in Sources */,
 				0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */,
 				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
@@ -495,6 +520,7 @@
 				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,
 				015056551D77A3DD00C1F8D8 /* RiskReportDetailVo.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
+				015056781D789EAF00C1F8D8 /* VerifyMainListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

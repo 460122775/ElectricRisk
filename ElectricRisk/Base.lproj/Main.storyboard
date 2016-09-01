@@ -141,7 +141,7 @@
         <!--报审-->
         <scene sceneID="cWz-aW-etc">
             <objects>
-                <viewController id="mhQ-el-xxF" sceneMemberID="viewController">
+                <viewController id="mhQ-el-xxF" customClass="CheckVerifyMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M6k-z1-WQm"/>
                         <viewControllerLayoutGuide type="bottom" id="MgH-yt-xUt"/>
@@ -176,6 +176,9 @@
                                                     <constraint firstAttribute="width" constant="30" id="vRz-W9-sRu"/>
                                                 </constraints>
                                                 <state key="normal" image="search"/>
+                                                <connections>
+                                                    <action selector="searchBtnClick:" destination="mhQ-el-xxF" eventType="touchUpInside" id="3bp-JZ-toQ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.019607843140000001" green="0.50196078430000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,12 +200,18 @@
                                                 <state key="normal" title="风险报审">
                                                     <color key="titleColor" red="0.019607843140000001" green="0.50196078430000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="checkBtnClick:" destination="mhQ-el-xxF" eventType="touchUpInside" id="4Lp-or-mm3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kJ-mA-EUX">
                                                 <rect key="frame" x="187" y="0.0" width="188" height="38"/>
                                                 <state key="normal" title="风险验收">
                                                     <color key="titleColor" red="0.019607843140000001" green="0.50196078430000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="verifyBtnClick:" destination="mhQ-el-xxF" eventType="touchUpInside" id="JY9-1V-5dg"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQX-fg-ajA">
                                                 <rect key="frame" x="0.0" y="38" width="188" height="2"/>
@@ -215,7 +224,6 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="5kJ-mA-EUX" firstAttribute="top" secondItem="shc-5u-3dw" secondAttribute="top" id="1XB-Qi-eQh"/>
-                                            <constraint firstItem="tre-LW-o1a" firstAttribute="centerY" secondItem="shc-5u-3dw" secondAttribute="centerY" id="4Z9-hP-eZE"/>
                                             <constraint firstItem="tre-LW-o1a" firstAttribute="height" secondItem="shc-5u-3dw" secondAttribute="height" constant="-2" id="6hK-0U-MzD"/>
                                             <constraint firstItem="5kJ-mA-EUX" firstAttribute="width" secondItem="shc-5u-3dw" secondAttribute="width" multiplier="0.5" id="7U5-YR-CcB"/>
                                             <constraint firstAttribute="bottom" secondItem="bQX-fg-ajA" secondAttribute="bottom" id="BTI-bi-T1i"/>
@@ -228,11 +236,6 @@
                                             <constraint firstItem="tre-LW-o1a" firstAttribute="width" secondItem="shc-5u-3dw" secondAttribute="width" multiplier="0.5" id="lgi-OX-Acm"/>
                                             <constraint firstItem="tre-LW-o1a" firstAttribute="top" secondItem="shc-5u-3dw" secondAttribute="top" id="vcd-T9-TWn"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="4Z9-hP-eZE"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Onu-pV-Qpa">
                                         <rect key="frame" x="0.0" y="104" width="375" height="514"/>
@@ -272,6 +275,12 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="checkBtn" destination="tre-LW-o1a" id="UKv-ar-zcm"/>
+                        <outlet property="tableView" destination="Onu-pV-Qpa" id="MVl-Ak-6Sc"/>
+                        <outlet property="underLineLeading" destination="k8l-V3-HXI" id="amB-SD-KcD"/>
+                        <outlet property="verifyBtn" destination="5kJ-mA-EUX" id="zUe-Sa-qBb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tz0-94-NGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

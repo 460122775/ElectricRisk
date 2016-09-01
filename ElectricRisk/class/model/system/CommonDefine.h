@@ -24,7 +24,7 @@
 #define PATH_RISK_LIST @"/api/project/getList.do"   //获取今日风险列表
 #define PATH_RISK_DETAIL @"/api/project/getOneInfo.do"  //获取风险详情
 #define PATH_RISK_DAYINFO @"/api/project/getOneDay.do"  //获取风险天执行情况
-#define PATH_RISK_CHECK @"/api/risk/myrisks.do"         //获取风险审批
+#define PATH_RISK_CHECKLIST @"/api/risk/myrisks.do"         //获取风险审批
 #define PATH_RISK_VERIFYLIST @"/api/risk/risklistdata.do"//获取风险验收列表
 #define PATH_RISK_REPORTDETAIL @"/api/risk/riskap.do"   //获取报审详情
 #define PATH_NOTICE_LIST @"/api/notice/getNews.do"      //获取公告列表
@@ -32,6 +32,26 @@
 #define PATH_NOTICE_MYLIST @"/api/notice/getList.do"    //获取我的公告
 #define PATH_WARN_LSIT @"/api/notice/getwarn.do"        //获取风险提醒列表
 #define PATH_PWD_UPDATE @"/api/user/upUpd.do"           //修改密码
+
+/**  Color Define **/
+#define Color_oneGrade [UIColor colorWithRed:92/255.0 green:172/255.0 blue:238/255.0 alpha:1]
+#define Color_twoGrade [UIColor colorWithRed:255/255.0 green:185/255.0 blue:15/255.0 alpha:1]
+#define Color_threeGrade [UIColor colorWithRed:255/255.0 green:140/255.0 blue:0/255.0 alpha:1]
+#define Color_fourGrade [UIColor colorWithRed:255/255.0 green:215/255.0 blue:0/255.0 alpha:1]
+#define Color_fiveGrade [UIColor colorWithRed:255/255.0 green:48/255.0 blue:48/255.0 alpha:1]
+#define Color_press [UIColor colorWithRed:5/255.0 green:128/255.0 blue:107/255.0 alpha:1]
+#define Color_gray [UIColor colorWithRed:85/255.0 green:0/255.0 blue:0/255.0 alpha:1]
+#define Color_gray1 [UIColor colorWithRed:33/255.0 green:0/255.0 blue:0/255.0 alpha:1]
+#define Color_white [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1]
+#define Color_black [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1]
+#define Color_red [UIColor colorWithRed:255/255.0 green:0/255.0 blue:0/255.0 alpha:1]
+#define Color_me [UIColor colorWithRed:56/255.0 green:142/255.0 blue:142/255.0 alpha:1]
+
+/** Check State **/
+#define Check_State_Wait 1
+#define Check_State_No 2
+#define Check_State_Yes 3
+#define Check_State_Publish 4
 
 #define singleton_interface(className) \
 + (className *)instance;

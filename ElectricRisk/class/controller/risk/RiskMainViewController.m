@@ -166,15 +166,15 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     [headerView addSubview:titleLabel];
     if([[headerNameArray objectAtIndex:section] isEqualToString:@"1"])
     {
-        [headerView setBackgroundColor:[UIColor colorWithRed:92/255.0 green:172/255.0 blue:238/255.0 alpha:1]];
+        [headerView setBackgroundColor:Color_oneGrade];
     }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"2"]){
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:185/255.0 blue:15/255.0 alpha:1]];
+        [headerView setBackgroundColor:Color_twoGrade];
     }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"3"]){
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:140/255.0 blue:0/255.0 alpha:1]];
+        [headerView setBackgroundColor:Color_threeGrade];
     }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"4"]){
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:215/255.0 blue:0/255.0 alpha:1]];
+        [headerView setBackgroundColor:Color_fourGrade];
     }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"5"]){
-        [headerView setBackgroundColor:[UIColor colorWithRed:255/255.0 green:48/255.0 blue:48/255.0 alpha:1]];
+        [headerView setBackgroundColor:Color_fiveGrade];
     }
     return headerView;
 }
