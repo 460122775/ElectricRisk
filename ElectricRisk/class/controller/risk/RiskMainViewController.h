@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "RiskSearchViewController.h"
+#import "RiskMainListCell.h"
 
-@interface RiskMainViewController : UIViewController
+@interface RiskMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+    MBProgressHUD *HUD;
+    NSArray *totalDataArray;
+    NSMutableArray *headerNameArray;
+    NSMutableDictionary *dataDic;
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -15,16 +15,9 @@
     return [NSString stringWithFormat:@"%lld",(long long)(time*1000000)];
 }
 
-+(BOOL)doTest
-{
-    
-    return true;
-}
-
 +(void)requestServer:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSDictionary *)param  header:(NSDictionary *)headerDic content:(NSString*) content
              success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock
 {
-    if ([self doTest]) return;
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];

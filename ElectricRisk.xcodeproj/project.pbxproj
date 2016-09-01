@@ -16,6 +16,8 @@
 		015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056571D77A4BD00C1F8D8 /* NoticeListVo.m */; };
 		0150565B1D77A57700C1F8D8 /* NoticeMyListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150565A1D77A57700C1F8D8 /* NoticeMyListVo.m */; };
 		0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150565D1D77A5D700C1F8D8 /* WarnListVo.m */; };
+		0150566B1D78722A00C1F8D8 /* RiskMainListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056691D78722A00C1F8D8 /* RiskMainListCell.m */; };
+		0150566C1D78722A00C1F8D8 /* RiskMainListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0150566A1D78722A00C1F8D8 /* RiskMainListCell.xib */; };
 		015259B21D70918F00AD3E67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B11D70918F00AD3E67 /* main.m */; };
 		015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B41D70918F00AD3E67 /* AppDelegate.m */; };
 		015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B71D70918F00AD3E67 /* LoginViewController.m */; };
@@ -53,6 +55,9 @@
 		0150565A1D77A57700C1F8D8 /* NoticeMyListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeMyListVo.m; path = class/model/vo/NoticeMyListVo.m; sourceTree = "<group>"; };
 		0150565C1D77A5D700C1F8D8 /* WarnListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarnListVo.h; path = class/model/vo/WarnListVo.h; sourceTree = "<group>"; };
 		0150565D1D77A5D700C1F8D8 /* WarnListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarnListVo.m; path = class/model/vo/WarnListVo.m; sourceTree = "<group>"; };
+		015056681D78722A00C1F8D8 /* RiskMainListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskMainListCell.h; path = class/controller/risk/RiskMainListCell.h; sourceTree = "<group>"; };
+		015056691D78722A00C1F8D8 /* RiskMainListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskMainListCell.m; path = class/controller/risk/RiskMainListCell.m; sourceTree = "<group>"; };
+		0150566A1D78722A00C1F8D8 /* RiskMainListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskMainListCell.xib; path = class/controller/risk/RiskMainListCell.xib; sourceTree = "<group>"; };
 		015259AD1D70918F00AD3E67 /* ElectricRisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricRisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015259B11D70918F00AD3E67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		015259B31D70918F00AD3E67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -297,6 +302,9 @@
 			children = (
 				BAE7188F1D71453D009AB399 /* RiskMainViewController.h */,
 				BAE718901D71453D009AB399 /* RiskMainViewController.m */,
+				015056681D78722A00C1F8D8 /* RiskMainListCell.h */,
+				015056691D78722A00C1F8D8 /* RiskMainListCell.m */,
+				0150566A1D78722A00C1F8D8 /* RiskMainListCell.xib */,
 				BAE718921D714F87009AB399 /* RiskSearchViewController.h */,
 				BAE718931D714F87009AB399 /* RiskSearchViewController.m */,
 				BAE718941D714F87009AB399 /* RiskSearchViewController.xib */,
@@ -392,6 +400,7 @@
 				BAE7189B1D7179FF009AB399 /* RiskDetailViewController.xib in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
 				015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */,
+				0150566C1D78722A00C1F8D8 /* RiskMainListCell.xib in Resources */,
 				015259BB1D70918F00AD3E67 /* Main.storyboard in Resources */,
 				BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */,
 			);
@@ -477,6 +486,7 @@
 				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
 				015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */,
+				0150566B1D78722A00C1F8D8 /* RiskMainListCell.m in Sources */,
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
 				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,

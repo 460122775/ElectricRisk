@@ -60,7 +60,7 @@
                                         </constraints>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="next" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7Q-kB-KdY">
                                         <rect key="frame" x="20" y="339" width="335" height="1"/>
@@ -624,6 +624,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="风险" image="home" selectedImage="home_press" id="nOY-T4-qSP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="fBV-kb-fcM" id="tx7-ml-ZBS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9P-OF-0mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

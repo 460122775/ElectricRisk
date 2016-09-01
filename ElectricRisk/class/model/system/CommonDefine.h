@@ -16,6 +16,8 @@
 #define CodingKey @"DLJIJIAN"
 //偏移量
 #define CodingOffset @"01234567"
+#define State_Success 1
+#define State_Fault 0
 
 /**  URL Define **/
 #define PATH_LOGIN @"/api/login/login.do"           //登录
