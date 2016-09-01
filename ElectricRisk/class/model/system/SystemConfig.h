@@ -12,4 +12,8 @@
 
 singleton_interface(SystemConfig)
 
+@property(nonatomic, strong) NSString* currentUserName;
+@property(nonatomic, strong) NSString* currentUserPwd;
+@property(nonatomic, assign) int currentUserRole;
+
 @end

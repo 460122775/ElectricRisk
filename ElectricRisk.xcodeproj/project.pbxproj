@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056451D77A05300C1F8D8 /* RiskListVo.m */; };
+		015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056481D77A13B00C1F8D8 /* RiskDetailVo.m */; };
+		0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150564B1D77A20800C1F8D8 /* RiskDayInfoVo.m */; };
+		0150564F1D77A29E00C1F8D8 /* RiskCheckVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150564E1D77A29E00C1F8D8 /* RiskCheckVo.m */; };
+		015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056511D77A33100C1F8D8 /* RiskVerifyListVo.m */; };
+		015056551D77A3DD00C1F8D8 /* RiskReportDetailVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056541D77A3DD00C1F8D8 /* RiskReportDetailVo.m */; };
+		015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056571D77A4BD00C1F8D8 /* NoticeListVo.m */; };
+		0150565B1D77A57700C1F8D8 /* NoticeMyListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150565A1D77A57700C1F8D8 /* NoticeMyListVo.m */; };
+		0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150565D1D77A5D700C1F8D8 /* WarnListVo.m */; };
 		015259B21D70918F00AD3E67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B11D70918F00AD3E67 /* main.m */; };
 		015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B41D70918F00AD3E67 /* AppDelegate.m */; };
 		015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B71D70918F00AD3E67 /* LoginViewController.m */; };
@@ -24,6 +33,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		015056441D77A05300C1F8D8 /* RiskListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskListVo.h; path = class/model/vo/RiskListVo.h; sourceTree = "<group>"; };
+		015056451D77A05300C1F8D8 /* RiskListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskListVo.m; path = class/model/vo/RiskListVo.m; sourceTree = "<group>"; };
+		015056471D77A13B00C1F8D8 /* RiskDetailVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailVo.h; path = class/model/vo/RiskDetailVo.h; sourceTree = "<group>"; };
+		015056481D77A13B00C1F8D8 /* RiskDetailVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskDetailVo.m; path = class/model/vo/RiskDetailVo.m; sourceTree = "<group>"; };
+		0150564A1D77A20800C1F8D8 /* RiskDayInfoVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDayInfoVo.h; path = class/model/vo/RiskDayInfoVo.h; sourceTree = "<group>"; };
+		0150564B1D77A20800C1F8D8 /* RiskDayInfoVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskDayInfoVo.m; path = class/model/vo/RiskDayInfoVo.m; sourceTree = "<group>"; };
+		0150564D1D77A29E00C1F8D8 /* RiskCheckVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskCheckVo.h; path = class/model/vo/RiskCheckVo.h; sourceTree = "<group>"; };
+		0150564E1D77A29E00C1F8D8 /* RiskCheckVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskCheckVo.m; path = class/model/vo/RiskCheckVo.m; sourceTree = "<group>"; };
+		015056501D77A33100C1F8D8 /* RiskVerifyListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskVerifyListVo.h; path = class/model/vo/RiskVerifyListVo.h; sourceTree = "<group>"; };
+		015056511D77A33100C1F8D8 /* RiskVerifyListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskVerifyListVo.m; path = class/model/vo/RiskVerifyListVo.m; sourceTree = "<group>"; };
+		015056531D77A3DD00C1F8D8 /* RiskReportDetailVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskReportDetailVo.h; path = class/model/vo/RiskReportDetailVo.h; sourceTree = "<group>"; };
+		015056541D77A3DD00C1F8D8 /* RiskReportDetailVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskReportDetailVo.m; path = class/model/vo/RiskReportDetailVo.m; sourceTree = "<group>"; };
+		015056561D77A4BD00C1F8D8 /* NoticeListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeListVo.h; path = class/model/vo/NoticeListVo.h; sourceTree = "<group>"; };
+		015056571D77A4BD00C1F8D8 /* NoticeListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeListVo.m; path = class/model/vo/NoticeListVo.m; sourceTree = "<group>"; };
+		015056591D77A57700C1F8D8 /* NoticeMyListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeMyListVo.h; path = class/model/vo/NoticeMyListVo.h; sourceTree = "<group>"; };
+		0150565A1D77A57700C1F8D8 /* NoticeMyListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeMyListVo.m; path = class/model/vo/NoticeMyListVo.m; sourceTree = "<group>"; };
+		0150565C1D77A5D700C1F8D8 /* WarnListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarnListVo.h; path = class/model/vo/WarnListVo.h; sourceTree = "<group>"; };
+		0150565D1D77A5D700C1F8D8 /* WarnListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarnListVo.m; path = class/model/vo/WarnListVo.m; sourceTree = "<group>"; };
 		015259AD1D70918F00AD3E67 /* ElectricRisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricRisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015259B11D70918F00AD3E67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		015259B31D70918F00AD3E67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +92,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0150565F1D77A66600C1F8D8 /* risk */ = {
+			isa = PBXGroup;
+			children = (
+				015056441D77A05300C1F8D8 /* RiskListVo.h */,
+				015056451D77A05300C1F8D8 /* RiskListVo.m */,
+				015056471D77A13B00C1F8D8 /* RiskDetailVo.h */,
+				015056481D77A13B00C1F8D8 /* RiskDetailVo.m */,
+				0150564A1D77A20800C1F8D8 /* RiskDayInfoVo.h */,
+				0150564B1D77A20800C1F8D8 /* RiskDayInfoVo.m */,
+				0150564D1D77A29E00C1F8D8 /* RiskCheckVo.h */,
+				0150564E1D77A29E00C1F8D8 /* RiskCheckVo.m */,
+				015056501D77A33100C1F8D8 /* RiskVerifyListVo.h */,
+				015056511D77A33100C1F8D8 /* RiskVerifyListVo.m */,
+				015056531D77A3DD00C1F8D8 /* RiskReportDetailVo.h */,
+				015056541D77A3DD00C1F8D8 /* RiskReportDetailVo.m */,
+			);
+			name = risk;
+			sourceTree = "<group>";
+		};
+		015056601D77A66E00C1F8D8 /* notice */ = {
+			isa = PBXGroup;
+			children = (
+				015056561D77A4BD00C1F8D8 /* NoticeListVo.h */,
+				015056571D77A4BD00C1F8D8 /* NoticeListVo.m */,
+				015056591D77A57700C1F8D8 /* NoticeMyListVo.h */,
+				0150565A1D77A57700C1F8D8 /* NoticeMyListVo.m */,
+			);
+			name = notice;
+			sourceTree = "<group>";
+		};
+		015056611D77A68000C1F8D8 /* warn */ = {
+			isa = PBXGroup;
+			children = (
+				0150565C1D77A5D700C1F8D8 /* WarnListVo.h */,
+				0150565D1D77A5D700C1F8D8 /* WarnListVo.m */,
+			);
+			name = warn;
+			sourceTree = "<group>";
+		};
 		015259A41D70918E00AD3E67 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +209,9 @@
 		0154B1221D7653A40066D8B7 /* vo */ = {
 			isa = PBXGroup;
 			children = (
+				0150565F1D77A66600C1F8D8 /* risk */,
+				015056601D77A66E00C1F8D8 /* notice */,
+				015056611D77A68000C1F8D8 /* warn */,
 			);
 			name = vo;
 			sourceTree = "<group>";
@@ -381,13 +450,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */,
 				BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */,
+				0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */,
 				BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */,
+				0150565B1D77A57700C1F8D8 /* NoticeMyListVo.m in Sources */,
+				0150564F1D77A29E00C1F8D8 /* RiskCheckVo.m in Sources */,
+				0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */,
+				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
+				015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */,
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
+				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
 				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
 				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,
+				015056551D77A3DD00C1F8D8 /* RiskReportDetailVo.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

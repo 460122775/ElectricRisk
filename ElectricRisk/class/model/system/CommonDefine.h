@@ -32,7 +32,7 @@
 #define PATH_PWD_UPDATE @"/api/user/upUpd.do"           //修改密码
 
 #define singleton_interface(className) \
-+ (className *)shared##className;
++ (className *)instance;
 
 
 #define singleton_implementation(className) \
@@ -45,7 +45,7 @@ _instance = [super allocWithZone:zone]; \
 }); \
 return _instance; \
 } \
-+ (className *)shared##className \
++ (className *)instance \
 { \
 static dispatch_once_t onceToken; \
 dispatch_once(&onceToken, ^{ \

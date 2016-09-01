@@ -52,6 +52,7 @@
 
 -(void)login
 {
+//    [SystemConfig instance].currentUserName
     //设置登录参数
     NSDictionary *dict = @{@"username":self.nameTF.text,
                            @"password":self.pwdTF.text};
