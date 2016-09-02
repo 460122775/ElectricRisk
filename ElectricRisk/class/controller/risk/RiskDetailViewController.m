@@ -24,25 +24,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)backBtnClick:(id)sender {
+- (void)initViewWithData:(NSDictionary*)dataDic
+{
+    self.riskDataDic = dataDic;
 }
 
-- (IBAction)writeBtnClick:(id)sender {
+- (IBAction)backBtnClick:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)stopBtnClick:(id)sender {
+- (IBAction)writeBtnClick:(id)sender
+{
+    
 }
 
-- (IBAction)dateBtnClick:(id)sender {
+- (IBAction)stopBtnClick:(id)sender
+{
+    
 }
+
+- (IBAction)dateBtnClick:(id)sender
+{
+    
+}
+
 @end

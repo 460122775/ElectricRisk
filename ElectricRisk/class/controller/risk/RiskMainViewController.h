@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RiskSearchViewController.h"
+#import "RiskDetailViewController.h"
 #import "RiskMainListCell.h"
 
 @interface RiskMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
@@ -16,6 +17,8 @@
     NSMutableArray *headerNameArray;
     NSMutableDictionary *dataDic;
     NSArray* projectArray;
+    
+    NSDictionary* selectedDataDic;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

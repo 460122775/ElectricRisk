@@ -54,6 +54,10 @@
 #define Check_State_Yes 3
 #define Check_State_Publish 4
 
+/** Active State **/
+#define Active_State_Stop 0
+#define Active_State_Normal 1
+
 /** Notice State **/
 #define Notice_State_Not 0
 #define Notice_State_Read 1

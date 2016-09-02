@@ -35,6 +35,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     }else{
         [self requestData];
     }
+    selectedDataDic = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -198,9 +199,26 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     NSString *key = [headerNameArray objectAtIndex:indexPath.section];
     NSArray *rowArr = (NSArray*)[dataDic objectForKey:key];
     cell.dataDic = [rowArr objectAtIndex:indexPath.row];
-    
     [cell setViewByData];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *key = [headerNameArray objectAtIndex:indexPath.section];
+    NSArray *rowArr = (NSArray*)[dataDic objectForKey:key];
+    selectedDataDic = [rowArr objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"RiskToDetail" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"RiskToDetail"])
+    {
+        RiskDetailViewController *riskDetailViewController = [segue destinationViewController];
+        [riskDetailViewController initViewWithData:selectedDataDic];
+    }
 }
 
 @end

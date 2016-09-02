@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnn-cx-uRo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第 X 个（100％）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sck-wT-6k2">
                                 <rect key="frame" x="8" y="8" width="300" height="18"/>
@@ -54,6 +54,13 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已停止" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XyN-mQ-Fuh">
+                                <rect key="frame" x="0.0" y="-0.5" width="320" height="90"/>
+                                <color key="backgroundColor" red="0.89411764709999997" green="0.0" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -63,8 +70,12 @@
                             <constraint firstItem="sck-wT-6k2" firstAttribute="leading" secondItem="wnn-cx-uRo" secondAttribute="leading" constant="8" id="LRo-M9-dMH"/>
                             <constraint firstItem="sck-wT-6k2" firstAttribute="width" secondItem="wnn-cx-uRo" secondAttribute="width" constant="-20" id="NHO-vy-hvY"/>
                             <constraint firstItem="cqd-cV-t5Q" firstAttribute="leading" secondItem="sck-wT-6k2" secondAttribute="leading" id="S3Y-Az-wkc"/>
+                            <constraint firstItem="XyN-mQ-Fuh" firstAttribute="centerY" secondItem="wnn-cx-uRo" secondAttribute="centerY" id="SmJ-pC-wsL"/>
+                            <constraint firstItem="XyN-mQ-Fuh" firstAttribute="centerX" secondItem="wnn-cx-uRo" secondAttribute="centerX" id="W5R-ap-we6"/>
                             <constraint firstItem="Hte-2f-1KI" firstAttribute="leading" secondItem="cqd-cV-t5Q" secondAttribute="leading" id="bXN-rn-TUB"/>
                             <constraint firstItem="RaP-UB-Msp" firstAttribute="leading" secondItem="Hte-2f-1KI" secondAttribute="trailing" constant="5" id="d4N-ms-6Eh"/>
+                            <constraint firstItem="XyN-mQ-Fuh" firstAttribute="width" secondItem="wnn-cx-uRo" secondAttribute="width" id="fDw-2w-kwc"/>
+                            <constraint firstItem="XyN-mQ-Fuh" firstAttribute="height" secondItem="wnn-cx-uRo" secondAttribute="height" id="l6f-V2-znk"/>
                             <constraint firstItem="Hte-2f-1KI" firstAttribute="top" secondItem="cqd-cV-t5Q" secondAttribute="bottom" constant="10" id="llA-r2-BHu"/>
                             <constraint firstItem="sck-wT-6k2" firstAttribute="top" secondItem="wnn-cx-uRo" secondAttribute="top" constant="8" id="qxT-1L-0Rc"/>
                             <constraint firstItem="cqd-cV-t5Q" firstAttribute="top" secondItem="sck-wT-6k2" secondAttribute="bottom" constant="10" id="ydr-4e-hTN"/>
@@ -82,6 +93,7 @@
             <connections>
                 <outlet property="addressLabel" destination="Hte-2f-1KI" id="DeC-wx-FSE"/>
                 <outlet property="contentLabel" destination="cqd-cV-t5Q" id="iq0-rs-USp"/>
+                <outlet property="stopLabel" destination="XyN-mQ-Fuh" id="HCJ-AN-zKZ"/>
                 <outlet property="timeLabel" destination="RaP-UB-Msp" id="2sm-bc-ZFu"/>
                 <outlet property="titleLabel" destination="sck-wT-6k2" id="Zv1-eZ-paO"/>
             </connections>

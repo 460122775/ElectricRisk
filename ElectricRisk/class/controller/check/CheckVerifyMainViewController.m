@@ -141,7 +141,6 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
-                           //@"state":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
                            @"goName":@""};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_VERIFYLIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;

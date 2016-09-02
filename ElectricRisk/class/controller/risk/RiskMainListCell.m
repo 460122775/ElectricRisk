@@ -26,13 +26,20 @@
     NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
     [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     self.timeLabel.text = [dtfrm stringFromDate:date];
+    int isActive = [(NSNumber*)[self.dataDic objectForKey:@"is_active"] intValue];
+    if (isActive == Active_State_Normal)
+    {
+        [self.stopLabel setHidden:NO];
+    }else{
+        [self.stopLabel setHidden:YES];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
     // Configure the view for the selected state
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
 }
 
 @end
