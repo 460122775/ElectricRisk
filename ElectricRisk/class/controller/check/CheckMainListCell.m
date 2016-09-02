@@ -18,20 +18,20 @@
 
 -(void)setViewByData
 {
-    self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"project_name"], [self.dataDic objectForKey:@"user_nickname"]];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"name"], [self.dataDic objectForKey:@"user_name"]];
     self.contentLabel.text = [self.dataDic objectForKey:@"content"];
     
-    int checkState = [(NSNumber*)[self.dataDic objectForKey:@"approval_state"] intValue];
+    int checkState = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
     switch (checkState)
     {
         case Check_State_Wait: self.addressLabel.text = @"待审核"; break;
         case Check_State_No: self.addressLabel.text = @"已驳回"; break;
         case Check_State_Yes: self.addressLabel.text = @"已审核"; break;
         case Check_State_Publish: self.addressLabel.text = @"已发布"; break;
-        default: break;
+        default: self.addressLabel.text = [NSString stringWithFormat:@"未知状态:%i", checkState]; break;
     }
     
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"approval_time"] doubleValue] / 1000.0)];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"c_time"] doubleValue] / 1000.0)];
     NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
     [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     self.timeLabel.text = [dtfrm stringFromDate:date];

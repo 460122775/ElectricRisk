@@ -29,8 +29,12 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self testData];
-//    [self requestData];
+    if (OFFLINE)
+    {
+        [self testData];
+    }else{
+        [self requestData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,26 +45,36 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
 -(void)testData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"state\":1,\"data\":[{\"grade\":1,\"content\":{\"title\":\"title\",\"address\":\"address\",\"content\":\"content\",\"schedule\":1,\"time\":13543035405000,\"id\":1}},{\"grade\":2,\"content\":{\"title\":\"title\",\"address\":\"address\",\"content\":\"content\",\"schedule\":1,\"time\":13543035405000,\"id\":2}}]}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":[{\"content\":[{\"address\":\"卡升级卢萨卡的减肥还是啦快点发货\",\"content\":\"施工准备\",\"id\":47,\"is_active\":1,\"schedule\":0,\"time\":1469980800000,\"title\":\"测试项目测试项目\"}],\"grade\":1},{\"content\":[{\"address\":\"dfgd\",\"content\":\"施工准备\",\"id\":76,\"is_active\":0,\"schedule\":0,\"time\":1470844800000,\"title\":\"第六个\"}],\"grade\":2},{\"content\":[{\"address\":\"dfgd\",\"content\":\"架设架空线路\",\"id\":89,\"is_active\":0,\"schedule\":0,\"time\":1471449600000,\"title\":\"第六个\"}],\"grade\":4},{\"content\":[{\"address\":\"dfgd\",\"content\":\"配电箱及开关箱安装\",\"id\":88,\"is_active\":1,\"schedule\":0,\"time\":1471449600000,\"title\":\"第六个\"}],\"grade\":5}],\"projects\":[{\"id\":17,\"name\":\"天祥广场\"},{\"id\":18,\"name\":\"新希望中心\"},{\"id\":19,\"name\":\"test111\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                          options:NSJSONReadingMutableContainers
                                                            error:&jsonError];
-    totalDataArray = (NSArray*)[result objectForKey:@"data"];
-    if (totalDataArray == nil) return;
-    dataDic = [[NSMutableDictionary alloc] init];
-    [headerNameArray removeAllObjects];
-    NSMutableArray* dataArrTemp = nil;
-    for (NSDictionary* tempDic in totalDataArray)
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
     {
-        int grade = [(NSNumber*)[tempDic objectForKey:@"grade"] intValue];
-        dataArrTemp = [dataDic objectForKey:[NSString stringWithFormat:@"%i", grade]];
-        if (dataArrTemp == nil)
+        projectArray = (NSArray*)[result objectForKey:@"projects"];
+        totalDataArray = (NSArray*)[result objectForKey:@"data"];
+        if (totalDataArray == nil || totalDataArray.count == 0)
         {
-            dataArrTemp = [[NSMutableArray alloc] init];
-            [dataDic setObject:dataArrTemp forKey:[NSString stringWithFormat:@"%i", grade]];
-            [headerNameArray addObject:[NSString stringWithFormat:@"%i", grade]];
+            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }else{
+            dataDic = [[NSMutableDictionary alloc] init];
+            [headerNameArray removeAllObjects];
+            NSMutableArray* dataArrTemp = nil;
+            for (NSDictionary* tempDic in totalDataArray)
+            {
+                int grade = [(NSNumber*)[tempDic objectForKey:@"grade"] intValue];
+                dataArrTemp = [dataDic objectForKey:[NSString stringWithFormat:@"%i", grade]];
+                if (dataArrTemp == nil)
+                {
+                    dataArrTemp = [tempDic objectForKey:@"content"];
+                    [dataDic setObject:dataArrTemp forKey:[NSString stringWithFormat:@"%i", grade]];
+                    [headerNameArray addObject:[NSString stringWithFormat:@"%i", grade]];
+                }
+            }
         }
-        [dataArrTemp addObject:[tempDic objectForKey:@"content"]];
+    }else{
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -82,7 +96,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
                            @"area":@"",
-                           @"project":@"",
+                           @"projectid":@"",
                            @"levelStart":@"1",
                            @"levelEnd":@"9"};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_LIST) parameter:dict header:nil content:nil success:^(id responseData) {
@@ -104,11 +118,10 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
                     dataArrTemp = [dataDic objectForKey:[NSString stringWithFormat:@"%i", grade]];
                     if (dataArrTemp == nil)
                     {
-                        dataArrTemp = [[NSMutableArray alloc] init];
+                        dataArrTemp = [tempDic objectForKey:@"content"];
                         [dataDic setObject:dataArrTemp forKey:[NSString stringWithFormat:@"%i", grade]];
                         [headerNameArray addObject:[NSString stringWithFormat:@"%i", grade]];
                     }
-                    [dataArrTemp addObject:[tempDic objectForKey:@"content"]];
                 }
             }
         }else{

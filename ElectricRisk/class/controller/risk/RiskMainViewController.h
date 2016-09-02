@@ -15,6 +15,7 @@
     NSArray *totalDataArray;
     NSMutableArray *headerNameArray;
     NSMutableDictionary *dataDic;
+    NSArray* projectArray;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

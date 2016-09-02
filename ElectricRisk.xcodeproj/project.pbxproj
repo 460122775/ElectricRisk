@@ -36,6 +36,9 @@
 		015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */; };
 		0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11A1D72B11E0066D8B7 /* SystemConfig.m */; };
 		0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */; };
+		BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A68E1D790C5A00E40A09 /* SettingViewController.m */; };
+		BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */; };
+		BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6941D7915D700E40A09 /* AboutUsViewController.m */; };
 		BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */ = {isa = PBXBuildFile; fileRef = BA55C6941D78010000FDA2F6 /* RequestModal.m */; };
 		BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */; };
 		BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718901D71453D009AB399 /* RiskMainViewController.m */; };
@@ -102,6 +105,12 @@
 		0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
 		5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
 		7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
+		BA30A68D1D790C5A00E40A09 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = class/controller/setting/SettingViewController.h; sourceTree = "<group>"; };
+		BA30A68E1D790C5A00E40A09 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = class/controller/setting/SettingViewController.m; sourceTree = "<group>"; };
+		BA30A6901D79131D00E40A09 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifyPwdViewController.h; path = class/controller/setting/ModifyPwdViewController.h; sourceTree = "<group>"; };
+		BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifyPwdViewController.m; path = class/controller/setting/ModifyPwdViewController.m; sourceTree = "<group>"; };
+		BA30A6931D7915D700E40A09 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsViewController.h; path = class/controller/setting/AboutUsViewController.h; sourceTree = "<group>"; };
+		BA30A6941D7915D700E40A09 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutUsViewController.m; path = class/controller/setting/AboutUsViewController.m; sourceTree = "<group>"; };
 		BA55C6931D78010000FDA2F6 /* RequestModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestModal.h; path = class/model/conn/RequestModal.h; sourceTree = "<group>"; };
 		BA55C6941D78010000FDA2F6 /* RequestModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestModal.m; path = class/model/conn/RequestModal.m; sourceTree = "<group>"; };
 		BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Release-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
@@ -374,6 +383,12 @@
 		BAE7188E1D714199009AB399 /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				BA30A6931D7915D700E40A09 /* AboutUsViewController.h */,
+				BA30A6941D7915D700E40A09 /* AboutUsViewController.m */,
+				BA30A68D1D790C5A00E40A09 /* SettingViewController.h */,
+				BA30A68E1D790C5A00E40A09 /* SettingViewController.m */,
+				BA30A6901D79131D00E40A09 /* ModifyPwdViewController.h */,
+				BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */,
 			);
 			name = setting;
 			sourceTree = "<group>";
@@ -537,6 +552,7 @@
 				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
 				015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */,
+				BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */,
 				0150566B1D78722A00C1F8D8 /* RiskMainListCell.m in Sources */,
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
@@ -547,6 +563,8 @@
 				015056551D77A3DD00C1F8D8 /* RiskReportDetailVo.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
 				015056781D789EAF00C1F8D8 /* VerifyMainListCell.m in Sources */,
+				BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */,
+				BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -47,9 +47,11 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 
 -(void)requestCheckListData
 {
-    [self testCheckData];
-    return;
-    
+    if (OFFLINE)
+    {
+        [self testCheckData];
+        return;
+    }
     if (HUD == nil)
     {
         HUD = [[MBProgressHUD alloc]init];
@@ -68,13 +70,10 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            [checkDataArray removeAllObjects];
-            NSDictionary* dataDic = (NSDictionary*)[result objectForKey:@"data"];
-            if (dataDic == nil)
+            checkDataArray = (NSArray*)[result objectForKey:@"data"];
+            if (checkDataArray == nil || checkDataArray.count == 0)
             {
                 [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }else{
-                [checkDataArray addObject:dataDic];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -92,16 +91,26 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 -(void)testCheckData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"state\":1,\"data\":{\"project_name\":\"报审标题\",\"approval_time\":1237892000,\"user_nickname\":\"姓名\",\"approval_state\":2,\"id\":1}}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":[{\"CONTENT\":\"tongyi\",\"C_TIME\":1469721600000,\"ID\":17,\"NAME\":\"天祥广场\",\"STATE\":42,\"USER_NAME\":\"admin\",\"c_time\":1469721600000,\"content\":\"tongyi\",\"id\":17,\"name\":\"天祥广场\",\"state\":42,\"user_name\":\"admin\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
-    NSDictionary* dataDic = (NSDictionary*)[result objectForKey:@"data"];
-    [checkDataArray removeAllObjects];
-    [checkDataArray addObject:dataDic];
+    
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
+    {
+        checkDataArray = (NSArray*)[result objectForKey:@"data"];
+        if (checkDataArray == nil || checkDataArray.count == 0)
+        {
+            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+    }else{
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
+    [HUD hideByCustomView:YES];
 }
 
 - (IBAction)verifyBtnClick:(id)sender
@@ -115,8 +124,11 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 
 -(void)requestVerifyListData
 {
-    [self testVerifyData];
-    return;
+    if (OFFLINE)
+    {
+        [self testVerifyData];
+        return;
+    }
     if (HUD == nil)
     {
         HUD = [[MBProgressHUD alloc]init];
@@ -129,19 +141,17 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           //@"state":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
                            @"goName":@""};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_VERIFYLIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            [verifyDataArray removeAllObjects];
-            NSDictionary* dataDic = (NSDictionary*)[result objectForKey:@"data"];
-            if (dataDic == nil)
+            verifyDataArray = (NSArray*)[result objectForKey:@"data"];
+            if (verifyDataArray == nil || verifyDataArray.count == 0)
             {
                 [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }else{
-                [verifyDataArray addObject:dataDic];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -159,16 +169,25 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 -(void)testVerifyData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"state\":1,\"data\":{\"content\":\"报审标题\",\"create_time\":1237892000,\"user_nickname\":\"姓名\",\"approval_state\":1,\"id\":1,\"name\":\"项目名称\"}}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":[{\"c_time\":1471449600000,\"content\":\"sdasfasdf\",\"id\":49,\"name\":\"第六个\",\"state\":0,\"user_name\":\"dlg-jl-1\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
-    NSDictionary* dataDic = (NSDictionary*)[result objectForKey:@"data"];
-    [verifyDataArray removeAllObjects];
-    [verifyDataArray addObject:dataDic];
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
+    {
+        verifyDataArray = (NSArray*)[result objectForKey:@"data"];
+        if (verifyDataArray == nil || verifyDataArray.count == 0)
+        {
+            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+    }else{
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
+    [HUD hideByCustomView:YES];
 }
 
 - (IBAction)searchBtnClick:(id)sender

@@ -34,20 +34,44 @@
 {
     [super viewDidAppear:animated];
     
-    /******** Test Start *********/
-    [self test];
-    /******** Test End *********/
+    if (OFFLINE) [self testData];
     
     [self loginBtnClick:nil];
 }
 
--(void)test
+-(void)testData
 {
-    // Save data.
-    [SystemConfig instance].currentUserRole = 1;
-    [SystemConfig instance].currentUserName = @"yasin";
-    [SystemConfig instance].currentUserPwd = @"123456";
-    [SystemConfig instance].currentUserId = 888;
+    NSError *jsonError;
+    NSData *objectData = [@"{\"data\":{\"baidu_token\":\"3856325673642991365\",\"createTimeCaption\":\"\",\"id_card\":\"\",\"organ_id\":\"1\",\"user_email\":\"\",\"user_id\":\"1\",\"user_mobile\":\"\",\"user_name\":\"admin\",\"user_nickname\":\"admin\",\"user_password\":\"E10ADC3949BA59ABBE56E057F20F883E\",\"user_status\":\"0\",\"user_telephone\":\"\",\"user_type\":\"1\"},\"msg\":\"登录成功\",\"role\":1,\"roles\":[{\"ROLE_ID\":\"1\",\"role_id\":\"1\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
+                                                           options:NSJSONReadingMutableContainers
+                                                             error:&jsonError];
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
+    {
+        
+        [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        NSDictionary* userData = (NSDictionary*)[result objectForKey:@"data"];
+        if (userData == nil) return;
+        
+        // Save data.
+        [SystemConfig instance].currentUserRole = [(NSNumber*)[result objectForKey:@"role"]
+                                                   intValue];
+        [SystemConfig instance].currentUserName = self.nameTF.text;
+        [SystemConfig instance].currentUserPwd = self.pwdTF.text;
+        [SystemConfig instance].currentUserId = [(NSNumber*)[userData objectForKey:@"user_id"]
+                                                 intValue];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserRole] forKey:@"currentUserRole"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserId] forKey:@"currentUserId"];
+        [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserName forKey:@"currentUserName"];
+        [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserPwd forKey:@"currentUserPwd"];
+        [self performSegueWithIdentifier:@"LoginToHome" sender:self];
+        // Pwd wrong.
+    }else{
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        self.pwdTF.text = @"";
+    }
+    [HUD hideByCustomView:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,19 +91,21 @@
         
         [[JTToast toastWithText:@"用户名和密码不能为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
     }else{
-        /******** Test Start *********/
-//        if (HUD == nil)
-//        {
-//            HUD = [[MBProgressHUD alloc]init];
-//        }
-//        [self.view addSubview:HUD];
-//        HUD.dimBackground =YES;
-//        HUD.labelText = @"登录中...";
-//        [HUD removeFromSuperViewOnHide];
-//        [HUD showByCustomView:YES];
-//        [self login];
-        [self performSegueWithIdentifier:@"LoginToHome" sender:self];
-        /******** Test End *********/
+        if (OFFLINE)
+        {
+            [self performSegueWithIdentifier:@"LoginToHome" sender:self];
+        }else{
+            if (HUD == nil)
+            {
+                HUD = [[MBProgressHUD alloc]init];
+            }
+            [self.view addSubview:HUD];
+            HUD.dimBackground =YES;
+            HUD.labelText = @"登录中...";
+            [HUD removeFromSuperViewOnHide];
+            [HUD showByCustomView:YES];
+            [self login];
+        }
     }
 }
 
@@ -87,7 +113,8 @@
 {
     //设置登录参数
     NSDictionary *dict = @{@"username":self.nameTF.text,
-                           @"password":self.pwdTF.text};
+                           @"password":self.pwdTF.text,
+                           @"channelId":self.pwdTF.text};
     //设置请求
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_LOGIN) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
@@ -96,13 +123,16 @@
         if (state == State_Success)
         {
             [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            NSDictionary* userData = (NSDictionary*)[result objectForKey:@"data"];
+            if (userData == nil) return;
+            
             // Save data.
             [SystemConfig instance].currentUserRole = [(NSNumber*)[result objectForKey:@"role"]
                                                        intValue];
             [SystemConfig instance].currentUserName = self.nameTF.text;
             [SystemConfig instance].currentUserPwd = self.pwdTF.text;
-            [SystemConfig instance].currentUserId = [(NSNumber*)[result objectForKey:@"user_id"]
-             intValue];
+            [SystemConfig instance].currentUserId = [(NSNumber*)[userData objectForKey:@"user_id"]
+                                                     intValue];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserRole] forKey:@"currentUserRole"];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserId] forKey:@"currentUserId"];
             [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserName forKey:@"currentUserName"];

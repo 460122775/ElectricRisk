@@ -14,8 +14,8 @@
     BOOL isNoticeList;
     MBProgressHUD *HUD;
     
-    NSMutableArray* noticeDataArray;
-    NSMutableArray* warnDataArray;
+    NSArray* noticeDataArray;
+    NSArray* warnDataArray;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *noticeBtn;

@@ -47,9 +47,11 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
 
 -(void)requestNoticeListData
 {
-    [self testNoticeData];
-    return;
-    
+    if (OFFLINE)
+    {
+        [self testNoticeData];
+        return;
+    }
     if (HUD == nil)
     {
         HUD = [[MBProgressHUD alloc]init];
@@ -67,13 +69,10 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            [noticeDataArray removeAllObjects];
-            NSDictionary* dataDic = (NSDictionary*)[result objectForKey:@"data"];
-            if (dataDic == nil)
+            noticeDataArray = (NSArray*)[result objectForKey:@"data"];
+            if (noticeDataArray == nil || noticeDataArray.count == 0)
             {
                 [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }else{
-                [noticeDataArray addObject:dataDic];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -91,16 +90,23 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
 -(void)testNoticeData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"state\":1,\"data\":{\"content\":\"报审标题\",\"publish_date\":1237892000,\"name\":\"姓名\",\"state\":1,\"id\":1,\"title\":\"项目名称\"}}" dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
-                                                           options:NSJSONReadingMutableContainers
-                                                             error:&jsonError];
-    NSDictionary* dataDic = (NSDictionary*)[result objectForKey:@"data"];
-    [noticeDataArray removeAllObjects];
-    [noticeDataArray addObject:dataDic];
+    NSData *objectData = [@"{\"data\":[{\"content\":\"thisismessage\",\"id\":2499,\"name\":\"admin\",\"notice_id\":61,\"publish_date\":1471449600000,\"state\":0,\"title\":\"title\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData options:NSJSONReadingMutableContainers error:&jsonError];
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
+    {
+        noticeDataArray = (NSArray*)[result objectForKey:@"data"];
+        if (noticeDataArray == nil || noticeDataArray.count == 0)
+        {
+            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+    }else{
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
+    [HUD hideByCustomView:YES];
 }
 
 - (IBAction)warnBtnClick:(id)sender
@@ -114,8 +120,11 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
 
 -(void)requestWarnListData
 {
-    [self testWarnData];
-    return;
+    if (OFFLINE)
+    {
+        [self testWarnData];
+        return;
+    }
     if (HUD == nil)
     {
         HUD = [[MBProgressHUD alloc]init];
@@ -127,20 +136,16 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
-                           @"goName":@""};
+                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId]};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_WARN_LSIT) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            [warnDataArray removeAllObjects];
-            NSDictionary* dataDic = (NSDictionary*)[result objectForKey:@"data"];
-            if (dataDic == nil)
+            warnDataArray = (NSArray*)[result objectForKey:@"data"];
+            if (warnDataArray == nil || warnDataArray.count == 0)
             {
                 [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }else{
-                [warnDataArray addObject:dataDic];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -158,16 +163,23 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
 -(void)testWarnData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"state\":1,\"data\":{\"content\":\"内容\",\"creat_time\":1237892000,\"name\":\"姓名\",\"state\":1,\"id\":1,\"title\":\"标题\",\"address\":\"项目的地质\",\"plan_end_time\":\"计划结束时间\",\"real_start_tim\":\"实际开始时间\",\"real_end_time\":\"实际结束时间\",\"plan_start_time\":\"计划开始时间\",\"project_id\":11}}" dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
-                                                           options:NSJSONReadingMutableContainers
-                                                             error:&jsonError];
-    NSDictionary* dataDic = (NSDictionary*)[result objectForKey:@"data"];
-    [warnDataArray removeAllObjects];
-    [warnDataArray addObject:dataDic];
+    NSData *objectData = [@"{\"data\":[{\"address\":\"dfgd\",\"content\":\"架设架空线路\",\"creat_time\":1471449600000,\"gy_risk_id\":2,\"id\":89,\"is_active\":0,\"is_gy_risk\":2,\"k_value\":\"0.2\",\"level\":4,\"name\":\"第六个\",\"plan_end_time\":1471968000000,\"plan_start_time\":1471881600000,\"project_id\":55,\"real_start_time\":1471449600000,\"risk_type\":\"高大模板支撑\",\"state\":3,\"user_id\":\"a2a6adfc78f043cbb50150f9921b34e0\"},{\"address\":\"dfgd\",\"content\":\"配电箱及开关箱安装\",\"creat_time\":1471449600000,\"gy_risk_id\":6,\"id\":88,\"is_active\":1,\"is_gy_risk\":2,\"k_value\":\"0.1\",\"level\":5,\"name\":\"第六个\",\"plan_end_time\":1472572800000,\"plan_start_time\":1471968000000,\"project_id\":55,\"real_start_time\":1471449600000,\"risk_type\":\"高大模板支撑\",\"state\":3,\"user_id\":\"a2a6adfc78f043cbb50150f9921b34e0\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData options:NSJSONReadingMutableContainers error:&jsonError];
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
+    {
+        warnDataArray = (NSArray*)[result objectForKey:@"data"];
+        if (warnDataArray == nil || warnDataArray.count == 0)
+        {
+            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+    }else{
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
+    [HUD hideByCustomView:YES];
 }
 
 - (IBAction)searchBtnClick:(id)sender

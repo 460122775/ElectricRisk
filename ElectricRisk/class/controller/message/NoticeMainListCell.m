@@ -27,7 +27,7 @@
         case Notice_State_Not: self.addressLabel.text = @"未读"; break;
         case Notice_State_Read: self.addressLabel.text = @"已读"; break;
         case Notice_State_Reply: self.addressLabel.text = @"已回复"; break;
-        default: break;
+        default: self.addressLabel.text = [NSString stringWithFormat:@"未知状态:%i", state]; break;
     }
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"publish_time"] doubleValue] / 1000.0)];

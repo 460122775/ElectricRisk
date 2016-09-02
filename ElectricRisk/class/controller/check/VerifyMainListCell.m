@@ -18,10 +18,10 @@
 
 -(void)setViewByData
 {
-    self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"content"], [self.dataDic objectForKey:@"user_nickname"]];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"content"], [self.dataDic objectForKey:@"user_name"]];
     self.contentLabel.text = [self.dataDic objectForKey:@"name"];
     
-    int checkState = [(NSNumber*)[self.dataDic objectForKey:@"approval_state"] intValue];
+    int checkState = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
     switch (checkState)
     {
         case Check_State_Wait: self.addressLabel.text = @"待审核"; break;
@@ -31,7 +31,7 @@
         default: break;
     }
     
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"create_time"] doubleValue] / 1000.0)];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"c_time"] doubleValue] / 1000.0)];
     NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
     [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     self.timeLabel.text = [dtfrm stringFromDate:date];

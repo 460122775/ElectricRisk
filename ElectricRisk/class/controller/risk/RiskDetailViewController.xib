@@ -27,10 +27,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s30-nG-OAu">
-                                    <rect key="frame" x="8" y="24" width="36" height="36"/>
+                                    <rect key="frame" x="8" y="29" width="26" height="26"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="36" id="67N-6A-oMc"/>
-                                        <constraint firstAttribute="height" constant="36" id="Lr2-j1-bOW"/>
+                                        <constraint firstAttribute="width" constant="26" id="67N-6A-oMc"/>
+                                        <constraint firstAttribute="height" constant="26" id="Lr2-j1-bOW"/>
                                     </constraints>
                                     <state key="normal" backgroundImage="back"/>
                                     <connections>
@@ -38,7 +38,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风险实施查看" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPQ-5g-Msj">
-                                    <rect key="frame" x="52" y="31" width="102" height="21"/>
+                                    <rect key="frame" x="42" y="31" width="102" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                                 <constraint firstItem="fPz-yV-oqS" firstAttribute="centerY" secondItem="s30-nG-OAu" secondAttribute="centerY" id="dwa-GC-a7p"/>
                                 <constraint firstAttribute="trailing" secondItem="fPz-yV-oqS" secondAttribute="trailing" constant="8" id="p7J-TN-Smo"/>
                                 <constraint firstItem="rPQ-5g-Msj" firstAttribute="centerY" secondItem="s30-nG-OAu" secondAttribute="centerY" id="uIR-aa-DaK"/>
-                                <constraint firstItem="s30-nG-OAu" firstAttribute="top" secondItem="8DA-Y6-3zF" secondAttribute="top" constant="24" id="zff-fp-SNA"/>
+                                <constraint firstItem="s30-nG-OAu" firstAttribute="top" secondItem="8DA-Y6-3zF" secondAttribute="top" constant="29" id="zff-fp-SNA"/>
                             </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAy-3R-4Wb">

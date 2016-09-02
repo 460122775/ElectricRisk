@@ -14,8 +14,8 @@
     BOOL isCheckList;
     MBProgressHUD *HUD;
     
-    NSMutableArray* checkDataArray;
-    NSMutableArray* verifyDataArray;
+    NSArray* checkDataArray;
+    NSArray* verifyDataArray;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *checkBtn;

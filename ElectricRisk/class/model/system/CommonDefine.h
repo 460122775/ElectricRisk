@@ -12,6 +12,7 @@
 #define URL_SERVER @"http://127.0.0.1:8080/ElectricRisk"
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
+#define OFFLINE YES
 //密钥
 #define CodingKey @"DLJIJIAN"
 //偏移量
