@@ -8,15 +8,29 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RiskDetailViewController : UIViewController
+@interface RiskDetailViewController : UIViewController<UIWebViewDelegate>{
+    MBProgressHUD *HUD;
+}
 
 @property (strong, nonatomic) NSDictionary *riskDataDic;
+@property (strong, nonatomic) NSDictionary *riskDetailDataDic;
+@property (strong, nonatomic) NSString *repairInfoJsonString;
     
 @property (strong, nonatomic) IBOutlet UILabel *projectNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (strong, nonatomic) IBOutlet UIButton *dateBtn;
+
+@property (strong, nonatomic) IBOutlet UIWebView *personInfoWebView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *personInfoWebViewHeight;
+@property (strong, nonatomic) IBOutlet UIWebView *executiveInfoWebView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *executiveInfoWebViewHeight;
+@property (strong, nonatomic) IBOutlet UIWebView *repairInfoWebView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *repairInfoWebViewHeight;
+@property (strong, nonatomic) IBOutlet UIWebView *processInfoWebView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *processInfoWebViewHeight;
+
 
 - (IBAction)backBtnClick:(id)sender;
 

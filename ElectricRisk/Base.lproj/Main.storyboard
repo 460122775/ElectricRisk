@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -1075,7 +1075,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风险信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOl-Ns-nrS">
-                                                <rect key="frame" x="153.5" y="31" width="68" height="21"/>
+                                                <rect key="frame" x="153" y="31" width="68" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -1116,7 +1116,7 @@
                                             <constraint firstItem="nvN-IO-H9t" firstAttribute="centerY" secondItem="1o4-RB-NpS" secondAttribute="centerY" id="yUm-Yf-Gm3"/>
                                         </constraints>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkf-IQ-Vyn">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkf-IQ-Vyn">
                                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gNy-Tj-Xpf">
@@ -1302,47 +1302,22 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <webView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FhR-X2-ZN4">
-                                                <rect key="frame" x="10" y="216" width="355" height="0.0"/>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhR-X2-ZN4">
+                                                <rect key="frame" x="10" y="216" width="355" height="1"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="6xd-YR-YzG"/>
+                                                    <constraint firstAttribute="height" constant="1" id="PPv-bw-J82"/>
                                                 </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="6xd-YR-YzG"/>
-                                                    </mask>
-                                                </variation>
                                             </webView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="- 施工现场执行情况" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc3-BZ-8vt">
-                                                <rect key="frame" x="8" y="226" width="131" height="21"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="102" id="FnF-40-VVh"/>
-                                                    <constraint firstAttribute="height" constant="21" id="iQb-xN-O2g"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="FnF-40-VVh"/>
-                                                    </mask>
-                                                </variation>
-                                            </label>
-                                            <webView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FGK-ac-vEf">
-                                                <rect key="frame" x="10" y="255" width="355" height="0.0"/>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FGK-ac-vEf">
+                                                <rect key="frame" x="10" y="256" width="355" height="1"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="1" id="TAb-G6-uBz"/>
+                                                    <constraint firstAttribute="height" constant="1" id="QxT-JG-Ymb"/>
                                                 </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="TAb-G6-uBz"/>
-                                                    </mask>
-                                                </variation>
                                             </webView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="- 违章整改情况" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc0-6N-l8T">
-                                                <rect key="frame" x="8" y="265" width="101" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 违章整改情况" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kc0-6N-l8T">
+                                                <rect key="frame" x="8" y="267" width="101" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="jLG-YG-3tI"/>
                                                     <constraint firstAttribute="width" constant="102" id="z06-HE-LCJ"/>
@@ -1356,8 +1331,15 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="- 施工进度信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1h-6a-xV3">
-                                                <rect key="frame" x="8" y="302" width="101" height="18"/>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XtW-hJ-ThS">
+                                                <rect key="frame" x="10" y="296" width="355" height="1"/>
+                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="iWN-MA-rSy"/>
+                                                </constraints>
+                                            </webView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 施工进度信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1h-6a-xV3">
+                                                <rect key="frame" x="8" y="305" width="101" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Hc6-z5-Ag4"/>
                                                     <constraint firstAttribute="width" constant="102" id="I9Z-m8-6ps"/>
@@ -1367,29 +1349,39 @@
                                                 <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="I9Z-m8-6ps"/>
                                                         <exclude reference="Hc6-z5-Ag4"/>
+                                                        <exclude reference="I9Z-m8-6ps"/>
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <webView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-bD-4Q7">
-                                                <rect key="frame" x="10" y="328" width="355" height="46"/>
-                                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                            </webView>
-                                            <webView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XtW-hJ-ThS">
-                                                <rect key="frame" x="10" y="294" width="355" height="0.0"/>
+                                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJn-bD-4Q7">
+                                                <rect key="frame" x="10" y="331" width="355" height="1"/>
                                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="2" id="TWF-v3-U3o"/>
-                                                    <constraint firstAttribute="height" constant="1" id="cAe-Tc-88c"/>
+                                                    <constraint firstAttribute="height" constant="1" id="DUD-Cv-gS5"/>
                                                 </constraints>
+                                            </webView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：附件类的信息请在电脑上查看" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gv-X7-y2C">
+                                                <rect key="frame" x="10" y="372" width="210" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- 施工现场执行情况" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dc3-BZ-8vt">
+                                                <rect key="frame" x="8" y="227" width="131" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="102" id="FnF-40-VVh"/>
+                                                    <constraint firstAttribute="height" constant="21" id="iQb-xN-O2g"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
                                                 <variation key="default">
                                                     <mask key="constraints">
-                                                        <exclude reference="TWF-v3-U3o"/>
-                                                        <exclude reference="cAe-Tc-88c"/>
+                                                        <exclude reference="FnF-40-VVh"/>
                                                     </mask>
                                                 </variation>
-                                            </webView>
+                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="A3u-fO-1hy" firstAttribute="centerY" secondItem="fGo-Y0-OXG" secondAttribute="centerY" id="08K-j7-ioR"/>
@@ -1398,21 +1390,19 @@
                                             <constraint firstItem="FGK-ac-vEf" firstAttribute="width" secondItem="FhR-X2-ZN4" secondAttribute="width" id="4wL-Ez-V3w"/>
                                             <constraint firstItem="FhR-X2-ZN4" firstAttribute="top" secondItem="8gd-oq-UkM" secondAttribute="bottom" constant="8" id="5EK-HI-RSt"/>
                                             <constraint firstAttribute="bottom" secondItem="XtW-hJ-ThS" secondAttribute="bottom" constant="307" id="7uL-sB-GTq"/>
-                                            <constraint firstItem="OJn-bD-4Q7" firstAttribute="bottom" secondItem="h1h-6a-xV3" secondAttribute="top" constant="8" id="94h-EB-OW2"/>
-                                            <constraint firstItem="h1h-6a-xV3" firstAttribute="top" secondItem="OJn-bD-4Q7" secondAttribute="bottom" constant="74" id="97v-hy-q3Z"/>
+                                            <constraint firstItem="6gv-X7-y2C" firstAttribute="leading" secondItem="bkf-IQ-Vyn" secondAttribute="leading" constant="10" id="C7e-2d-h3h"/>
                                             <constraint firstItem="h1h-6a-xV3" firstAttribute="leading" secondItem="fGo-Y0-OXG" secondAttribute="leading" id="Ceh-kB-hGA"/>
                                             <constraint firstItem="kc0-6N-l8T" firstAttribute="top" secondItem="FGK-ac-vEf" secondAttribute="bottom" constant="10" id="DIu-OX-faf"/>
                                             <constraint firstItem="XtW-hJ-ThS" firstAttribute="top" secondItem="kc0-6N-l8T" secondAttribute="bottom" constant="8" id="FAI-A2-9Q7"/>
                                             <constraint firstItem="OJn-bD-4Q7" firstAttribute="centerX" secondItem="bkf-IQ-Vyn" secondAttribute="centerX" id="FTm-AG-M3e"/>
                                             <constraint firstAttribute="trailing" secondItem="gNy-Tj-Xpf" secondAttribute="trailing" id="FgO-Jb-2v4"/>
                                             <constraint firstItem="8gd-oq-UkM" firstAttribute="leading" secondItem="fGo-Y0-OXG" secondAttribute="leading" id="GxT-wk-gUj"/>
-                                            <constraint firstItem="OJn-bD-4Q7" firstAttribute="top" secondItem="h1h-6a-xV3" secondAttribute="bottom" constant="8" id="H2z-sn-DFs"/>
+                                            <constraint firstItem="6gv-X7-y2C" firstAttribute="top" secondItem="OJn-bD-4Q7" secondAttribute="bottom" constant="40" id="Jnv-6U-rTW"/>
                                             <constraint firstItem="gNy-Tj-Xpf" firstAttribute="top" secondItem="bkf-IQ-Vyn" secondAttribute="top" id="Net-6F-NAL"/>
                                             <constraint firstItem="gNy-Tj-Xpf" firstAttribute="leading" secondItem="bkf-IQ-Vyn" secondAttribute="leading" id="RV5-Ir-BJd"/>
                                             <constraint firstItem="FhR-X2-ZN4" firstAttribute="centerX" secondItem="bkf-IQ-Vyn" secondAttribute="centerX" id="SEQ-Qh-Wqb"/>
                                             <constraint firstItem="kc0-6N-l8T" firstAttribute="leading" secondItem="fGo-Y0-OXG" secondAttribute="leading" id="TBV-jl-SQI"/>
                                             <constraint firstItem="XtW-hJ-ThS" firstAttribute="width" secondItem="FhR-X2-ZN4" secondAttribute="width" id="Uzq-d5-Kkr"/>
-                                            <constraint firstAttribute="height" constant="603" id="VAX-fv-n8Q"/>
                                             <constraint firstItem="FGK-ac-vEf" firstAttribute="centerX" secondItem="bkf-IQ-Vyn" secondAttribute="centerX" id="XVW-HH-VuF"/>
                                             <constraint firstItem="dc3-BZ-8vt" firstAttribute="top" secondItem="FhR-X2-ZN4" secondAttribute="bottom" constant="10" id="btQ-3C-Nwj"/>
                                             <constraint firstItem="gNy-Tj-Xpf" firstAttribute="width" secondItem="bkf-IQ-Vyn" secondAttribute="width" id="c99-n4-48K"/>
@@ -1420,27 +1410,13 @@
                                             <constraint firstItem="OJn-bD-4Q7" firstAttribute="top" secondItem="h1h-6a-xV3" secondAttribute="bottom" constant="8" id="cKR-HB-Ysg"/>
                                             <constraint firstItem="dc3-BZ-8vt" firstAttribute="leading" secondItem="fGo-Y0-OXG" secondAttribute="leading" id="dLA-zY-RXV"/>
                                             <constraint firstItem="XtW-hJ-ThS" firstAttribute="centerX" secondItem="bkf-IQ-Vyn" secondAttribute="centerX" id="fmt-j1-Wbn"/>
-                                            <constraint firstAttribute="bottom" secondItem="FGK-ac-vEf" secondAttribute="bottom" constant="301" id="gO7-Jg-7CW"/>
                                             <constraint firstItem="8gd-oq-UkM" firstAttribute="top" secondItem="fGo-Y0-OXG" secondAttribute="bottom" constant="8" id="k9G-m8-ieQ"/>
                                             <constraint firstItem="A3u-fO-1hy" firstAttribute="leading" secondItem="fGo-Y0-OXG" secondAttribute="trailing" constant="15" id="kyp-Q1-NIn"/>
                                             <constraint firstItem="FGK-ac-vEf" firstAttribute="top" secondItem="dc3-BZ-8vt" secondAttribute="bottom" constant="8" id="qhj-DZ-gXY"/>
                                             <constraint firstItem="fGo-Y0-OXG" firstAttribute="top" secondItem="gNy-Tj-Xpf" secondAttribute="bottom" constant="8" id="qjR-9m-Xb5"/>
                                             <constraint firstAttribute="bottom" secondItem="OJn-bD-4Q7" secondAttribute="bottom" constant="272" id="r2c-tN-95J"/>
                                             <constraint firstItem="fGo-Y0-OXG" firstAttribute="leading" secondItem="bkf-IQ-Vyn" secondAttribute="leading" constant="8" id="upk-LV-JUs"/>
-                                            <constraint firstItem="FGK-ac-vEf" firstAttribute="centerY" secondItem="bkf-IQ-Vyn" secondAttribute="centerY" id="x5E-xM-eBT"/>
-                                            <constraint firstItem="h1h-6a-xV3" firstAttribute="top" secondItem="OJn-bD-4Q7" secondAttribute="bottom" constant="-6" id="yEN-2O-mHf"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="VAX-fv-n8Q"/>
-                                                <exclude reference="gO7-Jg-7CW"/>
-                                                <exclude reference="x5E-xM-eBT"/>
-                                                <exclude reference="97v-hy-q3Z"/>
-                                                <exclude reference="yEN-2O-mHf"/>
-                                                <exclude reference="94h-EB-OW2"/>
-                                                <exclude reference="H2z-sn-DFs"/>
-                                            </mask>
-                                        </variation>
                                     </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1464,6 +1440,16 @@
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="executiveInfoWebView" destination="FGK-ac-vEf" id="2lG-e8-zA2"/>
+                        <outlet property="executiveInfoWebViewHeight" destination="QxT-JG-Ymb" id="Bh6-Qt-zHe"/>
+                        <outlet property="personInfoWebView" destination="FhR-X2-ZN4" id="SCZ-2p-5lV"/>
+                        <outlet property="personInfoWebViewHeight" destination="PPv-bw-J82" id="NeY-6I-g30"/>
+                        <outlet property="processInfoWebView" destination="OJn-bD-4Q7" id="sXw-wd-tS1"/>
+                        <outlet property="processInfoWebViewHeight" destination="DUD-Cv-gS5" id="rQG-ur-NVe"/>
+                        <outlet property="repairInfoWebView" destination="XtW-hJ-ThS" id="eCo-Z1-T27"/>
+                        <outlet property="repairInfoWebViewHeight" destination="iWN-MA-rSy" id="N0U-w1-RsH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AOK-Oa-aNZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
