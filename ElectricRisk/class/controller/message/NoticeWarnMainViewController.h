@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NoticeMainListCell.h"
 #import "WarnMainListCell.h"
+#import "NoticeDetailViewController.h"
 
 @interface NoticeWarnMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
     BOOL isNoticeList;
@@ -16,6 +17,9 @@
     
     NSArray* noticeDataArray;
     NSArray* warnDataArray;
+    
+    NSDictionary* currentSelectedNotice;
+    NSDictionary* currentSelectedWarn;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *noticeBtn;
@@ -27,6 +31,6 @@
 
 - (IBAction)warnBtnClick:(id)sender;
 
-- (IBAction)searchBtnClick:(id)sender;
+- (IBAction)writeBtnClick:(id)sender;
 
 @end

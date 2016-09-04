@@ -6,13 +6,13 @@
 //  Copyright © 2016 com.yasin.electric. All rights reserved.
 //
 
-#import "RiskExecutiveTimeListViewController.h"
+#import "RiskWrongListViewController.h"
 
-@interface RiskExecutiveTimeListViewController ()
+@interface RiskWrongListViewController ()
 
 @end
 
-@implementation RiskExecutiveTimeListViewController
+@implementation RiskWrongListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,7 +71,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     if(self.delegate != nil)
     {
-        [self.delegate timeChooseControl:[(NSNumber*)[(NSDictionary*)[self.timeArray objectAtIndex:indexPath.row] objectForKey:@"creat_time"] doubleValue]];
+        [self.delegate wrongListChooseControl:[(NSNumber*)[(NSDictionary*)[self.timeArray objectAtIndex:indexPath.row] objectForKey:@"creat_time"] doubleValue]];
     }
 }
 

@@ -6,13 +6,13 @@
 //  Copyright © 2016年 com.yasin.electric. All rights reserved.
 //
 
-#import "RiskDetailViewController.h"
+#import "RiskAddViewController.h"
 
-@interface RiskDetailViewController ()
+@interface RiskAddViewController ()
 
 @end
 
-@implementation RiskDetailViewController
+@implementation RiskAddViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -253,7 +253,7 @@
     }else{
         NSDate *executiveTimeDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[(NSDictionary*)[self.riskExecutiveTimeArray objectAtIndex:0] objectForKey:@"creat_time"] doubleValue] / 1000.0)];
         [self.dateBtn setTitle:[[[dtfrm stringFromDate:executiveTimeDate] componentsSeparatedByString:@" "] objectAtIndex:0] forState:UIControlStateNormal];
-        [self timeChooseControl:[(NSNumber*)[(NSDictionary*)[self.riskExecutiveTimeArray objectAtIndex:0] objectForKey:@"creat_time"] doubleValue]];
+        [self wrongListChooseControl:[(NSNumber*)[(NSDictionary*)[self.riskExecutiveTimeArray objectAtIndex:0] objectForKey:@"creat_time"] doubleValue]];
     }
 }
 
@@ -327,15 +327,15 @@
 
 - (IBAction)dateBtnClick:(id)sender
 {
-    RiskExecutiveTimeListViewController *riskExecutiveTimeListViewController = [[RiskExecutiveTimeListViewController alloc] initWithNibName:@"RiskExecutiveTimeListViewController" bundle:nil];
-    riskExecutiveTimeListViewController.modalPresentationStyle = UIModalPresentationCustom;
-    riskExecutiveTimeListViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    riskExecutiveTimeListViewController.delegate = self;
-    [riskExecutiveTimeListViewController initViewWithData:self.riskExecutiveTimeArray];
-    [self presentViewController:riskExecutiveTimeListViewController animated:YES completion:nil];
+    RiskWrongListViewController *riskWrongListViewController = [[RiskWrongListViewController alloc] initWithNibName:@"RiskWrongListViewController" bundle:nil];
+    riskWrongListViewController.modalPresentationStyle = UIModalPresentationCustom;
+    riskWrongListViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    riskWrongListViewController.delegate = self;
+    [riskWrongListViewController initViewWithData:self.riskExecutiveTimeArray];
+    [self presentViewController:riskWrongListViewController animated:YES completion:nil];
 }
 
--(void)timeChooseControl:(double)timeValue
+-(void)wrongListChooseControl:(double)timeValue
 {
     if (OFFLINE)
     {

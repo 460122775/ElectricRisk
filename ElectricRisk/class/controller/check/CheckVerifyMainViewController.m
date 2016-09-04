@@ -73,7 +73,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
             checkDataArray = (NSArray*)[result objectForKey:@"data"];
             if (checkDataArray == nil || checkDataArray.count == 0)
             {
-                [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -102,7 +102,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         checkDataArray = (NSArray*)[result objectForKey:@"data"];
         if (checkDataArray == nil || checkDataArray.count == 0)
         {
-            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -150,7 +150,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
             verifyDataArray = (NSArray*)[result objectForKey:@"data"];
             if (verifyDataArray == nil || verifyDataArray.count == 0)
             {
-                [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -178,7 +178,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         verifyDataArray = (NSArray*)[result objectForKey:@"data"];
         if (verifyDataArray == nil || verifyDataArray.count == 0)
         {
-            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -225,6 +225,11 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         [cell setViewByData];
         return cell;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

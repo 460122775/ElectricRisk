@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RiskWrongListViewController">
+            <connections>
+                <outlet property="timeTableView" destination="RXY-6o-6TF" id="VLW-To-Fvg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-pa-oIS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ayl-sg-pdT">
+                            <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancelBtnClick:" destination="-1" eventType="touchUpInside" id="YM2-Z3-oEG"/>
+                            </connections>
+                        </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="40" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="RXY-6o-6TF">
+                            <rect key="frame" x="56" y="133" width="263" height="401"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="separatorColor" red="0.3411764706" green="0.49803921569999998" blue="0.42352941179999998" alpha="0.61717548076923079" colorSpace="calibratedRGB"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Ayl-sg-pdT" firstAttribute="height" secondItem="hxQ-pa-oIS" secondAttribute="height" id="4dF-BS-eiq"/>
+                        <constraint firstItem="Ayl-sg-pdT" firstAttribute="centerY" secondItem="hxQ-pa-oIS" secondAttribute="centerY" id="8zI-yv-sNt"/>
+                        <constraint firstItem="RXY-6o-6TF" firstAttribute="centerY" secondItem="hxQ-pa-oIS" secondAttribute="centerY" id="Owq-VX-fab"/>
+                        <constraint firstItem="Ayl-sg-pdT" firstAttribute="centerX" secondItem="hxQ-pa-oIS" secondAttribute="centerX" id="Rpm-XW-Xsv"/>
+                        <constraint firstItem="Ayl-sg-pdT" firstAttribute="width" secondItem="hxQ-pa-oIS" secondAttribute="width" id="Wqj-kQ-Osi"/>
+                        <constraint firstItem="RXY-6o-6TF" firstAttribute="centerX" secondItem="hxQ-pa-oIS" secondAttribute="centerX" id="p29-nC-LoC"/>
+                        <constraint firstItem="RXY-6o-6TF" firstAttribute="height" secondItem="hxQ-pa-oIS" secondAttribute="height" multiplier="0.6" id="s1F-Br-AC1"/>
+                        <constraint firstItem="RXY-6o-6TF" firstAttribute="width" secondItem="hxQ-pa-oIS" secondAttribute="width" multiplier="0.7" constant="1" id="y6t-bd-1Yr"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="hxQ-pa-oIS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5QR-5L-j5B"/>
+                <constraint firstItem="hxQ-pa-oIS" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="5db-mF-9WM"/>
+                <constraint firstItem="hxQ-pa-oIS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="I0D-V1-3hU"/>
+                <constraint firstItem="hxQ-pa-oIS" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="O7A-kG-dn3"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>

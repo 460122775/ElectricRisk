@@ -26,7 +26,7 @@
 
 - (IBAction)goBackBtnClick:(id)sender
 {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

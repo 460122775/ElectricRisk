@@ -19,23 +19,11 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.pwdTF.delegate = self;
     self.nameTF.delegate = self;
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserName"] != nil)
-    {
-        self.nameTF.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserName"];
-    }
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserPwd"] != nil)
-    {
-        self.pwdTF.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserPwd"];
-    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
-    if (OFFLINE) [self testData];
-    
     [self loginBtnClick:nil];
 }
 
@@ -49,11 +37,9 @@
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-        
-        [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
         NSDictionary* userData = (NSDictionary*)[result objectForKey:@"data"];
         if (userData == nil) return;
-        
+        [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
         // Save data.
         [SystemConfig instance].currentUserRole = [(NSNumber*)[result objectForKey:@"role"]
                                                    intValue];
@@ -66,12 +52,13 @@
         [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserName forKey:@"currentUserName"];
         [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserPwd forKey:@"currentUserPwd"];
         [self performSegueWithIdentifier:@"LoginToHome" sender:self];
-        // Pwd wrong.
+        self.nameTF.text = @"";
+        self.pwdTF.text = @"";
+    // Pwd wrong.
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         self.pwdTF.text = @"";
     }
-    [HUD hideByCustomView:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,19 +68,27 @@
 
 - (IBAction)loginBtnClick:(id)sender
 {
+    // Auto fill.
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserName"] != nil)
+    {
+        self.nameTF.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserName"];
+    }
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserPwd"] != nil)
+    {
+        self.pwdTF.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserPwd"];
+    }
     DLog(@"%@,%@", self.nameTF.text, self.pwdTF.text)
     DLog(@"%@,%@",  [LoginViewController encrypt:self.nameTF.text],
                     [LoginViewController encrypt:self.pwdTF.text])
     
-    if ((sender != nil) && (self.nameTF.text == nil || [self.nameTF.text isEqualToString:@""] ||
+    if ((self.nameTF.text == nil || [self.nameTF.text isEqualToString:@""] ||
         self.pwdTF.text == nil || [self.pwdTF.text isEqualToString:@""]))
     {
-        
-        [[JTToast toastWithText:@"用户名和密码不能为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        if (sender != nil) [[JTToast toastWithText:@"用户名和密码不能为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
     }else{
         if (OFFLINE)
         {
-            [self performSegueWithIdentifier:@"LoginToHome" sender:self];
+            [self testData];
         }else{
             if (HUD == nil)
             {
@@ -122,10 +117,9 @@
         // Pwd right.
         if (state == State_Success)
         {
-            [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
             NSDictionary* userData = (NSDictionary*)[result objectForKey:@"data"];
             if (userData == nil) return;
-            
+            [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
             // Save data.
             [SystemConfig instance].currentUserRole = [(NSNumber*)[result objectForKey:@"role"]
                                                        intValue];
@@ -137,6 +131,8 @@
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserId] forKey:@"currentUserId"];
             [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserName forKey:@"currentUserName"];
             [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserPwd forKey:@"currentUserPwd"];
+            self.nameTF.text = @"";
+            self.pwdTF.text = @"";
             [self performSegueWithIdentifier:@"LoginToHome" sender:self];
         // Pwd wrong.
         }else{

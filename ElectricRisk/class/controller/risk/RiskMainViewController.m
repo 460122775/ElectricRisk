@@ -57,7 +57,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
         totalDataArray = (NSArray*)[result objectForKey:@"data"];
         if (totalDataArray == nil || totalDataArray.count == 0)
         {
-            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }else{
             dataDic = [[NSMutableDictionary alloc] init];
             [headerNameArray removeAllObjects];
@@ -108,7 +108,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
             totalDataArray = (NSArray*)[result objectForKey:@"data"];
             if (totalDataArray == nil || totalDataArray.count == 0)
             {
-                [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }else{
                 dataDic = [[NSMutableDictionary alloc] init];
                 [headerNameArray removeAllObjects];

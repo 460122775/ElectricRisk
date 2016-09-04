@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010A145E1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010A145C1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib */; };
+		010A14621D7C71B60064AF63 /* RiskWrongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A14601D7C71B60064AF63 /* RiskWrongListViewController.m */; };
+		010A14631D7C71B60064AF63 /* RiskWrongListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010A14611D7C71B60064AF63 /* RiskWrongListViewController.xib */; };
+		010A14661D7C721C0064AF63 /* RiskAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A14651D7C721C0064AF63 /* RiskAddViewController.m */; };
+		010A14721D7C99780064AF63 /* NoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A14711D7C99780064AF63 /* NoticeDetailViewController.m */; };
 		015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056451D77A05300C1F8D8 /* RiskListVo.m */; };
 		015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056481D77A13B00C1F8D8 /* RiskDetailVo.m */; };
 		0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150564B1D77A20800C1F8D8 /* RiskDayInfoVo.m */; };
@@ -50,6 +55,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010A145C1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskExecutiveTimeListViewController.xib; path = class/controller/risk/RiskExecutiveTimeListViewController.xib; sourceTree = "<group>"; };
+		010A145F1D7C71B60064AF63 /* RiskWrongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskWrongListViewController.h; path = class/controller/risk/RiskWrongListViewController.h; sourceTree = "<group>"; };
+		010A14601D7C71B60064AF63 /* RiskWrongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskWrongListViewController.m; path = class/controller/risk/RiskWrongListViewController.m; sourceTree = "<group>"; };
+		010A14611D7C71B60064AF63 /* RiskWrongListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskWrongListViewController.xib; path = class/controller/risk/RiskWrongListViewController.xib; sourceTree = "<group>"; };
+		010A14641D7C721C0064AF63 /* RiskAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskAddViewController.h; path = class/controller/risk/RiskAddViewController.h; sourceTree = "<group>"; };
+		010A14651D7C721C0064AF63 /* RiskAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskAddViewController.m; path = class/controller/risk/RiskAddViewController.m; sourceTree = "<group>"; };
+		010A146B1D7C76810064AF63 /* ElectricRisk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ElectricRisk-Bridging-Header.h"; sourceTree = "<group>"; };
+		010A14701D7C99780064AF63 /* NoticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeDetailViewController.h; path = class/controller/message/notice/NoticeDetailViewController.h; sourceTree = "<group>"; };
+		010A14711D7C99780064AF63 /* NoticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeDetailViewController.m; path = class/controller/message/notice/NoticeDetailViewController.m; sourceTree = "<group>"; };
 		015056441D77A05300C1F8D8 /* RiskListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskListVo.h; path = class/model/vo/RiskListVo.h; sourceTree = "<group>"; };
 		015056451D77A05300C1F8D8 /* RiskListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskListVo.m; path = class/model/vo/RiskListVo.m; sourceTree = "<group>"; };
 		015056471D77A13B00C1F8D8 /* RiskDetailVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailVo.h; path = class/model/vo/RiskDetailVo.h; sourceTree = "<group>"; };
@@ -139,6 +153,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		010A14671D7C72510064AF63 /* add */ = {
+			isa = PBXGroup;
+			children = (
+				010A14641D7C721C0064AF63 /* RiskAddViewController.h */,
+				010A14651D7C721C0064AF63 /* RiskAddViewController.m */,
+				010A145F1D7C71B60064AF63 /* RiskWrongListViewController.h */,
+				010A14601D7C71B60064AF63 /* RiskWrongListViewController.m */,
+				010A14611D7C71B60064AF63 /* RiskWrongListViewController.xib */,
+			);
+			name = add;
+			sourceTree = "<group>";
+		};
+		010A14681D7C725C0064AF63 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				BAE718971D7179FF009AB399 /* RiskDetailViewController.h */,
+				BAE718981D7179FF009AB399 /* RiskDetailViewController.m */,
+				015056871D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.h */,
+				015056881D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m */,
+				010A145C1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib */,
+			);
+			name = detail;
+			sourceTree = "<group>";
+		};
+		010A14691D7C72660064AF63 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				BAE7188F1D71453D009AB399 /* RiskMainViewController.h */,
+				BAE718901D71453D009AB399 /* RiskMainViewController.m */,
+				015056681D78722A00C1F8D8 /* RiskMainListCell.h */,
+				015056691D78722A00C1F8D8 /* RiskMainListCell.m */,
+				0150566A1D78722A00C1F8D8 /* RiskMainListCell.xib */,
+				BAE718921D714F87009AB399 /* RiskSearchViewController.h */,
+				BAE718931D714F87009AB399 /* RiskSearchViewController.m */,
+				BAE718941D714F87009AB399 /* RiskSearchViewController.xib */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		010A146E1D7C99350064AF63 /* notice */ = {
+			isa = PBXGroup;
+			children = (
+				010A14701D7C99780064AF63 /* NoticeDetailViewController.h */,
+				010A14711D7C99780064AF63 /* NoticeDetailViewController.m */,
+			);
+			name = notice;
+			sourceTree = "<group>";
+		};
+		010A146F1D7C993E0064AF63 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				0150567D1D78A3DF00C1F8D8 /* NoticeWarnMainViewController.h */,
+				0150567E1D78A3DF00C1F8D8 /* NoticeWarnMainViewController.m */,
+				0150567A1D78A3DF00C1F8D8 /* NoticeMainListCell.h */,
+				0150567B1D78A3DF00C1F8D8 /* NoticeMainListCell.m */,
+				0150567C1D78A3DF00C1F8D8 /* NoticeMainListCell.xib */,
+				0150567F1D78A3DF00C1F8D8 /* WarnMainListCell.h */,
+				015056801D78A3DF00C1F8D8 /* WarnMainListCell.m */,
+				015056811D78A3DF00C1F8D8 /* WarnMainListCell.xib */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
 		0150565F1D77A66600C1F8D8 /* risk */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +317,7 @@
 		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				010A146B1D7C76810064AF63 /* ElectricRisk-Bridging-Header.h */,
 				0154B1211D72BE460066D8B7 /* HUD */,
 			);
 			name = ThirdParty;
@@ -336,18 +414,9 @@
 		BAE7188B1D714152009AB399 /* risk */ = {
 			isa = PBXGroup;
 			children = (
-				BAE7188F1D71453D009AB399 /* RiskMainViewController.h */,
-				BAE718901D71453D009AB399 /* RiskMainViewController.m */,
-				015056681D78722A00C1F8D8 /* RiskMainListCell.h */,
-				015056691D78722A00C1F8D8 /* RiskMainListCell.m */,
-				0150566A1D78722A00C1F8D8 /* RiskMainListCell.xib */,
-				BAE718921D714F87009AB399 /* RiskSearchViewController.h */,
-				BAE718931D714F87009AB399 /* RiskSearchViewController.m */,
-				BAE718941D714F87009AB399 /* RiskSearchViewController.xib */,
-				BAE718971D7179FF009AB399 /* RiskDetailViewController.h */,
-				BAE718981D7179FF009AB399 /* RiskDetailViewController.m */,
-				015056871D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.h */,
-				015056881D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m */,
+				010A14691D7C72660064AF63 /* main */,
+				010A14681D7C725C0064AF63 /* detail */,
+				010A14671D7C72510064AF63 /* add */,
 			);
 			name = risk;
 			sourceTree = "<group>";
@@ -370,14 +439,8 @@
 		BAE7188D1D714194009AB399 /* message */ = {
 			isa = PBXGroup;
 			children = (
-				0150567D1D78A3DF00C1F8D8 /* NoticeWarnMainViewController.h */,
-				0150567E1D78A3DF00C1F8D8 /* NoticeWarnMainViewController.m */,
-				0150567A1D78A3DF00C1F8D8 /* NoticeMainListCell.h */,
-				0150567B1D78A3DF00C1F8D8 /* NoticeMainListCell.m */,
-				0150567C1D78A3DF00C1F8D8 /* NoticeMainListCell.xib */,
-				0150567F1D78A3DF00C1F8D8 /* WarnMainListCell.h */,
-				015056801D78A3DF00C1F8D8 /* WarnMainListCell.m */,
-				015056811D78A3DF00C1F8D8 /* WarnMainListCell.xib */,
+				010A146F1D7C993E0064AF63 /* main */,
+				010A146E1D7C99350064AF63 /* notice */,
 			);
 			name = message;
 			sourceTree = "<group>";
@@ -385,10 +448,10 @@
 		BAE7188E1D714199009AB399 /* setting */ = {
 			isa = PBXGroup;
 			children = (
-				BA30A6931D7915D700E40A09 /* AboutUsViewController.h */,
-				BA30A6941D7915D700E40A09 /* AboutUsViewController.m */,
 				BA30A68D1D790C5A00E40A09 /* SettingViewController.h */,
 				BA30A68E1D790C5A00E40A09 /* SettingViewController.m */,
+				BA30A6931D7915D700E40A09 /* AboutUsViewController.h */,
+				BA30A6941D7915D700E40A09 /* AboutUsViewController.m */,
 				BA30A6901D79131D00E40A09 /* ModifyPwdViewController.h */,
 				BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */,
 			);
@@ -456,6 +519,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				010A14631D7C71B60064AF63 /* RiskWrongListViewController.xib in Resources */,
+				010A145E1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib in Resources */,
 				015056831D78A3DF00C1F8D8 /* NoticeMainListCell.xib in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
 				015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */,
@@ -549,7 +614,10 @@
 				015056891D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m in Sources */,
 				015056821D78A3DF00C1F8D8 /* NoticeMainListCell.m in Sources */,
 				015056841D78A3DF00C1F8D8 /* NoticeWarnMainViewController.m in Sources */,
+				010A14721D7C99780064AF63 /* NoticeDetailViewController.m in Sources */,
+				010A14621D7C71B60064AF63 /* RiskWrongListViewController.m in Sources */,
 				015056851D78A3DF00C1F8D8 /* WarnMainListCell.m in Sources */,
+				010A14661D7C721C0064AF63 /* RiskAddViewController.m in Sources */,
 				0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */,
 				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
@@ -681,6 +749,7 @@
 			baseConfigurationReference = 7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -690,6 +759,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.ElectricRisk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ElectricRisk/ElectricRisk-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -698,6 +769,7 @@
 			baseConfigurationReference = 5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -707,6 +779,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.ElectricRisk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ElectricRisk/ElectricRisk-Bridging-Header.h";
 			};
 			name = Release;
 		};

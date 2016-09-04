@@ -8,7 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModifyPwdViewController : UIViewController
+@protocol ModifyPwdDelegate <NSObject>
+
+-(void)modifyPwdSuccess;
+
+@end
+
+@interface ModifyPwdViewController : UIViewController<UITextFieldDelegate>{
+    MBProgressHUD *HUD;
+}
+
+@property (assign, nonatomic) id<ModifyPwdDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITextField *oldPwdTextField;
 @property (strong, nonatomic) IBOutlet UITextField *pwdNewTextField1;
@@ -16,6 +26,6 @@
 
 - (IBAction)goBackBtnClick:(id)sender;
 
-- (IBAction)logoutBtnClick:(id)sender;
+- (IBAction)saveBtnClick:(id)sender;
 
 @end

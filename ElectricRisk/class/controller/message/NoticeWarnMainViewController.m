@@ -72,7 +72,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
             noticeDataArray = (NSArray*)[result objectForKey:@"data"];
             if (noticeDataArray == nil || noticeDataArray.count == 0)
             {
-                [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -98,7 +98,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         noticeDataArray = (NSArray*)[result objectForKey:@"data"];
         if (noticeDataArray == nil || noticeDataArray.count == 0)
         {
-            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -145,7 +145,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
             warnDataArray = (NSArray*)[result objectForKey:@"data"];
             if (warnDataArray == nil || warnDataArray.count == 0)
             {
-                [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -171,7 +171,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         warnDataArray = (NSArray*)[result objectForKey:@"data"];
         if (warnDataArray == nil || warnDataArray.count == 0)
         {
-            [[JTToast toastWithText:(NSString*)[result objectForKey:@"未获取到数据，或数据为空"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -182,9 +182,14 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     [HUD hideByCustomView:YES];
 }
 
-- (IBAction)searchBtnClick:(id)sender
+- (IBAction)writeBtnClick:(id)sender
 {
-    
+    if (isNoticeList)
+    {
+        [self performSegueWithIdentifier:@"ToAddNotice" sender:self];
+    }else{
+        [self performSegueWithIdentifier:@"ToAddWarn" sender:self];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -217,6 +222,34 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         cell.dataDic = [warnDataArray objectAtIndex:indexPath.row];
         [cell setViewByData];
         return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (isNoticeList)
+    {
+        currentSelectedNotice = [noticeDataArray objectAtIndex:indexPath.row];
+        if(currentSelectedNotice != nil)
+        {
+            [self performSegueWithIdentifier:@"ToNoticeDetail" sender:self];
+        }
+    }else{
+        currentSelectedWarn = [warnDataArray objectAtIndex:indexPath.row];
+        if(currentSelectedWarn != nil)
+        {
+            [self performSegueWithIdentifier:@"ToWarnDetail" sender:self];
+        }
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ToNoticeDetail"])
+    {
+        NoticeDetailViewController *noticeDetailViewController = [segue destinationViewController];
+        [noticeDetailViewController initViewWithData:currentSelectedNotice];
     }
 }
 

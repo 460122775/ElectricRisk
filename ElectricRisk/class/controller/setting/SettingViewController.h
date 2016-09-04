@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModifyPwdViewController.h"
 
-@interface SettingViewController : UIViewController
+@interface SettingViewController : UIViewController<ModifyPwdDelegate>
 
 - (IBAction)updatePwdBtnClick:(id)sender;
 
