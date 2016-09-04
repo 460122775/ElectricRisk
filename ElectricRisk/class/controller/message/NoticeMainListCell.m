@@ -18,16 +18,16 @@
 
 -(void)setViewByData
 {
-    self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"title"], [self.dataDic objectForKey:@"name"]];
+    self.titleLabel.text =  [self.dataDic objectForKey:@"title"];
     self.contentLabel.text = [self.dataDic objectForKey:@"content"];
-    
+    self.addressLabel.text = [self.dataDic objectForKey:@"name"];
     int state = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
     switch (state)
     {
-        case Notice_State_Not: self.addressLabel.text = @"未读"; break;
-        case Notice_State_Read: self.addressLabel.text = @"已读"; break;
-        case Notice_State_Reply: self.addressLabel.text = @"已回复"; break;
-        default: self.addressLabel.text = [NSString stringWithFormat:@"未知状态:%i", state]; break;
+        case Notice_State_Not: self.stateView.backgroundColor = [UIColor darkGrayColor];break;
+        case Notice_State_Read: self.stateView.backgroundColor = [UIColor lightGrayColor]; break;
+        case Notice_State_Reply: self.stateView.backgroundColor = [UIColor lightGrayColor]; break;
+        default: self.stateView.backgroundColor = [UIColor darkGrayColor]; break;
     }
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"publish_time"] doubleValue] / 1000.0)];

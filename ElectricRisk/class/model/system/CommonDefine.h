@@ -31,6 +31,7 @@
 #define PATH_NOTICE_LIST @"/api/notice/getNews.do"      //获取公告列表
 #define PATH_NOTICE_COMMENT @"/api/project/reply.do"    //回复公告
 #define PATH_NOTICE_COMMENT_LIST @"/api/project/replyList.do"//获取公告回复
+#define PATH_NOTICE_READ @"/api/notice/viewmsg.do"   //消息状态已读
 #define PATH_NOTICE_ADD @"/api/notice/addNotice.do"     //发布公告
 #define PATH_NOTICE_MYLIST @"/api/notice/getList.do"    //获取我的公告
 #define PATH_WARN_LSIT @"/api/notice/getwarn.do"        //获取风险提醒列表

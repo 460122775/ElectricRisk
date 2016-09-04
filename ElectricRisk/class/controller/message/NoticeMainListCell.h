@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *contentLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UIView *stateView;
 
 -(void)setViewByData;
 

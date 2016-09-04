@@ -42,6 +42,17 @@
     }else{
         [self requestData];
     }
+    // Request read.
+    int state = [(NSNumber*)[self.noticeDataDic objectForKey:@"state"] intValue];
+    if (state == Notice_State_Not)
+    {
+        if (OFFLINE)
+        {
+            [self testReadData];
+        }else{
+            [self requestReadData];
+        }
+    }
 }
 
 -(void)testData
@@ -103,6 +114,51 @@
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
+        [HUD hideByCustomView:YES];
+    } failed:^(id responseData) {
+        [HUD hideByCustomView:YES];
+        [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }];
+}
+
+-(void)testReadData
+{
+    NSError *jsonError;
+    NSData *objectData = [@"{\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
+                                                           options:NSJSONReadingMutableContainers
+                                                             error:&jsonError];
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state != State_Success)
+    {
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
+}
+
+-(void)requestReadData
+{
+    if (self.noticeDataDic == nil) return;
+    if (HUD == nil)
+    {
+        HUD = [[MBProgressHUD alloc]init];
+    }
+    [self.view addSubview:HUD];
+    HUD.dimBackground =YES;
+    HUD.labelText = @"正在加载数据...";
+    [HUD removeFromSuperViewOnHide];
+    [HUD showByCustomView:YES];
+    
+    NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
+                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"id":[self.noticeDataDic objectForKey:@"id"]};
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_NOTICE_READ) parameter:dict header:nil content:nil success:^(id responseData) {
+        NSDictionary *result = responseData;
+        int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+        if (state != State_Success)
+        {
+            [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+        [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -153,6 +209,7 @@
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
+        [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];

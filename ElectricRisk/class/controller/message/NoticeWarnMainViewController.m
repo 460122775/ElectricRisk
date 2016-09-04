@@ -90,7 +90,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
 -(void)testNoticeData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"data\":[{\"content\":\"thisismessage\",\"id\":2499,\"name\":\"admin\",\"notice_id\":61,\"publish_date\":1471449600000,\"state\":0,\"title\":\"title\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":[{\"content\":\"thisismessage\",\"id\":2499,\"name\":\"admin\",\"notice_id\":61,\"publish_date\":1471449600000,\"state\":0,\"title\":\"title\"},{\"content\":\"hello world\",\"id\":2499,\"name\":\"yasin\",\"notice_id\":61,\"publish_date\":1471448800000,\"state\":2,\"title\":\"Helloworld\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData options:NSJSONReadingMutableContainers error:&jsonError];
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
@@ -239,7 +239,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         currentSelectedWarn = [warnDataArray objectAtIndex:indexPath.row];
         if(currentSelectedWarn != nil)
         {
-            [self performSegueWithIdentifier:@"ToWarnDetail" sender:self];
+//            [self performSegueWithIdentifier:@"ToWarnDetail" sender:self];
         }
     }
 }
