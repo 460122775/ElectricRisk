@@ -29,9 +29,9 @@
     int isActive = [(NSNumber*)[self.dataDic objectForKey:@"is_active"] intValue];
     if (isActive == Active_State_Normal)
     {
-        [self.stopLabel setHidden:NO];
-    }else{
         [self.stopLabel setHidden:YES];
+    }else{
+        [self.stopLabel setHidden:NO];
     }
 }
 

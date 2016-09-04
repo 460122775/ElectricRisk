@@ -28,6 +28,7 @@
 		015056841D78A3DF00C1F8D8 /* NoticeWarnMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150567E1D78A3DF00C1F8D8 /* NoticeWarnMainViewController.m */; };
 		015056851D78A3DF00C1F8D8 /* WarnMainListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056801D78A3DF00C1F8D8 /* WarnMainListCell.m */; };
 		015056861D78A3DF00C1F8D8 /* WarnMainListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 015056811D78A3DF00C1F8D8 /* WarnMainListCell.xib */; };
+		015056891D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056881D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m */; };
 		015259B21D70918F00AD3E67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B11D70918F00AD3E67 /* main.m */; };
 		015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B41D70918F00AD3E67 /* AppDelegate.m */; };
 		015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 015259B71D70918F00AD3E67 /* LoginViewController.m */; };
@@ -45,7 +46,6 @@
 		BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718931D714F87009AB399 /* RiskSearchViewController.m */; };
 		BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718941D714F87009AB399 /* RiskSearchViewController.xib */; };
 		BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718981D7179FF009AB399 /* RiskDetailViewController.m */; };
-		BAE7189B1D7179FF009AB399 /* RiskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718991D7179FF009AB399 /* RiskDetailViewController.xib */; };
 		C0FBD52A6B656522062415BC /* Pods_ElectricRisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +87,8 @@
 		0150567F1D78A3DF00C1F8D8 /* WarnMainListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarnMainListCell.h; path = class/controller/message/WarnMainListCell.h; sourceTree = "<group>"; };
 		015056801D78A3DF00C1F8D8 /* WarnMainListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarnMainListCell.m; path = class/controller/message/WarnMainListCell.m; sourceTree = "<group>"; };
 		015056811D78A3DF00C1F8D8 /* WarnMainListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WarnMainListCell.xib; path = class/controller/message/WarnMainListCell.xib; sourceTree = "<group>"; };
+		015056871D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskExecutiveTimeListViewController.h; path = class/controller/risk/RiskExecutiveTimeListViewController.h; sourceTree = "<group>"; };
+		015056881D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskExecutiveTimeListViewController.m; path = class/controller/risk/RiskExecutiveTimeListViewController.m; sourceTree = "<group>"; };
 		015259AD1D70918F00AD3E67 /* ElectricRisk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricRisk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		015259B11D70918F00AD3E67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		015259B31D70918F00AD3E67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -121,7 +123,6 @@
 		BAE718941D714F87009AB399 /* RiskSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskSearchViewController.xib; path = class/controller/risk/RiskSearchViewController.xib; sourceTree = "<group>"; };
 		BAE718971D7179FF009AB399 /* RiskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailViewController.h; path = class/controller/risk/RiskDetailViewController.h; sourceTree = "<group>"; };
 		BAE718981D7179FF009AB399 /* RiskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskDetailViewController.m; path = class/controller/risk/RiskDetailViewController.m; sourceTree = "<group>"; };
-		BAE718991D7179FF009AB399 /* RiskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskDetailViewController.xib; path = class/controller/risk/RiskDetailViewController.xib; sourceTree = "<group>"; };
 		FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectricRisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -345,7 +346,8 @@
 				BAE718941D714F87009AB399 /* RiskSearchViewController.xib */,
 				BAE718971D7179FF009AB399 /* RiskDetailViewController.h */,
 				BAE718981D7179FF009AB399 /* RiskDetailViewController.m */,
-				BAE718991D7179FF009AB399 /* RiskDetailViewController.xib */,
+				015056871D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.h */,
+				015056881D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m */,
 			);
 			name = risk;
 			sourceTree = "<group>";
@@ -454,7 +456,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAE7189B1D7179FF009AB399 /* RiskDetailViewController.xib in Resources */,
 				015056831D78A3DF00C1F8D8 /* NoticeMainListCell.xib in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
 				015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */,
@@ -545,6 +546,7 @@
 				0150566F1D7894A000C1F8D8 /* CheckVerifyMainViewController.m in Sources */,
 				0150564F1D77A29E00C1F8D8 /* RiskCheckVo.m in Sources */,
 				015056731D789BB500C1F8D8 /* CheckMainListCell.m in Sources */,
+				015056891D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m in Sources */,
 				015056821D78A3DF00C1F8D8 /* NoticeMainListCell.m in Sources */,
 				015056841D78A3DF00C1F8D8 /* NoticeWarnMainViewController.m in Sources */,
 				015056851D78A3DF00C1F8D8 /* WarnMainListCell.m in Sources */,
