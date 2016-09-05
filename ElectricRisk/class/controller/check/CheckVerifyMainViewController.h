@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CheckMainListCell.h"
 #import "VerifyMainListCell.h"
+#import "CheckDetailViewController.h"
 
 @interface CheckVerifyMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
     BOOL isCheckList;
@@ -16,6 +17,9 @@
     
     NSArray* checkDataArray;
     NSArray* verifyDataArray;
+    
+    NSDictionary* currentSelectedCheck;
+    NSDictionary* currentSelectedVerify;
 }
 
 @property (strong, nonatomic) IBOutlet UIButton *checkBtn;

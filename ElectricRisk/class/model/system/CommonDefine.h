@@ -9,16 +9,13 @@
 #ifndef CommonDefine_h
 #define CommonDefine_h
 
+#define OFFLINE YES // YES or NO, YES for test.
+
+#define CodingKey @"DLJIJIAN"   //密钥
+#define CodingOffset @"01234567"//偏移量
+
 #define URL_SERVER @"http://127.0.0.1:8080/ElectricRisk"
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
-
-#define OFFLINE YES
-//密钥
-#define CodingKey @"DLJIJIAN"
-//偏移量
-#define CodingOffset @"01234567"
-#define State_Success 1
-#define State_Fault 0
 
 /**  URL Define **/
 #define PATH_LOGIN @"/api/login/login.do"           //登录
@@ -51,6 +48,10 @@
 #define Color_red [UIColor colorWithRed:255/255.0 green:0/255.0 blue:0/255.0 alpha:1]
 #define Color_me [UIColor colorWithRed:56/255.0 green:142/255.0 blue:142/255.0 alpha:1]
 
+/** Define operation **/
+#define State_Success 1
+#define State_Fault 0
+
 /** Check State **/
 #define Check_State_Wait 1
 #define Check_State_No 2
@@ -66,9 +67,17 @@
 #define Notice_State_Read 1
 #define Notice_State_Reply 2
 
+/** Define type for check & verify **/
+#define TYPE_CHECK 0
+#define TYPE_VERIFY 1
+
+/** Define result for check & verify **/
+#define CHECKSTATE_DISAGREE 1
+#define CHECKSTATE_AGREE 2
+
+/** Define singleton **/
 #define singleton_interface(className) \
 + (className *)instance;
-
 
 #define singleton_implementation(className) \
 static className *_instance; \
@@ -89,7 +98,7 @@ _instance = [[self alloc] init]; \
 return _instance; \
 }
 
-
+/** Define DLog **/
 #ifdef DEBUG
 #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else

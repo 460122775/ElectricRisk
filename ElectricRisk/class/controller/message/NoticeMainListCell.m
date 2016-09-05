@@ -24,13 +24,13 @@
     int state = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
     switch (state)
     {
-        case Notice_State_Not: self.stateView.backgroundColor = [UIColor darkGrayColor];break;
-        case Notice_State_Read: self.stateView.backgroundColor = [UIColor lightGrayColor]; break;
+        case Notice_State_Not: self.stateView.backgroundColor = [UIColor redColor];break;
+        case Notice_State_Read: self.stateView.backgroundColor = [UIColor darkGrayColor]; break;
         case Notice_State_Reply: self.stateView.backgroundColor = [UIColor lightGrayColor]; break;
         default: self.stateView.backgroundColor = [UIColor darkGrayColor]; break;
     }
     
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"publish_time"] doubleValue] / 1000.0)];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"publish_date"] doubleValue] / 1000.0)];
     NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
     [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     self.timeLabel.text = [dtfrm stringFromDate:date];

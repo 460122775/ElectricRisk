@@ -230,6 +230,30 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (isCheckList)
+    {
+        currentSelectedCheck = [checkDataArray objectAtIndex:indexPath.row];
+        if(currentSelectedCheck != nil)
+        {
+            [self performSegueWithIdentifier:@"ToCheckDetail" sender:self];
+        }
+    }else{
+        currentSelectedVerify = [verifyDataArray objectAtIndex:indexPath.row];
+        if(currentSelectedVerify != nil)
+        {
+            //            [self performSegueWithIdentifier:@"ToVerifyDetail" sender:self];
+        }
+    }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ToCheckDetail"])
+    {
+        CheckDetailViewController *checkDetailViewController = [segue destinationViewController];
+        [checkDetailViewController initViewWithData:currentSelectedCheck];
+    }
+}
+
 
 @end

@@ -263,6 +263,7 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier: NoticeCommentCell];
         cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor darkGrayColor];
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%@：%@",
                            [(NSDictionary*)[self.commentArray objectAtIndex:indexPath.row] objectForKey:@"user_name"],

@@ -42,6 +42,8 @@
 		015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */; };
 		0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11A1D72B11E0066D8B7 /* SystemConfig.m */; };
 		0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */; };
+		BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */; };
+		BA1ACAD71D7D0A8400EB96BC /* CheckDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD61D7D0A8400EB96BC /* CheckDetailViewController.m */; };
 		BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A68E1D790C5A00E40A09 /* SettingViewController.m */; };
 		BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */; };
 		BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6941D7915D700E40A09 /* AboutUsViewController.m */; };
@@ -121,6 +123,10 @@
 		0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
 		5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
 		7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
+		BA1ACAD01D7CFD3600EB96BC /* NoticeAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeAddViewController.h; path = class/controller/message/notice/NoticeAddViewController.h; sourceTree = "<group>"; };
+		BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeAddViewController.m; path = class/controller/message/notice/NoticeAddViewController.m; sourceTree = "<group>"; };
+		BA1ACAD51D7D0A8400EB96BC /* CheckDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckDetailViewController.h; path = class/controller/check/CheckDetailViewController.h; sourceTree = "<group>"; };
+		BA1ACAD61D7D0A8400EB96BC /* CheckDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckDetailViewController.m; path = class/controller/check/CheckDetailViewController.m; sourceTree = "<group>"; };
 		BA30A68D1D790C5A00E40A09 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = class/controller/setting/SettingViewController.h; sourceTree = "<group>"; };
 		BA30A68E1D790C5A00E40A09 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = class/controller/setting/SettingViewController.m; sourceTree = "<group>"; };
 		BA30A6901D79131D00E40A09 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifyPwdViewController.h; path = class/controller/setting/ModifyPwdViewController.h; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 			children = (
 				010A14701D7C99780064AF63 /* NoticeDetailViewController.h */,
 				010A14711D7C99780064AF63 /* NoticeDetailViewController.m */,
+				BA1ACAD01D7CFD3600EB96BC /* NoticeAddViewController.h */,
+				BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */,
 			);
 			name = notice;
 			sourceTree = "<group>";
@@ -360,6 +368,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BA1ACAD31D7D09CF00EB96BC /* main */ = {
+			isa = PBXGroup;
+			children = (
+				0150566D1D7894A000C1F8D8 /* CheckVerifyMainViewController.h */,
+				0150566E1D7894A000C1F8D8 /* CheckVerifyMainViewController.m */,
+				015056701D789BB500C1F8D8 /* CheckMainListCell.h */,
+				015056711D789BB500C1F8D8 /* CheckMainListCell.m */,
+				015056721D789BB500C1F8D8 /* CheckMainListCell.xib */,
+				015056751D789EAF00C1F8D8 /* VerifyMainListCell.h */,
+				015056761D789EAF00C1F8D8 /* VerifyMainListCell.m */,
+				015056771D789EAF00C1F8D8 /* VerifyMainListCell.xib */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		BA1ACAD41D7D09E000EB96BC /* check */ = {
+			isa = PBXGroup;
+			children = (
+				BA1ACAD51D7D0A8400EB96BC /* CheckDetailViewController.h */,
+				BA1ACAD61D7D0A8400EB96BC /* CheckDetailViewController.m */,
+			);
+			name = check;
+			sourceTree = "<group>";
+		};
 		BA55C6921D7800E300FDA2F6 /* conn */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,14 +456,8 @@
 		BAE7188C1D714176009AB399 /* check */ = {
 			isa = PBXGroup;
 			children = (
-				0150566D1D7894A000C1F8D8 /* CheckVerifyMainViewController.h */,
-				0150566E1D7894A000C1F8D8 /* CheckVerifyMainViewController.m */,
-				015056701D789BB500C1F8D8 /* CheckMainListCell.h */,
-				015056711D789BB500C1F8D8 /* CheckMainListCell.m */,
-				015056721D789BB500C1F8D8 /* CheckMainListCell.xib */,
-				015056751D789EAF00C1F8D8 /* VerifyMainListCell.h */,
-				015056761D789EAF00C1F8D8 /* VerifyMainListCell.m */,
-				015056771D789EAF00C1F8D8 /* VerifyMainListCell.xib */,
+				BA1ACAD41D7D09E000EB96BC /* check */,
+				BA1ACAD31D7D09CF00EB96BC /* main */,
 			);
 			name = check;
 			sourceTree = "<group>";
@@ -605,6 +631,7 @@
 			files = (
 				015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */,
 				BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */,
+				BA1ACAD71D7D0A8400EB96BC /* CheckDetailViewController.m in Sources */,
 				0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */,
 				BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */,
 				0150565B1D77A57700C1F8D8 /* NoticeMyListVo.m in Sources */,
@@ -626,6 +653,7 @@
 				0150566B1D78722A00C1F8D8 /* RiskMainListCell.m in Sources */,
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
+				BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */,
 				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,
 				BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
