@@ -1,5 +1,5 @@
 //
-//  CheckDetailViewController.h
+//  VerifyDetailViewController
 //  ElectricRisk
 //
 //  Created by yasin zhang on 16/9/5.
@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CheckDetailViewController : UIViewController{
+@interface VerifyDetailViewController : UIViewController{
     MBProgressHUD *HUD;
     NSDateFormatter *dtfrm;
     int currentLCValue;
     int currentKeyboardHeight;
 }
 
-@property (strong, nonatomic) NSDictionary *checkDataDic;
-@property (strong, nonatomic) NSDictionary *checkDetailDataDic;
+@property (strong, nonatomic) NSDictionary *verifyDataDic;
+@property (strong, nonatomic) NSDictionary *verifyDetailDataDic;
 
 @property (strong, nonatomic) IBOutlet UIImageView *process_startImgView;
 @property (strong, nonatomic) IBOutlet UIImageView *process_applyImgView;
@@ -43,6 +43,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *yzCompanyNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yzTimeLabel;
 
+@property (strong, nonatomic) IBOutlet UIView *jgContainerView;
+@property (strong, nonatomic) IBOutlet UITextView *jgContentView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *jgContentViewHeight;
+@property (strong, nonatomic) IBOutlet UILabel *jgCompanyNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *jgTimeLabel;
+
 @property (strong, nonatomic) IBOutlet UIView *agreeView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *agreeViewTopPadding;
 @property (strong, nonatomic) IBOutlet UISwitch *agreeSwitch;
@@ -57,6 +63,6 @@
 
 - (IBAction)agreeSwitchChanged:(id)sender;
 
-- (void)initViewWithData:(NSDictionary*)checkDataDic;
+- (void)initViewWithData:(NSDictionary*)verifyDataDic;
 
 @end

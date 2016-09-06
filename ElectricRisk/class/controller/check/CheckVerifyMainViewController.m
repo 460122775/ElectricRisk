@@ -241,7 +241,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         currentSelectedVerify = [verifyDataArray objectAtIndex:indexPath.row];
         if(currentSelectedVerify != nil)
         {
-            //            [self performSegueWithIdentifier:@"ToVerifyDetail" sender:self];
+            [self performSegueWithIdentifier:@"ToVerifyDetail" sender:self];
         }
     }
 }
@@ -252,6 +252,10 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     {
         CheckDetailViewController *checkDetailViewController = [segue destinationViewController];
         [checkDetailViewController initViewWithData:currentSelectedCheck];
+    }else if ([[segue identifier] isEqualToString:@"ToVerifyDetail"]){
+        VerifyDetailViewController *verifyDetailViewController = [segue destinationViewController];
+        [verifyDetailViewController initViewWithData:currentSelectedVerify];
+        
     }
 }
 

@@ -1,18 +1,18 @@
 //
-//  CheckDetailViewController.m
+//  VerifyDetailViewController
 //  ElectricRisk
 //
 //  Created by yasin zhang on 16/9/5.
 //  Copyright © 2016年 com.yasin.electric. All rights reserved.
 //
 
-#import "CheckDetailViewController.h"
+#import "VerifyDetailViewController.h"
 
-@interface CheckDetailViewController ()
+@interface VerifyDetailViewController ()
 
 @end
 
-@implementation CheckDetailViewController
+@implementation VerifyDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,7 +33,7 @@
     self.agreeContentTextView.layer.borderWidth = 1;
     self.agreeContentTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
-    [self initViewWithData:self.checkDataDic];
+    [self initViewWithData:self.verifyDataDic];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,15 +61,16 @@
     switch (currentLCValue)
     {
         case 0: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"提交到业主项目部": @"驳回施工项目部" forState:UIControlStateNormal]; break;
-        case 1: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"归档": @"驳回监理项目部" forState:UIControlStateNormal]; break;
+        case 1: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"提交到建管单位": @"驳回监理项目部" forState:UIControlStateNormal]; break;
+        case 2: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"归档": @"驳回业主项目部" forState:UIControlStateNormal]; break;
         default: break;
     }
     
 }
 
-- (void)initViewWithData:(NSDictionary*)checkDataDic
+- (void)initViewWithData:(NSDictionary*)verifyDataDic
 {
-    self.checkDataDic = checkDataDic;
+    self.verifyDataDic = verifyDataDic;
     if (self.projectNameLabel == nil) return;
     if (OFFLINE)
     {
@@ -82,17 +83,17 @@
 -(void)testData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"data\": {        \"bslc\": 1,        \"bsxx\": {            \"code\": \"dlg\",            \"content\": \"报审内容\",            \"create_time\": 1471449600000,            \"name\": \"dlg-sg-1\",            \"project_name\": \"第六个\"        },        \"sp_state\": 0,        \"spxx\": {            \"jl_content\": \"Hello world.\",            \"jl_name\": \"dlg-jl-1\",            \"jl_time\": 1471449600000,            \"jl_yj\": 2,            \"yz_content\": \"\",            \"yz_name\": \"dlg-yz-1\",            \"yz_time\": 1471449600000,            \"yz_yj\": 2        }    },    \"state\": 1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\": {        \"bslc\": 2,        \"bsxx\": {            \"code\": \"dlg\",            \"content\": \"报审内容\",            \"create_time\": 1471449600000,            \"name\": \"dlg-sg-1\",            \"project_name\": \"第六个\"        },        \"sp_state\": 0,        \"spxx\": {            \"jl_content\": \"Hello world.\",            \"jl_name\": \"dlg-jl-1\",            \"jl_time\": 1471449600000,            \"jl_yj\": 2,            \"yz_content\": \"\",            \"yz_name\": \"dlg-yz-1\",            \"yz_time\": 1471449600000,            \"yz_yj\": 2        }    },    \"state\": 1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-        self.checkDetailDataDic = [result objectForKey:@"data"];
-        if (self.checkDetailDataDic == nil)
+        self.verifyDetailDataDic = [result objectForKey:@"data"];
+        if (self.verifyDetailDataDic == nil)
         {
-            [[JTToast toastWithText:@"未获取到该审核的内容数据" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            [[JTToast toastWithText:@"未获取到该验收的内容数据" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self initViewByDetailData];
@@ -104,7 +105,7 @@
 
 -(void)requestData
 {
-    if (self.checkDataDic == nil) return;
+    if (self.verifyDataDic == nil) return;
     if (HUD == nil)
     {
         HUD = [[MBProgressHUD alloc]init];
@@ -117,17 +118,17 @@
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
-                           @"id":[self.checkDataDic objectForKey:@"id"],
-                           @"type":@TYPE_CHECK};
+                           @"id":[self.verifyDataDic objectForKey:@"id"],
+                           @"type":@TYPE_VERIFY};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_REPORTDETAIL) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            self.checkDetailDataDic = [result objectForKey:@"data"];
-            if (self.checkDetailDataDic == nil)
+            self.verifyDetailDataDic = [result objectForKey:@"data"];
+            if (self.verifyDetailDataDic == nil)
             {
-                [[JTToast toastWithText:@"未获取到该审核的内容数据" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [[JTToast toastWithText:@"未获取到该验收的内容数据" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self initViewByDetailData];
@@ -152,12 +153,12 @@
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-        if (self.checkDetailDataDic == nil)
+        if (self.verifyDetailDataDic == nil)
         {
             [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self initViewWithData:self.checkDataDic];
+            [self initViewWithData:self.verifyDataDic];
         });
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -166,7 +167,7 @@
 
 -(void)requestCommitData
 {
-    if (self.checkDataDic == nil) return;
+    if (self.verifyDataDic == nil) return;
     if (HUD == nil)
     {
         HUD = [[MBProgressHUD alloc]init];
@@ -179,20 +180,20 @@
     
     NSDictionary *dict = @{@"state":(self.agreeSwitch.isOn) ? @"2" : @"1",
                            @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
-                           @"id":[self.checkDataDic objectForKey:@"id"],
-                           @"flag":@"sp",
+                           @"id":[self.verifyDataDic objectForKey:@"id"],
+                           @"flag":@"ys",
                            @"reason":(self.agreeContentTextView.text == nil) ? @"" : self.agreeContentTextView.text};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_REPORTOPERATE) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            if (self.checkDetailDataDic == nil)
+            if (self.verifyDetailDataDic == nil)
             {
                 [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self initViewWithData:self.checkDataDic];
+                [self initViewWithData:self.verifyDataDic];
             });
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -207,8 +208,8 @@
 
 -(void)initViewByDetailData
 {
-    if (self.checkDetailDataDic == nil) return;
-    NSDictionary *bsDic = [self.checkDetailDataDic objectForKey:@"bsxx"];
+    if (self.verifyDetailDataDic == nil) return;
+    NSDictionary *bsDic = [self.verifyDetailDataDic objectForKey:@"bsxx"];
     if (bsDic != nil)
     {
         self.projectNameLabel.text = [bsDic objectForKey:@"project_name"];
@@ -218,8 +219,9 @@
         self.bsTimeLabel.text = [dtfrm stringFromDate:date];
     }
     
-    currentLCValue = [(NSNumber*)[self.checkDetailDataDic  objectForKey:@"bslc"] doubleValue];
-    NSDictionary *spDic = [self.checkDetailDataDic objectForKey:@"spxx"];
+    currentLCValue = [(NSNumber*)[self.verifyDetailDataDic  objectForKey:@"bslc"] doubleValue];
+    NSDictionary *spDic = [self.verifyDetailDataDic objectForKey:@"spxx"];
+    
     
     if (spDic != nil)
     {
@@ -255,7 +257,22 @@
             self.process_yzImgView.image = [UIImage imageNamed:@"40"];
         }
         
-        if (currentLCValue >= 2)
+        if (currentLCValue > 2)
+        {
+            self.jgContentView.text = [NSString stringWithFormat:@"%@\n%@",
+                                       ([(NSNumber*)[spDic objectForKey:@"jg_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
+                                       [spDic objectForKey:@"jg_content"]];
+            self.jgCompanyNameLabel.text = [spDic objectForKey:@"jg_name"];
+            NSDate *jgDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"jg_time"] doubleValue] / 1000.0)];
+            self.jgTimeLabel.text = [dtfrm stringFromDate:jgDate];
+            
+            self.process_jgImgView.image = [UIImage imageNamed:@"51"];
+            self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerView.frame.size.height + 12;
+        }else{
+            self.process_jgImgView.image = [UIImage imageNamed:@"50"];
+        }
+        
+        if (currentLCValue >= 3)
         {
             self.process_overImgView.image = [UIImage imageNamed:@"61"];
             [self.agreeView setHidden:YES];

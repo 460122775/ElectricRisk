@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0101C0B21D7F2C4C002915A4 /* VerifyDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0101C0B11D7F2C4C002915A4 /* VerifyDetailViewController.m */; };
 		010A145E1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010A145C1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib */; };
 		010A14621D7C71B60064AF63 /* RiskWrongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A14601D7C71B60064AF63 /* RiskWrongListViewController.m */; };
 		010A14631D7C71B60064AF63 /* RiskWrongListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010A14611D7C71B60064AF63 /* RiskWrongListViewController.xib */; };
@@ -57,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0101C0B01D7F2C4C002915A4 /* VerifyDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerifyDetailViewController.h; path = class/controller/check/VerifyDetailViewController.h; sourceTree = "<group>"; };
+		0101C0B11D7F2C4C002915A4 /* VerifyDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerifyDetailViewController.m; path = class/controller/check/VerifyDetailViewController.m; sourceTree = "<group>"; };
 		010A145C1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskExecutiveTimeListViewController.xib; path = class/controller/risk/RiskExecutiveTimeListViewController.xib; sourceTree = "<group>"; };
 		010A145F1D7C71B60064AF63 /* RiskWrongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskWrongListViewController.h; path = class/controller/risk/RiskWrongListViewController.h; sourceTree = "<group>"; };
 		010A14601D7C71B60064AF63 /* RiskWrongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskWrongListViewController.m; path = class/controller/risk/RiskWrongListViewController.m; sourceTree = "<group>"; };
@@ -159,6 +162,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0101C0AF1D7F2C2B002915A4 /* verify */ = {
+			isa = PBXGroup;
+			children = (
+				0101C0B01D7F2C4C002915A4 /* VerifyDetailViewController.h */,
+				0101C0B11D7F2C4C002915A4 /* VerifyDetailViewController.m */,
+			);
+			name = verify;
+			sourceTree = "<group>";
+		};
 		010A14671D7C72510064AF63 /* add */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,8 +468,9 @@
 		BAE7188C1D714176009AB399 /* check */ = {
 			isa = PBXGroup;
 			children = (
-				BA1ACAD41D7D09E000EB96BC /* check */,
 				BA1ACAD31D7D09CF00EB96BC /* main */,
+				0101C0AF1D7F2C2B002915A4 /* verify */,
+				BA1ACAD41D7D09E000EB96BC /* check */,
 			);
 			name = check;
 			sourceTree = "<group>";
@@ -634,6 +647,7 @@
 				BA1ACAD71D7D0A8400EB96BC /* CheckDetailViewController.m in Sources */,
 				0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */,
 				BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */,
+				0101C0B21D7F2C4C002915A4 /* VerifyDetailViewController.m in Sources */,
 				0150565B1D77A57700C1F8D8 /* NoticeMyListVo.m in Sources */,
 				0150566F1D7894A000C1F8D8 /* CheckVerifyMainViewController.m in Sources */,
 				0150564F1D77A29E00C1F8D8 /* RiskCheckVo.m in Sources */,

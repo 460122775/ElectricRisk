@@ -10,6 +10,7 @@
 #import "CheckMainListCell.h"
 #import "VerifyMainListCell.h"
 #import "CheckDetailViewController.h"
+#import "VerifyDetailViewController.h"
 
 @interface CheckVerifyMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
     BOOL isCheckList;
