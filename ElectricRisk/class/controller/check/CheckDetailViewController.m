@@ -17,10 +17,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
     dtfrm = [[NSDateFormatter alloc] init];
     [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     // Do any additional setup after loading the view.
+    self.agreeContentTextView.layer.borderWidth = 1;
+    self.agreeContentTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
     [self initViewWithData:self.checkDataDic];
 }
 
@@ -32,6 +44,28 @@
 - (IBAction)goBackBtnClick:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)agreeSubmitBtnClick:(id)sender
+{
+    if (OFFLINE)
+    {
+        [self testCommitData];
+    }else{
+        [self requestCommitData];
+    }
+}
+
+- (IBAction)agreeSwitchChanged:(id)sender
+{
+    switch (currentLCValue)
+    {
+        case 0: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"提交到业主项目部": @"驳回施工项目部" forState:UIControlStateNormal]; break;
+        case 1: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"提交到建管单位": @"驳回监理项目部" forState:UIControlStateNormal]; break;
+        case 2: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"归档": @"驳回业主项目部" forState:UIControlStateNormal]; break;
+        default: break;
+    }
+    
 }
 
 - (void)initViewWithData:(NSDictionary*)checkDataDic
@@ -49,7 +83,7 @@
 -(void)testData
 {
     NSError *jsonError;
-    NSData *objectData = [@" \"data\": {        \"bslc\": 3,        \"bsxx\": {            \"code\": \"dlg\",            \"content\": \"报审内容\",            \"create_time\": 1471449600000,            \"name\": \"dlg-sg-1\",            \"project_name\": \"第六个\"        },        \"sp_state\": 0,        \"spxx\": {            \"jl_content\": \"Hello world.\",            \"jl_name\": \"dlg-jl-1\",            \"jl_time\": 1471449600000,            \"jl_yj\": 2,            \"yz_content\": \"\",            \"yz_name\": \"dlg-yz-1\",            \"yz_time\": 1471449600000,            \"yz_yj\": 2        }    },    \"state\": 1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\": {        \"bslc\": 0,        \"bsxx\": {            \"code\": \"dlg\",            \"content\": \"报审内容\",            \"create_time\": 1471449600000,            \"name\": \"dlg-sg-1\",            \"project_name\": \"第六个\"        },        \"sp_state\": 0,        \"spxx\": {            \"jl_content\": \"Hello world.\",            \"jl_name\": \"dlg-jl-1\",            \"jl_time\": 1471449600000,            \"jl_yj\": 2,            \"yz_content\": \"\",            \"yz_name\": \"dlg-yz-1\",            \"yz_time\": 1471449600000,            \"yz_yj\": 2        }    },    \"state\": 1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
@@ -86,7 +120,7 @@
                            @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
                            @"id":[self.checkDataDic objectForKey:@"id"],
                            @"type":@TYPE_CHECK};
-    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_NOTICE_COMMENT_LIST) parameter:dict header:nil content:nil success:^(id responseData) {
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_REPORTDETAIL) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
@@ -109,6 +143,69 @@
     }];
 }
 
+-(void)testCommitData
+{
+    NSError *jsonError;
+    NSData *objectData = [@"{\"state\": 1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
+                                                           options:NSJSONReadingMutableContainers
+                                                             error:&jsonError];
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
+    {
+        if (self.checkDetailDataDic == nil)
+        {
+            [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self initViewWithData:self.checkDataDic];
+        });
+    }else{
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
+}
+
+-(void)requestCommitData
+{
+    if (self.checkDataDic == nil) return;
+    if (HUD == nil)
+    {
+        HUD = [[MBProgressHUD alloc]init];
+    }
+    [self.view addSubview:HUD];
+    HUD.dimBackground =YES;
+    HUD.labelText = @"正在加载数据...";
+    [HUD removeFromSuperViewOnHide];
+    [HUD showByCustomView:YES];
+    
+    NSDictionary *dict = @{@"state":(self.agreeSwitch.isOn) ? @"2" : @"1",
+                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"id":[self.checkDataDic objectForKey:@"id"],
+                           @"flag":@"sp",
+                           @"reason":(self.agreeContentTextView.text == nil) ? @"" : self.agreeContentTextView.text};
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_REPORTOPERATE) parameter:dict header:nil content:nil success:^(id responseData) {
+        NSDictionary *result = responseData;
+        int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+        if (state == State_Success)
+        {
+            if (self.checkDetailDataDic == nil)
+            {
+                [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self initViewWithData:self.checkDataDic];
+            });
+        }else{
+            [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+        [HUD hideByCustomView:YES];
+    } failed:^(id responseData) {
+        [HUD hideByCustomView:YES];
+        [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }];
+}
+
+
 -(void)initViewByDetailData
 {
     if (self.checkDetailDataDic == nil) return;
@@ -122,45 +219,83 @@
         self.bsTimeLabel.text = [dtfrm stringFromDate:date];
     }
     
-    int lcValue = [(NSNumber*)[bsDic objectForKey:@"bslc"] doubleValue];
+    currentLCValue = [(NSNumber*)[self.checkDetailDataDic  objectForKey:@"bslc"] doubleValue];
     NSDictionary *spDic = [self.checkDetailDataDic objectForKey:@"spxx"];
     
     
     if (spDic != nil)
     {
-        if (lcValue > 1)
+        if (currentLCValue > 0)
         {
-            self.spContentView.text = [spDic objectForKey:@"jl_yj"];
+            self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
+                                       ([(NSNumber*)[spDic objectForKey:@"jl_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
+                                       [spDic objectForKey:@"jl_content"]];
             self.spContentViewHeight.constant = self.spContentView.contentSize.height;
             self.spCompanyNameLabel.text = [spDic objectForKey:@"jl_name"];
             NSDate *spDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"jl_time"] doubleValue] / 1000.0)];
             self.spTimeLabel.text = [dtfrm stringFromDate:spDate];
             
+            self.process_spImgView.image = [UIImage imageNamed:@"31"];
+            self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + 12;
         }else{
-            
+            self.process_spImgView.image = [UIImage imageNamed:@"30"];
+            self.agreeViewTopPadding.constant = 30;
         }
         
-        if (lcValue > 2)
+        if (currentLCValue > 1)
         {
-            self.yzContentView.text = [spDic objectForKey:@"yz_yj"];
+            self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
+                                       ([(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
+                                       [spDic objectForKey:@"yz_content"]];
             self.yzCompanyNameLabel.text = [spDic objectForKey:@"yz_name"];
             NSDate *yzDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"yz_time"] doubleValue] / 1000.0)];
             self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
+            
+            self.process_yzImgView.image = [UIImage imageNamed:@"41"];
+            self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + 12;
+        }else{
+            self.process_yzImgView.image = [UIImage imageNamed:@"40"];
         }
         
-        if (lcValue > 3)
+        if (currentLCValue > 2)
         {
-            self.jgContentView.text = [spDic objectForKey:@"jg_yj"];
+            self.jgContentView.text = [NSString stringWithFormat:@"%@\n%@",
+                                       ([(NSNumber*)[spDic objectForKey:@"jg_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
+                                       [spDic objectForKey:@"jg_content"]];
             self.jgCompanyNameLabel.text = [spDic objectForKey:@"jg_name"];
             NSDate *jgDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"jg_time"] doubleValue] / 1000.0)];
             self.jgTimeLabel.text = [dtfrm stringFromDate:jgDate];
+            
+            self.process_jgImgView.image = [UIImage imageNamed:@"51"];
+            self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerView.frame.size.height + 12;
+        }else{
+            self.process_jgImgView.image = [UIImage imageNamed:@"50"];
         }
         
-        if (lcValue == 3)
+        if (currentLCValue >= 3)
         {
-            
+            self.process_overImgView.image = [UIImage imageNamed:@"61"];
+            [self.agreeView setHidden:YES];
+        }else{
+            self.process_overImgView.image = [UIImage imageNamed:@"60"];
+            [self.agreeView setHidden:NO];
         }
+        [self agreeSwitchChanged:nil];
+        self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height;
     }
+}
+
+- (void)keyboardWillShow:(NSNotification*)notification
+{
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    currentKeyboardHeight = kbSize.height;
+    self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + currentKeyboardHeight;
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification
+{
+    self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height;
 }
 
 @end

@@ -11,6 +11,8 @@
 @interface CheckDetailViewController : UIViewController{
     MBProgressHUD *HUD;
     NSDateFormatter *dtfrm;
+    int currentLCValue;
+    int currentKeyboardHeight;
 }
 
 @property (strong, nonatomic) NSDictionary *checkDataDic;
@@ -29,16 +31,19 @@
 @property (strong, nonatomic) IBOutlet UILabel *bsCompanyNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *bsTimeLabel;
 
+@property (strong, nonatomic) IBOutlet UIView *spContainerView;
 @property (strong, nonatomic) IBOutlet UITextView *spContentView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *spContentViewHeight;
 @property (strong, nonatomic) IBOutlet UILabel *spCompanyNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *spTimeLabel;
 
+@property (strong, nonatomic) IBOutlet UIView *yzContainerView;
 @property (strong, nonatomic) IBOutlet UITextView *yzContentView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *yzContentViewHeight;
 @property (strong, nonatomic) IBOutlet UILabel *yzCompanyNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *yzTimeLabel;
 
+@property (strong, nonatomic) IBOutlet UIView *jgContainerView;
 @property (strong, nonatomic) IBOutlet UITextView *jgContentView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *jgContentViewHeight;
 @property (strong, nonatomic) IBOutlet UILabel *jgCompanyNameLabel;
@@ -48,9 +53,15 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *agreeViewTopPadding;
 @property (strong, nonatomic) IBOutlet UISwitch *agreeSwitch;
 @property (strong, nonatomic) IBOutlet UITextView *agreeContentTextView;
+@property (strong, nonatomic) IBOutlet UIButton *agreeSubmitBtn;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *checkContainerHeight;
 
 - (IBAction)goBackBtnClick:(id)sender;
+
+- (IBAction)agreeSubmitBtnClick:(id)sender;
+
+- (IBAction)agreeSwitchChanged:(id)sender;
 
 - (void)initViewWithData:(NSDictionary*)checkDataDic;
 

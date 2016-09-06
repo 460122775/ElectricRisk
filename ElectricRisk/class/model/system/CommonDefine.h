@@ -24,7 +24,8 @@
 #define PATH_RISK_DAYINFO @"/api/project/getOneDay.do"  //获取风险天执行情况
 #define PATH_RISK_CHECKLIST @"/api/risk/myrisks.do"         //获取风险审批
 #define PATH_RISK_VERIFYLIST @"/api/risk/risklistdata.do"//获取风险验收列表
-#define PATH_RISK_REPORTDETAIL @"/api/risk/riskap.do"   //获取报审详情
+#define PATH_RISK_REPORTDETAIL @"/api/risk/riskap.do"       //获取报审详情
+#define PATH_RISK_REPORTOPERATE @"/api/risk/riskacess.do"   //报审操作
 #define PATH_NOTICE_LIST @"/api/notice/getNews.do"      //获取公告列表
 #define PATH_NOTICE_COMMENT @"/api/project/reply.do"    //回复公告
 #define PATH_NOTICE_COMMENT_LIST @"/api/project/replyList.do"//获取公告回复
