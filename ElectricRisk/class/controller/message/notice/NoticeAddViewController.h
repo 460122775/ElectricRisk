@@ -8,8 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NoticeAddViewController : UIViewController
+@protocol NoticeAddDelegate <NSObject>
+
+-(void)noticeAddSuccessControl;
+
+@end
+
+@interface NoticeAddViewController : UIViewController{
+    MBProgressHUD *HUD;
+    BOOL isOnlySave;
+    int currentKeyboardHeight;
+}
+
+@property (strong, nonatomic) IBOutlet UITextField *titleTextField;
+@property (strong, nonatomic) IBOutlet UITextView *contentTextView;
+@property (strong, nonatomic) id<NoticeAddDelegate> delegate;
 
 - (IBAction)goBackBtnClick:(id)sender;
+- (IBAction)submitBtnClick:(id)sender;
 
 @end

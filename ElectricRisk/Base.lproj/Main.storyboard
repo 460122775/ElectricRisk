@@ -1556,10 +1556,23 @@
                                                     <action selector="writeBtnClick:" destination="g1J-Qd-hbA" eventType="touchUpInside" id="Rs6-lj-a4b"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="not-wb-QMT">
+                                                <rect key="frame" x="295" y="27" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="5q3-Rn-4Af"/>
+                                                    <constraint firstAttribute="width" constant="30" id="Nr8-jJ-VIH"/>
+                                                </constraints>
+                                                <state key="normal" image="write"/>
+                                                <connections>
+                                                    <action selector="myNoticeBtnClick:" destination="g1J-Qd-hbA" eventType="touchUpInside" id="egi-HH-rVX"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.019607843140000001" green="0.50196078430000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="not-wb-QMT" firstAttribute="centerY" secondItem="AFa-ei-dwO" secondAttribute="centerY" id="6hK-vG-5Qf"/>
                                             <constraint firstItem="2aZ-FC-Qwf" firstAttribute="centerY" secondItem="c6I-9E-MD7" secondAttribute="centerY" id="Apw-ju-BJA"/>
+                                            <constraint firstItem="AFa-ei-dwO" firstAttribute="leading" secondItem="not-wb-QMT" secondAttribute="trailing" constant="12" id="THz-62-OP1"/>
                                             <constraint firstItem="c6I-9E-MD7" firstAttribute="leading" secondItem="abh-c3-JJt" secondAttribute="leading" constant="10" id="Y0c-g0-lEU"/>
                                             <constraint firstAttribute="trailing" secondItem="AFa-ei-dwO" secondAttribute="trailing" constant="8" id="YEo-H9-iFI"/>
                                             <constraint firstItem="2aZ-FC-Qwf" firstAttribute="leading" secondItem="c6I-9E-MD7" secondAttribute="trailing" constant="8" id="cmx-Ub-bzE"/>
@@ -1655,17 +1668,108 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="消息" image="me" selectedImage="me_press" id="aRb-yJ-qFT"/>
                     <connections>
+                        <outlet property="addBtn" destination="AFa-ei-dwO" id="pcz-eG-pEr"/>
+                        <outlet property="myNoticeBtn" destination="not-wb-QMT" id="1uQ-z9-Tsn"/>
                         <outlet property="noticeBtn" destination="zM6-E4-LJ0" id="hIr-iy-W0J"/>
                         <outlet property="tableView" destination="O9c-0a-NMQ" id="kLs-t5-Wrs"/>
                         <outlet property="underLineLeading" destination="io5-xI-WOY" id="z7Z-Dq-yj2"/>
                         <outlet property="warnBtn" destination="DGJ-24-qHJ" id="mVC-Bk-xKI"/>
                         <segue destination="BHX-Iz-Oie" kind="show" identifier="ToNoticeDetail" id="TeY-JO-DIx"/>
                         <segue destination="zDw-cH-9R5" kind="show" identifier="ToAddNotice" id="Ppz-rd-PXK"/>
+                        <segue destination="PO4-Tz-Uf7" kind="show" identifier="ToMyNoticeView" id="5i8-hP-7GV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrH-Ck-B1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1381.5" y="764.5"/>
+        </scene>
+        <!--My Notice View Controller-->
+        <scene sceneID="QFv-qH-xaO">
+            <objects>
+                <viewController id="PO4-Tz-Uf7" customClass="MyNoticeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Og1-gr-0hq"/>
+                        <viewControllerLayoutGuide type="bottom" id="yQo-if-poM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H9e-fN-K7j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvE-bW-VKz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3oB-qq-YTF">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNv-im-yRk">
+                                                <rect key="frame" x="8" y="31" width="58" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="26" id="7Sw-r5-Bkp"/>
+                                                    <constraint firstAttribute="height" constant="22" id="IVn-Zz-0KF"/>
+                                                </constraints>
+                                                <state key="normal" title="返回" image="back"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="7Sw-r5-Bkp"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="backBtnClick:" destination="51B-Oa-q9C" eventType="touchUpInside" id="Fe6-1U-eVz"/>
+                                                    <action selector="goBackBtnClick:" destination="zDw-cH-9R5" eventType="touchUpInside" id="Ew5-zO-X9c"/>
+                                                    <action selector="goBackBtnClick:" destination="PO4-Tz-Uf7" eventType="touchUpInside" id="xhu-WI-IhJ"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的消息列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxG-qS-jEz">
+                                                <rect key="frame" x="137" y="31" width="102" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.019607843140000001" green="0.50196078430000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="UNv-im-yRk" firstAttribute="leading" secondItem="3oB-qq-YTF" secondAttribute="leading" constant="8" id="EQA-Om-hWW"/>
+                                            <constraint firstItem="QxG-qS-jEz" firstAttribute="centerX" secondItem="3oB-qq-YTF" secondAttribute="centerX" id="L5u-7O-dnS"/>
+                                            <constraint firstItem="UNv-im-yRk" firstAttribute="top" secondItem="3oB-qq-YTF" secondAttribute="top" constant="31" id="Uez-nl-WfT"/>
+                                            <constraint firstAttribute="height" constant="64" id="a56-EC-G0I"/>
+                                            <constraint firstItem="QxG-qS-jEz" firstAttribute="centerY" secondItem="UNv-im-yRk" secondAttribute="centerY" id="bkc-6V-uvQ"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UGO-BT-SnI">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="UGO-BT-SnI" firstAttribute="centerX" secondItem="uvE-bW-VKz" secondAttribute="centerX" id="4c6-D7-j3Q"/>
+                                    <constraint firstItem="3oB-qq-YTF" firstAttribute="top" secondItem="uvE-bW-VKz" secondAttribute="top" id="71c-pZ-xRP"/>
+                                    <constraint firstItem="3oB-qq-YTF" firstAttribute="width" secondItem="uvE-bW-VKz" secondAttribute="width" id="aSl-rU-ES6"/>
+                                    <constraint firstAttribute="bottom" secondItem="UGO-BT-SnI" secondAttribute="bottom" id="fuw-KM-1AD"/>
+                                    <constraint firstItem="UGO-BT-SnI" firstAttribute="width" secondItem="uvE-bW-VKz" secondAttribute="width" id="gHf-zx-VBD"/>
+                                    <constraint firstItem="3oB-qq-YTF" firstAttribute="centerX" secondItem="uvE-bW-VKz" secondAttribute="centerX" id="izP-r1-zeL"/>
+                                    <constraint firstItem="UGO-BT-SnI" firstAttribute="top" secondItem="3oB-qq-YTF" secondAttribute="bottom" id="kQN-nX-Dra"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uvE-bW-VKz" firstAttribute="height" secondItem="H9e-fN-K7j" secondAttribute="height" id="ASw-bp-qSU"/>
+                            <constraint firstItem="uvE-bW-VKz" firstAttribute="centerX" secondItem="H9e-fN-K7j" secondAttribute="centerX" id="OGu-3w-tLw"/>
+                            <constraint firstItem="uvE-bW-VKz" firstAttribute="width" secondItem="H9e-fN-K7j" secondAttribute="width" id="cOv-uD-0ea"/>
+                            <constraint firstItem="uvE-bW-VKz" firstAttribute="centerY" secondItem="H9e-fN-K7j" secondAttribute="centerY" id="gLS-48-hRP"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="UGO-BT-SnI" id="2H0-gx-sas"/>
+                        <segue destination="BHX-Iz-Oie" kind="show" identifier="ToMyNoticeDetailView" id="ewc-a7-mFP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zg8-G4-BPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2777.5" y="764.5"/>
         </scene>
         <!--Notice Detail View Controller-->
         <scene sceneID="9Ir-zR-xpm">
@@ -1960,7 +2064,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqK-K8-toB">
-                                        <rect key="frame" x="-1" y="64" width="376" height="565"/>
+                                        <rect key="frame" x="-1" y="64" width="376" height="550"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7er-Sk-UkJ">
                                                 <rect key="frame" x="9" y="8" width="50" height="21"/>
@@ -1978,8 +2082,14 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="这里是通知的内容。。。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k4K-aY-4r3">
-                                                <rect key="frame" x="9" y="39" width="359" height="523"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入通知的标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-rr-wpm">
+                                                <rect key="frame" x="59" y="4" width="309" height="30"/>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k4K-aY-4r3">
+                                                <rect key="frame" x="9" y="39" width="359" height="508"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="52A-qg-Jyv"/>
@@ -1993,12 +2103,6 @@
                                                     </mask>
                                                 </variation>
                                             </textView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入通知的标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-rr-wpm">
-                                                <rect key="frame" x="59" y="4" width="309" height="30"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -2023,6 +2127,9 @@
                                         <state key="normal" title="发  布">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="submitBtnClick:" destination="zDw-cH-9R5" eventType="touchUpInside" id="no9-dW-g8j"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2034,9 +2141,15 @@
                                     <constraint firstItem="NqK-K8-toB" firstAttribute="top" secondItem="586-7S-fBS" secondAttribute="bottom" id="cBP-YL-NMj"/>
                                     <constraint firstItem="586-7S-fBS" firstAttribute="top" secondItem="fYM-xA-pPC" secondAttribute="top" id="dyU-zF-s71"/>
                                     <constraint firstItem="NqK-K8-toB" firstAttribute="centerX" secondItem="fYM-xA-pPC" secondAttribute="centerX" id="jVG-N2-a95"/>
-                                    <constraint firstItem="NqK-K8-toB" firstAttribute="bottom" secondItem="1FU-Wx-hrm" secondAttribute="top" constant="5" id="je4-xY-lj5"/>
+                                    <constraint firstItem="NqK-K8-toB" firstAttribute="bottom" secondItem="1FU-Wx-hrm" secondAttribute="top" constant="10" id="je4-xY-lj5"/>
+                                    <constraint firstItem="1FU-Wx-hrm" firstAttribute="top" secondItem="NqK-K8-toB" secondAttribute="bottom" constant="10" id="lHN-6n-xIb"/>
                                     <constraint firstItem="586-7S-fBS" firstAttribute="centerX" secondItem="fYM-xA-pPC" secondAttribute="centerX" id="vph-ov-aAH"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="je4-xY-lj5"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2050,6 +2163,10 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="contentTextView" destination="k4K-aY-4r3" id="pYa-Lm-iY6"/>
+                        <outlet property="titleTextField" destination="9cO-rr-wpm" id="PBQ-AK-uxK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="viu-iH-pYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2703,7 +2820,7 @@
                                                     <constraint firstAttribute="width" constant="22" id="2Sm-Se-IP0"/>
                                                     <constraint firstAttribute="height" constant="22" id="m8D-2g-NrG"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="6E6C81D7-17C4-45E3-AAFB-78AF836486F4"/>
+                                                <state key="normal" backgroundImage="7A041546-DAB1-465B-9594-5E22B1E3AE95"/>
                                                 <connections>
                                                     <action selector="stopBtnClick:" destination="51B-Oa-q9C" eventType="touchUpInside" id="uUW-ON-lhF"/>
                                                 </connections>
@@ -3517,7 +3634,7 @@
         <image name="40" width="234" height="38"/>
         <image name="50" width="234" height="38"/>
         <image name="60" width="234" height="38"/>
-        <image name="6E6C81D7-17C4-45E3-AAFB-78AF836486F4" width="22" height="22">
+        <image name="7A041546-DAB1-465B-9594-5E22B1E3AE95" width="22" height="22">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -3615,4 +3732,7 @@ EZ4RoBGlEa0RsBG1Eb0RwBHSEdUR2gAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAABHcA
         <image name="stop" width="22" height="22"/>
         <image name="write" width="22" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ewc-a7-mFP"/>
+    </inferredMetricsTieBreakers>
 </document>

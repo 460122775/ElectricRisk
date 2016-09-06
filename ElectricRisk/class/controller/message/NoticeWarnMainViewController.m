@@ -43,6 +43,8 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     self.underLineLeading.constant = 0;
     isNoticeList = YES;
     [self requestNoticeListData];
+//    [self.addBtn setHidden:NO];
+    [self.myNoticeBtn setHidden:NO];
 }
 
 -(void)requestNoticeListData
@@ -116,6 +118,12 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     self.underLineLeading.constant = self.noticeBtn.frame.size.width;
     isNoticeList = NO;
     [self requestWarnListData];
+    [self.myNoticeBtn setHidden:YES];
+}
+
+- (IBAction)myNoticeBtnClick:(id)sender
+{
+    [self performSegueWithIdentifier:@"ToMyNoticeView" sender:self];
 }
 
 -(void)requestWarnListData
@@ -250,7 +258,15 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     {
         NoticeDetailViewController *noticeDetailViewController = [segue destinationViewController];
         [noticeDetailViewController initViewWithData:currentSelectedNotice];
+    }else if ([[segue identifier] isEqualToString:@"ToAddNotice"]){
+        NoticeAddViewController *noticeAddViewController = [segue destinationViewController];
+        noticeAddViewController.delegate = self;
     }
+}
+
+-(void)noticeAddSuccessControl
+{
+    [self requestNoticeListData];
 }
 
 @end
