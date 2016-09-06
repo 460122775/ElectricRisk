@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     self.commentTableView.delegate = self;
     self.commentTableView.dataSource = self;
@@ -24,7 +25,22 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
     [self initViewWithData:self.noticeDataDic];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -269,6 +285,19 @@
                            [(NSDictionary*)[self.commentArray objectAtIndex:indexPath.row] objectForKey:@"user_name"],
                            [(NSDictionary*)[self.commentArray objectAtIndex:indexPath.row] objectForKey:@"reply"]];
     return cell;
+}
+
+- (void)keyboardWillShow:(NSNotification*)notification
+{
+    NSDictionary *info = [notification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    currentKeyboardHeight = kbSize.height;
+    self.commentBottomPadding.constant = currentKeyboardHeight;
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification
+{
+    self.commentBottomPadding.constant = 0;
 }
 
 @end

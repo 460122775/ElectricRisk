@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.versionLabel.text = [NSString stringWithFormat:@"版本号：%@", VERSION];
+    self.phoneCdLabel.text = [NSString stringWithFormat:@"手机型号：%@", [[UIDevice currentDevice] model]];
 }
 
 - (void)didReceiveMemoryWarning {

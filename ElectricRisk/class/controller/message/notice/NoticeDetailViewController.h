@@ -10,6 +10,7 @@
 
 @interface NoticeDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
     MBProgressHUD *HUD;
+    int currentKeyboardHeight;
 }
 
 @property (strong, nonatomic) NSDictionary *noticeDataDic;
@@ -22,6 +23,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *commentTableView;
 @property (strong, nonatomic) IBOutlet UITextField *commentInput;
 @property (strong, nonatomic) IBOutlet UIButton *commentBtn;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *commentBottomPadding;
 
 - (IBAction)commentBtnClick:(id)sender;
 - (IBAction)goBackBtnClick:(id)sender;

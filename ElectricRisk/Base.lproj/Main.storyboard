@@ -1978,14 +1978,8 @@
                                     <constraint firstItem="AXs-FE-yQB" firstAttribute="width" secondItem="Ug6-yu-Vej" secondAttribute="width" id="aqj-bz-sls"/>
                                     <constraint firstItem="AXs-FE-yQB" firstAttribute="top" secondItem="Ug6-yu-Vej" secondAttribute="top" id="bdc-d6-VXm"/>
                                     <constraint firstItem="KCB-a4-DzE" firstAttribute="bottom" secondItem="z2a-Fa-CvQ" secondAttribute="top" constant="3" id="ka9-QD-Lgl"/>
-                                    <constraint firstAttribute="bottom" secondItem="KCB-a4-DzE" secondAttribute="bottom" id="pmJ-qB-dcn"/>
                                     <constraint firstItem="KCB-a4-DzE" firstAttribute="top" secondItem="AXs-FE-yQB" secondAttribute="bottom" id="xzz-zp-Eaf"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="pmJ-qB-dcn"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1999,6 +1993,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="commentBottomPadding" destination="HZm-8Y-S1H" id="UA3-uE-R5G"/>
                         <outlet property="commentBtn" destination="szc-Xd-t5c" id="UdS-h1-0Hc"/>
                         <outlet property="commentInput" destination="aV4-XX-vUO" id="4JW-cw-4Ut"/>
                         <outlet property="commentTableView" destination="nyL-ey-ICf" id="S96-aw-qir"/>
@@ -2679,6 +2674,10 @@
                         </constraints>
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="phoneCdLabel" destination="eH3-MA-BkQ" id="ufP-zX-5KU"/>
+                        <outlet property="versionLabel" destination="ddf-em-F0X" id="Igj-Cs-kDZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvN-mw-cLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2820,7 +2819,7 @@
                                                     <constraint firstAttribute="width" constant="22" id="2Sm-Se-IP0"/>
                                                     <constraint firstAttribute="height" constant="22" id="m8D-2g-NrG"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="7A041546-DAB1-465B-9594-5E22B1E3AE95"/>
+                                                <state key="normal" backgroundImage="96F3EF22-B04C-4260-8197-344491039A1E"/>
                                                 <connections>
                                                     <action selector="stopBtnClick:" destination="51B-Oa-q9C" eventType="touchUpInside" id="uUW-ON-lhF"/>
                                                 </connections>
@@ -3634,7 +3633,7 @@
         <image name="40" width="234" height="38"/>
         <image name="50" width="234" height="38"/>
         <image name="60" width="234" height="38"/>
-        <image name="7A041546-DAB1-465B-9594-5E22B1E3AE95" width="22" height="22">
+        <image name="96F3EF22-B04C-4260-8197-344491039A1E" width="22" height="22">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

@@ -196,7 +196,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     {
         [self performSegueWithIdentifier:@"ToAddNotice" sender:self];
     }else{
-        [self performSegueWithIdentifier:@"ToAddWarn" sender:self];
+//        [self performSegueWithIdentifier:@"ToAddWarn" sender:self];
     }
 }
 
