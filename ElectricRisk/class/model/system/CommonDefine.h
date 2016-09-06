@@ -10,7 +10,7 @@
 #define CommonDefine_h
 
 #define OFFLINE YES // YES or NO, YES for test.
-
+#define VERSION @"1.0.0"
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 

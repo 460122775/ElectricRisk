@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ModifyPwdViewController.h"
 
-@interface SettingViewController : UIViewController<ModifyPwdDelegate>
+@interface SettingViewController : UIViewController<ModifyPwdDelegate>{
+    MBProgressHUD *HUD;
+}
 
 - (IBAction)updatePwdBtnClick:(id)sender;
 

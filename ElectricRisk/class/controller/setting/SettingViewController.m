@@ -31,7 +31,12 @@
 
 - (IBAction)updateBtnClick:(id)sender
 {
-    
+    if (OFFLINE)
+    {
+        [self testUpdateData];
+    }else{
+        [self requestUpdateData];
+    }
 }
 
 - (IBAction)aboutBtnClick:(id)sender
@@ -65,6 +70,53 @@
         ModifyPwdViewController *modifyPwdViewController = [segue destinationViewController];
         modifyPwdViewController.delegate = self;
     }
+}
+
+-(void)testUpdateData
+{
+    NSError *jsonError;
+    NSData *objectData = [@"{\"version\":\"1.2.0\", \"uri\":\"http://www.baidu.com\", \"state\": 0}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
+                                                           options:NSJSONReadingMutableContainers
+                                                             error:&jsonError];
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
+    {
+        [[JTToast toastWithText:@"已经是最新版本了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }else{
+        [[JTToast toastWithText:[NSString stringWithFormat:@"发现新版本:%@", [result objectForKey:@"version"]] configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
+}
+
+-(void)requestUpdateData
+{
+    if (HUD == nil)
+    {
+        HUD = [[MBProgressHUD alloc]init];
+    }
+    [self.view addSubview:HUD];
+    HUD.dimBackground =YES;
+    HUD.labelText = @"正在检查更新...";
+    [HUD removeFromSuperViewOnHide];
+    [HUD showByCustomView:YES];
+    
+    NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
+                           @"version":VERSION,
+                           @"os":@"ios"};
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_REPORTDETAIL) parameter:dict header:nil content:nil success:^(id responseData) {
+        NSDictionary *result = responseData;
+        int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+        if (state == State_Success)
+        {
+            [[JTToast toastWithText:@"已经是最新版本了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }else{
+            [[JTToast toastWithText:[NSString stringWithFormat:@"发现新版本:%@", [result objectForKey:@"version"]] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+        [HUD hideByCustomView:YES];
+    } failed:^(id responseData) {
+        [HUD hideByCustomView:YES];
+        [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }];
 }
 
 -(void)modifyPwdSuccess
