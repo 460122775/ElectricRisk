@@ -104,13 +104,41 @@
     }
     [self.view addSubview:HUD];
     HUD.dimBackground =YES;
-    HUD.labelText = @"正在加载数据...";
+    HUD.labelText = @"正在保存数据...";
     [HUD removeFromSuperViewOnHide];
     [HUD showByCustomView:YES];
     
-    NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
-                           @"ProjectRiskId":[self.riskDataDic objectForKey:@"id"]};
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setObject:[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000] forKey:@"c_time"];
+    [dict setObject:[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId] forKey:@"uid"];
+    [dict setObject:[self.riskDataDic objectForKey:@"id"] forKey:@"id"];
+    [dict setObject:self.sgProcessInput.text forKey:@"progressValue"];
+    NSMutableDictionary *xcDic = [[NSMutableDictionary alloc] init];
+    [xcDic setObject:self.xcContentView.text forKey:@"content"];
+    [xcDic setObject:self.xcImgArray forKey:@"imgids"];
+    [dict setObject:xcDic forKey:@"work"];
+    NSMutableDictionary *zgDic = [[NSMutableDictionary alloc] init];
+    [zgDic setObject:self.zgContentView.text forKey:@"content"];
+    [zgDic setObject:self.zgImgArray forKey:@"imgids"];
+    [zgDic setObject:(!(self.zgSwitch.isOn) || currentSelectWrongDic == nil) ? @"":[currentSelectWrongDic objectForKey:@"id"] forKey:@"id"];
+    [dict setObject:zgDic forKey:@"check"];
+    NSMutableDictionary *sgDic = [[NSMutableDictionary alloc] init];
+    [sgDic setObject:self.sgContentView.text forKey:@"content"];
+    [sgDic setObject:self.sgImgArray forKey:@"imgids"];
+    [dict setObject:sgDic forKey:@"progress"];
+    NSMutableDictionary *ryDic = [[NSMutableDictionary alloc] init];
+    [ryDic setObject:self.ryContentView.text forKey:@"content"];
+    [ryDic setObject:self.ryImgArray forKey:@"imgids"];
+    
+    if ([SystemConfig instance].currentUserRole == ROLE_4)
+    {
+        [dict setObject:ryDic forKey:@"personYZ"];
+    }else if ([SystemConfig instance].currentUserRole == ROLE_5){
+        [dict setObject:ryDic forKey:@"personJL"];
+    }else if ([SystemConfig instance].currentUserRole == ROLE_6){
+        [dict setObject:ryDic forKey:@"personSG"];
+    }
+    
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_DETAIL) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
@@ -313,6 +341,8 @@
 {
     [self.zgWzBtn setHidden:!(self.zgSwitch.isOn)];
     [self.zgWzLabel setHidden:!(self.zgSwitch.isOn)];
+    currentSelectWrongDic = nil;
+    self.zgWzLabel.text = @"";
 }
 
 - (IBAction)imgBtnClick:(id)sender

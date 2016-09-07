@@ -26,13 +26,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ElectricRisk/class/controller/risk/RiskAddViewController.m"
-            timestampString = "494953696.249451"
+            timestampString = "494960282.83065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
-            landmarkName = "-setCurrentByTag:"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-requestData"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RiskAddViewController requestData]"
+                  moduleName = "ElectricRisk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yachendai/Documents/sourceTree/ElectricRisk/ElectricRisk/ElectricRisk/class/controller/risk/RiskAddViewController.m"
+                  timestampString = "494960300.772734"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "2979">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__36-[RiskAddViewController requestData]_block_invoke"
+                  moduleName = "ElectricRisk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yachendai/Documents/sourceTree/ElectricRisk/ElectricRisk/ElectricRisk/class/controller/risk/RiskAddViewController.m"
+                  timestampString = "494960300.77292"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "143"
+                  endingLineNumber = "143"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
