@@ -3951,7 +3951,9 @@
                                                     <constraint firstAttribute="width" constant="85" id="QHm-ly-kul"/>
                                                     <constraint firstAttribute="height" constant="30" id="WxO-HX-zsJ"/>
                                                 </constraints>
-                                                <state key="normal" title="2016-09-09"/>
+                                                <state key="normal" title="2016-09-09">
+                                                    <color key="titleColor" red="0.21960784310000001" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="dateBtnClick:" destination="51B-Oa-q9C" eventType="touchUpInside" id="e2Z-q2-7mj"/>
                                                 </connections>
@@ -4188,6 +4190,6 @@
         <image name="write" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ewc-a7-mFP"/>
+        <segue reference="TeY-JO-DIx"/>
     </inferredMetricsTieBreakers>
 </document>

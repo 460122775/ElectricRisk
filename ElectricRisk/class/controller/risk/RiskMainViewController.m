@@ -25,6 +25,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"RiskMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:RiskMainListCellId];
+    [[UITabBar appearance] setTintColor:Color_me];
 }
 
 -(void)viewWillAppear:(BOOL)animated
