@@ -24,9 +24,8 @@
     int state = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
     switch (state)
     {
-        case Notice_State_Not: self.addressLabel.text = @"未读"; break;
-        case Notice_State_Read: self.addressLabel.text = @"已读"; break;
-        case Notice_State_Reply: self.addressLabel.text = @"已回复"; break;
+        case Rish_PUBLISHSTATE_PUBLISH: self.addressLabel.text = @"可发布"; break;
+        case Rish_PUBLISHSTATE_REVOKE: self.addressLabel.text = @"可撤回"; break;
         default: self.addressLabel.text = [NSString stringWithFormat:@"未知状态:%i", state]; break;
     }
     

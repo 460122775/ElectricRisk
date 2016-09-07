@@ -43,7 +43,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     self.underLineLeading.constant = 0;
     isNoticeList = YES;
     [self requestNoticeListData];
-//    [self.addBtn setHidden:NO];
+    [self.addBtn setHidden:NO];
     [self.myNoticeBtn setHidden:NO];
 }
 
@@ -118,6 +118,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     self.underLineLeading.constant = self.noticeBtn.frame.size.width;
     isNoticeList = NO;
     [self requestWarnListData];
+    [self.addBtn setHidden:YES];
     [self.myNoticeBtn setHidden:YES];
 }
 
@@ -171,7 +172,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
 -(void)testWarnData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"data\":[{\"address\":\"dfgd\",\"content\":\"架设架空线路\",\"creat_time\":1471449600000,\"gy_risk_id\":2,\"id\":89,\"is_active\":0,\"is_gy_risk\":2,\"k_value\":\"0.2\",\"level\":4,\"name\":\"第六个\",\"plan_end_time\":1471968000000,\"plan_start_time\":1471881600000,\"project_id\":55,\"real_start_time\":1471449600000,\"risk_type\":\"高大模板支撑\",\"state\":3,\"user_id\":\"a2a6adfc78f043cbb50150f9921b34e0\"},{\"address\":\"dfgd\",\"content\":\"配电箱及开关箱安装\",\"creat_time\":1471449600000,\"gy_risk_id\":6,\"id\":88,\"is_active\":1,\"is_gy_risk\":2,\"k_value\":\"0.1\",\"level\":5,\"name\":\"第六个\",\"plan_end_time\":1472572800000,\"plan_start_time\":1471968000000,\"project_id\":55,\"real_start_time\":1471449600000,\"risk_type\":\"高大模板支撑\",\"state\":3,\"user_id\":\"a2a6adfc78f043cbb50150f9921b34e0\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":[{\"address\":\"dfgd\",\"content\":\"架设架空线路\",\"creat_time\":1471449600000,\"gy_risk_id\":2,\"id\":89,\"is_active\":0,\"is_gy_risk\":2,\"k_value\":\"0.2\",\"level\":4,\"name\":\"第六个\",\"plan_end_time\":1471968000000,\"plan_start_time\":1471881600000,\"project_id\":55,\"real_start_time\":1471449600000,\"risk_type\":\"高大模板支撑\",\"state\":3,\"user_id\":\"a2a6adfc78f043cbb50150f9921b34e0\"},{\"address\":\"dfgd\",\"content\":\"配电箱及开关箱安装\",\"creat_time\":1471449600000,\"gy_risk_id\":6,\"id\":88,\"is_active\":1,\"is_gy_risk\":2,\"k_value\":\"0.1\",\"level\":5,\"name\":\"第六个\",\"plan_end_time\":1472572800000,\"plan_start_time\":1471968000000,\"project_id\":55,\"real_start_time\":1471449600000,\"risk_type\":\"高大模板支撑\",\"state\":4,\"user_id\":\"a2a6adfc78f043cbb50150f9921b34e0\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData options:NSJSONReadingMutableContainers error:&jsonError];
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
@@ -187,7 +188,64 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
     });
-    [HUD hideByCustomView:YES];
+}
+
+-(void)requestDataForPublish
+{
+    if (OFFLINE)
+    {
+        [self testDataForPublish];
+        return;
+    }
+    if (HUD == nil)
+    {
+        HUD = [[MBProgressHUD alloc]init];
+    }
+    [self.view addSubview:HUD];
+    HUD.dimBackground =YES;
+    HUD.labelText = @"正在加载数据...";
+    [HUD removeFromSuperViewOnHide];
+    [HUD showByCustomView:YES];
+    
+    int state = [(NSNumber*)[currentSelectedWarn objectForKey:@"state"] intValue];
+    NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
+                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"flag":[NSString stringWithFormat:@"%@", (state == Rish_PUBLISHSTATE_PUBLISH)?@"publish":@"back"],
+                           @"id":[currentSelectedWarn objectForKey:@"id"]};
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_WARN_PUBLISH) parameter:dict header:nil content:nil success:^(id responseData) {
+        NSDictionary *result = responseData;
+        int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+        if (state == State_Success)
+        {
+            [[JTToast toastWithText:@"操作成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }else{
+            [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self requestNoticeListData];
+        });
+        [HUD hideByCustomView:YES];
+    } failed:^(id responseData) {
+        [HUD hideByCustomView:YES];
+        [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }];
+}
+
+-(void)testDataForPublish
+{
+    NSError *jsonError;
+    NSData *objectData = [@"{\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData options:NSJSONReadingMutableContainers error:&jsonError];
+    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+    if (state == State_Success)
+    {
+        [[JTToast toastWithText:@"操作成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }else{
+        [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self requestNoticeListData];
+    });
 }
 
 - (IBAction)writeBtnClick:(id)sender
@@ -252,6 +310,47 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return !isNoticeList;
+}
+
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"修改" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        [self performSegueWithIdentifier:@"ToModifyWarn" sender:self];
+    }];
+    editAction.backgroundColor = [UIColor lightGrayColor];
+    
+    currentSelectedWarn = [warnDataArray objectAtIndex:indexPath.row];
+    int state = [(NSNumber*)[currentSelectedWarn objectForKey:@"state"] intValue];
+    
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:(state == Rish_PUBLISHSTATE_PUBLISH)?@"发布":@"撤回"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认"
+                                                                        message:[NSString stringWithFormat:@"确定要%@该风险提醒的内容吗？", (state == Rish_PUBLISHSTATE_PUBLISH)?@"发布":@"撤回"]
+                                                                 preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:(state == Rish_PUBLISHSTATE_PUBLISH)?@"发布":@"撤回" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                             {
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                                 if (OFFLINE)
+                                 {
+                                     [self testDataForPublish];
+                                 }else{
+                                     [self requestDataForPublish];
+                                 }
+                             }];
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {
+                                     [alert dismissViewControllerAnimated:YES completion:nil];
+                                 }];
+        [alert addAction:ok];
+        [alert addAction:cancel];
+        [self presentViewController:alert animated:YES completion:nil];
+    }];
+    deleteAction.backgroundColor = [UIColor redColor];
+    return @[deleteAction,editAction];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"ToNoticeDetail"])
@@ -261,12 +360,21 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     }else if ([[segue identifier] isEqualToString:@"ToAddNotice"]){
         NoticeAddViewController *noticeAddViewController = [segue destinationViewController];
         noticeAddViewController.delegate = self;
+    }else if ([[segue identifier] isEqualToString:@"ToModifyWarn"]){
+        WarnModifyViewController *warnModifyViewController = [segue destinationViewController];
+        [warnModifyViewController initViewWithData:currentSelectedWarn];
+        warnModifyViewController.delegate = self;
     }
 }
 
 -(void)noticeAddSuccessControl
 {
     [self requestNoticeListData];
+}
+
+-(void)warnModifySuccess
+{
+    [self requestWarnListData];
 }
 
 @end

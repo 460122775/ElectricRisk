@@ -11,8 +11,9 @@
 #import "WarnMainListCell.h"
 #import "NoticeDetailViewController.h"
 #import "NoticeAddViewController.h"
+#import "WarnModifyViewController.h"
 
-@interface NoticeWarnMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NoticeAddDelegate>{
+@interface NoticeWarnMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NoticeAddDelegate, WarnModifyDelegate>{
     BOOL isNoticeList;
     MBProgressHUD *HUD;
     

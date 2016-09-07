@@ -33,6 +33,8 @@
 #define PATH_NOTICE_ADD @"/api/notice/addNotice.do"     //发布公告
 #define PATH_NOTICE_MYLIST @"/api/notice/getList.do"    //获取我的公告
 #define PATH_WARN_LSIT @"/api/notice/getwarn.do"        //获取风险提醒列表
+#define PATH_WARN_PUBLISH @"/api/risk/approvalPub.do"   //发布公告
+#define PATH_WARN_MODIFY @"/api/risk/updaterisk.do " //风险修改
 #define PATH_PWD_UPDATE @"/api/user/upUpd.do"           //修改密码
 
 /**  Color Define **/
@@ -52,6 +54,10 @@
 /** Define operation **/
 #define State_Success 1
 #define State_Fault 0
+
+/** Define result for check & verify **/
+#define Rish_PUBLISHSTATE_PUBLISH 3
+#define Rish_PUBLISHSTATE_REVOKE 4
 
 /** Check State **/
 #define Check_State_Wait 1
