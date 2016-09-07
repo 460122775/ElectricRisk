@@ -27,6 +27,6 @@ typedef enum
 +(void)requestServer:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSDictionary *)param  header:(NSDictionary *)headerDic content:(NSString*) content
              success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock;
 
-
++(void)uploadPhoto:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSData *)imageData success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock;
 
 @end

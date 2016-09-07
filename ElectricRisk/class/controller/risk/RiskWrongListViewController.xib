@@ -21,7 +21,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ayl-sg-pdT">
-                            <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                            <rect key="frame" x="-1" y="0.0" width="376" height="667"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="Button"/>
                             <connections>
@@ -33,16 +33,28 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="separatorColor" red="0.3411764706" green="0.49803921569999998" blue="0.42352941179999998" alpha="0.61717548076923079" colorSpace="calibratedRGB"/>
                         </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择违章进行整改" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M23-hy-LB0">
+                            <rect key="frame" x="64" y="138" width="247" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="T6G-WT-nLQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.21960784310000001" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="M23-hy-LB0" firstAttribute="centerX" secondItem="RXY-6o-6TF" secondAttribute="centerX" id="4FL-ol-DML"/>
                         <constraint firstItem="Ayl-sg-pdT" firstAttribute="height" secondItem="hxQ-pa-oIS" secondAttribute="height" id="4dF-BS-eiq"/>
                         <constraint firstItem="Ayl-sg-pdT" firstAttribute="centerY" secondItem="hxQ-pa-oIS" secondAttribute="centerY" id="8zI-yv-sNt"/>
+                        <constraint firstItem="M23-hy-LB0" firstAttribute="top" secondItem="RXY-6o-6TF" secondAttribute="top" constant="5" id="Ocn-LT-e7B"/>
                         <constraint firstItem="RXY-6o-6TF" firstAttribute="centerY" secondItem="hxQ-pa-oIS" secondAttribute="centerY" id="Owq-VX-fab"/>
                         <constraint firstItem="Ayl-sg-pdT" firstAttribute="centerX" secondItem="hxQ-pa-oIS" secondAttribute="centerX" id="Rpm-XW-Xsv"/>
                         <constraint firstItem="Ayl-sg-pdT" firstAttribute="width" secondItem="hxQ-pa-oIS" secondAttribute="width" id="Wqj-kQ-Osi"/>
                         <constraint firstItem="RXY-6o-6TF" firstAttribute="centerX" secondItem="hxQ-pa-oIS" secondAttribute="centerX" id="p29-nC-LoC"/>
                         <constraint firstItem="RXY-6o-6TF" firstAttribute="height" secondItem="hxQ-pa-oIS" secondAttribute="height" multiplier="0.6" id="s1F-Br-AC1"/>
+                        <constraint firstItem="M23-hy-LB0" firstAttribute="width" secondItem="RXY-6o-6TF" secondAttribute="width" constant="-16" id="w3a-F2-ID6"/>
                         <constraint firstItem="RXY-6o-6TF" firstAttribute="width" secondItem="hxQ-pa-oIS" secondAttribute="width" multiplier="0.7" constant="1" id="y6t-bd-1Yr"/>
                     </constraints>
                 </view>

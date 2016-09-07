@@ -52,6 +52,7 @@
 #define Color_black [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1]
 #define Color_red [UIColor colorWithRed:255/255.0 green:0/255.0 blue:0/255.0 alpha:1]
 #define Color_me [UIColor colorWithRed:56/255.0 green:142/255.0 blue:142/255.0 alpha:1]
+#define Color_border [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.05]
 
 /** Define operation **/
 #define State_Success 1
