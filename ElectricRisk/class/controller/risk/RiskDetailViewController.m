@@ -293,7 +293,7 @@
 
 - (IBAction)writeBtnClick:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"ToAddRiskExecutiveInfo" sender:self];
 }
 
 - (IBAction)stopBtnClick:(id)sender
@@ -343,6 +343,21 @@
     }else{
         [self requestExecutiveData:timeValue];
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ToAddRiskExecutiveInfo"])
+    {
+        RiskAddViewController *riskAddViewController = [segue destinationViewController];
+        riskAddViewController.delegate = self;
+        [riskAddViewController initViewWithRisk:self.riskDataDic andDetail:self.riskDetailDataDic];
+    }
+}
+
+-(void)riskExecutiveInfoAddSuccess
+{
+    [self initViewWithData:self.riskDataDic];
 }
 
 @end

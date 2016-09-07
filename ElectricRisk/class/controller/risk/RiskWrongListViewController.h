@@ -10,18 +10,16 @@
 
 @protocol RiskWrongListChooseDelegate <NSObject>
 
--(void)wrongListChooseControl:(double)timeValue;
+-(void)wrongListChooseControl:(NSDictionary*)wrongDic;
 
 @end
 
-@interface RiskWrongListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
-    NSDateFormatter *dtfrm;
-}
+@interface RiskWrongListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSArray *timeArray;
+@property (strong, nonatomic) NSArray *wrongDataArray;
 @property (strong, nonatomic) id<RiskWrongListChooseDelegate> delegate;
 
-@property (strong, nonatomic) IBOutlet UITableView *timeTableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)cancelBtnClick:(id)sender;
 

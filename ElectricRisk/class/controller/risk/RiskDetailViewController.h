@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "RiskExecutiveTimeListViewController.h"
+#import "RiskAddViewController.h"
 
-@interface RiskDetailViewController : UIViewController<UIWebViewDelegate, RiskExecutiveTimeChooseDelegate>{
+@interface RiskDetailViewController : UIViewController<UIWebViewDelegate, RiskExecutiveTimeChooseDelegate, RiskAddDelegate>{
     MBProgressHUD *HUD;
 }
 

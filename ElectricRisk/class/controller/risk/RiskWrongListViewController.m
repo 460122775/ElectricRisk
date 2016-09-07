@@ -17,17 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.timeTableView.delegate = self;
-    self.timeTableView.dataSource = self;
-    
-    dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy 年 MM 月 dd 日"];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self initViewWithData:self.timeArray];
+    [self initViewWithData:self.wrongDataArray];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,19 +32,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)initViewWithData:(NSArray*) timeArray
+- (void)initViewWithData:(NSArray*) wrongDataArray
 {
-    self.timeArray = timeArray;
-    if (self.timeTableView == nil) return;
+    self.wrongDataArray = wrongDataArray;
+    if (self.tableView == nil) return;
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.timeTableView reloadData];
+        [self.tableView reloadData];
     });
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.timeArray == nil) return 0;
-    return self.timeArray.count;
+    if (self.wrongDataArray == nil) return 0;
+    return self.wrongDataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,9 +56,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier: RiskExecutiveTimeCell];
         cell.backgroundColor = [UIColor clearColor];
     }
-    NSDate *executiveTimeDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[(NSDictionary*)[self.timeArray objectAtIndex:indexPath.row] objectForKey:@"creat_time"] doubleValue] / 1000.0)];
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
-    cell.textLabel.text = [dtfrm stringFromDate:executiveTimeDate];
+    cell.textLabel.text = [(NSDictionary*)[self.wrongDataArray objectAtIndex:indexPath.row] objectForKey:@"content"];
     return cell;
 }
 
@@ -71,7 +67,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     if(self.delegate != nil)
     {
-        [self.delegate wrongListChooseControl:[(NSNumber*)[(NSDictionary*)[self.timeArray objectAtIndex:indexPath.row] objectForKey:@"creat_time"] doubleValue]];
+        [self.delegate wrongListChooseControl:[self.wrongDataArray objectAtIndex:indexPath.row]];
     }
 }
 

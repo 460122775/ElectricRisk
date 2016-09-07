@@ -9,41 +9,38 @@
 #import <UIKit/UIKit.h>
 #import "RiskWrongListViewController.h"
 
+@protocol RiskAddDelegate <NSObject>
+
+-(void)riskExecutiveInfoAddSuccess;
+
+@end
+
 @interface RiskAddViewController : UIViewController<UIWebViewDelegate, RiskWrongListChooseDelegate>{
     MBProgressHUD *HUD;
+    NSDictionary *currentSelectWrongDic;
+    NSDateFormatter *dtfrm;
 }
 
 @property (strong, nonatomic) NSDictionary *riskDataDic;
 @property (strong, nonatomic) NSDictionary *riskDetailDataDic;
-@property (strong, nonatomic) NSArray *riskExecutiveTimeArray;
-@property (strong, nonatomic) NSDictionary *riskExecutiveDataDic;
-@property (strong, nonatomic) NSString *repairInfoJsonString;
-    
-@property (strong, nonatomic) IBOutlet UIButton *stopBtn;
+@property (strong, nonatomic) NSArray *wrongDataArray;
+@property (assign, nonatomic) id<RiskAddDelegate> delegate;
+
+
 @property (strong, nonatomic) IBOutlet UILabel *projectNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *endTimeLabel;
-@property (strong, nonatomic) IBOutlet UIButton *dateBtn;
+@property (strong, nonatomic) IBOutlet UILabel *currentDateLabel;
 
-@property (strong, nonatomic) IBOutlet UIWebView *personInfoWebView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *personInfoWebViewHeight;
-@property (strong, nonatomic) IBOutlet UIWebView *executiveInfoWebView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *executiveInfoWebViewHeight;
-@property (strong, nonatomic) IBOutlet UIWebView *repairInfoWebView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *repairInfoWebViewHeight;
-@property (strong, nonatomic) IBOutlet UIWebView *processInfoWebView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *processInfoWebViewHeight;
 
 
 - (IBAction)backBtnClick:(id)sender;
 
-- (IBAction)writeBtnClick:(id)sender;
-
-- (IBAction)stopBtnClick:(id)sender;
+- (IBAction)finishBtnClick:(id)sender;
 
 - (IBAction)dateBtnClick:(id)sender;
 
-- (void)initViewWithData:(NSDictionary*)dataDic;
+- (void)initViewWithRisk:(NSDictionary*)riskDataDic andDetail:(NSDictionary*) riskDetailDic;
 
 @end

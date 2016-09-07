@@ -18,23 +18,25 @@
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
-#define PATH_LOGIN @"/api/login/login.do"           //登录
-#define PATH_RISK_LIST @"/api/project/getList.do"   //获取今日风险列表
+#define PATH_LOGIN @"/api/login/login.do"               //登录
+#define PATH_RISK_LIST @"/api/project/getList.do"       //获取今日风险列表
 #define PATH_RISK_DETAIL @"/api/project/getOneInfo.do"  //获取风险详情
 #define PATH_RISK_DAYINFO @"/api/project/getOneDay.do"  //获取风险天执行情况
-#define PATH_RISK_CHECKLIST @"/api/risk/myrisks.do"         //获取风险审批
+#define PATH_RISK_WRONG @"/api/project/getriskDeal.do"  //获取违章列表
+#define PATH_RISK_UPLOADIMG @"/api/risk/imageUP.do"     //上传图片
+#define PATH_RISK_CHECKLIST @"/api/risk/myrisks.do"     //获取风险审批
 #define PATH_RISK_VERIFYLIST @"/api/risk/risklistdata.do"//获取风险验收列表
-#define PATH_RISK_REPORTDETAIL @"/api/risk/riskap.do"       //获取报审详情
-#define PATH_RISK_REPORTOPERATE @"/api/risk/riskacess.do"   //报审操作
+#define PATH_RISK_REPORTDETAIL @"/api/risk/riskap.do"   //获取报审详情
+#define PATH_RISK_REPORTOPERATE @"/api/risk/riskacess.do"//报审操作
 #define PATH_NOTICE_LIST @"/api/notice/getNews.do"      //获取公告列表
 #define PATH_NOTICE_COMMENT @"/api/project/reply.do"    //回复公告
 #define PATH_NOTICE_COMMENT_LIST @"/api/project/replyList.do"//获取公告回复
-#define PATH_NOTICE_READ @"/api/notice/viewmsg.do"   //消息状态已读
+#define PATH_NOTICE_READ @"/api/notice/viewmsg.do"      //消息状态已读
 #define PATH_NOTICE_ADD @"/api/notice/addNotice.do"     //发布公告
 #define PATH_NOTICE_MYLIST @"/api/notice/getList.do"    //获取我的公告
 #define PATH_WARN_LSIT @"/api/notice/getwarn.do"        //获取风险提醒列表
 #define PATH_WARN_PUBLISH @"/api/risk/approvalPub.do"   //发布公告
-#define PATH_WARN_MODIFY @"/api/risk/updaterisk.do " //风险修改
+#define PATH_WARN_MODIFY @"/api/risk/updaterisk.do "    //风险修改
 #define PATH_PWD_UPDATE @"/api/user/upUpd.do"           //修改密码
 
 /**  Color Define **/
@@ -54,6 +56,15 @@
 /** Define operation **/
 #define State_Success 1
 #define State_Fault 0
+
+#define ROLE_1 1 // b/e/g       省公司管理员
+#define ROLE_2 2 // b/g         省公司
+#define ROLE_3 3 //	b/g         建管单位
+#define ROLE_4 4 //	a/b/d/g/h	业主
+#define ROLE_5 5 //	a/c/g/h     监理
+#define ROLE_6 6 //	a/g/h       施工
+#define ROLE_7 7 //	--          普通用户
+#define ROLE_8 8 //	a/b/j/f/g/i	建管单位安全专责
 
 /** Define result for check & verify **/
 #define Rish_PUBLISHSTATE_PUBLISH 3
