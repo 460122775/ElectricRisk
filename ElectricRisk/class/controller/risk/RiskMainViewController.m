@@ -33,7 +33,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     {
         [self testData];
     }else{
-        [self requestData];
+        [self requestData:nil];
     }
     selectedDataDic = nil;
 }
@@ -82,7 +82,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     });
 }
 
--(void)requestData
+-(void)requestData:(NSDictionary*)dict
 {
     if (HUD == nil)
     {
@@ -94,12 +94,12 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     [HUD removeFromSuperViewOnHide];
     [HUD showByCustomView:YES];
 
-    NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
+    if(dict == nil) dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
                            @"area":@"",
                            @"projectid":@"",
-                           @"levelStart":@"1",
-                           @"levelEnd":@"9"};
+                           @"levelStart":@"",
+                           @"levelEnd":@""};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_LIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
@@ -141,9 +141,27 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
 - (IBAction)searchBtnClick:(id)sender
 {
     RiskSearchViewController *riskSearchViewController = [[RiskSearchViewController alloc] initWithNibName:@"RiskSearchViewController" bundle:nil];
+    riskSearchViewController.delegate = self;
     riskSearchViewController.modalPresentationStyle = UIModalPresentationCustom;
     riskSearchViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:riskSearchViewController animated:YES completion:nil];
+    [riskSearchViewController initViewWithData:projectArray];
+}
+
+-(void)riskSearchWithArea:(NSString*)area andProjectid:(NSString*)projectid andSLevel:(NSString*)startLevel andEndLevel:(NSString*)endLevel
+{
+    if (OFFLINE)
+    {
+        [self testData];
+    }else{
+        [self requestData:@{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
+                                   @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                                   @"area":area,
+                                   @"projectid":projectid,
+                                   @"levelStart":startLevel,
+                                   @"levelEnd":endLevel}
+         ];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

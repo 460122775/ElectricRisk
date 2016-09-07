@@ -44,6 +44,10 @@
 		015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */; };
 		0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11A1D72B11E0066D8B7 /* SystemConfig.m */; };
 		0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */; };
+		01FFB9AC1D80656500D844E9 /* RiskProjectChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FFB9AA1D80656500D844E9 /* RiskProjectChooseViewController.m */; };
+		01FFB9AD1D80656500D844E9 /* RiskProjectChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FFB9AB1D80656500D844E9 /* RiskProjectChooseViewController.xib */; };
+		01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FFB9AF1D806AC900D844E9 /* RiskClassChooseViewController.m */; };
+		01FFB9B21D806AC900D844E9 /* RiskClassChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FFB9B01D806AC900D844E9 /* RiskClassChooseViewController.xib */; };
 		BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */; };
 		BA1ACAD71D7D0A8400EB96BC /* CheckDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD61D7D0A8400EB96BC /* CheckDetailViewController.m */; };
 		BA2FB6551D7FD2640017D025 /* WarnModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2FB6541D7FD2640017D025 /* WarnModifyViewController.m */; };
@@ -129,6 +133,12 @@
 		0154B11A1D72B11E0066D8B7 /* SystemConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemConfig.m; path = class/model/system/SystemConfig.m; sourceTree = "<group>"; };
 		0154B11E1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MBProgressHUDView.h"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.h"; sourceTree = "<group>"; };
 		0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
+		01FFB9A91D80656500D844E9 /* RiskProjectChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskProjectChooseViewController.h; path = class/controller/risk/RiskProjectChooseViewController.h; sourceTree = "<group>"; };
+		01FFB9AA1D80656500D844E9 /* RiskProjectChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskProjectChooseViewController.m; path = class/controller/risk/RiskProjectChooseViewController.m; sourceTree = "<group>"; };
+		01FFB9AB1D80656500D844E9 /* RiskProjectChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskProjectChooseViewController.xib; path = class/controller/risk/RiskProjectChooseViewController.xib; sourceTree = "<group>"; };
+		01FFB9AE1D806AC900D844E9 /* RiskClassChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskClassChooseViewController.h; path = class/controller/risk/RiskClassChooseViewController.h; sourceTree = "<group>"; };
+		01FFB9AF1D806AC900D844E9 /* RiskClassChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskClassChooseViewController.m; path = class/controller/risk/RiskClassChooseViewController.m; sourceTree = "<group>"; };
+		01FFB9B01D806AC900D844E9 /* RiskClassChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskClassChooseViewController.xib; path = class/controller/risk/RiskClassChooseViewController.xib; sourceTree = "<group>"; };
 		5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
 		7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
 		BA1ACAD01D7CFD3600EB96BC /* NoticeAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeAddViewController.h; path = class/controller/message/notice/NoticeAddViewController.h; sourceTree = "<group>"; };
@@ -215,6 +225,12 @@
 				BAE718921D714F87009AB399 /* RiskSearchViewController.h */,
 				BAE718931D714F87009AB399 /* RiskSearchViewController.m */,
 				BAE718941D714F87009AB399 /* RiskSearchViewController.xib */,
+				01FFB9A91D80656500D844E9 /* RiskProjectChooseViewController.h */,
+				01FFB9AA1D80656500D844E9 /* RiskProjectChooseViewController.m */,
+				01FFB9AB1D80656500D844E9 /* RiskProjectChooseViewController.xib */,
+				01FFB9AE1D806AC900D844E9 /* RiskClassChooseViewController.h */,
+				01FFB9AF1D806AC900D844E9 /* RiskClassChooseViewController.m */,
+				01FFB9B01D806AC900D844E9 /* RiskClassChooseViewController.xib */,
 			);
 			name = main;
 			sourceTree = "<group>";
@@ -594,11 +610,13 @@
 				015056831D78A3DF00C1F8D8 /* NoticeMainListCell.xib in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
 				015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */,
+				01FFB9AD1D80656500D844E9 /* RiskProjectChooseViewController.xib in Resources */,
 				015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */,
 				015056861D78A3DF00C1F8D8 /* WarnMainListCell.xib in Resources */,
 				0150566C1D78722A00C1F8D8 /* RiskMainListCell.xib in Resources */,
 				015056791D789EAF00C1F8D8 /* VerifyMainListCell.xib in Resources */,
 				015259BB1D70918F00AD3E67 /* Main.storyboard in Resources */,
+				01FFB9B21D806AC900D844E9 /* RiskClassChooseViewController.xib in Resources */,
 				BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -696,10 +714,12 @@
 				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
 				BA2FB6591D7FEAE50017D025 /* MSNPickerView.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
+				01FFB9AC1D80656500D844E9 /* RiskProjectChooseViewController.m in Sources */,
 				015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */,
 				BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */,
 				0150566B1D78722A00C1F8D8 /* RiskMainListCell.m in Sources */,
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
+				01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
 				BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */,
 				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,

@@ -11,7 +11,7 @@
 #import "RiskDetailViewController.h"
 #import "RiskMainListCell.h"
 
-@interface RiskMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+@interface RiskMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, RishSearchDelegate>{
     MBProgressHUD *HUD;
     NSArray *totalDataArray;
     NSMutableArray *headerNameArray;

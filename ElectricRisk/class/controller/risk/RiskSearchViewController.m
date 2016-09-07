@@ -24,9 +24,104 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initViewWithData:(NSArray*) projectArray
+{
+    self.projectArray = projectArray;
+}
+
 - (IBAction)goBackBtnClick:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)chooseProjectBtnClick:(id)sender
+{
+    RiskProjectChooseViewController *riskProjectChooseViewController = [[RiskProjectChooseViewController alloc] initWithNibName:@"RiskProjectChooseViewController" bundle:nil];
+    riskProjectChooseViewController.modalPresentationStyle = UIModalPresentationCustom;
+    riskProjectChooseViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    riskProjectChooseViewController.delegate = self;
+    [riskProjectChooseViewController initViewWithData:self.projectArray];
+    [self presentViewController:riskProjectChooseViewController animated:YES completion:nil];
+}
+
+-(void)projectChooseControl:(NSDictionary*)project
+{
+    self.currentProject = project;
+    [self.chooseProjectBtn setTitle:[project objectForKey:@"name"] forState:UIControlStateNormal];
+}
+
+- (IBAction)startBtnClick:(id)sender
+{
+    RiskClassChooseViewController *riskClassChooseViewController = [[RiskClassChooseViewController alloc] initWithNibName:@"RiskClassChooseViewController" bundle:nil];
+    riskClassChooseViewController.modalPresentationStyle = UIModalPresentationCustom;
+    riskClassChooseViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    riskClassChooseViewController.delegate = self;
+    [riskClassChooseViewController initViewWithStart:YES];
+    [self presentViewController:riskClassChooseViewController animated:YES completion:nil];
+}
+
+- (IBAction)endClassBtnClick:(id)sender
+{
+    RiskClassChooseViewController *riskClassChooseViewController = [[RiskClassChooseViewController alloc] initWithNibName:@"RiskClassChooseViewController" bundle:nil];
+    riskClassChooseViewController.modalPresentationStyle = UIModalPresentationCustom;
+    riskClassChooseViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    riskClassChooseViewController.delegate = self;
+    [riskClassChooseViewController initViewWithStart:NO];
+    [self presentViewController:riskClassChooseViewController animated:YES completion:nil];
+}
+
+-(void)riskClassChooseControl:(int)classValue withStart:(BOOL)isStart
+{
+    if (isStart)
+    {
+        self.startClassBtn.tag = (classValue > 30) ? 3 : classValue;
+        self.startClass = (classValue > 30) ? @"3" : [NSString stringWithFormat:@"%i", classValue];
+        if (classValue > 30)
+        {
+            [self.startClassBtn setTitle:[NSString stringWithFormat:@"%@级" ,(classValue == 31)? @"3 " :@"重要3"] forState:UIControlStateNormal];
+        }else{
+            [self.startClassBtn setTitle:[NSString stringWithFormat:@"%i 级" ,classValue] forState:UIControlStateNormal];
+        }
+    }else{
+        self.endClassBtn.tag = (classValue > 30) ? 3 : classValue;;
+        self.endClass = (classValue > 30) ? @"3" : [NSString stringWithFormat:@"%i", classValue];
+        if (classValue > 30)
+        {
+            [self.endClassBtn setTitle:[NSString stringWithFormat:@"%@级" ,(classValue == 31)? @"3 " :@"重要3"] forState:UIControlStateNormal];
+        }else{
+            [self.endClassBtn setTitle:[NSString stringWithFormat:@"%i 级" ,classValue] forState:UIControlStateNormal];
+        }
+    }
+}
+
+- (IBAction)resetBtnClick:(id)sender
+{
+    self.currentProject = nil;
+    [self.chooseProjectBtn setTitle:@"选择项目" forState:UIControlStateNormal];
+    self.startClass = @"";
+    self.startClassBtn.tag = 0;
+    [self.startClassBtn setTitle:@"选择等级" forState:UIControlStateNormal];
+    self.endClass = @"";
+    self.endClassBtn.tag = 0;
+    [self.endClassBtn setTitle:@"选择等级" forState:UIControlStateNormal];
+    self.areaNameTextField.text = @"";
+}
+
+- (IBAction)searchBtnClick:(id)sender
+{
+    if (self.startClassBtn.tag >= self.endClassBtn.tag && self.startClassBtn.tag != 0)
+    {
+        [[JTToast toastWithText:@"项目等级的顺序应从低到高" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    if (self.delegate != nil)
+    {
+        [self.delegate riskSearchWithArea:self.areaNameTextField.text
+                             andProjectid:[NSString stringWithFormat:@"%@", (self.currentProject == nil)?@"":[self.currentProject objectForKey:@"id"]]
+                                andSLevel:self.startClass
+                              andEndLevel:self.endClass];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end
