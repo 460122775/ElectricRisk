@@ -47,6 +47,7 @@
 		BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */; };
 		BA1ACAD71D7D0A8400EB96BC /* CheckDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD61D7D0A8400EB96BC /* CheckDetailViewController.m */; };
 		BA2FB6551D7FD2640017D025 /* WarnModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2FB6541D7FD2640017D025 /* WarnModifyViewController.m */; };
+		BA2FB6591D7FEAE50017D025 /* MSNPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2FB6581D7FEAE50017D025 /* MSNPickerView.m */; };
 		BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A68E1D790C5A00E40A09 /* SettingViewController.m */; };
 		BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */; };
 		BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6941D7915D700E40A09 /* AboutUsViewController.m */; };
@@ -136,6 +137,8 @@
 		BA1ACAD61D7D0A8400EB96BC /* CheckDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CheckDetailViewController.m; path = class/controller/check/CheckDetailViewController.m; sourceTree = "<group>"; };
 		BA2FB6531D7FD2640017D025 /* WarnModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarnModifyViewController.h; path = class/controller/message/warn/WarnModifyViewController.h; sourceTree = "<group>"; };
 		BA2FB6541D7FD2640017D025 /* WarnModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarnModifyViewController.m; path = class/controller/message/warn/WarnModifyViewController.m; sourceTree = "<group>"; };
+		BA2FB6571D7FEAE50017D025 /* MSNPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MSNPickerView.h; path = class/ThirdParty/DatePicker/MSNPickerView.h; sourceTree = "<group>"; };
+		BA2FB6581D7FEAE50017D025 /* MSNPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MSNPickerView.m; path = class/ThirdParty/DatePicker/MSNPickerView.m; sourceTree = "<group>"; };
 		BA30A68D1D790C5A00E40A09 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = class/controller/setting/SettingViewController.h; sourceTree = "<group>"; };
 		BA30A68E1D790C5A00E40A09 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = class/controller/setting/SettingViewController.m; sourceTree = "<group>"; };
 		BA30A6901D79131D00E40A09 /* ModifyPwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModifyPwdViewController.h; path = class/controller/setting/ModifyPwdViewController.h; sourceTree = "<group>"; };
@@ -345,6 +348,7 @@
 		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BA2FB6561D7FEAD50017D025 /* DatePicker */,
 				010A146B1D7C76810064AF63 /* ElectricRisk-Bridging-Header.h */,
 				0154B1211D72BE460066D8B7 /* HUD */,
 			);
@@ -419,6 +423,15 @@
 				BA2FB6541D7FD2640017D025 /* WarnModifyViewController.m */,
 			);
 			name = warn;
+			sourceTree = "<group>";
+		};
+		BA2FB6561D7FEAD50017D025 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				BA2FB6571D7FEAE50017D025 /* MSNPickerView.h */,
+				BA2FB6581D7FEAE50017D025 /* MSNPickerView.m */,
+			);
+			name = DatePicker;
 			sourceTree = "<group>";
 		};
 		BA55C6921D7800E300FDA2F6 /* conn */ = {
@@ -681,6 +694,7 @@
 				010A14661D7C721C0064AF63 /* RiskAddViewController.m in Sources */,
 				0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */,
 				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
+				BA2FB6591D7FEAE50017D025 /* MSNPickerView.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
 				015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */,
 				BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */,

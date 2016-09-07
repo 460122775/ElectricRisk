@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MSNPickerView.h"
+
+#define Tag_StartTime 0
+#define Tag_EndTime 1
 
 @protocol WarnModifyDelegate <NSObject>
 
@@ -14,9 +18,10 @@
 
 @end
 
-@interface WarnModifyViewController : UIViewController{
+@interface WarnModifyViewController : UIViewController<MSPickerViewDelegate>{
     MBProgressHUD *HUD;
     int currentKeyboardHeight;
+    NSDateFormatter *dtfrm;
     long startTimeValue;
     long endTimeValue;
 }

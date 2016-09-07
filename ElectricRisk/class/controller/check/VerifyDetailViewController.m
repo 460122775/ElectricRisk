@@ -76,7 +76,6 @@
         case 2: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"归档": @"驳回业主项目部" forState:UIControlStateNormal]; break;
         default: break;
     }
-    
 }
 
 - (void)initViewWithData:(NSDictionary*)verifyDataDic

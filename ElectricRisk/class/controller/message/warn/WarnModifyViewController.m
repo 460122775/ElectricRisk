@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    dtfrm = [[NSDateFormatter alloc] init];
+    [dtfrm setDateFormat:@"yyyy-MM-dd"];
     self.reasonTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.reasonTextView.layer.borderWidth = 1;
     // Do any additional setup after loading the view.
@@ -118,8 +119,6 @@
 -(void)initViewByWarnData
 {
     if(self.reasonTextView == nil) return;
-    NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd"];
     
     self.valueKTextField.text = [self.warnDataDic objectForKey:@"k_value"];
     startTimeValue = [(NSNumber*)[self.warnDataDic objectForKey:@"plan_start_time"] longValue];
@@ -138,12 +137,37 @@
 
 - (IBAction)startTimeBtnClick:(id)sender
 {
-    
+    NSDate *sTimeDate = [NSDate dateWithTimeIntervalSince1970:( startTimeValue/ 1000.0)];
+    MSNPickerView *_pickerView = [[MSNPickerView alloc]initDatePickWithDate:sTimeDate datePickerMode: UIDatePickerModeDate isHaveNavControler:NO];
+    _pickerView.delegate = self;
+    _pickerView.tag = Tag_StartTime;
+    [_pickerView show];
 }
 
 - (IBAction)endTimeBtnClick:(id)sender
 {
-    
+    NSDate *sTimeDate = [NSDate dateWithTimeIntervalSince1970:( startTimeValue/ 1000.0)];
+    MSNPickerView *_pickerView = [[MSNPickerView alloc]initDatePickWithDate:sTimeDate datePickerMode: UIDatePickerModeDate isHaveNavControler:NO];
+    _pickerView.delegate = self;
+    _pickerView.tag = Tag_EndTime;
+    [_pickerView show];
+}
+
+#pragma mark ZhpickVIewDelegate
+
+-(void)toobarDonBtnHaveClick:(MSNPickerView *)pickView resultString:(NSString *)resultString{
+    NSDate *inputDate = [dtfrm dateFromString:resultString];
+    switch (pickView.tag)
+    {
+        case Tag_StartTime:
+            startTimeValue = [inputDate timeIntervalSince1970] * 1000 * 1000;
+            [self.startTimeBtn setTitle:[dtfrm stringFromDate:inputDate] forState:UIControlStateNormal];
+            break;
+        case Tag_EndTime:
+            endTimeValue = [inputDate timeIntervalSince1970] * 1000 * 1000;
+            [self.endTimeBtn setTitle:[dtfrm stringFromDate:inputDate] forState:UIControlStateNormal];
+            break;
+    }
 }
 
 - (IBAction)submitBtnClick:(id)sender
@@ -154,6 +178,9 @@
         return;
     }else if (self.reasonTextView.text == nil || self.reasonTextView.text.length == 0){
         [[JTToast toastWithText:@"请输入修改原因" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }else if (startTimeValue >= endTimeValue){
+        [[JTToast toastWithText:@"开始时间应早于结束时间" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
     }
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认"
