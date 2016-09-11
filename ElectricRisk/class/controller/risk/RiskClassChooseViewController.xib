@@ -70,7 +70,7 @@
                                         <action selector="classBtnClick:" destination="-1" eventType="touchUpInside" id="K79-Gn-IMA"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" tag="32" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJf-iP-k2T">
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJf-iP-k2T">
                                     <rect key="frame" x="68" y="218" width="125" height="40"/>
                                     <state key="normal" title="重要3级">
                                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,13 +79,26 @@
                                         <action selector="classBtnClick:" destination="-1" eventType="touchUpInside" id="bu4-yP-0dH"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzS-x5-8wg">
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SzS-x5-8wg">
                                     <rect key="frame" x="69" y="270" width="125" height="40"/>
                                     <state key="normal" title="4 级">
                                         <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="classBtnClick:" destination="-1" eventType="touchUpInside" id="cfq-jM-bve"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcl-NW-Ncl">
+                                    <rect key="frame" x="69" y="322" width="125" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="BcJ-zq-qaB"/>
+                                        <constraint firstAttribute="width" constant="125" id="CDk-0z-a6c"/>
+                                    </constraints>
+                                    <state key="normal" title="5 级">
+                                        <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="classBtnClick:" destination="-1" eventType="touchUpInside" id="WOy-8e-75m"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -95,6 +108,8 @@
                                 <constraint firstItem="eJf-iP-k2T" firstAttribute="centerX" secondItem="1eF-kD-voa" secondAttribute="centerX" id="7C8-Mk-2NF"/>
                                 <constraint firstItem="eJf-iP-k2T" firstAttribute="top" secondItem="oW4-Ps-bBe" secondAttribute="bottom" constant="12" id="8SW-SS-6u7"/>
                                 <constraint firstItem="oW4-Ps-bBe" firstAttribute="centerX" secondItem="1eF-kD-voa" secondAttribute="centerX" id="8dg-Au-oS9"/>
+                                <constraint firstItem="qcl-NW-Ncl" firstAttribute="top" secondItem="SzS-x5-8wg" secondAttribute="bottom" constant="12" id="DGW-Uc-a40"/>
+                                <constraint firstItem="qcl-NW-Ncl" firstAttribute="centerX" secondItem="SzS-x5-8wg" secondAttribute="centerX" id="F7C-kL-9EU"/>
                                 <constraint firstItem="SzS-x5-8wg" firstAttribute="top" secondItem="eJf-iP-k2T" secondAttribute="bottom" constant="12" id="Fq7-4Z-pOy"/>
                                 <constraint firstItem="eJf-iP-k2T" firstAttribute="width" secondItem="xzR-yp-Y5z" secondAttribute="width" id="IdK-rN-hNh"/>
                                 <constraint firstItem="SzS-x5-8wg" firstAttribute="width" secondItem="xzR-yp-Y5z" secondAttribute="width" id="K1r-dO-vEL"/>

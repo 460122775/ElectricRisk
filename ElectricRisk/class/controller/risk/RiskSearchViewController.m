@@ -74,22 +74,24 @@
 {
     if (isStart)
     {
-        self.startClassBtn.tag = (classValue > 30) ? 3 : classValue;
-        self.startClass = (classValue > 30) ? @"3" : [NSString stringWithFormat:@"%i", classValue];
-        if (classValue > 30)
+        self.startClassBtn.tag = classValue;
+        self.startClass = [NSString stringWithFormat:@"%i", classValue];
+        switch (classValue)
         {
-            [self.startClassBtn setTitle:[NSString stringWithFormat:@"%@级" ,(classValue == 31)? @"3 " :@"重要3"] forState:UIControlStateNormal];
-        }else{
-            [self.startClassBtn setTitle:[NSString stringWithFormat:@"%i 级" ,classValue] forState:UIControlStateNormal];
+            case 4: [self.startClassBtn setTitle:@"重要3级" forState:UIControlStateNormal]; break;
+            case 5: [self.startClassBtn setTitle:@"4级" forState:UIControlStateNormal]; break;
+            case 6: [self.startClassBtn setTitle:@"5级" forState:UIControlStateNormal]; break;
+            default: [self.startClassBtn setTitle:[NSString stringWithFormat:@"%i级", classValue] forState:UIControlStateNormal]; break;
         }
     }else{
-        self.endClassBtn.tag = (classValue > 30) ? 3 : classValue;;
-        self.endClass = (classValue > 30) ? @"3" : [NSString stringWithFormat:@"%i", classValue];
-        if (classValue > 30)
+        self.endClassBtn.tag = classValue;
+        self.endClass = [NSString stringWithFormat:@"%i", classValue];
+        switch (classValue)
         {
-            [self.endClassBtn setTitle:[NSString stringWithFormat:@"%@级" ,(classValue == 31)? @"3 " :@"重要3"] forState:UIControlStateNormal];
-        }else{
-            [self.endClassBtn setTitle:[NSString stringWithFormat:@"%i 级" ,classValue] forState:UIControlStateNormal];
+            case 4: [self.endClassBtn setTitle:@"重要3级" forState:UIControlStateNormal]; break;
+            case 5: [self.endClassBtn setTitle:@"4级" forState:UIControlStateNormal]; break;
+            case 6: [self.endClassBtn setTitle:@"5级" forState:UIControlStateNormal]; break;
+            default: [self.endClassBtn setTitle:[NSString stringWithFormat:@"%i级", classValue] forState:UIControlStateNormal]; break;
         }
     }
 }

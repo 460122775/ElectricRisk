@@ -13,12 +13,14 @@
 
 @interface RiskMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, RishSearchDelegate>{
     MBProgressHUD *HUD;
-    NSArray *totalDataArray;
+    NSMutableArray *totalDataArray;
     NSMutableArray *headerNameArray;
     NSMutableDictionary *dataDic;
     NSArray* projectArray;
     
     NSDictionary* selectedDataDic;
+    
+    RiskSearchViewController *riskSearchViewController;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

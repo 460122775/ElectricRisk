@@ -20,7 +20,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
 {
     [super viewDidLoad];
     headerNameArray = [[NSMutableArray alloc] init];
-    
+    totalDataArray = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -55,11 +55,24 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     if (state == State_Success)
     {
         projectArray = (NSArray*)[result objectForKey:@"projects"];
-        totalDataArray = (NSArray*)[result objectForKey:@"data"];
-        if (totalDataArray == nil || totalDataArray.count == 0)
+        NSArray* dataArr = (NSArray*)[result objectForKey:@"data"];
+        [totalDataArray removeAllObjects];
+        if (dataArr == nil || dataArr.count == 0)
         {
             [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }else{
+            // Sort by grade
+            for (int i = 10; i > 0; i--)
+            {
+                for (NSDictionary *tempDic in dataArr)
+                {
+                    int grade = [(NSNumber*)[tempDic objectForKey:@"grade"] intValue];
+                    if (i == grade)
+                    {
+                        [totalDataArray addObject:tempDic];
+                    }
+                }
+            }
             dataDic = [[NSMutableDictionary alloc] init];
             [headerNameArray removeAllObjects];
             NSMutableArray* dataArrTemp = nil;
@@ -106,11 +119,25 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            totalDataArray = (NSArray*)[result objectForKey:@"data"];
-            if (totalDataArray == nil || totalDataArray.count == 0)
+            projectArray = (NSArray*)[result objectForKey:@"projects"];
+            NSArray* dataArr = (NSArray*)[result objectForKey:@"data"];
+            [totalDataArray removeAllObjects];
+            if (dataArr == nil || dataArr.count == 0)
             {
                 [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }else{
+                // Sort by grade
+                for (int i = 10; i > 0; i--)
+                {
+                    for (NSDictionary *tempDic in dataArr)
+                    {
+                        int grade = [(NSNumber*)[tempDic objectForKey:@"grade"] intValue];
+                        if (i == grade)
+                        {
+                            [totalDataArray addObject:tempDic];
+                        }
+                    }
+                }
                 dataDic = [[NSMutableDictionary alloc] init];
                 [headerNameArray removeAllObjects];
                 NSMutableArray* dataArrTemp = nil;
@@ -141,10 +168,13 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
 
 - (IBAction)searchBtnClick:(id)sender
 {
-    RiskSearchViewController *riskSearchViewController = [[RiskSearchViewController alloc] initWithNibName:@"RiskSearchViewController" bundle:nil];
-    riskSearchViewController.delegate = self;
-    riskSearchViewController.modalPresentationStyle = UIModalPresentationCustom;
-    riskSearchViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    if(riskSearchViewController == nil)
+    {
+        riskSearchViewController = [[RiskSearchViewController alloc] initWithNibName:@"RiskSearchViewController" bundle:nil];
+        riskSearchViewController.delegate = self;
+        riskSearchViewController.modalPresentationStyle = UIModalPresentationCustom;
+        riskSearchViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    }
     [self presentViewController:riskSearchViewController animated:YES completion:nil];
     [riskSearchViewController initViewWithData:projectArray];
 }

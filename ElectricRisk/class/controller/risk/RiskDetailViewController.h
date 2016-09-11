@@ -11,6 +11,7 @@
 #import "RiskAddViewController.h"
 
 @interface RiskDetailViewController : UIViewController<UIWebViewDelegate, RiskExecutiveTimeChooseDelegate, RiskAddDelegate>{
+    NSDateFormatter *dtfrm;
     MBProgressHUD *HUD;
 }
 
@@ -19,7 +20,8 @@
 @property (strong, nonatomic) NSArray *riskExecutiveTimeArray;
 @property (strong, nonatomic) NSDictionary *riskExecutiveDataDic;
 @property (strong, nonatomic) NSString *repairInfoJsonString;
-    
+
+@property (strong, nonatomic) IBOutlet UIButton *writeBtn;
 @property (strong, nonatomic) IBOutlet UIButton *stopBtn;
 @property (strong, nonatomic) IBOutlet UILabel *projectNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;

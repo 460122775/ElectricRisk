@@ -305,7 +305,11 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         currentSelectedWarn = [warnDataArray objectAtIndex:indexPath.row];
         if(currentSelectedWarn != nil)
         {
-//            [self performSegueWithIdentifier:@"ToWarnDetail" sender:self];
+            WarnDetailViewController *warnDetailViewController = [[WarnDetailViewController alloc] initWithNibName:@"WarnDetailViewController" bundle:nil];
+            warnDetailViewController.modalPresentationStyle = UIModalPresentationCustom;
+            warnDetailViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [warnDetailViewController initViewWithData:[warnDataArray objectAtIndex:indexPath.row]];
+            [self presentViewController:warnDetailViewController animated:YES completion:nil];
         }
     }
 }

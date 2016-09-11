@@ -6,7 +6,7 @@
 //
 
 #import "RequestModal.h"
-#import "GTMBase64.h"
+#import "MMDesManager.h"
 
 @implementation RequestModal
 
@@ -21,7 +21,7 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager.requestSerializer setTimeoutInterval:SERVER_REQUEST_TIME_OUT];
     
     if([headerDic count])
@@ -40,7 +40,8 @@
     NSError * err;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:param options:0 error:&err];
     NSString * paramString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    param = @{@"data":[NSString stringWithFormat:@"{%@}", [self encrypt: paramString]]};
+    param = @{@"data":[MMDesManager getEncryptWithString:paramString keyString:CodingKey ivString:CodingKey]};
+    DLog(@"%@?data=%@",path,[MMDesManager getEncryptWithString:paramString keyString:CodingKey ivString:CodingKey])
     
     // Do POST.
     if(methed == HTTP_METHED_POST)
@@ -80,7 +81,8 @@
 
 +(void)responseSuccessHandler:(AFHTTPRequestOperation*) operation responseObject:(id) _responseObject parameter:(NSDictionary *)param content:(NSString*) _contentStr path:(NSString*) _path returnBlock:(void(^)(id responseData)) _returnBlock
 {
-    if(_returnBlock != nil) _returnBlock(_responseObject);
+    NSString  *rsString = [MMDesManager getDecryptWithString:[[NSString alloc] initWithData:(NSData*)(_responseObject) encoding:NSUTF8StringEncoding] keyString:CodingKey ivString:CodingKey];
+    if(_returnBlock != nil) _returnBlock([NSJSONSerialization JSONObjectWithData:[rsString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
 }
 
 +(void)responseFailureHandler:(AFHTTPRequestOperation*) operation andError:(NSError*) error content:(NSString*) _contentStr path:(NSString*) _path param:(NSDictionary*)parameters returnBlock:(void(^)(id responseData)) _returnBlock
@@ -92,40 +94,6 @@
         DLog(@"网络不给力，请稍后重试!");
     }
     if(_returnBlock != nil) _returnBlock(nil);
-}
-
-+ (NSString*)encrypt:(NSString*)plainText {
-    NSData* data = [plainText dataUsingEncoding:NSUTF8StringEncoding];
-    size_t plainTextBufferSize = [data length];
-    const void *vplainText = (const void *)[data bytes];
-    
-    CCCryptorStatus ccStatus;
-    uint8_t *bufferPtr = NULL;
-    size_t bufferPtrSize = 0;
-    size_t movedBytes = 0;
-    
-    bufferPtrSize = (plainTextBufferSize + kCCBlockSize3DES) & ~(kCCBlockSize3DES - 1);
-    bufferPtr = malloc( bufferPtrSize * sizeof(uint8_t));
-    memset((void *)bufferPtr, 0x0, bufferPtrSize);
-    
-    const void *vkey = (const void *) [CodingKey UTF8String];
-//    const void *vinitVec = (const void *) [CodingOffset UTF8String];
-    
-    ccStatus = CCCrypt(kCCEncrypt,
-                       kCCAlgorithm3DES,
-                       kCCOptionPKCS7Padding,
-                       vkey,
-                       kCCKeySize3DES,
-                       nil, //vinitVec,
-                       vplainText,
-                       plainTextBufferSize,
-                       (void *)bufferPtr,
-                       bufferPtrSize,
-                       &movedBytes);
-    
-    NSData *myData = [NSData dataWithBytes:(const void *)bufferPtr length:(NSUInteger)movedBytes];
-    NSString *result = [GTMBase64 stringByEncodingData:myData];
-    return result;
 }
 
 @end

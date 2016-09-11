@@ -75,7 +75,12 @@
         case 1: [self.agreeSubmitBtn setTitle:(self.agreeSwitch.isOn) ? @"归档": @"驳回监理项目部" forState:UIControlStateNormal]; break;
         default: break;
     }
-    
+    if (self.agreeSwitch.isOn)
+    {
+        [self.agreeSubmitBtn setBackgroundColor:Color_me];
+    }else{
+        [self.agreeSubmitBtn setBackgroundColor:Color_fourGrade];
+    }
 }
 
 - (void)initViewWithData:(NSDictionary*)checkDataDic
@@ -275,7 +280,7 @@
             [self.agreeView setHidden:NO];
         }
         [self agreeSwitchChanged:nil];
-        self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height;
+        self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + 10;
     }
 }
 

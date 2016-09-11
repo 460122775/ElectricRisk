@@ -84,7 +84,20 @@
     {
         [[JTToast toastWithText:@"已经是最新版本了" configuration:[JTToastConfiguration defaultConfiguration]]show];
     }else{
-        [[JTToast toastWithText:[NSString stringWithFormat:@"发现新版本:%@", [result objectForKey:@"version"]] configuration:[JTToastConfiguration defaultConfiguration]]show];
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:[NSString stringWithFormat:@"发现新版本:%@，确认要更新吗？", [result objectForKey:@"version"]] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"立即升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+             {
+                 [alert dismissViewControllerAnimated:YES completion:nil];
+                 NSURL *url = [NSURL URLWithString:[result objectForKey:@"uri"]];
+                 if(url != nil) [[UIApplication sharedApplication] openURL:url];
+             }];
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+             {
+                 [alert dismissViewControllerAnimated:YES completion:nil];
+             }];
+        [alert addAction:ok];
+        [alert addAction:cancel];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
@@ -110,7 +123,20 @@
         {
             [[JTToast toastWithText:@"已经是最新版本了" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }else{
-            [[JTToast toastWithText:[NSString stringWithFormat:@"发现新版本:%@", [result objectForKey:@"version"]] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:[NSString stringWithFormat:@"发现新版本:%@，确认要更新吗？", [result objectForKey:@"version"]] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"立即升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                 {
+                                     [alert dismissViewControllerAnimated:YES completion:nil];
+                                     NSURL *url = [NSURL URLWithString:[result objectForKey:@"uri"]];
+                                     if(url != nil) [[UIApplication sharedApplication] openURL:url];
+                                 }];
+            UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+                                     {
+                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                     }];
+            [alert addAction:ok];
+            [alert addAction:cancel];
+            [self presentViewController:alert animated:YES completion:nil];
         }
         [HUD hideByCustomView:YES];
     } failed:^(id responseData) {

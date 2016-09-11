@@ -14,7 +14,7 @@
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 
-#define URL_SERVER @"http://127.0.0.1:8080/ElectricRisk"
+#define URL_SERVER @"http://114.55.138.179:80/jj"
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
@@ -72,10 +72,12 @@
 #define Rish_PUBLISHSTATE_REVOKE 4
 
 /** Check State **/
+#define Check_State_None 0
 #define Check_State_Wait 1
 #define Check_State_No 2
 #define Check_State_Yes 3
-#define Check_State_Publish 4
+#define Check_State_Publish4 4
+#define Check_State_Publish5 5
 
 /** Active State **/
 #define Active_State_Stop 0

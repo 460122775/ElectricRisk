@@ -24,6 +24,7 @@
     NSDictionary *currentSelectWrongDic;
     NSDateFormatter *dtfrm;
     
+    UIImagePickerController *imagePickerController;
     NSMutableArray *currentImgArray;
     NSLayoutConstraint *currentScrollViewHeight;
     UIScrollView *currentScrollView;

@@ -21,6 +21,9 @@
     self.executiveInfoWebView.delegate = self;
     self.repairInfoWebView.delegate = self;
     self.processInfoWebView.delegate = self;
+    
+    dtfrm = [[NSDateFormatter alloc] init];
+    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -181,10 +184,12 @@
             [[JTToast toastWithText:@"当前的施工操作已经停止" configuration:[JTToastConfiguration defaultConfiguration]]show];
             self.stopBtn.tag = 1;
             [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"recovery.png"] forState:UIControlStateNormal];
+            [self.writeBtn setHidden:YES];
         }else{
             [[JTToast toastWithText:@"当前的施工操作已经恢复" configuration:[JTToastConfiguration defaultConfiguration]]show];
             self.stopBtn.tag = 0;
             [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
+            [self.writeBtn setHidden:NO];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -212,7 +217,18 @@
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            [[JTToast toastWithText:@"当前的施工操作已经停止" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            if (self.stopBtn.tag == 0)
+            {
+                [[JTToast toastWithText:@"当前的施工操作已经停止" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                self.stopBtn.tag = 1;
+                [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"recovery.png"] forState:UIControlStateNormal];
+                [self.writeBtn setHidden:YES];
+            }else{
+                [[JTToast toastWithText:@"当前的施工操作已经恢复" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                self.stopBtn.tag = 0;
+                [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
+                [self.writeBtn setHidden:NO];
+            }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
@@ -226,9 +242,6 @@
 -(void)initViewByDetailData
 {
     if(self.riskDetailDataDic == nil) return;
-    NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
     self.projectNameLabel.text = [self.riskDetailDataDic objectForKey:@"NAME"];
     self.addressLabel.text = [self.riskDetailDataDic objectForKey:@"ADDRESS"];
     
@@ -242,9 +255,11 @@
     {
         self.stopBtn.tag = 1;
         [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"recovery.png"] forState:UIControlStateNormal];
+        [self.writeBtn setHidden:YES];
     }else{
         self.stopBtn.tag = 0;
         [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
+        [self.writeBtn setHidden:NO];
     }
     self.riskExecutiveTimeArray = [self.riskDetailDataDic objectForKey:@"day_liat"];
     if (self.riskExecutiveTimeArray == nil || self.riskExecutiveTimeArray.count == 0)
@@ -337,6 +352,8 @@
 
 -(void)timeChooseControl:(double)timeValue
 {
+    NSDate *executiveTimeDate = [NSDate dateWithTimeIntervalSince1970:(timeValue / 1000.0)];
+    [self.dateBtn setTitle:[[[dtfrm stringFromDate:executiveTimeDate] componentsSeparatedByString:@" "] objectAtIndex:0] forState:UIControlStateNormal];
     if (OFFLINE)
     {
         [self testExecutiveData];

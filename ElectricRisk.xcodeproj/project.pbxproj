@@ -14,6 +14,10 @@
 		010A14631D7C71B60064AF63 /* RiskWrongListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010A14611D7C71B60064AF63 /* RiskWrongListViewController.xib */; };
 		010A14661D7C721C0064AF63 /* RiskAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A14651D7C721C0064AF63 /* RiskAddViewController.m */; };
 		010A14721D7C99780064AF63 /* NoticeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 010A14711D7C99780064AF63 /* NoticeDetailViewController.m */; };
+		014388FA1D85105600099E86 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 014388F61D85105600099E86 /* GTMBase64.m */; };
+		014388FB1D85105600099E86 /* MMDesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 014388F91D85105600099E86 /* MMDesManager.m */; };
+		014389001D855DA200099E86 /* WarnDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014388FE1D855DA200099E86 /* WarnDetailViewController.m */; };
+		014389011D855DA200099E86 /* WarnDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014388FF1D855DA200099E86 /* WarnDetailViewController.xib */; };
 		015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056451D77A05300C1F8D8 /* RiskListVo.m */; };
 		015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056481D77A13B00C1F8D8 /* RiskDetailVo.m */; };
 		0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150564B1D77A20800C1F8D8 /* RiskDayInfoVo.m */; };
@@ -78,6 +82,14 @@
 		010A146B1D7C76810064AF63 /* ElectricRisk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ElectricRisk-Bridging-Header.h"; sourceTree = "<group>"; };
 		010A14701D7C99780064AF63 /* NoticeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeDetailViewController.h; path = class/controller/message/notice/NoticeDetailViewController.h; sourceTree = "<group>"; };
 		010A14711D7C99780064AF63 /* NoticeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeDetailViewController.m; path = class/controller/message/notice/NoticeDetailViewController.m; sourceTree = "<group>"; };
+		014388F51D85105600099E86 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMBase64.h; path = class/ThirdParty/DES/GTMBase64.h; sourceTree = "<group>"; };
+		014388F61D85105600099E86 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMBase64.m; path = class/ThirdParty/DES/GTMBase64.m; sourceTree = "<group>"; };
+		014388F71D85105600099E86 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTMDefines.h; path = class/ThirdParty/DES/GTMDefines.h; sourceTree = "<group>"; };
+		014388F81D85105600099E86 /* MMDesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMDesManager.h; path = class/ThirdParty/DES/MMDesManager.h; sourceTree = "<group>"; };
+		014388F91D85105600099E86 /* MMDesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMDesManager.m; path = class/ThirdParty/DES/MMDesManager.m; sourceTree = "<group>"; };
+		014388FD1D855DA200099E86 /* WarnDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarnDetailViewController.h; path = class/controller/message/warn/WarnDetailViewController.h; sourceTree = "<group>"; };
+		014388FE1D855DA200099E86 /* WarnDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarnDetailViewController.m; path = class/controller/message/warn/WarnDetailViewController.m; sourceTree = "<group>"; };
+		014388FF1D855DA200099E86 /* WarnDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WarnDetailViewController.xib; path = class/controller/message/warn/WarnDetailViewController.xib; sourceTree = "<group>"; };
 		015056441D77A05300C1F8D8 /* RiskListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskListVo.h; path = class/model/vo/RiskListVo.h; sourceTree = "<group>"; };
 		015056451D77A05300C1F8D8 /* RiskListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskListVo.m; path = class/model/vo/RiskListVo.m; sourceTree = "<group>"; };
 		015056471D77A13B00C1F8D8 /* RiskDetailVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailVo.h; path = class/model/vo/RiskDetailVo.h; sourceTree = "<group>"; };
@@ -263,6 +275,18 @@
 			name = main;
 			sourceTree = "<group>";
 		};
+		014388FC1D85105E00099E86 /* DES */ = {
+			isa = PBXGroup;
+			children = (
+				014388F51D85105600099E86 /* GTMBase64.h */,
+				014388F61D85105600099E86 /* GTMBase64.m */,
+				014388F71D85105600099E86 /* GTMDefines.h */,
+				014388F81D85105600099E86 /* MMDesManager.h */,
+				014388F91D85105600099E86 /* MMDesManager.m */,
+			);
+			name = DES;
+			sourceTree = "<group>";
+		};
 		0150565F1D77A66600C1F8D8 /* risk */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +388,7 @@
 		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				014388FC1D85105E00099E86 /* DES */,
 				BA2FB6561D7FEAD50017D025 /* DatePicker */,
 				010A146B1D7C76810064AF63 /* ElectricRisk-Bridging-Header.h */,
 				0154B1211D72BE460066D8B7 /* HUD */,
@@ -437,6 +462,9 @@
 			children = (
 				BA2FB6531D7FD2640017D025 /* WarnModifyViewController.h */,
 				BA2FB6541D7FD2640017D025 /* WarnModifyViewController.m */,
+				014388FD1D855DA200099E86 /* WarnDetailViewController.h */,
+				014388FE1D855DA200099E86 /* WarnDetailViewController.m */,
+				014388FF1D855DA200099E86 /* WarnDetailViewController.xib */,
 			);
 			name = warn;
 			sourceTree = "<group>";
@@ -579,6 +607,7 @@
 				TargetAttributes = {
 					015259AC1D70918F00AD3E67 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = A4AHC42YYQ;
 					};
 				};
 			};
@@ -610,6 +639,7 @@
 				015056831D78A3DF00C1F8D8 /* NoticeMainListCell.xib in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
 				015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */,
+				014389011D855DA200099E86 /* WarnDetailViewController.xib in Resources */,
 				01FFB9AD1D80656500D844E9 /* RiskProjectChooseViewController.xib in Resources */,
 				015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */,
 				015056861D78A3DF00C1F8D8 /* WarnMainListCell.xib in Resources */,
@@ -713,6 +743,7 @@
 				0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */,
 				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
 				BA2FB6591D7FEAE50017D025 /* MSNPickerView.m in Sources */,
+				014388FB1D85105600099E86 /* MMDesManager.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
 				01FFB9AC1D80656500D844E9 /* RiskProjectChooseViewController.m in Sources */,
 				015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */,
@@ -725,9 +756,11 @@
 				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,
 				BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
+				014389001D855DA200099E86 /* WarnDetailViewController.m in Sources */,
 				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,
 				015056551D77A3DD00C1F8D8 /* RiskReportDetailVo.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
+				014388FA1D85105600099E86 /* GTMBase64.m in Sources */,
 				015056781D789EAF00C1F8D8 /* VerifyMainListCell.m in Sources */,
 				BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */,
 				BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */,
@@ -774,7 +807,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: liang villiam (937FQ396J4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liang villiam (937FQ396J4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -797,6 +831,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "8152d4ab-e698-461f-a8b0-aedad1a933d1";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -819,7 +854,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: liang villiam (937FQ396J4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liang villiam (937FQ396J4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -835,6 +871,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "8152d4ab-e698-461f-a8b0-aedad1a933d1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -846,15 +883,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: liang villiam (937FQ396J4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liang villiam (937FQ396J4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.ElectricRisk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8152d4ab-e698-461f-a8b0-aedad1a933d1";
 				SWIFT_OBJC_BRIDGING_HEADER = "ElectricRisk/ElectricRisk-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -866,15 +905,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: liang villiam (937FQ396J4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: liang villiam (937FQ396J4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.ElectricRisk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8152d4ab-e698-461f-a8b0-aedad1a933d1";
 				SWIFT_OBJC_BRIDGING_HEADER = "ElectricRisk/ElectricRisk-Bridging-Header.h";
 			};
 			name = Release;

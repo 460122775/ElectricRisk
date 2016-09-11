@@ -18,16 +18,24 @@
 
 -(void)setViewByData
 {
-    self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"name"], [self.dataDic objectForKey:@"user_name"]];
+    NSString *nickName = [self.dataDic objectForKey:@"nickname"];
+    if (nickName != nil && nickName.length > 0)
+    {
+        self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"name"], [self.dataDic objectForKey:@"nickname"]];
+    }else{
+        self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"name"], [self.dataDic objectForKey:@"user_name"]];
+    }
     self.contentLabel.text = [self.dataDic objectForKey:@"content"];
     
     int checkState = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
     switch (checkState)
     {
+        case Check_State_None: self.addressLabel.text = @"无状态"; break;
         case Check_State_Wait: self.addressLabel.text = @"待审核"; break;
         case Check_State_No: self.addressLabel.text = @"已驳回"; break;
         case Check_State_Yes: self.addressLabel.text = @"已审核"; break;
-        case Check_State_Publish: self.addressLabel.text = @"已发布"; break;
+        case Check_State_Publish4: self.addressLabel.text = @"已发布"; break;
+        case Check_State_Publish5: self.addressLabel.text = @"已发布"; break;
         default: self.addressLabel.text = [NSString stringWithFormat:@"未知状态:%i", checkState]; break;
     }
     

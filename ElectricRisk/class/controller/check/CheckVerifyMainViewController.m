@@ -91,7 +91,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 -(void)testCheckData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"data\":[{\"CONTENT\":\"tongyi\",\"C_TIME\":1469721600000,\"ID\":17,\"NAME\":\"天祥广场\",\"STATE\":42,\"USER_NAME\":\"admin\",\"c_time\":1469721600000,\"content\":\"tongyi\",\"id\":17,\"name\":\"天祥广场\",\"state\":42,\"user_name\":\"admin\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":[{\"CONTENT\":\"tongyi\",\"C_TIME\":1469721600000,\"ID\":17,\"NAME\":\"天祥广场\",\"STATE\":42,\"USER_NAME\":\"admin\",\"c_time\":1469721600000,\"content\":\"tongyi\",\"id\":17,\"name\":\"天祥广场\",\"state\":3,\"user_name\":\"admin\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
@@ -168,7 +168,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 -(void)testVerifyData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"data\":[{\"c_time\":1471449600000,\"content\":\"sdasfasdf\",\"id\":49,\"name\":\"第六个\",\"state\":0,\"user_name\":\"dlg-jl-1\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":[{\"c_time\":1471449600000,\"content\":\"sdasfasdf\",\"id\":49,\"name\":\"第六个\",\"state\":4,\"user_name\":\"dlg-jl-1\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];

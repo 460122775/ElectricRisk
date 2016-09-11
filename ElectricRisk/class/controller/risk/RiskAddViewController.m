@@ -348,10 +348,33 @@
 - (IBAction)imgBtnClick:(id)sender
 {
     [self setCurrentByTag:((UIButton*)sender).tag];
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    if(imagePickerController == nil)
+    {
+        imagePickerController = [[UIImagePickerController alloc] init];
+    }
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePickerController.delegate = self;
     [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+- (void) navigationController: (UINavigationController *) navigationController  willShowViewController: (UIViewController *) viewController animated: (BOOL) animated {
+    if (imagePickerController.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+        UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera:)];
+        viewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObject:button];
+    } else {
+        UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(showLibrary:)];
+        viewController.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:button];
+        viewController.navigationItem.title = @"拍照";
+        viewController.navigationController.navigationBarHidden = NO; // important
+    }
+}
+
+- (void) showCamera: (id) sender {
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+}
+
+- (void) showLibrary: (id) sender {
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info

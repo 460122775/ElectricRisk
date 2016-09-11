@@ -12,6 +12,7 @@
 #import "NoticeDetailViewController.h"
 #import "NoticeAddViewController.h"
 #import "WarnModifyViewController.h"
+#import "WarnDetailViewController.h"
 
 @interface NoticeWarnMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NoticeAddDelegate, WarnModifyDelegate>{
     BOOL isNoticeList;
