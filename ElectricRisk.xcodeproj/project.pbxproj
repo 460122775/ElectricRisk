@@ -18,6 +18,7 @@
 		014388FB1D85105600099E86 /* MMDesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 014388F91D85105600099E86 /* MMDesManager.m */; };
 		014389001D855DA200099E86 /* WarnDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014388FE1D855DA200099E86 /* WarnDetailViewController.m */; };
 		014389011D855DA200099E86 /* WarnDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014388FF1D855DA200099E86 /* WarnDetailViewController.xib */; };
+		014389051D85BE9000099E86 /* RiskStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 014389041D85BE9000099E86 /* RiskStatisticsViewController.m */; };
 		015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056451D77A05300C1F8D8 /* RiskListVo.m */; };
 		015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 015056481D77A13B00C1F8D8 /* RiskDetailVo.m */; };
 		0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0150564B1D77A20800C1F8D8 /* RiskDayInfoVo.m */; };
@@ -90,6 +91,8 @@
 		014388FD1D855DA200099E86 /* WarnDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WarnDetailViewController.h; path = class/controller/message/warn/WarnDetailViewController.h; sourceTree = "<group>"; };
 		014388FE1D855DA200099E86 /* WarnDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WarnDetailViewController.m; path = class/controller/message/warn/WarnDetailViewController.m; sourceTree = "<group>"; };
 		014388FF1D855DA200099E86 /* WarnDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WarnDetailViewController.xib; path = class/controller/message/warn/WarnDetailViewController.xib; sourceTree = "<group>"; };
+		014389031D85BE9000099E86 /* RiskStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskStatisticsViewController.h; path = class/controller/risk/RiskStatisticsViewController.h; sourceTree = "<group>"; };
+		014389041D85BE9000099E86 /* RiskStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskStatisticsViewController.m; path = class/controller/risk/RiskStatisticsViewController.m; sourceTree = "<group>"; };
 		015056441D77A05300C1F8D8 /* RiskListVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskListVo.h; path = class/model/vo/RiskListVo.h; sourceTree = "<group>"; };
 		015056451D77A05300C1F8D8 /* RiskListVo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskListVo.m; path = class/model/vo/RiskListVo.m; sourceTree = "<group>"; };
 		015056471D77A13B00C1F8D8 /* RiskDetailVo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailVo.h; path = class/model/vo/RiskDetailVo.h; sourceTree = "<group>"; };
@@ -285,6 +288,15 @@
 				014388F91D85105600099E86 /* MMDesManager.m */,
 			);
 			name = DES;
+			sourceTree = "<group>";
+		};
+		014389021D85BE6E00099E86 /* statistic */ = {
+			isa = PBXGroup;
+			children = (
+				014389031D85BE9000099E86 /* RiskStatisticsViewController.h */,
+				014389041D85BE9000099E86 /* RiskStatisticsViewController.m */,
+			);
+			name = statistic;
 			sourceTree = "<group>";
 		};
 		0150565F1D77A66600C1F8D8 /* risk */ = {
@@ -533,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				010A14691D7C72660064AF63 /* main */,
+				014389021D85BE6E00099E86 /* statistic */,
 				010A14681D7C725C0064AF63 /* detail */,
 				010A14671D7C72510064AF63 /* add */,
 			);
@@ -745,6 +758,7 @@
 				BA2FB6591D7FEAE50017D025 /* MSNPickerView.m in Sources */,
 				014388FB1D85105600099E86 /* MMDesManager.m in Sources */,
 				015259B81D70918F00AD3E67 /* LoginViewController.m in Sources */,
+				014389051D85BE9000099E86 /* RiskStatisticsViewController.m in Sources */,
 				01FFB9AC1D80656500D844E9 /* RiskProjectChooseViewController.m in Sources */,
 				015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */,
 				BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */,

@@ -2931,13 +2931,24 @@
                                                     <action selector="searchBtnClick:" destination="ZRG-8l-SHA" eventType="touchUpInside" id="GJE-k9-ETV"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbh-3x-NWO">
+                                                <rect key="frame" x="292" y="27" width="30" height="30"/>
+                                                <state key="normal" title="统计">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="statisticsBtnClick:" destination="ZRG-8l-SHA" eventType="touchUpInside" id="48b-qP-WZL"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.019607843140000001" green="0.50196078430000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="rvO-Hh-quI" firstAttribute="centerY" secondItem="oXX-1M-6No" secondAttribute="centerY" id="0tz-eI-tPL"/>
                                             <constraint firstItem="mSx-85-ak7" firstAttribute="leading" secondItem="HOq-bc-D3b" secondAttribute="leading" constant="10" id="Nfk-6s-vva"/>
                                             <constraint firstItem="mSx-85-ak7" firstAttribute="top" secondItem="HOq-bc-D3b" secondAttribute="top" constant="26" id="R4t-4g-gZp"/>
+                                            <constraint firstItem="rvO-Hh-quI" firstAttribute="leading" secondItem="pbh-3x-NWO" secondAttribute="trailing" constant="15" id="SbH-8G-6yM"/>
                                             <constraint firstAttribute="trailing" secondItem="rvO-Hh-quI" secondAttribute="trailing" constant="8" id="Wpa-6U-arx"/>
+                                            <constraint firstItem="pbh-3x-NWO" firstAttribute="centerY" secondItem="rvO-Hh-quI" secondAttribute="centerY" id="XlA-wl-EJ3"/>
                                             <constraint firstItem="oXX-1M-6No" firstAttribute="centerY" secondItem="mSx-85-ak7" secondAttribute="centerY" id="YJi-TS-1tO"/>
                                             <constraint firstAttribute="height" constant="64" id="heL-1I-gLA"/>
                                             <constraint firstItem="oXX-1M-6No" firstAttribute="leading" secondItem="mSx-85-ak7" secondAttribute="trailing" constant="8" id="ojv-hm-Bx3"/>
@@ -2973,6 +2984,7 @@
                     <connections>
                         <outlet property="tableView" destination="fBV-kb-fcM" id="tx7-ml-ZBS"/>
                         <segue destination="51B-Oa-q9C" kind="presentation" identifier="RiskToDetail" id="nlh-fh-gR6"/>
+                        <segue destination="Xt4-6w-gVu" kind="show" identifier="RiskToStatistics" id="9L5-LT-5Ju"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9P-OF-0mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3708,6 +3720,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHg-P3-Orb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2332.5" y="-922.5"/>
+        </scene>
+        <!--Risk Statistics View Controller-->
+        <scene sceneID="8tg-BC-6aH">
+            <objects>
+                <viewController id="Xt4-6w-gVu" customClass="RiskStatisticsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FMr-KM-aTY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Isa-22-HRv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bz8-mU-HjD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MId-hS-NLc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1B-8w-2VQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhR-8y-OkR">
+                                                <rect key="frame" x="8" y="31" width="58" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="26" id="b6O-6z-rsz"/>
+                                                    <constraint firstAttribute="height" constant="22" id="utz-du-8PY"/>
+                                                </constraints>
+                                                <state key="normal" title="返回" image="back"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="b6O-6z-rsz"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="backBtnClick:" destination="Xt4-6w-gVu" eventType="touchUpInside" id="Ac0-9B-pRz"/>
+                                                    <action selector="backBtnClick:" destination="51B-Oa-q9C" eventType="touchUpInside" id="LxU-Sn-1lv"/>
+                                                    <action selector="goBackBtnClick:" destination="8rq-mY-QjI" eventType="touchUpInside" id="Sfb-lc-anF"/>
+                                                    <action selector="goBackBtnClick:" destination="uuZ-g9-Z99" eventType="touchUpInside" id="eiO-VM-ONB"/>
+                                                    <action selector="goBackBtnClick:" destination="BHX-Iz-Oie" eventType="touchUpInside" id="mS6-wY-CKr"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风险统计" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WS4-Se-Pkk">
+                                                <rect key="frame" x="153" y="31" width="68" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.019607843140000001" green="0.50196078430000002" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="WS4-Se-Pkk" firstAttribute="centerY" secondItem="fhR-8y-OkR" secondAttribute="centerY" id="4y4-aJ-QJy"/>
+                                            <constraint firstItem="fhR-8y-OkR" firstAttribute="top" secondItem="T1B-8w-2VQ" secondAttribute="top" constant="31" id="6j4-0p-bUF"/>
+                                            <constraint firstItem="WS4-Se-Pkk" firstAttribute="centerX" secondItem="T1B-8w-2VQ" secondAttribute="centerX" id="aKi-LC-FwV"/>
+                                            <constraint firstItem="fhR-8y-OkR" firstAttribute="leading" secondItem="T1B-8w-2VQ" secondAttribute="leading" constant="8" id="iXF-Jy-UQo"/>
+                                            <constraint firstAttribute="height" constant="64" id="uzr-b6-8Nz"/>
+                                        </constraints>
+                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgc-k7-ZGf">
+                                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fgc-k7-ZGf" firstAttribute="centerX" secondItem="MId-hS-NLc" secondAttribute="centerX" id="2qw-dR-04h"/>
+                                    <constraint firstItem="fgc-k7-ZGf" firstAttribute="width" secondItem="MId-hS-NLc" secondAttribute="width" id="Qoj-Vn-tIN"/>
+                                    <constraint firstItem="T1B-8w-2VQ" firstAttribute="width" secondItem="MId-hS-NLc" secondAttribute="width" id="WBG-Xg-pdm"/>
+                                    <constraint firstItem="T1B-8w-2VQ" firstAttribute="top" secondItem="MId-hS-NLc" secondAttribute="top" id="XP9-qu-yxl"/>
+                                    <constraint firstAttribute="bottom" secondItem="fgc-k7-ZGf" secondAttribute="bottom" id="jL7-Ku-4AE"/>
+                                    <constraint firstItem="T1B-8w-2VQ" firstAttribute="centerX" secondItem="MId-hS-NLc" secondAttribute="centerX" id="kaM-xe-a3B"/>
+                                    <constraint firstItem="fgc-k7-ZGf" firstAttribute="top" secondItem="T1B-8w-2VQ" secondAttribute="bottom" id="yFg-dT-9Iv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MId-hS-NLc" firstAttribute="centerY" secondItem="bz8-mU-HjD" secondAttribute="centerY" id="Maa-uQ-i4g"/>
+                            <constraint firstItem="MId-hS-NLc" firstAttribute="width" secondItem="bz8-mU-HjD" secondAttribute="width" id="c9k-aQ-X5E"/>
+                            <constraint firstItem="MId-hS-NLc" firstAttribute="centerX" secondItem="bz8-mU-HjD" secondAttribute="centerX" id="ny3-GC-bPZ"/>
+                            <constraint firstItem="MId-hS-NLc" firstAttribute="height" secondItem="bz8-mU-HjD" secondAttribute="height" id="on6-Tv-Xdt"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mainScrollView" destination="fgc-k7-ZGf" id="b6m-1I-nF2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LyP-60-GfS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2773.5" y="-922.5"/>
         </scene>
         <!--Risk Detail View Controller-->
         <scene sceneID="dVf-lQ-0Gv">

@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GTMBase64.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JTToast-JTToast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -54,25 +49,15 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ZHDropDownMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0857C5163293371170CA609F3D79B884</key>
+		<key>1B904B542DDE095236E84307E7153636</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>29DD99664D189A7CA206368F493B1E0B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>338627F33D4D8F835A97A70DAB0F36AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -88,11 +73,6 @@
 			<true/>
 		</dict>
 		<key>86FCAFBE3ACE0BF6FEB45151E8D15D55</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C37EF188BE397973508CA30E9B1DC556</key>
 		<dict>
 			<key>primary</key>
 			<true/>

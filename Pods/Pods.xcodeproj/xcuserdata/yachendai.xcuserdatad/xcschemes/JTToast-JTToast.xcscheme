@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F4EA08C64D87569E6B735C26'
+               BlueprintIdentifier = 'E032D45ED78F03DDE75CAAAE'
                BlueprintName = 'JTToast-JTToast'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'JTToast.bundle'>

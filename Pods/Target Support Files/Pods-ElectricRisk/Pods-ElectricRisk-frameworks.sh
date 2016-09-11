@@ -86,22 +86,18 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ElectricRisk/AFNetworking.framework"
   install_framework "Pods-ElectricRisk/Charts.framework"
-  install_framework "Pods-ElectricRisk/GTMBase64.framework"
   install_framework "Pods-ElectricRisk/JTToast.framework"
   install_framework "Pods-ElectricRisk/MBProgressHUD.framework"
   install_framework "Pods-ElectricRisk/MJRefresh.framework"
   install_framework "Pods-ElectricRisk/Realm.framework"
   install_framework "Pods-ElectricRisk/RealmSwift.framework"
-  install_framework "Pods-ElectricRisk/ZHDropDownMenu.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-ElectricRisk/AFNetworking.framework"
   install_framework "Pods-ElectricRisk/Charts.framework"
-  install_framework "Pods-ElectricRisk/GTMBase64.framework"
   install_framework "Pods-ElectricRisk/JTToast.framework"
   install_framework "Pods-ElectricRisk/MBProgressHUD.framework"
   install_framework "Pods-ElectricRisk/MJRefresh.framework"
   install_framework "Pods-ElectricRisk/Realm.framework"
   install_framework "Pods-ElectricRisk/RealmSwift.framework"
-  install_framework "Pods-ElectricRisk/ZHDropDownMenu.framework"
 fi

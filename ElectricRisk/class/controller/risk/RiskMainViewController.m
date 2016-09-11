@@ -270,4 +270,9 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     }
 }
 
+- (IBAction)statisticsBtnClick:(id)sender
+{
+    [self performSegueWithIdentifier:@"RiskToStatistics" sender:self];
+}
+
 @end

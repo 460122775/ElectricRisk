@@ -25,7 +25,6 @@ PODS:
   - Charts/Realm (2.2.5):
     - Charts/Core
     - RealmSwift (~> 0.97)
-  - GTMBase64 (1.0.0)
   - JTToast (1.1.0)
   - MBProgressHUD (0.9.2)
   - MJRefresh (3.1.9)
@@ -34,28 +33,23 @@ PODS:
   - Realm/Headers (0.103.2)
   - RealmSwift (0.103.2):
     - Realm (= 0.103.2)
-  - ZHDropDownMenu (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
   - BPushSDK/normal
   - Charts/Realm
-  - GTMBase64
   - JTToast (~> 1.1.0)
   - MBProgressHUD (~> 0.9.2)
   - MJRefresh (~> 3.1.0)
-  - ZHDropDownMenu
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BPushSDK: 81453a059604fa3c1ef1c683efab9d593e22a338
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
-  GTMBase64: 0da7372e95f5171f3f652db38cde6716f8eb5e24
   JTToast: b9e461bc0f175fd0ece13fa4cbeb0c3bb64430cc
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
   Realm: 448f0416079fe5b0ed947e7d86f3c4e1c75826cb
   RealmSwift: 8a45cc8f02dfac093b72a3b5a01d567e27e15891
-  ZHDropDownMenu: aa2917b07820b9eba3dc98066f85257017821b65
 
 COCOAPODS: 0.39.0

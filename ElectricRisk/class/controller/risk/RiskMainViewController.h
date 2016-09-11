@@ -24,5 +24,6 @@
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)statisticsBtnClick:(id)sender;
 
 @end
