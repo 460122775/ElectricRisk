@@ -363,12 +363,13 @@
 }
 
 - (void) navigationController: (UINavigationController *) navigationController  willShowViewController: (UIViewController *) viewController animated: (BOOL) animated {
-    if (imagePickerController.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
-        UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera:)];
-        viewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObject:button];
-    } else {
-        UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(showLibrary:)];
-        viewController.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:button];
+    if (imagePickerController.sourceType == UIImagePickerControllerSourceTypePhotoLibrary)
+    {
+        UIBarButtonItem* button1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(showCamera:)];
+        viewController.navigationItem.rightBarButtonItems = [NSArray arrayWithObject:button1];
+//    } else {
+        UIBarButtonItem* button2 = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:UIBarButtonItemStylePlain target:self action:@selector(showLibrary:)];
+        viewController.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:button2];
         viewController.navigationItem.title = @"拍照";
         viewController.navigationController.navigationBarHidden = NO; // important
     }

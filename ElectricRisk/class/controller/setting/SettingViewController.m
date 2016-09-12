@@ -75,7 +75,7 @@
 -(void)testUpdateData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"version\":\"1.2.0\", \"uri\":\"http://www.baidu.com\", \"state\": 0}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"version\":\"1.2.0\", \"uri\":\"itms-services://?action=download-manifest&url=https://phone16.trsd001.com/electricapp/manifest.plist\", \"state\": 0}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
