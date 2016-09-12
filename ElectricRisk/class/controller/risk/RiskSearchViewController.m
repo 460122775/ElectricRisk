@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.areaNameTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,6 +125,15 @@
                               andEndLevel:self.endClass];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([self.areaNameTextField isFirstResponder])
+    {
+        [self.areaNameTextField resignFirstResponder];
+    }
+    return YES;
 }
 
 @end

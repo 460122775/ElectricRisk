@@ -21,6 +21,9 @@
     self.reasonTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.reasonTextView.layer.borderWidth = 1;
     // Do any additional setup after loading the view.
+    
+    self.valueKTextField.delegate = self;
+    self.reasonTextView.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -203,6 +206,25 @@
     [alert addAction:ok];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([self.valueKTextField isFirstResponder])
+    {
+        [self.valueKTextField resignFirstResponder];
+    }
+    return YES;
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification

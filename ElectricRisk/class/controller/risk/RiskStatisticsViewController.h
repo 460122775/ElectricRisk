@@ -19,8 +19,10 @@
     NSArray *type4Arr;
 }
 
+@property (strong, nonatomic) IBOutlet UILabel *type3Label;
 @property (strong, nonatomic) IBOutlet BarChartView *type3ChartView;
 
+@property (strong, nonatomic) IBOutlet UILabel *type4Label;
 @property (strong, nonatomic) IBOutlet BarChartView *type4ChartView;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;

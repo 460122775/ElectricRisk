@@ -121,9 +121,15 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    return (textField == self.oldPwdTextField && textField.text.length >= 6)
-    || (textField == self.pwdNewTextField1 && textField.text.length >= 6)
-    || (textField == self.pwdNewTextField2 && textField.text.length >= 6);
+    if ((textField == self.oldPwdTextField && textField.text.length >= 6)
+        || (textField == self.pwdNewTextField1 && textField.text.length >= 6)
+        || (textField == self.pwdNewTextField2 && textField.text.length >= 6))
+    {
+        [textField resignFirstResponder];
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
 @end

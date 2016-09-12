@@ -37,7 +37,7 @@
 -(void)testData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"level3\":2,\"level4\":1,\"state\":1,\"type3\":[{\"total\":1,\"type\":\"\"},{\"total\":1,\"type\":\"高大模板支撑\"}],\"type4\":[{\"total\":1,\"type\":\"高大模板支撑\"}]}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"level3\":2,\"level4\":2,\"state\":1,\"type3\":[{\"total\":2,\"type\":\"Test3\"},{\"total\":4,\"type\":\"高大模板支撑\"}],\"type4\":[{\"total\":1,\"type\":\"高大模板支撑\"}, {\"total\":3,\"type\":\"高大模板支撑2\"}]}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
@@ -92,42 +92,45 @@
     }];
 }
 
+
 -(void)initStatistic
 {
-    NSMutableArray *typeTitleArr = [[NSMutableArray alloc] init];
-//    NSMutableArray *typeTitleArr = [[NSMutableArray alloc] init];
-    for (NSDictionary *dataDic in type3Arr)
+    self.type3Label.text = [NSString stringWithFormat:@"重要3级风险(%i)", level3Count];
+    NSArray *fgColorArr = [[NSArray alloc] initWithObjects:@"FF3366",@"CC0099",@"0066CC",@"3C3C3C",@"600000",@"9F0050",@"750075",@"ADADAD",@"FF2D2D",@"FF79BC",@"FF77FF",@"DDDDFF",@"C4E1FF",@"D9FFFF",@"D7FFEE", nil];
+    NSArray *bgColorArr = [[NSArray alloc] initWithObjects:@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000", nil];
+    
+    NSMutableArray *type3TitleArr = [[NSMutableArray alloc] init];
+    NSMutableArray *type3ValueArr = [[NSMutableArray alloc] init];
+    for (NSDictionary *dataDicTemp in type3Arr)
     {
-        
+        [type3TitleArr addObject:[dataDicTemp objectForKey:@"type"]];
+        [type3ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"total"] intValue]]];
     }
+    NSArray *type3Array = [self.type3ChartView createChartDataWithTitles:type3TitleArr
+                                 values:type3ValueArr
+                                 colors:[fgColorArr subarrayWithRange:NSMakeRange(0, type3Arr.count)]
+                            labelColors:[bgColorArr subarrayWithRange:NSMakeRange(0, type3Arr.count)]];
+    [self.type3ChartView setupBarViewShape:BarShapeRounded];
+    [self.type3ChartView setupBarViewStyle:BarStyleGlossy];
+    [self.type3ChartView setupBarViewShadow:BarShadowLight];
+    [self.type3ChartView setDataWithArray:type3Array showAxis:DisplayBothAxes withColor:[UIColor darkGrayColor] shouldPlotVerticalLines:YES];
     
-    [self loadBarChartUsingArray:self.type3ChartView];
-    
-    [self loadBarChartUsingArray:self.type4ChartView];
-}
-
-- (void)loadBarChartUsingArray:(BarChartView*)barChart
-{
-    //Generate properly formatted data to give to the bar chart
-    NSArray *array = [barChart createChartDataWithTitles:[NSArray arrayWithObjects:@"Title 1", @"Title 2", @"Title 3", @"Title 4", nil]
-                                                  values:[NSArray arrayWithObjects:@"4.7", @"8.3", @"17", @"5.4", nil]
-                                                  colors:[NSArray arrayWithObjects:@"87E317", @"17A9E3", @"E32F17", @"FFE53D", nil]
-                                             labelColors:[NSArray arrayWithObjects:@"000000", @"000000", @"000000", @"000000", nil]];
-    
-    //Set the Shape of the Bars (Rounded or Squared) - Rounded is default
-    [barChart setupBarViewShape:BarShapeRounded];
-    
-    //Set the Style of the Bars (Glossy, Matte, or Flat) - Glossy is default
-    [barChart setupBarViewStyle:BarStyleGlossy];
-    
-    //Set the Drop Shadow of the Bars (Light, Heavy, or None) - Light is default
-    [barChart setupBarViewShadow:BarShadowLight];
-    
-    //Generate the bar chart using the formatted data
-    [barChart setDataWithArray:array
-                      showAxis:DisplayBothAxes
-                     withColor:[UIColor darkGrayColor]
-       shouldPlotVerticalLines:YES];
+    self.type4Label.text = [NSString stringWithFormat:@"4级风险(%i)", level4Count];
+    NSMutableArray *type4TitleArr = [[NSMutableArray alloc] init];
+    NSMutableArray *type4ValueArr = [[NSMutableArray alloc] init];
+    for (NSDictionary *dataDicTemp in type4Arr)
+    {
+        [type4TitleArr addObject:[dataDicTemp objectForKey:@"type"]];
+        [type4ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"total"] intValue]]];
+    }
+    NSArray *type4Array = [self.type4ChartView createChartDataWithTitles:type4TitleArr
+                                                                  values:type4ValueArr
+                                                                  colors:[fgColorArr subarrayWithRange:NSMakeRange(0, type4Arr.count)]
+                                                             labelColors:[bgColorArr subarrayWithRange:NSMakeRange(0, type4Arr.count)]];
+    [self.type4ChartView setupBarViewShape:BarShapeRounded];
+    [self.type4ChartView setupBarViewStyle:BarStyleGlossy];
+    [self.type4ChartView setupBarViewShadow:BarShadowLight];
+    [self.type4ChartView setDataWithArray:type4Array showAxis:DisplayBothAxes withColor:[UIColor darkGrayColor] shouldPlotVerticalLines:YES];
 }
 
 - (IBAction)backBtnClick:(id)sender

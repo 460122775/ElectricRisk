@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VerifyDetailViewController : UIViewController{
+@interface VerifyDetailViewController : UIViewController<UITextViewDelegate>{
     MBProgressHUD *HUD;
     NSDateFormatter *dtfrm;
     int currentLCValue;
     int currentKeyboardHeight;
+    int agreeViewHeight;
 }
 
 @property (strong, nonatomic) NSDictionary *verifyDataDic;

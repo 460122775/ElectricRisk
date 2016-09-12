@@ -24,6 +24,10 @@
     self.agreeContentTextView.layer.borderWidth = 1;
     self.agreeContentTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
+    self.spContentView.delegate = self;
+    self.yzContentView.delegate = self;
+    self.agreeContentTextView.delegate = self;
+    
     [self initViewWithData:self.checkDataDic];
 }
 
@@ -281,7 +285,18 @@
         }
         [self agreeSwitchChanged:nil];
         self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + 10;
+        agreeViewHeight = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + 10;
     }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification
@@ -289,12 +304,12 @@
     NSDictionary *info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     currentKeyboardHeight = kbSize.height;
-    self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + currentKeyboardHeight;
+    self.checkContainerHeight.constant = agreeViewHeight + currentKeyboardHeight;
 }
 
 - (void)keyboardWillHide:(NSNotification*)notification
 {
-    self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height;
+    self.checkContainerHeight.constant = agreeViewHeight;
 }
 
 @end

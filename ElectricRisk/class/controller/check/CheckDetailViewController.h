@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CheckDetailViewController : UIViewController{
+@interface CheckDetailViewController : UIViewController<UITextViewDelegate>{
     MBProgressHUD *HUD;
     NSDateFormatter *dtfrm;
     int currentLCValue;
     int currentKeyboardHeight;
+    int agreeViewHeight;
 }
 
 @property (strong, nonatomic) NSDictionary *checkDataDic;

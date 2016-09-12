@@ -14,7 +14,7 @@
 
 @end
 
-@interface NoticeAddViewController : UIViewController{
+@interface NoticeAddViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate>{
     MBProgressHUD *HUD;
     BOOL isOnlySave;
     int currentKeyboardHeight;

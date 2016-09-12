@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NoticeDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+@interface NoticeDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate>{
     MBProgressHUD *HUD;
     int currentKeyboardHeight;
 }

@@ -18,7 +18,7 @@
 
 @end
 
-@interface WarnModifyViewController : UIViewController<MSPickerViewDelegate>{
+@interface WarnModifyViewController : UIViewController<MSPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate>{
     MBProgressHUD *HUD;
     int currentKeyboardHeight;
     NSDateFormatter *dtfrm;

@@ -20,6 +20,9 @@
     // Do any additional setup after loading the view.
     self.commentTableView.delegate = self;
     self.commentTableView.dataSource = self;
+    
+    self.contentTextView.delegate = self;
+    self.commentInput.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -285,6 +288,25 @@
                            [(NSDictionary*)[self.commentArray objectAtIndex:indexPath.row] objectForKey:@"user_name"],
                            [(NSDictionary*)[self.commentArray objectAtIndex:indexPath.row] objectForKey:@"reply"]];
     return cell;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([self.commentInput isFirstResponder])
+    {
+        [self.commentInput resignFirstResponder];
+    }
+    return YES;
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification

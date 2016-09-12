@@ -19,6 +19,9 @@
     // Do any additional setup after loading the view.
     self.contentTextView.layer.borderWidth = 1;
     self.contentTextView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    
+    self.titleTextField.delegate = self;
+    self.contentTextView.delegate = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -149,6 +152,25 @@
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
     }];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if ([self.titleTextField isFirstResponder])
+    {
+        [self.titleTextField resignFirstResponder];
+    }
+    return YES;
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification

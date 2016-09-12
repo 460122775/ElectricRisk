@@ -33,6 +33,11 @@
     self.xcContentView.layer.borderColor = Color_border.CGColor;
     self.zgContentView.layer.borderWidth = 1;
     self.zgContentView.layer.borderColor = Color_border.CGColor;
+    
+    self.ryContentView.delegate = self;
+    self.sgContentView.delegate = self;
+    self.xcContentView.delegate = self;
+    self.zgContentView.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -486,6 +491,16 @@
 {
     currentSelectWrongDic = wrongDic;
     self.zgWzLabel.text = [NSString stringWithFormat:@"：%@", [wrongDic objectForKey:@"content"]];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 - (void)keyboardWillShow:(NSNotification*)notification
