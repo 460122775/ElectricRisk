@@ -25,6 +25,33 @@
     self.commentInput.delegate = self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.commentView setHidden:![self getRight:self.commentView]];
+    [self.commentTableView setHidden:![self getRight:self.commentTableView]];
+}
+
+-(BOOL)getRight:(UIView*)view
+{
+    if (view == self.commentView || view == self.commentTableView)
+    {
+        switch ([SystemConfig instance].currentUserRole)
+        {
+            case ROLE_1:
+            case ROLE_2:
+            case ROLE_3:
+            case ROLE_4:
+            case ROLE_5:
+            case ROLE_6:
+            case ROLE_8:
+            case ROLE_A: return YES; break;
+            default: return NO; break;
+        }
+    }
+    return NO;
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];

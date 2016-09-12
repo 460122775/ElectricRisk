@@ -55,6 +55,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *agreeSwitch;
 @property (strong, nonatomic) IBOutlet UITextView *agreeContentTextView;
 @property (strong, nonatomic) IBOutlet UIButton *agreeSubmitBtn;
+@property (strong, nonatomic) IBOutlet UIView *agreeEnableView;
 
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *checkContainerHeight;
 

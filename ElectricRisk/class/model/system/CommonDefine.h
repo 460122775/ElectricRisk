@@ -66,6 +66,7 @@
 #define ROLE_6 6 //	a/g/h       施工
 #define ROLE_7 7 //	--          普通用户
 #define ROLE_8 8 //	a/b/j/f/g/i	建管单位安全专责
+#define ROLE_A 99 //	全部
 
 /** Define result for check & verify **/
 #define Rish_PUBLISHSTATE_PUBLISH 3

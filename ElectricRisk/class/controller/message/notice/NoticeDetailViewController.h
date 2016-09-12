@@ -24,6 +24,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *commentInput;
 @property (strong, nonatomic) IBOutlet UIButton *commentBtn;
 
+@property (strong, nonatomic) IBOutlet UIView *commentView;
+
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *commentBottomPadding;
 
 - (IBAction)commentBtnClick:(id)sender;

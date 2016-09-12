@@ -27,8 +27,43 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"CheckMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CheckMainListCellId];
     [self.tableView registerNib:[UINib nibWithNibName:@"VerifyMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:VerifyMainListCellId];
-    
-    [self checkBtnClick:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.checkBtn setHidden:![self getRight:self.checkBtn]];
+    [self.verifyBtn setHidden:![self getRight:self.verifyBtn]];
+    self.underLineLeading.constant = -1000;
+    if (self.checkBtn.hidden == NO)
+    {
+        [self checkBtnClick:nil];
+    }else if (self.verifyBtn.hidden == NO){
+        [self verifyBtnClick:nil];
+    }
+}
+
+-(BOOL)getRight:(UIView*)view
+{
+    if (view == self.checkBtn)
+    {
+        switch ([SystemConfig instance].currentUserRole)
+        {
+            case ROLE_4:
+            case ROLE_5:
+            case ROLE_6:
+            case ROLE_A: return YES; break;
+            default: return NO; break;
+        }
+    }else if(view == self.verifyBtn){
+        switch ([SystemConfig instance].currentUserRole)
+        {
+            case ROLE_8:
+            case ROLE_A: return YES; break;
+            default: return NO; break;
+        }
+    }
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {

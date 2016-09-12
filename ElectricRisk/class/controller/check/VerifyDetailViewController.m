@@ -243,7 +243,8 @@
     currentLCValue = [(NSNumber*)[self.verifyDetailDataDic  objectForKey:@"bslc"] doubleValue];
     NSDictionary *spDic = [self.verifyDetailDataDic objectForKey:@"spxx"];
     
-    
+    int right = [SystemConfig instance].currentUserRole;
+    self.agreeEnableView.hidden = YES;
     if (spDic != nil)
     {
         if (currentLCValue > 0)
@@ -260,7 +261,13 @@
             self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + 12;
         }else{
             self.process_spImgView.image = [UIImage imageNamed:@"30"];
-            self.agreeViewTopPadding.constant = 30;
+            if(right == ROLE_A || right == ROLE_5)
+            {
+                self.agreeViewTopPadding.constant = 30;
+            }else{
+                self.agreeViewTopPadding.constant = -30;
+                self.agreeEnableView.hidden = NO;
+            }
         }
         
         if (currentLCValue > 1)
@@ -274,8 +281,14 @@
             
             self.process_yzImgView.image = [UIImage imageNamed:@"41"];
             self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + 12;
+            self.agreeEnableView.hidden = YES;
         }else{
             self.process_yzImgView.image = [UIImage imageNamed:@"40"];
+            if (!(right == ROLE_A || right == ROLE_4))
+            {
+                self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + 12 - 30;
+                self.agreeEnableView.hidden = NO;
+            }
         }
         
         if (currentLCValue > 2)
@@ -289,17 +302,21 @@
             
             self.process_jgImgView.image = [UIImage imageNamed:@"51"];
             self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerView.frame.size.height + 12;
+            self.agreeEnableView.hidden = YES;
         }else{
             self.process_jgImgView.image = [UIImage imageNamed:@"50"];
+            if (!(right == ROLE_A || right == ROLE_8))
+            {
+                self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + 12 - 30;
+                self.agreeEnableView.hidden = NO;
+            }
         }
         
         if (currentLCValue >= 3)
         {
             self.process_overImgView.image = [UIImage imageNamed:@"61"];
-            [self.agreeView setHidden:YES];
         }else{
             self.process_overImgView.image = [UIImage imageNamed:@"60"];
-            [self.agreeView setHidden:NO];
         }
         [self agreeSwitchChanged:nil];
         self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + 10;

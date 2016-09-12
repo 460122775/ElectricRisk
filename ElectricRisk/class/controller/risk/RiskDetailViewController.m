@@ -26,6 +26,13 @@
     [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.writeBtn setHidden:![self getRight:self.writeBtn]];
+    [self.stopBtn setHidden:![self getRight:self.stopBtn]];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -35,6 +42,34 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(BOOL)getRight:(UIView*)view
+{
+    if (view == self.writeBtn)
+    {
+        switch ([SystemConfig instance].currentUserRole)
+        {
+            case ROLE_4:
+            case ROLE_5:
+            case ROLE_6:
+            case ROLE_8:
+            case ROLE_A: return YES; break;
+            default: return NO; break;
+        }
+    }else if (view == self.stopBtn){
+        switch ([SystemConfig instance].currentUserRole)
+        {
+            case ROLE_1:
+            case ROLE_2:
+            case ROLE_3:
+            case ROLE_4:
+            case ROLE_8:
+            case ROLE_A: return YES; break;
+            default: return NO; break;
+        }
+    }
+    return NO;
 }
 
 - (void)initViewWithData:(NSDictionary*)dataDic
@@ -189,7 +224,7 @@
             [[JTToast toastWithText:@"当前的施工操作已经恢复" configuration:[JTToastConfiguration defaultConfiguration]]show];
             self.stopBtn.tag = 0;
             [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
-            [self.writeBtn setHidden:NO];
+            if ([self getRight:self.writeBtn]) [self.writeBtn setHidden:NO];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -227,7 +262,7 @@
                 [[JTToast toastWithText:@"当前的施工操作已经恢复" configuration:[JTToastConfiguration defaultConfiguration]]show];
                 self.stopBtn.tag = 0;
                 [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
-                [self.writeBtn setHidden:NO];
+                if ([self getRight:self.writeBtn]) [self.writeBtn setHidden:NO];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -259,7 +294,7 @@
     }else{
         self.stopBtn.tag = 0;
         [self.stopBtn setBackgroundImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
-        [self.writeBtn setHidden:NO];
+        if ([self getRight:self.writeBtn]) [self.writeBtn setHidden:NO];
     }
     self.riskExecutiveTimeArray = [self.riskDetailDataDic objectForKey:@"day_liat"];
     if (self.riskExecutiveTimeArray == nil || self.riskExecutiveTimeArray.count == 0)

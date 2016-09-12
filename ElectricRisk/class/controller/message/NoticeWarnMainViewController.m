@@ -31,6 +31,35 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     [self noticeBtnClick:nil];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.myNoticeBtn setHidden:![self getRight:self.myNoticeBtn]];
+    [self.addBtn setHidden:![self getRight:self.addBtn]];
+    [self.warnBtn setHidden:![self getRight:self.warnBtn]];
+}
+
+-(BOOL)getRight:(UIView*)view
+{
+    if (view == self.myNoticeBtn || view == self.addBtn)
+    {
+        switch ([SystemConfig instance].currentUserRole)
+        {
+            case ROLE_1:
+            case ROLE_A: return YES; break;
+            default: return NO; break;
+        }
+    }else if(view == self.warnBtn){
+        switch ([SystemConfig instance].currentUserRole)
+        {
+            case ROLE_8:
+            case ROLE_A: return YES; break;
+            default: return NO; break;
+        }
+    }
+    return NO;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -43,8 +72,8 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     self.underLineLeading.constant = 0;
     isNoticeList = YES;
     [self requestNoticeListData];
-    [self.addBtn setHidden:NO];
-    [self.myNoticeBtn setHidden:NO];
+    [self.myNoticeBtn setHidden:![self getRight:self.myNoticeBtn]];
+    [self.addBtn setHidden:![self getRight:self.addBtn]];
 }
 
 -(void)requestNoticeListData
