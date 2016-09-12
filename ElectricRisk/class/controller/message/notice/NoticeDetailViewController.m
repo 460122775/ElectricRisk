@@ -222,6 +222,7 @@
     if (state == State_Success)
     {
         [[JTToast toastWithText:@"回复成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        self.commentInput.text = @"";
         [self initViewWithData:self.noticeDataDic];
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];

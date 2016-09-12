@@ -396,6 +396,7 @@
 
 - (IBAction)backBtnClick:(id)sender
 {
+    [self resignKeyboard];
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:@"确定放弃本次填报的内容吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -410,6 +411,7 @@
 
 - (IBAction)finishBtnClick:(id)sender
 {
+    [self resignKeyboard];
     if (self.ryContentView.text == nil || self.ryContentView.text.length == 0)
     {
         [[JTToast toastWithText:@"请填写人员到岗情况" configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -456,6 +458,24 @@
     [alert addAction:ok];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)resignKeyboard
+{
+    if([self.ryContentView isFirstResponder])
+    {
+        [self.ryContentView resignFirstResponder];
+    }else if([self.ryContentView isFirstResponder]){
+        [self.sgContentView resignFirstResponder];
+    }else if([self.sgContentView isFirstResponder]){
+        [self.ryContentView resignFirstResponder];
+    }else if([self.xcContentView isFirstResponder]){
+        [self.xcContentView resignFirstResponder];
+    }else if([self.zgContentView isFirstResponder]){
+        [self.zgContentView resignFirstResponder];
+    }else if([self.sgProcessInput isFirstResponder]){
+        [self.sgProcessInput resignFirstResponder];
+    }
 }
 
 -(void)setCurrentByTag:(NSInteger)tag

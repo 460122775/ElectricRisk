@@ -64,6 +64,10 @@
 
 - (IBAction)agreeSubmitBtnClick:(id)sender
 {
+    if([self.agreeContentTextView isFirstResponder])
+    {
+        [self.agreeContentTextView resignFirstResponder];
+    }
     if (OFFLINE)
     {
         [self testCommitData];
@@ -174,10 +178,8 @@
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-        if (self.verifyDetailDataDic == nil)
-        {
-            [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
-        }
+        [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        self.agreeContentTextView.text = @"";
         dispatch_async(dispatch_get_main_queue(), ^{
             [self initViewWithData:self.verifyDataDic];
         });
@@ -209,10 +211,8 @@
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            if (self.verifyDetailDataDic == nil)
-            {
-                [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }
+            [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            self.agreeContentTextView.text = @"";
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self initViewWithData:self.verifyDataDic];
             });
