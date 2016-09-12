@@ -44,8 +44,13 @@
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-       
-        
+        level3Count = [(NSNumber*)[result objectForKey:@"level3"] intValue];
+        level4Count = [(NSNumber*)[result objectForKey:@"level4"] intValue];
+        type3Arr = [result objectForKey:@"type3"];
+        type4Arr = [result objectForKey:@"type4"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self initStatistic];
+        });
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
     }
@@ -70,8 +75,13 @@
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-           
-            
+            level3Count = [(NSNumber*)[result objectForKey:@"level3"] intValue];
+            level4Count = [(NSNumber*)[result objectForKey:@"level4"] intValue];
+            type3Arr = [result objectForKey:@"type3"];
+            type4Arr = [result objectForKey:@"type4"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self initStatistic];
+            });
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
@@ -80,6 +90,44 @@
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
     }];
+}
+
+-(void)initStatistic
+{
+    NSMutableArray *typeTitleArr = [[NSMutableArray alloc] init];
+//    NSMutableArray *typeTitleArr = [[NSMutableArray alloc] init];
+    for (NSDictionary *dataDic in type3Arr)
+    {
+        
+    }
+    
+    [self loadBarChartUsingArray:self.type3ChartView];
+    
+    [self loadBarChartUsingArray:self.type4ChartView];
+}
+
+- (void)loadBarChartUsingArray:(BarChartView*)barChart
+{
+    //Generate properly formatted data to give to the bar chart
+    NSArray *array = [barChart createChartDataWithTitles:[NSArray arrayWithObjects:@"Title 1", @"Title 2", @"Title 3", @"Title 4", nil]
+                                                  values:[NSArray arrayWithObjects:@"4.7", @"8.3", @"17", @"5.4", nil]
+                                                  colors:[NSArray arrayWithObjects:@"87E317", @"17A9E3", @"E32F17", @"FFE53D", nil]
+                                             labelColors:[NSArray arrayWithObjects:@"000000", @"000000", @"000000", @"000000", nil]];
+    
+    //Set the Shape of the Bars (Rounded or Squared) - Rounded is default
+    [barChart setupBarViewShape:BarShapeRounded];
+    
+    //Set the Style of the Bars (Glossy, Matte, or Flat) - Glossy is default
+    [barChart setupBarViewStyle:BarStyleGlossy];
+    
+    //Set the Drop Shadow of the Bars (Light, Heavy, or None) - Light is default
+    [barChart setupBarViewShadow:BarShadowLight];
+    
+    //Generate the bar chart using the formatted data
+    [barChart setDataWithArray:array
+                      showAxis:DisplayBothAxes
+                     withColor:[UIColor darkGrayColor]
+       shouldPlotVerticalLines:YES];
 }
 
 - (IBAction)backBtnClick:(id)sender

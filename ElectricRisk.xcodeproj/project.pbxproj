@@ -53,6 +53,7 @@
 		01FFB9AD1D80656500D844E9 /* RiskProjectChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FFB9AB1D80656500D844E9 /* RiskProjectChooseViewController.xib */; };
 		01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FFB9AF1D806AC900D844E9 /* RiskClassChooseViewController.m */; };
 		01FFB9B21D806AC900D844E9 /* RiskClassChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FFB9B01D806AC900D844E9 /* RiskClassChooseViewController.xib */; };
+		163272D0CCD3F74530549E8D /* Pods_ElectricRisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0E747737FE01EFD046B72B /* Pods_ElectricRisk.framework */; };
 		BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */; };
 		BA1ACAD71D7D0A8400EB96BC /* CheckDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD61D7D0A8400EB96BC /* CheckDetailViewController.m */; };
 		BA2FB6551D7FD2640017D025 /* WarnModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2FB6541D7FD2640017D025 /* WarnModifyViewController.m */; };
@@ -60,13 +61,24 @@
 		BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A68E1D790C5A00E40A09 /* SettingViewController.m */; };
 		BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */; };
 		BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6941D7915D700E40A09 /* AboutUsViewController.m */; };
+		BA4B46FF1D8684F0009CA1F7 /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */; };
+		BA4B47001D8684F0009CA1F7 /* BarLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46ED1D8684F0009CA1F7 /* BarLabel.m */; };
+		BA4B47011D8684F0009CA1F7 /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46F01D8684F0009CA1F7 /* BarView.m */; };
+		BA4B47021D8684F0009CA1F7 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46F21D8684F0009CA1F7 /* CMPopTipView.m */; };
+		BA4B47031D8684F0009CA1F7 /* PlotChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46F41D8684F0009CA1F7 /* PlotChartView.m */; };
+		BA4B47041D8684F0009CA1F7 /* UIColor+i7HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46F61D8684F0009CA1F7 /* UIColor+i7HexColor.m */; };
+		BA4B47051D8684F0009CA1F7 /* UIViewSizeShortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46F81D8684F0009CA1F7 /* UIViewSizeShortcuts.m */; };
+		BA4B47061D8684F0009CA1F7 /* XMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46FA1D8684F0009CA1F7 /* XMLElement.m */; };
+		BA4B47071D8684F0009CA1F7 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46FC1D8684F0009CA1F7 /* XMLParser.m */; };
+		BA4B47081D8684F0009CA1F7 /* XMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46FE1D8684F0009CA1F7 /* XMLParserDelegate.m */; };
+		BA4B470A1D868511009CA1F7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4B47091D868511009CA1F7 /* CoreGraphics.framework */; };
+		BA4B470C1D868519009CA1F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4B470B1D868519009CA1F7 /* QuartzCore.framework */; };
 		BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */ = {isa = PBXBuildFile; fileRef = BA55C6941D78010000FDA2F6 /* RequestModal.m */; };
 		BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */; };
 		BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718901D71453D009AB399 /* RiskMainViewController.m */; };
 		BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718931D714F87009AB399 /* RiskSearchViewController.m */; };
 		BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718941D714F87009AB399 /* RiskSearchViewController.xib */; };
 		BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718981D7179FF009AB399 /* RiskDetailViewController.m */; };
-		C0FBD52A6B656522062415BC /* Pods_ElectricRisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,8 +166,6 @@
 		01FFB9AE1D806AC900D844E9 /* RiskClassChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskClassChooseViewController.h; path = class/controller/risk/RiskClassChooseViewController.h; sourceTree = "<group>"; };
 		01FFB9AF1D806AC900D844E9 /* RiskClassChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskClassChooseViewController.m; path = class/controller/risk/RiskClassChooseViewController.m; sourceTree = "<group>"; };
 		01FFB9B01D806AC900D844E9 /* RiskClassChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskClassChooseViewController.xib; path = class/controller/risk/RiskClassChooseViewController.xib; sourceTree = "<group>"; };
-		5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
-		7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
 		BA1ACAD01D7CFD3600EB96BC /* NoticeAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeAddViewController.h; path = class/controller/message/notice/NoticeAddViewController.h; sourceTree = "<group>"; };
 		BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeAddViewController.m; path = class/controller/message/notice/NoticeAddViewController.m; sourceTree = "<group>"; };
 		BA1ACAD51D7D0A8400EB96BC /* CheckDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckDetailViewController.h; path = class/controller/check/CheckDetailViewController.h; sourceTree = "<group>"; };
@@ -170,6 +180,29 @@
 		BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifyPwdViewController.m; path = class/controller/setting/ModifyPwdViewController.m; sourceTree = "<group>"; };
 		BA30A6931D7915D700E40A09 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsViewController.h; path = class/controller/setting/AboutUsViewController.h; sourceTree = "<group>"; };
 		BA30A6941D7915D700E40A09 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutUsViewController.m; path = class/controller/setting/AboutUsViewController.m; sourceTree = "<group>"; };
+		BA4B46EA1D8684F0009CA1F7 /* BarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChartView.h; path = "class/ThirdParty/BarChart Library/BarChartView.h"; sourceTree = "<group>"; };
+		BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChartView.m; path = "class/ThirdParty/BarChart Library/BarChartView.m"; sourceTree = "<group>"; };
+		BA4B46EC1D8684F0009CA1F7 /* BarLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarLabel.h; path = "class/ThirdParty/BarChart Library/BarLabel.h"; sourceTree = "<group>"; };
+		BA4B46ED1D8684F0009CA1F7 /* BarLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarLabel.m; path = "class/ThirdParty/BarChart Library/BarLabel.m"; sourceTree = "<group>"; };
+		BA4B46EE1D8684F0009CA1F7 /* BarTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarTypes.h; path = "class/ThirdParty/BarChart Library/BarTypes.h"; sourceTree = "<group>"; };
+		BA4B46EF1D8684F0009CA1F7 /* BarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarView.h; path = "class/ThirdParty/BarChart Library/BarView.h"; sourceTree = "<group>"; };
+		BA4B46F01D8684F0009CA1F7 /* BarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarView.m; path = "class/ThirdParty/BarChart Library/BarView.m"; sourceTree = "<group>"; };
+		BA4B46F11D8684F0009CA1F7 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CMPopTipView.h; path = "class/ThirdParty/BarChart Library/CMPopTipView.h"; sourceTree = "<group>"; };
+		BA4B46F21D8684F0009CA1F7 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CMPopTipView.m; path = "class/ThirdParty/BarChart Library/CMPopTipView.m"; sourceTree = "<group>"; };
+		BA4B46F31D8684F0009CA1F7 /* PlotChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlotChartView.h; path = "class/ThirdParty/BarChart Library/PlotChartView.h"; sourceTree = "<group>"; };
+		BA4B46F41D8684F0009CA1F7 /* PlotChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlotChartView.m; path = "class/ThirdParty/BarChart Library/PlotChartView.m"; sourceTree = "<group>"; };
+		BA4B46F51D8684F0009CA1F7 /* UIColor+i7HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+i7HexColor.h"; path = "class/ThirdParty/BarChart Library/UIColor+i7HexColor.h"; sourceTree = "<group>"; };
+		BA4B46F61D8684F0009CA1F7 /* UIColor+i7HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+i7HexColor.m"; path = "class/ThirdParty/BarChart Library/UIColor+i7HexColor.m"; sourceTree = "<group>"; };
+		BA4B46F71D8684F0009CA1F7 /* UIViewSizeShortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewSizeShortcuts.h; path = "class/ThirdParty/BarChart Library/UIViewSizeShortcuts.h"; sourceTree = "<group>"; };
+		BA4B46F81D8684F0009CA1F7 /* UIViewSizeShortcuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewSizeShortcuts.m; path = "class/ThirdParty/BarChart Library/UIViewSizeShortcuts.m"; sourceTree = "<group>"; };
+		BA4B46F91D8684F0009CA1F7 /* XMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLElement.h; path = "class/ThirdParty/BarChart Library/XMLElement.h"; sourceTree = "<group>"; };
+		BA4B46FA1D8684F0009CA1F7 /* XMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLElement.m; path = "class/ThirdParty/BarChart Library/XMLElement.m"; sourceTree = "<group>"; };
+		BA4B46FB1D8684F0009CA1F7 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLParser.h; path = "class/ThirdParty/BarChart Library/XMLParser.h"; sourceTree = "<group>"; };
+		BA4B46FC1D8684F0009CA1F7 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLParser.m; path = "class/ThirdParty/BarChart Library/XMLParser.m"; sourceTree = "<group>"; };
+		BA4B46FD1D8684F0009CA1F7 /* XMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLParserDelegate.h; path = "class/ThirdParty/BarChart Library/XMLParserDelegate.h"; sourceTree = "<group>"; };
+		BA4B46FE1D8684F0009CA1F7 /* XMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLParserDelegate.m; path = "class/ThirdParty/BarChart Library/XMLParserDelegate.m"; sourceTree = "<group>"; };
+		BA4B47091D868511009CA1F7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BA4B470B1D868519009CA1F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BA55C6931D78010000FDA2F6 /* RequestModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestModal.h; path = class/model/conn/RequestModal.h; sourceTree = "<group>"; };
 		BA55C6941D78010000FDA2F6 /* RequestModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestModal.m; path = class/model/conn/RequestModal.m; sourceTree = "<group>"; };
 		BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Release-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
@@ -180,7 +213,9 @@
 		BAE718941D714F87009AB399 /* RiskSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskSearchViewController.xib; path = class/controller/risk/RiskSearchViewController.xib; sourceTree = "<group>"; };
 		BAE718971D7179FF009AB399 /* RiskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailViewController.h; path = class/controller/risk/RiskDetailViewController.h; sourceTree = "<group>"; };
 		BAE718981D7179FF009AB399 /* RiskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskDetailViewController.m; path = class/controller/risk/RiskDetailViewController.m; sourceTree = "<group>"; };
-		FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectricRisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC0E747737FE01EFD046B72B /* Pods_ElectricRisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectricRisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF1029B76289C5E8635C9E6B /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
+		DC64DB1EC98607884F6F5F37 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,8 +223,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA4B470C1D868519009CA1F7 /* QuartzCore.framework in Frameworks */,
+				BA4B470A1D868511009CA1F7 /* CoreGraphics.framework in Frameworks */,
 				BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */,
-				C0FBD52A6B656522062415BC /* Pods_ElectricRisk.framework in Frameworks */,
+				163272D0CCD3F74530549E8D /* Pods_ElectricRisk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,8 +380,8 @@
 			children = (
 				015259AF1D70918F00AD3E67 /* ElectricRisk */,
 				015259AE1D70918F00AD3E67 /* Products */,
-				B12ED3D5D160AC61E12512BB /* Pods */,
 				7EEB6ED4AD958E19C3A4B958 /* Frameworks */,
+				FF8C8769BC896F56E1199A09 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,6 +437,7 @@
 		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BA4B46E91D8684DD009CA1F7 /* BarChart */,
 				014388FC1D85105E00099E86 /* DES */,
 				BA2FB6561D7FEAD50017D025 /* DatePicker */,
 				010A146B1D7C76810064AF63 /* ElectricRisk-Bridging-Header.h */,
@@ -430,19 +468,12 @@
 		7EEB6ED4AD958E19C3A4B958 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA4B470B1D868519009CA1F7 /* QuartzCore.framework */,
+				BA4B47091D868511009CA1F7 /* CoreGraphics.framework */,
 				BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */,
-				FEED82F895921AE576C3458C /* Pods_ElectricRisk.framework */,
+				BC0E747737FE01EFD046B72B /* Pods_ElectricRisk.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B12ED3D5D160AC61E12512BB /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */,
-				5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		BA1ACAD31D7D09CF00EB96BC /* main */ = {
@@ -488,6 +519,34 @@
 				BA2FB6581D7FEAE50017D025 /* MSNPickerView.m */,
 			);
 			name = DatePicker;
+			sourceTree = "<group>";
+		};
+		BA4B46E91D8684DD009CA1F7 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+				BA4B46EA1D8684F0009CA1F7 /* BarChartView.h */,
+				BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */,
+				BA4B46EC1D8684F0009CA1F7 /* BarLabel.h */,
+				BA4B46ED1D8684F0009CA1F7 /* BarLabel.m */,
+				BA4B46EE1D8684F0009CA1F7 /* BarTypes.h */,
+				BA4B46EF1D8684F0009CA1F7 /* BarView.h */,
+				BA4B46F01D8684F0009CA1F7 /* BarView.m */,
+				BA4B46F11D8684F0009CA1F7 /* CMPopTipView.h */,
+				BA4B46F21D8684F0009CA1F7 /* CMPopTipView.m */,
+				BA4B46F31D8684F0009CA1F7 /* PlotChartView.h */,
+				BA4B46F41D8684F0009CA1F7 /* PlotChartView.m */,
+				BA4B46F51D8684F0009CA1F7 /* UIColor+i7HexColor.h */,
+				BA4B46F61D8684F0009CA1F7 /* UIColor+i7HexColor.m */,
+				BA4B46F71D8684F0009CA1F7 /* UIViewSizeShortcuts.h */,
+				BA4B46F81D8684F0009CA1F7 /* UIViewSizeShortcuts.m */,
+				BA4B46F91D8684F0009CA1F7 /* XMLElement.h */,
+				BA4B46FA1D8684F0009CA1F7 /* XMLElement.m */,
+				BA4B46FB1D8684F0009CA1F7 /* XMLParser.h */,
+				BA4B46FC1D8684F0009CA1F7 /* XMLParser.m */,
+				BA4B46FD1D8684F0009CA1F7 /* XMLParserDelegate.h */,
+				BA4B46FE1D8684F0009CA1F7 /* XMLParserDelegate.m */,
+			);
+			name = BarChart;
 			sourceTree = "<group>";
 		};
 		BA55C6921D7800E300FDA2F6 /* conn */ = {
@@ -585,6 +644,15 @@
 			name = setting;
 			sourceTree = "<group>";
 		};
+		FF8C8769BC896F56E1199A09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF1029B76289C5E8635C9E6B /* Pods-ElectricRisk.debug.xcconfig */,
+				DC64DB1EC98607884F6F5F37 /* Pods-ElectricRisk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -598,7 +666,6 @@
 				015259AB1D70918F00AD3E67 /* Resources */,
 				D9CD6550FA6116577317CB71 /* [CP] Embed Pods Frameworks */,
 				D88CF2AE9EE789658C6B0F20 /* [CP] Copy Pods Resources */,
-				5D0B1118A01EA0560774484E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -667,21 +734,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5D0B1118A01EA0560774484E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		64D938EF2DA53DBEB46981C0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -734,10 +786,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA4B47021D8684F0009CA1F7 /* CMPopTipView.m in Sources */,
 				015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */,
 				BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */,
 				BA1ACAD71D7D0A8400EB96BC /* CheckDetailViewController.m in Sources */,
+				BA4B46FF1D8684F0009CA1F7 /* BarChartView.m in Sources */,
 				0150564C1D77A20800C1F8D8 /* RiskDayInfoVo.m in Sources */,
+				BA4B47061D8684F0009CA1F7 /* XMLElement.m in Sources */,
 				BA2FB6551D7FD2640017D025 /* WarnModifyViewController.m in Sources */,
 				BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */,
 				0101C0B21D7F2C4C002915A4 /* VerifyDetailViewController.m in Sources */,
@@ -745,10 +800,14 @@
 				0150566F1D7894A000C1F8D8 /* CheckVerifyMainViewController.m in Sources */,
 				0150564F1D77A29E00C1F8D8 /* RiskCheckVo.m in Sources */,
 				0101C0B51D7F3D44002915A4 /* MyNoticeViewController.m in Sources */,
+				BA4B47041D8684F0009CA1F7 /* UIColor+i7HexColor.m in Sources */,
 				015056731D789BB500C1F8D8 /* CheckMainListCell.m in Sources */,
 				015056891D7C4E6400C1F8D8 /* RiskExecutiveTimeListViewController.m in Sources */,
+				BA4B47081D8684F0009CA1F7 /* XMLParserDelegate.m in Sources */,
+				BA4B47031D8684F0009CA1F7 /* PlotChartView.m in Sources */,
 				015056821D78A3DF00C1F8D8 /* NoticeMainListCell.m in Sources */,
 				015056841D78A3DF00C1F8D8 /* NoticeWarnMainViewController.m in Sources */,
+				BA4B47001D8684F0009CA1F7 /* BarLabel.m in Sources */,
 				010A14721D7C99780064AF63 /* NoticeDetailViewController.m in Sources */,
 				010A14621D7C71B60064AF63 /* RiskWrongListViewController.m in Sources */,
 				015056851D78A3DF00C1F8D8 /* WarnMainListCell.m in Sources */,
@@ -762,6 +821,7 @@
 				01FFB9AC1D80656500D844E9 /* RiskProjectChooseViewController.m in Sources */,
 				015056461D77A05300C1F8D8 /* RiskListVo.m in Sources */,
 				BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */,
+				BA4B47051D8684F0009CA1F7 /* UIViewSizeShortcuts.m in Sources */,
 				0150566B1D78722A00C1F8D8 /* RiskMainListCell.m in Sources */,
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
 				01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */,
@@ -769,10 +829,12 @@
 				BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */,
 				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,
 				BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */,
+				BA4B47011D8684F0009CA1F7 /* BarView.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
 				014389001D855DA200099E86 /* WarnDetailViewController.m in Sources */,
 				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,
 				015056551D77A3DD00C1F8D8 /* RiskReportDetailVo.m in Sources */,
+				BA4B47071D8684F0009CA1F7 /* XMLParser.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
 				014388FA1D85105600099E86 /* GTMBase64.m in Sources */,
 				015056781D789EAF00C1F8D8 /* VerifyMainListCell.m in Sources */,
@@ -893,7 +955,7 @@
 		};
 		015259C51D70918F00AD3E67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FE091FA88DEE46A874C5675 /* Pods-ElectricRisk.debug.xcconfig */;
+			baseConfigurationReference = CF1029B76289C5E8635C9E6B /* Pods-ElectricRisk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -915,7 +977,7 @@
 		};
 		015259C61D70918F00AD3E67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A11CF15576B220A66902655 /* Pods-ElectricRisk.release.xcconfig */;
+			baseConfigurationReference = DC64DB1EC98607884F6F5F37 /* Pods-ElectricRisk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

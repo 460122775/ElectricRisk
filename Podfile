@@ -10,9 +10,9 @@ target 'ElectricRisk' do
 	
 	pod 'AFNetworking', '~> 2.6.0'
  	pod 'MBProgressHUD', '~> 0.9.2'
+    
  	pod 'MJRefresh', '~> 3.1.0'
  	pod 'JTToast', '~> 1.1.0'
- 	pod 'Charts/Realm'
     pod 'BPushSDK/normal'
 
 end

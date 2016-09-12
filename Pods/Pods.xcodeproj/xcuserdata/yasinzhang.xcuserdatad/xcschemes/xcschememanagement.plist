@@ -8,106 +8,36 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>Charts.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>GTMBase64.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>JTToast-JTToast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>JTToast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Pods-ElectricRisk.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
-		</dict>
-		<key>Realm.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
-		<key>RealmSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
-		</dict>
-		<key>ZHDropDownMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0857C5163293371170CA609F3D79B884</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0AB3555320E8DA9E9EA868FE1C2E56D8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0B15063816219B3D64BA92E2AFF07EA1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0BB7FEC1EDF7D27E4FBB837911BB3966</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>29DD99664D189A7CA206368F493B1E0B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>338627F33D4D8F835A97A70DAB0F36AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,21 +52,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>86FCAFBE3ACE0BF6FEB45151E8D15D55</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8BA709253E0350B01F1F6F15B89DC96B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C37EF188BE397973508CA30E9B1DC556</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E1B9EBC8610BA9D01C741F0090BBD034</key>
 		<dict>
 			<key>primary</key>
@@ -147,17 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5D60D22ED1625BD6280597A6919DF39</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F831852D7F125168B1EF17FC76AB893C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FA073A2B6A40241050D91303EE6DF561</key>
+		<key>F5C424F11AEA950EB9894B168A03BDAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
