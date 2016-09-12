@@ -56,6 +56,12 @@
 
 - (IBAction)submitBtnClick:(id)sender
 {
+    if ([self.titleTextField isFirstResponder])
+    {
+        [self.titleTextField resignFirstResponder];
+    }else if([self.contentTextView isFirstResponder]){
+        [self.contentTextView resignFirstResponder];
+    }
     if (self.titleTextField.text == nil || self.titleTextField.text.length == 0)
     {
         [[JTToast toastWithText:@"您还没有填写标题" configuration:[JTToastConfiguration defaultConfiguration]]show];

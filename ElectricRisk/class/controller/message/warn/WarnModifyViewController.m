@@ -175,6 +175,13 @@
 
 - (IBAction)submitBtnClick:(id)sender
 {
+    if([self.valueKTextField isFirstResponder])
+    {
+        [self.valueKTextField resignFirstResponder];
+    }else if([self.reasonTextView isFirstResponder]){
+        [self.reasonTextView resignFirstResponder];
+    }
+    
     if (self.valueKTextField.text == nil || self.valueKTextField.text.length == 0)
     {
         [[JTToast toastWithText:@"请输入K值" configuration:[JTToastConfiguration defaultConfiguration]]show];

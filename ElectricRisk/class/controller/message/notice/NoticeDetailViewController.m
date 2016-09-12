@@ -278,6 +278,12 @@
 
 - (IBAction)commentBtnClick:(id)sender
 {
+    if ([self.contentTextView isFirstResponder])
+    {
+        [self.contentTextView resignFirstResponder];
+    }else if([self.commentInput isFirstResponder]){
+        [self.commentInput resignFirstResponder];
+    }
     if (self.commentInput.text == nil || self.commentInput.text.length < 1)
     {
         [[JTToast toastWithText:@"请输入回复的内容" configuration:[JTToastConfiguration defaultConfiguration]]show];
