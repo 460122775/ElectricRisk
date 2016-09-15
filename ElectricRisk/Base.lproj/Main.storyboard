@@ -2146,17 +2146,17 @@
                                             </mask>
                                         </variation>
                                     </scrollView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-Fa-CvQ">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2a-Fa-CvQ">
                                         <rect key="frame" x="-1" y="617" width="376" height="50"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKx-gn-FWn">
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QKx-gn-FWn">
                                                 <rect key="frame" x="0.0" y="0.0" width="376" height="2"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50980392159999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="2" id="Jgi-7f-1Tc"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="输入内容" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aV4-XX-vUO">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="输入内容" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aV4-XX-vUO">
                                                 <rect key="frame" x="9" y="8" width="301" height="34"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -2171,7 +2171,7 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szc-Xd-t5c">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szc-Xd-t5c">
                                                 <rect key="frame" x="318" y="7" width="50" height="36"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50980392159999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -2306,10 +2306,10 @@
                                             <constraint firstItem="F2Q-8u-Lgj" firstAttribute="centerY" secondItem="kwI-bA-zAE" secondAttribute="centerY" id="qcO-6w-04D"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NqK-K8-toB">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NqK-K8-toB">
                                         <rect key="frame" x="-1" y="64" width="376" height="596"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7er-Sk-UkJ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="标题：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7er-Sk-UkJ">
                                                 <rect key="frame" x="9" y="8" width="50" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="7UM-KE-HYn"/>
@@ -2325,7 +2325,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入通知的标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-rr-wpm">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入通知的标题" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-rr-wpm">
                                                 <rect key="frame" x="59" y="4" width="309" height="30"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
