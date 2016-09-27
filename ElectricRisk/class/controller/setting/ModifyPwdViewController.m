@@ -83,7 +83,7 @@
 {
     //设置登录参数
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"old_pasword":self.oldPwdTextField.text,
                            @"new_password":self.pwdNewTextField1.text};
     //设置请求

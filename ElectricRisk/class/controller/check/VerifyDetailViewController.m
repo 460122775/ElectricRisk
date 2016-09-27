@@ -142,7 +142,7 @@
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"id":[self.verifyDataDic objectForKey:@"id"],
                            @"type":@TYPE_VERIFY};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_REPORTDETAIL) parameter:dict header:nil content:nil success:^(id responseData) {
@@ -202,7 +202,7 @@
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"state":(self.agreeSwitch.isOn) ? @"2" : @"1",
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"id":[self.verifyDataDic objectForKey:@"id"],
                            @"flag":@"ys",
                            @"reason":(self.agreeContentTextView.text == nil) ? @"" : self.agreeContentTextView.text};

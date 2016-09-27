@@ -153,7 +153,7 @@
 
 -(void)clearUserData
 {
-    [SystemConfig instance].currentUserId = -1;
+    [SystemConfig instance].currentUserId = nil;
     [SystemConfig instance].currentUserPwd = nil;
     [SystemConfig instance].currentUserName = nil;
     [SystemConfig instance].currentUserRole = -1;

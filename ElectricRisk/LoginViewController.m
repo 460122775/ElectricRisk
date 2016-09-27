@@ -47,10 +47,9 @@
                                                    intValue];
         [SystemConfig instance].currentUserName = self.nameTF.text;
         [SystemConfig instance].currentUserPwd = self.pwdTF.text;
-        [SystemConfig instance].currentUserId = [(NSNumber*)[userData objectForKey:@"user_id"]
-                                                 intValue];
+        [SystemConfig instance].currentUserId = [userData objectForKey:@"user_id"];
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserRole] forKey:@"currentUserRole"];
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserId] forKey:@"currentUserId"];
+        [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserId forKey:@"currentUserId"];
         [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserName forKey:@"currentUserName"];
         [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserPwd forKey:@"currentUserPwd"];
         [self performSegueWithIdentifier:@"LoginToHome" sender:self];
@@ -124,10 +123,9 @@
                                                        intValue];
             [SystemConfig instance].currentUserName = self.nameTF.text;
             [SystemConfig instance].currentUserPwd = self.pwdTF.text;
-            [SystemConfig instance].currentUserId = [(NSNumber*)[userData objectForKey:@"user_id"]
-                                                     intValue];
+            [SystemConfig instance].currentUserId = [userData objectForKey:@"user_id"];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserRole] forKey:@"currentUserRole"];
-            [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserId] forKey:@"currentUserId"];
+            [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserId forKey:@"currentUserId"];
             [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserName forKey:@"currentUserName"];
             [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserPwd forKey:@"currentUserPwd"];
             self.nameTF.text = @"";

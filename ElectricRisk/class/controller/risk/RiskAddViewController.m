@@ -115,7 +115,7 @@
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     [dict setObject:[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000] forKey:@"c_time"];
-    [dict setObject:[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId] forKey:@"uid"];
+    [dict setObject:[SystemConfig instance].currentUserId forKey:@"uid"];
     [dict setObject:[self.riskDataDic objectForKey:@"id"] forKey:@"id"];
     [dict setObject:self.sgProcessInput.text forKey:@"progressValue"];
     NSMutableDictionary *xcDic = [[NSMutableDictionary alloc] init];
@@ -299,7 +299,7 @@
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"id":[self.riskDataDic objectForKey:@"id"]};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_DAYINFO) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;

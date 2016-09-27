@@ -135,7 +135,7 @@
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"title":self.titleTextField.text,
                            @"content":self.contentTextView.text,
                            @"flag":(onlySave)?@2:@1};

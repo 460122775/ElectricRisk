@@ -69,7 +69,7 @@
     [HUD showByCustomView:YES];
     
     if(dict == nil) dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                             @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId]};
+                             @"uid":[SystemConfig instance].currentUserId};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_LIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];

@@ -109,7 +109,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     [HUD showByCustomView:YES];
 
     if(dict == nil) dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"area":@"",
                            @"projectid":@"",
                            @"levelStart":@"",
@@ -186,7 +186,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
         [self testData];
     }else{
         [self requestData:@{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                                   @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                                   @"uid":[SystemConfig instance].currentUserId,
                                    @"area":area,
                                    @"projectid":projectid,
                                    @"levelStart":startLevel,

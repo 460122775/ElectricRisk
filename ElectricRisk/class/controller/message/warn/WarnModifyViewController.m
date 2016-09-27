@@ -93,7 +93,7 @@
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"id":[self.warnDataDic objectForKey:@"id"],
                            @"plan_start_time":[NSString stringWithFormat:@"%li", startTimeValue],
                            @"plan_end_time":[NSString stringWithFormat:@"%li", endTimeValue],

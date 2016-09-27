@@ -140,7 +140,7 @@
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"id":[self.noticeDataDic objectForKey:@"notice_id"]};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_NOTICE_COMMENT_LIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
@@ -195,7 +195,7 @@
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"id":[self.noticeDataDic objectForKey:@"id"]};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_NOTICE_READ) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
@@ -242,7 +242,7 @@
     [HUD showByCustomView:YES];
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[NSString stringWithFormat:@"%i", [SystemConfig instance].currentUserId],
+                           @"uid":[SystemConfig instance].currentUserId,
                            @"id":[self.noticeDataDic objectForKey:@"id"],
                            @"content":self.commentInput.text};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_NOTICE_COMMENT) parameter:dict header:nil content:nil success:^(id responseData) {
