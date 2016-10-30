@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD+MBProgressHUDView.h"
 
 @interface VerifyDetailViewController : UIViewController<UITextViewDelegate>{
     MBProgressHUD *HUD;

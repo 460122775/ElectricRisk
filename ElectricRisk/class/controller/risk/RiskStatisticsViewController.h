@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BarChartView.h"
+#import "MBProgressHUD+MBProgressHUDView.h"
 
 @interface RiskStatisticsViewController : UIViewController{
     MBProgressHUD *HUD;

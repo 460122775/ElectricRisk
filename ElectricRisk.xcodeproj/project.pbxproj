@@ -48,12 +48,11 @@
 		015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015259BC1D70918F00AD3E67 /* Assets.xcassets */; };
 		015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */; };
 		0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11A1D72B11E0066D8B7 /* SystemConfig.m */; };
-		0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */; };
 		01FFB9AC1D80656500D844E9 /* RiskProjectChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FFB9AA1D80656500D844E9 /* RiskProjectChooseViewController.m */; };
 		01FFB9AD1D80656500D844E9 /* RiskProjectChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FFB9AB1D80656500D844E9 /* RiskProjectChooseViewController.xib */; };
 		01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FFB9AF1D806AC900D844E9 /* RiskClassChooseViewController.m */; };
 		01FFB9B21D806AC900D844E9 /* RiskClassChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01FFB9B01D806AC900D844E9 /* RiskClassChooseViewController.xib */; };
-		163272D0CCD3F74530549E8D /* Pods_ElectricRisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0E747737FE01EFD046B72B /* Pods_ElectricRisk.framework */; };
+		B13E17AE0D98A76A4F3F1A8E /* Pods_ElectricRisk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5654B6FD539D4A80666219 /* Pods_ElectricRisk.framework */; };
 		BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */; };
 		BA1ACAD71D7D0A8400EB96BC /* CheckDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ACAD61D7D0A8400EB96BC /* CheckDetailViewController.m */; };
 		BA2FB6551D7FD2640017D025 /* WarnModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2FB6541D7FD2640017D025 /* WarnModifyViewController.m */; };
@@ -61,6 +60,7 @@
 		BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A68E1D790C5A00E40A09 /* SettingViewController.m */; };
 		BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */; };
 		BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6941D7915D700E40A09 /* AboutUsViewController.m */; };
+		BA360DC41DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */; };
 		BA4B46FF1D8684F0009CA1F7 /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */; };
 		BA4B47001D8684F0009CA1F7 /* BarLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46ED1D8684F0009CA1F7 /* BarLabel.m */; };
 		BA4B47011D8684F0009CA1F7 /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46F01D8684F0009CA1F7 /* BarView.m */; };
@@ -158,14 +158,15 @@
 		0154B1181D72B08D0066D8B7 /* CommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommonDefine.h; path = class/model/system/CommonDefine.h; sourceTree = "<group>"; };
 		0154B1191D72B11E0066D8B7 /* SystemConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SystemConfig.h; path = class/model/system/SystemConfig.h; sourceTree = "<group>"; };
 		0154B11A1D72B11E0066D8B7 /* SystemConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SystemConfig.m; path = class/model/system/SystemConfig.m; sourceTree = "<group>"; };
-		0154B11E1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MBProgressHUDView.h"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.h"; sourceTree = "<group>"; };
-		0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
 		01FFB9A91D80656500D844E9 /* RiskProjectChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskProjectChooseViewController.h; path = class/controller/risk/RiskProjectChooseViewController.h; sourceTree = "<group>"; };
 		01FFB9AA1D80656500D844E9 /* RiskProjectChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskProjectChooseViewController.m; path = class/controller/risk/RiskProjectChooseViewController.m; sourceTree = "<group>"; };
 		01FFB9AB1D80656500D844E9 /* RiskProjectChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskProjectChooseViewController.xib; path = class/controller/risk/RiskProjectChooseViewController.xib; sourceTree = "<group>"; };
 		01FFB9AE1D806AC900D844E9 /* RiskClassChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskClassChooseViewController.h; path = class/controller/risk/RiskClassChooseViewController.h; sourceTree = "<group>"; };
 		01FFB9AF1D806AC900D844E9 /* RiskClassChooseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskClassChooseViewController.m; path = class/controller/risk/RiskClassChooseViewController.m; sourceTree = "<group>"; };
 		01FFB9B01D806AC900D844E9 /* RiskClassChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskClassChooseViewController.xib; path = class/controller/risk/RiskClassChooseViewController.xib; sourceTree = "<group>"; };
+		0C5654B6FD539D4A80666219 /* Pods_ElectricRisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectricRisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9F26AB31254940B974A70A /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
+		5E5767359C9A4EF1B52ADC3E /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
 		BA1ACAD01D7CFD3600EB96BC /* NoticeAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoticeAddViewController.h; path = class/controller/message/notice/NoticeAddViewController.h; sourceTree = "<group>"; };
 		BA1ACAD11D7CFD3600EB96BC /* NoticeAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoticeAddViewController.m; path = class/controller/message/notice/NoticeAddViewController.m; sourceTree = "<group>"; };
 		BA1ACAD51D7D0A8400EB96BC /* CheckDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CheckDetailViewController.h; path = class/controller/check/CheckDetailViewController.h; sourceTree = "<group>"; };
@@ -180,6 +181,9 @@
 		BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModifyPwdViewController.m; path = class/controller/setting/ModifyPwdViewController.m; sourceTree = "<group>"; };
 		BA30A6931D7915D700E40A09 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutUsViewController.h; path = class/controller/setting/AboutUsViewController.h; sourceTree = "<group>"; };
 		BA30A6941D7915D700E40A09 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutUsViewController.m; path = class/controller/setting/AboutUsViewController.m; sourceTree = "<group>"; };
+		BA360DC21DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MBProgressHUDView.h"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.h"; sourceTree = "<group>"; };
+		BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
+		BA360DC61DC2399C00EFB07D /* ElectricRisk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ElectricRisk.entitlements; sourceTree = "<group>"; };
 		BA4B46EA1D8684F0009CA1F7 /* BarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChartView.h; path = "class/ThirdParty/BarChart Library/BarChartView.h"; sourceTree = "<group>"; };
 		BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChartView.m; path = "class/ThirdParty/BarChart Library/BarChartView.m"; sourceTree = "<group>"; };
 		BA4B46EC1D8684F0009CA1F7 /* BarLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarLabel.h; path = "class/ThirdParty/BarChart Library/BarLabel.h"; sourceTree = "<group>"; };
@@ -213,9 +217,6 @@
 		BAE718941D714F87009AB399 /* RiskSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskSearchViewController.xib; path = class/controller/risk/RiskSearchViewController.xib; sourceTree = "<group>"; };
 		BAE718971D7179FF009AB399 /* RiskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailViewController.h; path = class/controller/risk/RiskDetailViewController.h; sourceTree = "<group>"; };
 		BAE718981D7179FF009AB399 /* RiskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskDetailViewController.m; path = class/controller/risk/RiskDetailViewController.m; sourceTree = "<group>"; };
-		BC0E747737FE01EFD046B72B /* Pods_ElectricRisk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElectricRisk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF1029B76289C5E8635C9E6B /* Pods-ElectricRisk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.debug.xcconfig"; sourceTree = "<group>"; };
-		DC64DB1EC98607884F6F5F37 /* Pods-ElectricRisk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElectricRisk.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,7 +227,7 @@
 				BA4B470C1D868519009CA1F7 /* QuartzCore.framework in Frameworks */,
 				BA4B470A1D868511009CA1F7 /* CoreGraphics.framework in Frameworks */,
 				BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */,
-				163272D0CCD3F74530549E8D /* Pods_ElectricRisk.framework in Frameworks */,
+				B13E17AE0D98A76A4F3F1A8E /* Pods_ElectricRisk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +382,7 @@
 				015259AF1D70918F00AD3E67 /* ElectricRisk */,
 				015259AE1D70918F00AD3E67 /* Products */,
 				7EEB6ED4AD958E19C3A4B958 /* Frameworks */,
-				FF8C8769BC896F56E1199A09 /* Pods */,
+				051752949E6536E7117DA9FC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -396,6 +397,7 @@
 		015259AF1D70918F00AD3E67 /* ElectricRisk */ = {
 			isa = PBXGroup;
 			children = (
+				BA360DC61DC2399C00EFB07D /* ElectricRisk.entitlements */,
 				BAE718871D712F84009AB399 /* class */,
 				015259B01D70918F00AD3E67 /* Supporting Files */,
 			);
@@ -437,22 +439,13 @@
 		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BA360DC51DC2376800EFB07D /* MBProgressHUD */,
 				BA4B46E91D8684DD009CA1F7 /* BarChart */,
 				014388FC1D85105E00099E86 /* DES */,
 				BA2FB6561D7FEAD50017D025 /* DatePicker */,
 				010A146B1D7C76810064AF63 /* ElectricRisk-Bridging-Header.h */,
-				0154B1211D72BE460066D8B7 /* HUD */,
 			);
 			name = ThirdParty;
-			sourceTree = "<group>";
-		};
-		0154B1211D72BE460066D8B7 /* HUD */ = {
-			isa = PBXGroup;
-			children = (
-				0154B11E1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.h */,
-				0154B11F1D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m */,
-			);
-			name = HUD;
 			sourceTree = "<group>";
 		};
 		0154B1221D7653A40066D8B7 /* vo */ = {
@@ -465,13 +458,22 @@
 			name = vo;
 			sourceTree = "<group>";
 		};
+		051752949E6536E7117DA9FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E5767359C9A4EF1B52ADC3E /* Pods-ElectricRisk.debug.xcconfig */,
+				5C9F26AB31254940B974A70A /* Pods-ElectricRisk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7EEB6ED4AD958E19C3A4B958 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				BA4B470B1D868519009CA1F7 /* QuartzCore.framework */,
 				BA4B47091D868511009CA1F7 /* CoreGraphics.framework */,
 				BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */,
-				BC0E747737FE01EFD046B72B /* Pods_ElectricRisk.framework */,
+				0C5654B6FD539D4A80666219 /* Pods_ElectricRisk.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -519,6 +521,15 @@
 				BA2FB6581D7FEAE50017D025 /* MSNPickerView.m */,
 			);
 			name = DatePicker;
+			sourceTree = "<group>";
+		};
+		BA360DC51DC2376800EFB07D /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				BA360DC21DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.h */,
+				BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		BA4B46E91D8684DD009CA1F7 /* BarChart */ = {
@@ -644,15 +655,6 @@
 			name = setting;
 			sourceTree = "<group>";
 		};
-		FF8C8769BC896F56E1199A09 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				CF1029B76289C5E8635C9E6B /* Pods-ElectricRisk.debug.xcconfig */,
-				DC64DB1EC98607884F6F5F37 /* Pods-ElectricRisk.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -666,7 +668,6 @@
 				015259AB1D70918F00AD3E67 /* Resources */,
 				D9CD6550FA6116577317CB71 /* [CP] Embed Pods Frameworks */,
 				D88CF2AE9EE789658C6B0F20 /* [CP] Copy Pods Resources */,
-				C6C9543CA924C3BF20976114 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -688,13 +689,13 @@
 				TargetAttributes = {
 					015259AC1D70918F00AD3E67 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = A4AHC42YYQ;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -758,21 +759,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C6C9543CA924C3BF20976114 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ElectricRisk/Pods-ElectricRisk-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D88CF2AE9EE789658C6B0F20 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -810,6 +796,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA360DC41DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m in Sources */,
 				BA4B47021D8684F0009CA1F7 /* CMPopTipView.m in Sources */,
 				015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */,
 				BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */,
@@ -851,7 +838,6 @@
 				01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
 				BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */,
-				0154B1201D72BE420066D8B7 /* MBProgressHUD+MBProgressHUDView.m in Sources */,
 				BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */,
 				BA4B47011D8684F0009CA1F7 /* BarView.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
@@ -979,12 +965,13 @@
 		};
 		015259C51D70918F00AD3E67 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF1029B76289C5E8635C9E6B /* Pods-ElectricRisk.debug.xcconfig */;
+			baseConfigurationReference = 5E5767359C9A4EF1B52ADC3E /* Pods-ElectricRisk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
@@ -994,6 +981,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ElectricRisk/ElectricRisk-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1001,12 +989,13 @@
 		};
 		015259C61D70918F00AD3E67 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC64DB1EC98607884F6F5F37 /* Pods-ElectricRisk.release.xcconfig */;
+			baseConfigurationReference = 5C9F26AB31254940B974A70A /* Pods-ElectricRisk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos",

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "NoticeMainListCell.h"
 #import "NoticeDetailViewController.h"
+#import "MBProgressHUD+MBProgressHUDView.h"
 
 @interface MyNoticeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
     MBProgressHUD *HUD;

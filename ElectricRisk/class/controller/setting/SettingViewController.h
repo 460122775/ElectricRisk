@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ModifyPwdViewController.h"
+#import "MBProgressHUD+MBProgressHUDView.h"
 
 @interface SettingViewController : UIViewController<ModifyPwdDelegate>{
     MBProgressHUD *HUD;

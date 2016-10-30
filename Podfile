@@ -9,7 +9,7 @@ target 'ElectricRisk' do
   # Pods for ElectricRisk
 	
 	pod 'AFNetworking', '~> 2.6.0'
- 	pod 'MBProgressHUD', '~> 0.9.2'
+ 	pod 'MBProgressHUD', '~> 1.0.0' 
     
  	pod 'MJRefresh', '~> 3.1.0'
  	pod 'JTToast', '~> 1.1.0'

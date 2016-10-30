@@ -22,21 +22,23 @@ PODS:
     - AFNetworking/NSURLSession
   - BPushSDK/normal (1.4.5)
   - JTToast (1.1.0)
-  - MBProgressHUD (0.9.2)
-  - MJRefresh (3.1.9)
+  - MBProgressHUD (1.0.0)
+  - MJRefresh (3.1.12)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.6.0)
   - BPushSDK/normal
   - JTToast (~> 1.1.0)
-  - MBProgressHUD (~> 0.9.2)
+  - MBProgressHUD (~> 1.0.0)
   - MJRefresh (~> 3.1.0)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BPushSDK: 81453a059604fa3c1ef1c683efab9d593e22a338
   JTToast: b9e461bc0f175fd0ece13fa4cbeb0c3bb64430cc
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJRefresh: c5f1f1653e5a1b932c90f78074f2bc86f3f9bd5e
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 7f10dbe2cd42ab65d53c26ec73de57aca81eab72
+
+COCOAPODS: 1.0.1

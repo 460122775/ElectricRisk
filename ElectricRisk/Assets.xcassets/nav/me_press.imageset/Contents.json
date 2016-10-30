@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "avn_x3_menu.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "x4.png",
+      "filename" : "nva_x4_menu.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "x4-1.png",
+      "filename" : "nav_x3_menu.png",
       "scale" : "3x"
     }
   ],

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD+MBProgressHUDView.h"
 
 @protocol NoticeAddDelegate <NSObject>
 

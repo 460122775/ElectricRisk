@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RiskExecutiveTimeListViewController.h"
 #import "RiskAddViewController.h"
+#import "MBProgressHUD+MBProgressHUDView.h"
 
 @interface RiskDetailViewController : UIViewController<UIWebViewDelegate, RiskExecutiveTimeChooseDelegate, RiskAddDelegate>{
     NSDateFormatter *dtfrm;
