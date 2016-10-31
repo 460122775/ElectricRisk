@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD+MBProgressHUDView.h"
 
-@interface NoticeDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate>{
+@interface NoticeDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIWebViewDelegate>{
     MBProgressHUD *HUD;
     int currentKeyboardHeight;
 }
@@ -19,8 +19,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *noticeTitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
-@property (strong, nonatomic) IBOutlet UITextView *contentTextView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *contentTextViewHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *contentWebViewHeight;
+@property (strong, nonatomic) IBOutlet UIWebView *contentWebView;
 @property (strong, nonatomic) IBOutlet UITableView *commentTableView;
 @property (strong, nonatomic) IBOutlet UITextField *commentInput;
 @property (strong, nonatomic) IBOutlet UIButton *commentBtn;

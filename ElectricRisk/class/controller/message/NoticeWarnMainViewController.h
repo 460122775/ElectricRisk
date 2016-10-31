@@ -13,10 +13,15 @@
 #import "NoticeAddViewController.h"
 #import "WarnModifyViewController.h"
 #import "WarnDetailViewController.h"
+#import "MJRefresh.h"
 
-@interface NoticeWarnMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NoticeAddDelegate, WarnModifyDelegate>{
+@interface NoticeWarnMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NoticeAddDelegate, WarnModifyDelegate, MJRefreshBaseViewDelegate>{
     BOOL isNoticeList;
     MBProgressHUD *HUD;
+    
+    int totalCount;
+    int currentPage;
+    int pageSize;
     
     NSArray* noticeDataArray;
     NSArray* warnDataArray;
@@ -24,6 +29,9 @@
     NSDictionary* currentSelectedNotice;
     NSDictionary* currentSelectedWarn;
 }
+
+@property (strong, nonatomic) MJRefreshHeaderView *header;
+@property (strong, nonatomic) MJRefreshFooterView *footer;
 
 @property (strong, nonatomic) IBOutlet UIButton *noticeBtn;
 @property (strong, nonatomic) IBOutlet UIButton *warnBtn;

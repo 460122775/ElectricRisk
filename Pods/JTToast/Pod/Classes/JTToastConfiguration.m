@@ -7,7 +7,7 @@
     JTToastConfiguration* config=[[JTToastConfiguration alloc] init];
     config.font=[UIFont systemFontOfSize:15];
     config.duration=JTToastDurationNormal;
-    config.gravity=JTToastGravityBottom;
+    config.gravity=JTToastGravityTop;
     config.colorStyle=JTToastColorStyleNormal;
     config.widthLimit=200;
     config.paddingHorizontal=12;

@@ -17,16 +17,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.pwdTF.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.pwdTF.layer.borderWidth = 1;
+    self.pwdTF.layer.cornerRadius = 20;
+    UIImageView *pwdLeftImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 35, self.pwdTF.frame.size.height)];
+    [pwdLeftImg setImage:[UIImage imageNamed:@"login_input_mima.png"]];
+    [pwdLeftImg setContentMode:UIViewContentModeCenter];
+    CALayer *rightBorder = [CALayer layer];
+    rightBorder.frame = CGRectMake(pwdLeftImg.frame.size.width - 1, 0, 1.0, pwdLeftImg.frame.size.height);
+    [rightBorder setBackgroundColor:(__bridge CGColorRef _Nullable)([UIColor lightGrayColor])];
+    [pwdLeftImg.layer addSublayer:rightBorder];
+    self.pwdTF.leftView = pwdLeftImg;
+    self.pwdTF.leftViewMode = UITextFieldViewModeAlways;
     self.pwdTF.delegate = self;
+    
+    self.nameTF.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.nameTF.layer.borderWidth = 1;
+    self.nameTF.layer.cornerRadius = 20;
+    UIImageView *pwdRightImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 35, self.nameTF.frame.size.height)];
+    [pwdRightImg setImage:[UIImage imageNamed:@"login_input_tubiao.png"]];
+    [pwdRightImg setContentMode:UIViewContentModeCenter];
+    self.nameTF.leftView = pwdRightImg;
+    self.nameTF.leftViewMode = UITextFieldViewModeAlways;
     self.nameTF.delegate = self;
+    
+    self.loginBtn.layer.cornerRadius = 20;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
 //    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentUserName"];
 //    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentUserPwd"];
     [self loginBtnClick:nil];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardDidShowNotification];
+    [[NSNotificationCenter defaultCenter] removeObserver:UIKeyboardWillHideNotification];
 }
 
 -(void)testData
@@ -157,8 +192,35 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    return (textField == self.nameTF && textField.text.length >= 5)
-    || (textField == self.pwdTF && textField.text.length >= 6);
+    if (textField == self.nameTF && textField.text.length >= 5)
+    {
+        [self.nameTF resignFirstResponder];
+        [self.pwdTF becomeFirstResponder];
+    }else if(textField == self.pwdTF && textField.text.length >= 6){
+        [self.pwdTF resignFirstResponder];
+    }
+    return NO;
+}
+
+// Keyboard visiable.
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    CGSize kbSize = [[[aNotification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+    self.mainScrollView.contentInset = contentInsets;
+    self.mainScrollView.scrollIndicatorInsets = contentInsets;
+    CGRect aRect = self.mainScrollView.frame;
+    aRect.size.height -= kbSize.height;
+    [self.mainScrollView setContentOffset:CGPointMake(self.mainScrollView.frame.origin.x, self.nameTF.frame.origin.y - kbSize.height) animated:YES];
+}
+
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    self.mainScrollView.contentInset = contentInsets;
+    self.mainScrollView.scrollIndicatorInsets = contentInsets;
 }
 
 @end

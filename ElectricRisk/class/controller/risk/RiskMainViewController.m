@@ -26,6 +26,8 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"RiskMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:RiskMainListCellId];
     [[UITabBar appearance] setTintColor:Color_me];
+    
+    [self initRefreshView];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -37,6 +39,28 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
         [self requestData:nil];
     }
     selectedDataDic = nil;
+}
+
+-(void)initRefreshView
+{
+    // Pull Down.
+    self.header = [MJRefreshHeaderView header];
+    self.header.scrollView = self.tableView;
+    self.header.delegate = self;
+}
+
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    // Pull Down.
+    if (refreshView == _header)
+    {
+        if (OFFLINE)
+        {
+            [self testData];
+        }else{
+            [self requestData:nil];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,6 +117,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
+        [self.header endRefreshing];
     });
 }
 
@@ -158,11 +183,13 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [self.header endRefreshing];
         });
         [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        [self.header endRefreshing];
     }];
 }
 
@@ -225,20 +252,21 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     UIView* headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 30)];
     UILabel* titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 7, 200, 17)];
     titleLabel.text = [NSString stringWithFormat:@"%@级风险", [headerNameArray objectAtIndex:section]];
-    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textColor = [UIColor darkGrayColor];
     [headerView addSubview:titleLabel];
-    if([[headerNameArray objectAtIndex:section] isEqualToString:@"1"])
-    {
-        [headerView setBackgroundColor:Color_oneGrade];
-    }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"2"]){
-        [headerView setBackgroundColor:Color_twoGrade];
-    }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"3"]){
-        [headerView setBackgroundColor:Color_threeGrade];
-    }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"4"]){
-        [headerView setBackgroundColor:Color_fourGrade];
-    }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"5"]){
-        [headerView setBackgroundColor:Color_fiveGrade];
-    }
+    [headerView setBackgroundColor:[UIColor colorWithWhite:0.88 alpha:1.0]];
+//    if([[headerNameArray objectAtIndex:section] isEqualToString:@"1"])
+//    {
+//        [headerView setBackgroundColor:Color_oneGrade];
+//    }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"2"]){
+//        [headerView setBackgroundColor:Color_twoGrade];
+//    }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"3"]){
+//        [headerView setBackgroundColor:Color_threeGrade];
+//    }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"4"]){
+//        [headerView setBackgroundColor:Color_fourGrade];
+//    }else if([[headerNameArray objectAtIndex:section] isEqualToString:@"5"]){
+//        [headerView setBackgroundColor:Color_fiveGrade];
+//    }
     return headerView;
 }
 

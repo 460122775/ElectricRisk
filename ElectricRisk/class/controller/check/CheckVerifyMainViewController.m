@@ -27,6 +27,54 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"CheckMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CheckMainListCellId];
     [self.tableView registerNib:[UINib nibWithNibName:@"VerifyMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:VerifyMainListCellId];
+    [self initRefreshView];
+}
+
+-(void)initRefreshView
+{
+    __unsafe_unretained CheckVerifyMainViewController *vc = self;
+    // Pull Down.
+    self.header = [MJRefreshHeaderView header];
+    self.header.scrollView = self.tableView;
+    self.header.delegate = self;
+    
+    // Pull Up.
+    self.footer = [MJRefreshFooterView footer];
+    self.footer.scrollView = self.tableView;
+    
+    // Pull Up Function.
+    self.footer.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        if (totalCount != 0 && totalCount <= pageSize * currentPage)
+        {
+            [[JTToast toastWithText:@"已经是最后一页" configuration:[JTToastConfiguration defaultConfiguration]] show];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [vc.tableView reloadData];
+                [vc.footer endRefreshing];
+            });
+            return;
+        }
+        if (isCheckList == YES)
+        {
+            [vc requestCheckListDataByPage:currentPage + 1];
+        }else{
+            [vc requestVerifyListDataByPage:currentPage + 1];
+        }
+    };
+}
+
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    // Pull Down.
+    if (refreshView == _header)
+    {
+        currentPage = 1;
+        if (isCheckList == YES)
+        {
+            [self requestCheckListDataByPage:currentPage + 1];
+        }else{
+            [self requestVerifyListDataByPage:currentPage + 1];
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -77,10 +125,10 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     [self.verifyBtn setTitleColor:Color_black forState:UIControlStateNormal];
     self.underLineLeading.constant = 0;
     isCheckList = YES;
-    [self requestCheckListData];
+    [self requestCheckListDataByPage:1];
 }
 
--(void)requestCheckListData
+-(void)requestCheckListDataByPage:(int)page
 {
     if (OFFLINE)
     {
@@ -115,11 +163,15 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [self.header endRefreshing];
+            [self.footer endRefreshing];
         });
         [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
     }];
 }
 
@@ -144,6 +196,8 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
     });
     [HUD hideByCustomView:YES];
 }
@@ -154,10 +208,10 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     [self.verifyBtn setTitleColor:Color_me forState:UIControlStateNormal];
     self.underLineLeading.constant = self.checkBtn.frame.size.width;
     isCheckList = NO;
-    [self requestVerifyListData];
+    [self requestVerifyListDataByPage:1];
 }
 
--(void)requestVerifyListData
+-(void)requestVerifyListDataByPage:(int)pageNo
 {
     if (OFFLINE)
     {
@@ -192,11 +246,15 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [self.header endRefreshing];
+            [self.footer endRefreshing];
         });
         [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
     }];
 }
 
@@ -220,6 +278,8 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
     });
     [HUD hideByCustomView:YES];
 }
@@ -293,6 +353,5 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         
     }
 }
-
 
 @end

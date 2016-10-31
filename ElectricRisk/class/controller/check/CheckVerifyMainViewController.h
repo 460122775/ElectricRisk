@@ -11,10 +11,15 @@
 #import "VerifyMainListCell.h"
 #import "CheckDetailViewController.h"
 #import "VerifyDetailViewController.h"
+#import "MJRefresh.h"
 
-@interface CheckVerifyMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+@interface CheckVerifyMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MJRefreshBaseViewDelegate>{
     BOOL isCheckList;
     MBProgressHUD *HUD;
+    
+    int totalCount;
+    int currentPage;
+    int pageSize;
     
     NSArray* checkDataArray;
     NSArray* verifyDataArray;
@@ -22,6 +27,8 @@
     NSDictionary* currentSelectedCheck;
     NSDictionary* currentSelectedVerify;
 }
+@property (strong, nonatomic) MJRefreshHeaderView *header;
+@property (strong, nonatomic) MJRefreshFooterView *footer;
 
 @property (strong, nonatomic) IBOutlet UIButton *checkBtn;
 @property (strong, nonatomic) IBOutlet UIButton *verifyBtn;

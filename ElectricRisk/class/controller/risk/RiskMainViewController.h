@@ -10,8 +10,9 @@
 #import "RiskSearchViewController.h"
 #import "RiskDetailViewController.h"
 #import "RiskMainListCell.h"
+#import "MJRefresh.h"
 
-@interface RiskMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, RishSearchDelegate>{
+@interface RiskMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, RishSearchDelegate, MJRefreshBaseViewDelegate>{
     MBProgressHUD *HUD;
     NSMutableArray *totalDataArray;
     NSMutableArray *headerNameArray;
@@ -23,6 +24,7 @@
     RiskSearchViewController *riskSearchViewController;
 }
 
+@property (strong, nonatomic) MJRefreshHeaderView *header;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 - (IBAction)statisticsBtnClick:(id)sender;
 

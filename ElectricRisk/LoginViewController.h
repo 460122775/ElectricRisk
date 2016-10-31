@@ -14,8 +14,11 @@
     MBProgressHUD *HUD;
 }
 
+@property (strong, nonatomic) IBOutlet UIScrollView *mainScrollView;
+
 @property (strong, nonatomic) IBOutlet UITextField *nameTF;
 @property (strong, nonatomic) IBOutlet UITextField *pwdTF;
+@property (strong, nonatomic) IBOutlet UIButton *loginBtn;
 
 - (IBAction)loginBtnClick:(id)sender;
 

@@ -75,6 +75,10 @@
 		BA4B470C1D868519009CA1F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4B470B1D868519009CA1F7 /* QuartzCore.framework */; };
 		BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */ = {isa = PBXBuildFile; fileRef = BA55C6941D78010000FDA2F6 /* RequestModal.m */; };
 		BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */; };
+		BA8074A41DC71F46006E0426 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA80749C1DC71F46006E0426 /* MJRefresh.bundle */; };
+		BA8074A51DC71F46006E0426 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA80749F1DC71F46006E0426 /* MJRefreshBaseView.m */; };
+		BA8074A61DC71F46006E0426 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8074A11DC71F46006E0426 /* MJRefreshFooterView.m */; };
+		BA8074A71DC71F46006E0426 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8074A31DC71F46006E0426 /* MJRefreshHeaderView.m */; };
 		BAE718911D71453D009AB399 /* RiskMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718901D71453D009AB399 /* RiskMainViewController.m */; };
 		BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718931D714F87009AB399 /* RiskSearchViewController.m */; };
 		BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718941D714F87009AB399 /* RiskSearchViewController.xib */; };
@@ -210,6 +214,14 @@
 		BA55C6931D78010000FDA2F6 /* RequestModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestModal.h; path = class/model/conn/RequestModal.h; sourceTree = "<group>"; };
 		BA55C6941D78010000FDA2F6 /* RequestModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestModal.m; path = class/model/conn/RequestModal.m; sourceTree = "<group>"; };
 		BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Release-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
+		BA80749C1DC71F46006E0426 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		BA80749D1DC71F46006E0426 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		BA80749E1DC71F46006E0426 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		BA80749F1DC71F46006E0426 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		BA8074A01DC71F46006E0426 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		BA8074A11DC71F46006E0426 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		BA8074A21DC71F46006E0426 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		BA8074A31DC71F46006E0426 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		BAE7188F1D71453D009AB399 /* RiskMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskMainViewController.h; path = class/controller/risk/RiskMainViewController.h; sourceTree = "<group>"; };
 		BAE718901D71453D009AB399 /* RiskMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskMainViewController.m; path = class/controller/risk/RiskMainViewController.m; sourceTree = "<group>"; };
 		BAE718921D714F87009AB399 /* RiskSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskSearchViewController.h; path = class/controller/risk/RiskSearchViewController.h; sourceTree = "<group>"; };
@@ -439,6 +451,7 @@
 		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BA80749B1DC71F46006E0426 /* MJRefresh */,
 				BA360DC51DC2376800EFB07D /* MBProgressHUD */,
 				BA4B46E91D8684DD009CA1F7 /* BarChart */,
 				014388FC1D85105E00099E86 /* DES */,
@@ -569,6 +582,22 @@
 			name = conn;
 			sourceTree = "<group>";
 		};
+		BA80749B1DC71F46006E0426 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				BA80749C1DC71F46006E0426 /* MJRefresh.bundle */,
+				BA80749D1DC71F46006E0426 /* MJRefresh.h */,
+				BA80749E1DC71F46006E0426 /* MJRefreshBaseView.h */,
+				BA80749F1DC71F46006E0426 /* MJRefreshBaseView.m */,
+				BA8074A01DC71F46006E0426 /* MJRefreshFooterView.h */,
+				BA8074A11DC71F46006E0426 /* MJRefreshFooterView.m */,
+				BA8074A21DC71F46006E0426 /* MJRefreshHeaderView.h */,
+				BA8074A31DC71F46006E0426 /* MJRefreshHeaderView.m */,
+			);
+			name = MJRefresh;
+			path = class/ThirdParty/MJRefresh;
+			sourceTree = "<group>";
+		};
 		BAE718871D712F84009AB399 /* class */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,11 +713,12 @@
 		015259A51D70918E00AD3E67 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = com.yasin.electric;
 				TargetAttributes = {
 					015259AC1D70918F00AD3E67 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = RDEVH3573D;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -732,6 +762,7 @@
 				014389011D855DA200099E86 /* WarnDetailViewController.xib in Resources */,
 				01FFB9AD1D80656500D844E9 /* RiskProjectChooseViewController.xib in Resources */,
 				015259BD1D70918F00AD3E67 /* Assets.xcassets in Resources */,
+				BA8074A41DC71F46006E0426 /* MJRefresh.bundle in Resources */,
 				015056861D78A3DF00C1F8D8 /* WarnMainListCell.xib in Resources */,
 				0150566C1D78722A00C1F8D8 /* RiskMainListCell.xib in Resources */,
 				015056791D789EAF00C1F8D8 /* VerifyMainListCell.xib in Resources */,
@@ -796,6 +827,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA8074A71DC71F46006E0426 /* MJRefreshHeaderView.m in Sources */,
 				BA360DC41DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m in Sources */,
 				BA4B47021D8684F0009CA1F7 /* CMPopTipView.m in Sources */,
 				015056491D77A13B00C1F8D8 /* RiskDetailVo.m in Sources */,
@@ -824,6 +856,7 @@
 				015056851D78A3DF00C1F8D8 /* WarnMainListCell.m in Sources */,
 				010A14661D7C721C0064AF63 /* RiskAddViewController.m in Sources */,
 				0150565E1D77A5D700C1F8D8 /* WarnListVo.m in Sources */,
+				BA8074A51DC71F46006E0426 /* MJRefreshBaseView.m in Sources */,
 				015056581D77A4BD00C1F8D8 /* NoticeListVo.m in Sources */,
 				BA2FB6591D7FEAE50017D025 /* MSNPickerView.m in Sources */,
 				014388FB1D85105600099E86 /* MMDesManager.m in Sources */,
@@ -843,6 +876,7 @@
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
 				014389001D855DA200099E86 /* WarnDetailViewController.m in Sources */,
 				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,
+				BA8074A61DC71F46006E0426 /* MJRefreshFooterView.m in Sources */,
 				015056551D77A3DD00C1F8D8 /* RiskReportDetailVo.m in Sources */,
 				BA4B47071D8684F0009CA1F7 /* XMLParser.m in Sources */,
 				015259B21D70918F00AD3E67 /* main.m in Sources */,
@@ -889,8 +923,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: liang villiam (937FQ396J4)";
@@ -936,8 +972,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: liang villiam (937FQ396J4)";
@@ -971,14 +1009,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RDEVH3573D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.app.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -995,14 +1033,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = RDEVH3573D;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yasin.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.app.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ElectricRisk/ElectricRisk-Bridging-Header.h";

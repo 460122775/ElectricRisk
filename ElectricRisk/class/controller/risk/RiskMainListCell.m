@@ -29,9 +29,9 @@
     int isActive = [(NSNumber*)[self.dataDic objectForKey:@"is_active"] intValue];
     if (isActive == Active_State_Normal)
     {
-        [self.stopLabel setHidden:YES];
+        self.stateLogoImg.image = [UIImage imageNamed:@"pass.png"];
     }else{
-        [self.stopLabel setHidden:NO];
+        self.stateLogoImg.image = [UIImage imageNamed:@"nopass.png"];
     }
 }
 

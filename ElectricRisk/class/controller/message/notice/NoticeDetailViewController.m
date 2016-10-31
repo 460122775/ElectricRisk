@@ -21,7 +21,7 @@
     self.commentTableView.delegate = self;
     self.commentTableView.dataSource = self;
     
-    self.contentTextView.delegate = self;
+    self.contentWebView.delegate = self;
     self.commentInput.delegate = self;
 }
 
@@ -272,16 +272,22 @@
     self.noticeTitleLabel.text = [self.noticeDataDic objectForKey:@"title"];
     NSDate *timeDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.noticeDataDic objectForKey:@"publish_date"] doubleValue] / 1000.0)];
     self.timeLabel.text = [dtfrm stringFromDate:timeDate];
-    self.contentTextView.text = [self.noticeDataDic objectForKey:@"content"];
-    self.contentTextViewHeight.constant = [self.contentTextView contentSize].height;
+    [self.contentWebView loadHTMLString:[self.noticeDataDic objectForKey:@"content"] baseURL:[NSURL URLWithString:URL_SERVER]];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    if(webView == self.contentWebView)
+    {
+        self.contentWebViewHeight.constant = self.contentWebView.scrollView.contentSize.height;
+    }
+    [self updateViewConstraints];
 }
 
 - (IBAction)commentBtnClick:(id)sender
 {
-    if ([self.contentTextView isFirstResponder])
+    if([self.commentInput isFirstResponder])
     {
-        [self.contentTextView resignFirstResponder];
-    }else if([self.commentInput isFirstResponder]){
         [self.commentInput resignFirstResponder];
     }
     if (self.commentInput.text == nil || self.commentInput.text.length < 1)

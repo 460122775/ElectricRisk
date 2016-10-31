@@ -112,7 +112,7 @@
 	
 	if (!CGSizeEqualToSize(labelSizeAxisY, CGSizeZero))  {
 		for (NSUInteger i = 0; i <= stepCountAxisY; i++) {
-			NSString *textX = [NSString stringWithFormat:@"%i",(NSUInteger)(maxValueAxisY - i*stepValueAxisY)];
+			NSString *textX = [NSString stringWithFormat:@"%lu",(unsigned long)(maxValueAxisY - i*stepValueAxisY)];
 			CGRect textRect = CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect) + i*stepHeightAxisY - labelSizeAxisY.height/2, labelSizeAxisY.width, labelSizeAxisY.height);
 		
 			[textX drawInRect:textRect withFont:[UIFont systemFontOfSize:fontSize] lineBreakMode:UILineBreakModeClip alignment:UITextAlignmentCenter];

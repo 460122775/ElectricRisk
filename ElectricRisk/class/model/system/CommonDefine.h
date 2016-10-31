@@ -14,7 +14,7 @@
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 
-#define URL_SERVER @"http://114.55.138.179:80/jj"
+#define URL_SERVER @"http://49833801.vicp.net/jj"
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
@@ -51,7 +51,7 @@
 #define Color_white [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1]
 #define Color_black [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1]
 #define Color_red [UIColor colorWithRed:255/255.0 green:0/255.0 blue:0/255.0 alpha:1]
-#define Color_me [UIColor colorWithRed:56/255.0 green:142/255.0 blue:142/255.0 alpha:1]
+#define Color_me [UIColor colorWithRed:30/255.0 green:158/255.0 blue:133/255.0 alpha:1]
 #define Color_border [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.05]
 
 /** Define operation **/

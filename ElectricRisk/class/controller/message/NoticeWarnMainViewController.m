@@ -27,8 +27,55 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"NoticeMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:NoticeMainListCellId];
     [self.tableView registerNib:[UINib nibWithNibName:@"WarnMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:WarnMainListCellId];
-    
+    [self initRefreshView];
     [self noticeBtnClick:nil];
+}
+
+-(void)initRefreshView
+{
+    __unsafe_unretained NoticeWarnMainViewController *vc = self;
+    // Pull Down.
+    self.header = [MJRefreshHeaderView header];
+    self.header.scrollView = self.tableView;
+    self.header.delegate = self;
+    
+    // Pull Up.
+    self.footer = [MJRefreshFooterView footer];
+    self.footer.scrollView = self.tableView;
+    
+    // Pull Up Function.
+    self.footer.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        if (totalCount != 0 && totalCount <= pageSize * currentPage)
+        {
+            [[JTToast toastWithText:@"已经是最后一页" configuration:[JTToastConfiguration defaultConfiguration]] show];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [vc.tableView reloadData];
+                [vc.footer endRefreshing];
+            });
+            return;
+        }
+        if (isNoticeList == YES)
+        {
+            [vc requestNoticeListDataByPage:currentPage + 1];
+        }else{
+            [vc requestWarnListData];
+        }
+    };
+}
+
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    // Pull Down.
+    if (refreshView == _header)
+    {
+        currentPage = 1;
+        if (isNoticeList == YES)
+        {
+            [self requestNoticeListDataByPage:1];
+        }else{
+            [self requestWarnListData];
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -71,12 +118,13 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     [self.warnBtn setTitleColor:Color_black forState:UIControlStateNormal];
     self.underLineLeading.constant = 0;
     isNoticeList = YES;
-    [self requestNoticeListData];
+    [self requestNoticeListDataByPage:1];
     [self.myNoticeBtn setHidden:![self getRight:self.myNoticeBtn]];
     [self.addBtn setHidden:![self getRight:self.addBtn]];
+    [self.footer setHidden:NO];
 }
 
--(void)requestNoticeListData
+-(void)requestNoticeListDataByPage:(int)page
 {
     if (OFFLINE)
     {
@@ -110,18 +158,22 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [self.header endRefreshing];
+            [self.footer endRefreshing];
         });
         [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
     }];
 }
 
 -(void)testNoticeData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"data\":[{\"content\":\"thisismessage\",\"id\":2499,\"name\":\"admin\",\"notice_id\":61,\"publish_date\":1471449600000,\"state\":0,\"title\":\"title\"},{\"content\":\"hello world\",\"id\":2499,\"name\":\"yasin\",\"notice_id\":61,\"publish_date\":1471448800000,\"state\":1,\"title\":\"Helloworld\"},{\"content\":\"hello world\",\"id\":2499,\"name\":\"yasin\",\"notice_id\":61,\"publish_date\":1471448800000,\"state\":2,\"title\":\"Helloworld\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":[{\"content\":\"thisismessage\",\"id\":2499,\"name\":\"admin\",\"notice_id\":61,\"publish_date\":1471449600000,\"state\":0,\"title\":\"title\"},{\"content\":\"hello world\",\"id\":2499,\"name\":\"yasin\",\"notice_id\":61,\"publish_date\":1471448800000,\"state\":1,\"title\":\"Helloworld\"},{\"content\":\"<p>项目经理：张三</p><p>安全员：历史</p><p>项目经理：张三</p><p>安全员：历史</p><p>项目经理：张三</p><p>安全员：历史</p>\",\"id\":2499,\"name\":\"yasin\",\"notice_id\":61,\"publish_date\":1471448800000,\"state\":2,\"title\":\"Helloworld\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData options:NSJSONReadingMutableContainers error:&jsonError];
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
@@ -136,6 +188,8 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
+        [self.header endRefreshing];
+        [self.footer endRefreshing];
     });
     [HUD hideByCustomView:YES];
 }
@@ -149,6 +203,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     [self requestWarnListData];
     [self.addBtn setHidden:YES];
     [self.myNoticeBtn setHidden:YES];
+    [self.footer setHidden:YES];
 }
 
 - (IBAction)myNoticeBtnClick:(id)sender
@@ -190,11 +245,13 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
+            [self.header endRefreshing];
         });
         [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        [self.header endRefreshing];
     }];
 }
 
@@ -216,6 +273,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
+        [self.header endRefreshing];
     });
 }
 
@@ -251,7 +309,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self requestNoticeListData];
+            [self requestNoticeListDataByPage:currentPage];
         });
         [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
@@ -273,7 +331,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self requestNoticeListData];
+        [self requestNoticeListDataByPage:1];
     });
 }
 
@@ -402,7 +460,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
 
 -(void)noticeAddSuccessControl
 {
-    [self requestNoticeListData];
+    [self requestNoticeListDataByPage:1];
 }
 
 -(void)warnModifySuccess
