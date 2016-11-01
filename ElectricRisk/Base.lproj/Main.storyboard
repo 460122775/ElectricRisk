@@ -1475,6 +1475,8 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="agreeContentTextView" destination="oLc-ao-zYS" id="vaf-RI-YY0"/>
                         <outlet property="agreeEnableView" destination="0Tj-RX-96P" id="c5p-CA-jEU"/>

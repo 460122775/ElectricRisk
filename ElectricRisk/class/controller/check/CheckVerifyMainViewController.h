@@ -16,10 +16,7 @@
 @interface CheckVerifyMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MJRefreshBaseViewDelegate>{
     BOOL isCheckList;
     MBProgressHUD *HUD;
-    
-    int totalCount;
     int currentPage;
-    int pageSize;
     
     NSArray* checkDataArray;
     NSArray* verifyDataArray;

@@ -45,15 +45,6 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     
     // Pull Up Function.
     self.footer.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
-        if (totalCount != 0 && totalCount <= pageSize * currentPage)
-        {
-            [[JTToast toastWithText:@"已经是最后一页" configuration:[JTToastConfiguration defaultConfiguration]] show];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [vc.tableView reloadData];
-                [vc.footer endRefreshing];
-            });
-            return;
-        }
         if (isNoticeList == YES)
         {
             [vc requestNoticeListDataByPage:currentPage + 1];
@@ -140,18 +131,26 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     HUD.labelText = @"正在加载数据...";
     [HUD removeFromSuperViewOnHide];
     [HUD showByCustomView:YES];
-    
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[SystemConfig instance].currentUserId};
+                           @"uid":[SystemConfig instance].currentUserId,
+                           @"page":[NSString stringWithFormat:@"%i", page]};
+    currentPage = page;
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_NOTICE_LIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            noticeDataArray = (NSArray*)[result objectForKey:@"data"];
-            if (noticeDataArray == nil || noticeDataArray.count == 0)
+            if ((NSArray*)[result objectForKey:@"data"] == nil || ((NSArray*)[result objectForKey:@"data"]).count == 0)
             {
-                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                if(currentPage == 1)
+                {
+                    [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                    noticeDataArray = (NSArray*)[result objectForKey:@"data"];
+                }else{
+                    [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                }
+            }else{
+                noticeDataArray = (NSArray*)[result objectForKey:@"data"];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];

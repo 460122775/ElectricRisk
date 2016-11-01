@@ -28,16 +28,18 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     [[UITabBar appearance] setTintColor:Color_me];
     
     [self initRefreshView];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
+    
     if (OFFLINE)
     {
         [self testData];
     }else{
         [self requestData:nil];
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     selectedDataDic = nil;
 }
 
@@ -132,7 +134,6 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
     HUD.labelText = @"正在加载数据...";
     [HUD removeFromSuperViewOnHide];
     [HUD showByCustomView:YES];
-
     if(dict == nil) dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[SystemConfig instance].currentUserId,
                            @"area":@"",

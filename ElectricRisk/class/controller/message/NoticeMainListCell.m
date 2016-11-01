@@ -19,7 +19,7 @@
 -(void)setViewByData
 {
     self.titleLabel.text =  [self.dataDic objectForKey:@"title"];
-    self.contentLabel.text = [self.dataDic objectForKey:@"content"];
+    self.contentLabel.text = [self.dataDic objectForKey:@"hanzi"];
     self.addressLabel.text = [self.dataDic objectForKey:@"name"];
     int state = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
     switch (state)

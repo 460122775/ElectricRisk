@@ -28,6 +28,16 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"CheckMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CheckMainListCellId];
     [self.tableView registerNib:[UINib nibWithNibName:@"VerifyMainListCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:VerifyMainListCellId];
     [self initRefreshView];
+    
+    [self.checkBtn setHidden:![self getRight:self.checkBtn]];
+    [self.verifyBtn setHidden:![self getRight:self.verifyBtn]];
+    self.underLineLeading.constant = -1000;
+    if (self.checkBtn.hidden == NO)
+    {
+        [self checkBtnClick:nil];
+    }else if (self.verifyBtn.hidden == NO){
+        [self verifyBtnClick:nil];
+    }
 }
 
 -(void)initRefreshView
@@ -44,15 +54,6 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     
     // Pull Up Function.
     self.footer.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
-        if (totalCount != 0 && totalCount <= pageSize * currentPage)
-        {
-            [[JTToast toastWithText:@"已经是最后一页" configuration:[JTToastConfiguration defaultConfiguration]] show];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [vc.tableView reloadData];
-                [vc.footer endRefreshing];
-            });
-            return;
-        }
         if (isCheckList == YES)
         {
             [vc requestCheckListDataByPage:currentPage + 1];
@@ -82,13 +83,6 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     [super viewWillAppear:animated];
     [self.checkBtn setHidden:![self getRight:self.checkBtn]];
     [self.verifyBtn setHidden:![self getRight:self.verifyBtn]];
-    self.underLineLeading.constant = -1000;
-    if (self.checkBtn.hidden == NO)
-    {
-        [self checkBtnClick:nil];
-    }else if (self.verifyBtn.hidden == NO){
-        [self verifyBtnClick:nil];
-    }
 }
 
 -(BOOL)getRight:(UIView*)view
@@ -147,16 +141,25 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[SystemConfig instance].currentUserId,
-                           @"goName":@""};
+                           @"goName":@"",
+                           @"page":[NSString stringWithFormat:@"%i", page]};
+    currentPage = page;
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_CHECKLIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            checkDataArray = (NSArray*)[result objectForKey:@"data"];
-            if (checkDataArray == nil || checkDataArray.count == 0)
+            if ((NSArray*)[result objectForKey:@"data"] == nil || ((NSArray*)[result objectForKey:@"data"]).count == 0)
             {
-                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                if(currentPage == 1)
+                {
+                    [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                    checkDataArray = (NSArray*)[result objectForKey:@"data"];
+                }else{
+                    [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                }
+            }else{
+                checkDataArray = (NSArray*)[result objectForKey:@"data"];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -211,7 +214,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     [self requestVerifyListDataByPage:1];
 }
 
--(void)requestVerifyListDataByPage:(int)pageNo
+-(void)requestVerifyListDataByPage:(int)page
 {
     if (OFFLINE)
     {
@@ -230,16 +233,25 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[SystemConfig instance].currentUserId,
-                           @"goName":@""};
+                           @"goName":@"",
+                           @"page":[NSString stringWithFormat:@"%i", page]};
+    currentPage = page;
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_VERIFYLIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            verifyDataArray = (NSArray*)[result objectForKey:@"data"];
-            if (verifyDataArray == nil || verifyDataArray.count == 0)
+            if ((NSArray*)[result objectForKey:@"data"] == nil || ((NSArray*)[result objectForKey:@"data"]).count == 0)
             {
-                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                if(currentPage == 1)
+                {
+                    [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                    verifyDataArray = (NSArray*)[result objectForKey:@"data"];
+                }else{
+                    [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                }
+            }else{
+                verifyDataArray = (NSArray*)[result objectForKey:@"data"];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];

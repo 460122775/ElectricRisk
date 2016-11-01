@@ -75,15 +75,26 @@
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            level3Count = [(NSNumber*)[result objectForKey:@"level3"] intValue];
-            level4Count = [(NSNumber*)[result objectForKey:@"level4"] intValue];
-            type3Arr = [result objectForKey:@"type3"];
-            type4Arr = [result objectForKey:@"type4"];
+            NSArray *dataArr = [result objectForKey:@"data"];
+            if (dataArr != nil)
+            {
+                for (NSDictionary *_dataDic in dataArr)
+                {
+                    if ([(NSNumber*)[_dataDic objectForKey:@"grade"] intValue] == 3)
+                    {
+                        type3Arr = [_dataDic objectForKey:@"content"];
+                    }else if ([(NSNumber*)[_dataDic objectForKey:@"grade"] intValue] == 4){
+                        type4Arr = [_dataDic objectForKey:@"content"];
+                    }
+                }
+            }else{
+                [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self initStatistic];
             });
         }else{
-            [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            [[JTToast toastWithText:@"未获取到统计数据" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
         [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
@@ -103,8 +114,8 @@
     NSMutableArray *type3ValueArr = [[NSMutableArray alloc] init];
     for (NSDictionary *dataDicTemp in type3Arr)
     {
-        [type3TitleArr addObject:[dataDicTemp objectForKey:@"type"]];
-        [type3ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"total"] intValue]]];
+        [type3TitleArr addObject:[dataDicTemp objectForKey:@"title"]];
+        [type3ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"schedule"] intValue]]];
     }
     NSArray *type3Array = [self.type3ChartView createChartDataWithTitles:type3TitleArr
                                  values:type3ValueArr
@@ -120,8 +131,8 @@
     NSMutableArray *type4ValueArr = [[NSMutableArray alloc] init];
     for (NSDictionary *dataDicTemp in type4Arr)
     {
-        [type4TitleArr addObject:[dataDicTemp objectForKey:@"type"]];
-        [type4ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"total"] intValue]]];
+        [type4TitleArr addObject:[dataDicTemp objectForKey:@"title"]];
+        [type4ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"schedule"] intValue]]];
     }
     NSArray *type4Array = [self.type4ChartView createChartDataWithTitles:type4TitleArr
                                                                   values:type4ValueArr

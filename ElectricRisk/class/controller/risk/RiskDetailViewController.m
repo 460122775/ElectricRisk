@@ -136,6 +136,7 @@
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
+        [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -315,9 +316,9 @@
     }
     if (self.riskExecutiveDataDic != nil)
     {
-        [self.executiveInfoWebView loadHTMLString:[self.riskExecutiveDataDic objectForKey:@"working"] baseURL:[NSURL URLWithString:URL_SERVER]];
-        [self.personInfoWebView loadHTMLString:[self.riskExecutiveDataDic objectForKey:@"yzOnWork"] baseURL:[NSURL URLWithString:URL_SERVER]];
-        [self.processInfoWebView loadHTMLString:[self.riskExecutiveDataDic objectForKey:@"progress"] baseURL:[NSURL URLWithString:URL_SERVER]];
+        [self.executiveInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"working"] baseURL:[NSURL URLWithString:URL_SERVER]];
+        [self.personInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"yzOnWork"] baseURL:[NSURL URLWithString:URL_SERVER]];
+        [self.processInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"progress"] baseURL:[NSURL URLWithString:URL_SERVER]];
     }
 }
 

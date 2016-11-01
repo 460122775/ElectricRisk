@@ -18,10 +18,7 @@
 @interface NoticeWarnMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NoticeAddDelegate, WarnModifyDelegate, MJRefreshBaseViewDelegate>{
     BOOL isNoticeList;
     MBProgressHUD *HUD;
-    
-    int totalCount;
     int currentPage;
-    int pageSize;
     
     NSArray* noticeDataArray;
     NSArray* warnDataArray;

@@ -82,6 +82,7 @@
 {
     self.noticeDataDic = noticeDataDic;
     if (self.noticeTitleLabel == nil) return;
+    [self initViewByDetailData];
     if (OFFLINE)
     {
         [self testData];
@@ -115,9 +116,8 @@
         if (self.commentArray == nil || self.commentArray.count == 0)
         {
             [[JTToast toastWithText:@"该公告还没有人回复" configuration:[JTToastConfiguration defaultConfiguration]]show];
-        }else{
-            [self initViewByDetailData];
         }
+//        [self initViewByDetailData];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.commentTableView reloadData];
         });
@@ -151,9 +151,8 @@
             if (self.commentArray == nil || self.commentArray.count == 0)
             {
                 [[JTToast toastWithText:@"该公告还没有人回复" configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }else{
-                [self initViewByDetailData];
             }
+//            [self initViewByDetailData];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.commentTableView reloadData];
             });
