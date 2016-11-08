@@ -41,43 +41,187 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ElectricRisk/LoginViewController.m"
-            timestampString = "499598244.05124"
+            filePath = "ElectricRisk/class/controller/risk/RiskAddViewController.m"
+            timestampString = "500273545.497516"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "-login"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "-requestImgUploadData:"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[LoginViewController login]"
+                  symbolName = "-[RiskAddViewController requestImgUploadData:]"
                   moduleName = "ElectricRisk"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yasinzhang/Documents/SourceTree/ElectricRisk/ElectricRisk/LoginViewController.m"
-                  timestampString = "499598256.649911"
+                  urlString = "file:///Users/yasinzhang/Documents/SourceTree/ElectricRisk/ElectricRisk/class/controller/risk/RiskAddViewController.m"
+                  timestampString = "500276671.107909"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "147"
-                  endingLineNumber = "147"
-                  offsetFromSymbolStart = "480">
+                  startingLineNumber = "199"
+                  endingLineNumber = "199"
+                  offsetFromSymbolStart = "496">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__28-[LoginViewController login]_block_invoke"
+                  symbolName = "__46-[RiskAddViewController requestImgUploadData:]_block_invoke"
                   moduleName = "ElectricRisk"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yasinzhang/Documents/SourceTree/ElectricRisk/ElectricRisk/LoginViewController.m"
-                  timestampString = "499598256.651069"
+                  urlString = "file:///Users/yasinzhang/Documents/SourceTree/ElectricRisk/ElectricRisk/class/controller/risk/RiskAddViewController.m"
+                  timestampString = "500276671.109036"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "148"
-                  endingLineNumber = "148"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/controller/risk/RiskAddViewController.m"
+            timestampString = "500273547.526603"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-requestImgUploadData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/controller/risk/RiskAddViewController.m"
+            timestampString = "500273575.127888"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "-requestImgUploadData:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/controller/risk/RiskAddViewController.m"
+            timestampString = "500273710.758719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "387"
+            endingLineNumber = "387"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/controller/message/notice/NoticeDetailViewController.m"
+            timestampString = "500276580.171078"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-requestData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/controller/message/notice/NoticeDetailViewController.m"
+            timestampString = "500276599.716225"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
+            landmarkName = "-tableView:numberOfRowsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/controller/message/notice/NoticeDetailViewController.m"
+            timestampString = "500276711.249395"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/controller/message/notice/NoticeDetailViewController.m"
+            timestampString = "500276747.858149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-requestData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[NoticeDetailViewController requestData]"
+                  moduleName = "ElectricRisk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasinzhang/Documents/SourceTree/ElectricRisk/ElectricRisk/class/controller/message/notice/NoticeDetailViewController.m"
+                  timestampString = "500276747.867166"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "1040">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[NoticeDetailViewController requestData]_block_invoke"
+                  moduleName = "ElectricRisk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasinzhang/Documents/SourceTree/ElectricRisk/ElectricRisk/class/controller/message/notice/NoticeDetailViewController.m"
+                  timestampString = "500276747.870954"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
                   offsetFromSymbolStart = "52">
                </Location>
             </Locations>
@@ -89,29 +233,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ElectricRisk/LoginViewController.m"
-            timestampString = "499598250.272784"
+            filePath = "ElectricRisk/class/controller/message/notice/NoticeDetailViewController.m"
+            timestampString = "500276757.059804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-login"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ElectricRisk/LoginViewController.m"
-            timestampString = "499598253.469261"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
-            landmarkName = "-login"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

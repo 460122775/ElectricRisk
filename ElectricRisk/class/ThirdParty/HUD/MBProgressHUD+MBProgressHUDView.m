@@ -13,6 +13,7 @@
 - (void)showByCustomView:(BOOL)animated
 {
     [self initCustomView];
+    self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self show:animated];
     });

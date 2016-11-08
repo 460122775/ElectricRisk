@@ -154,8 +154,7 @@
             if (userData == nil) return;
             [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
             // Save data.
-            [SystemConfig instance].currentUserRole = [(NSNumber*)[result objectForKey:@"role"]
-                                                       intValue];
+            [SystemConfig instance].currentUserRole = ROLE_A; //[(NSNumber*)[result objectForKey:@"role"] intValue];
             [SystemConfig instance].currentUserName = self.nameTF.text;
             [SystemConfig instance].currentUserPwd = self.pwdTF.text;
             [SystemConfig instance].currentUserId = [userData objectForKey:@"user_id"];

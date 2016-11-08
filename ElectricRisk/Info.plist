@@ -27,6 +27,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>用于协助您上传图片</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>用于协助您选择需要上传的图片</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
