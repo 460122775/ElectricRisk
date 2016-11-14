@@ -248,7 +248,7 @@
                            @"uid":[SystemConfig instance].currentUserId,
                            @"ProjectRiskId":[self.riskDataDic objectForKey:@"id"],
                            @"state":@(state)};
-    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_DAYINFO) parameter:dict header:nil content:nil success:^(id responseData) {
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_UPDATESTATE) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)

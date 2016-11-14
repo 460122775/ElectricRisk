@@ -152,7 +152,7 @@
             {
                 [[JTToast toastWithText:@"该公告还没有人回复" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }
-//            [self initViewByDetailData];
+            [self initViewByDetailData];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.commentTableView reloadData];
             });
@@ -195,7 +195,7 @@
     
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[SystemConfig instance].currentUserId,
-                           @"id":[self.noticeDataDic objectForKey:@"id"]};
+                           @"notice_user_id":[self.noticeDataDic objectForKey:@"id"]};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_NOTICE_READ) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];

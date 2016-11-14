@@ -22,6 +22,7 @@
 #define PATH_RISK_LIST @"/api/project/getList.do"       //获取今日风险列表
 #define PATH_RISK_DETAIL @"/api/project/getOneInfo.do"  //获取风险详情
 #define PATH_RISK_DAYINFO @"/api/project/getOneDay.do"  //获取风险天执行情况
+#define PATH_RISK_UPDATESTATE @"/api/project/updateState.do"  //控制施工停止、启动
 #define PATH_RISK_WRONG @"/api/project/getriskDeal.do"  //获取违章列表
 #define PATH_RISK_UPLOADIMG @"/api/risk/imageUP.do"     //上传图片
 #define PATH_RISK_CHECKLIST @"/api/risk/myrisks.do"     //获取风险审批

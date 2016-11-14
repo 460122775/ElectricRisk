@@ -242,9 +242,7 @@
     NSDictionary *spDic = [self.checkDetailDataDic objectForKey:@"spxx"];
     
     int right = [SystemConfig instance].currentUserRole;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.agreeView setHidden:NO];
-    });
+    [self.agreeView setHidden:NO];
     if (spDic != nil)
     {
         if (currentLCValue > 0)
@@ -258,7 +256,7 @@
             self.spTimeLabel.text = [dtfrm stringFromDate:spDate];
             
             self.process_spImgView.image = [UIImage imageNamed:@"31"];
-            self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + 12;
+            self.agreeViewTopPadding.constant = self.spContentViewHeight.constant;
         }else{
             self.process_spImgView.image = [UIImage imageNamed:@"30"];
             if(right == ROLE_A || right == ROLE_5)
@@ -266,9 +264,7 @@
                 self.agreeViewTopPadding.constant = 30;
             }else{
                 self.agreeViewTopPadding.constant = -30;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.agreeView setHidden:NO];
-                });
+                [self.agreeView setHidden:NO];
             }
         }
         
@@ -282,18 +278,17 @@
             self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
             
             self.process_yzImgView.image = [UIImage imageNamed:@"41"];
-            self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + 12;
+            self.agreeViewTopPadding.constant = self.yzContentViewHeight.constant;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.agreeView setHidden:YES];
             });
         }else{
             self.process_yzImgView.image = [UIImage imageNamed:@"40"];
-            if (!(right == ROLE_A || right == ROLE_4))
+            if (right == ROLE_A || right == ROLE_4)
             {
-                self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + 12 - 30;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.agreeView setHidden:NO];
-                });
+                
+            }else{
+                [self.agreeView setHidden:NO];
             }
         }
         
@@ -304,8 +299,8 @@
             self.process_overImgView.image = [UIImage imageNamed:@"60"];
         }
         [self agreeSwitchChanged:nil];
-        self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + 50;
         agreeViewHeight = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + 50;
+        self.checkContainerHeight.constant = agreeViewHeight;
     }
 }
 

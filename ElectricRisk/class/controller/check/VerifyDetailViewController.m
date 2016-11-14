@@ -244,7 +244,8 @@
     NSDictionary *spDic = [self.verifyDetailDataDic objectForKey:@"spxx"];
     
     int right = [SystemConfig instance].currentUserRole;
-    self.agreeEnableView.hidden = YES;
+//    self.agreeEnableView.hidden = YES;
+    [self.agreeView setHidden:NO];
     if (spDic != nil)
     {
         if (currentLCValue > 0)
@@ -266,7 +267,8 @@
                 self.agreeViewTopPadding.constant = 30;
             }else{
                 self.agreeViewTopPadding.constant = -30;
-                self.agreeEnableView.hidden = NO;
+//                self.agreeEnableView.hidden = NO;
+                [self.agreeView setHidden:NO];
             }
         }
         
@@ -281,13 +283,19 @@
             
             self.process_yzImgView.image = [UIImage imageNamed:@"41"];
             self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + 12;
-            self.agreeEnableView.hidden = YES;
+//            self.agreeEnableView.hidden = YES;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.agreeView setHidden:YES];
+            });
         }else{
             self.process_yzImgView.image = [UIImage imageNamed:@"40"];
             if (!(right == ROLE_A || right == ROLE_4))
             {
                 self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + 12 - 30;
-                self.agreeEnableView.hidden = NO;
+//                self.agreeEnableView.hidden = NO;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.agreeView setHidden:NO];
+                });
             }
         }
         
@@ -302,13 +310,19 @@
             
             self.process_jgImgView.image = [UIImage imageNamed:@"51"];
             self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerView.frame.size.height + 12;
-            self.agreeEnableView.hidden = YES;
+//            self.agreeEnableView.hidden = YES;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.agreeView setHidden:YES];
+            });
         }else{
             self.process_jgImgView.image = [UIImage imageNamed:@"50"];
             if (!(right == ROLE_A || right == ROLE_8))
             {
                 self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + 12 - 30;
-                self.agreeEnableView.hidden = NO;
+//                self.agreeEnableView.hidden = NO;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.agreeView setHidden:NO];
+                });
             }
         }
         
