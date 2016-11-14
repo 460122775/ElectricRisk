@@ -18,8 +18,8 @@
     MBProgressHUD *HUD;
     int currentPage;
     
-    NSArray* checkDataArray;
-    NSArray* verifyDataArray;
+    NSMutableArray* checkDataArray;
+    NSMutableArray* verifyDataArray;
     
     NSDictionary* currentSelectedCheck;
     NSDictionary* currentSelectedVerify;

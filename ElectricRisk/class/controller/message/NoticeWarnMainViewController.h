@@ -20,7 +20,7 @@
     MBProgressHUD *HUD;
     int currentPage;
     
-    NSArray* noticeDataArray;
+    NSMutableArray* noticeDataArray;
     NSArray* warnDataArray;
     
     NSDictionary* currentSelectedNotice;

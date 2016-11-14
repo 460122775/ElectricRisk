@@ -117,6 +117,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
 
 -(void)requestNoticeListDataByPage:(int)page
 {
+    if (page == 1) [noticeDataArray removeAllObjects];
     if (OFFLINE)
     {
         [self testNoticeData];
@@ -145,12 +146,12 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
                 if(currentPage == 1)
                 {
                     [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
-                    noticeDataArray = (NSArray*)[result objectForKey:@"data"];
+                    [noticeDataArray removeAllObjects];
                 }else{
                     [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
                 }
             }else{
-                noticeDataArray = (NSArray*)[result objectForKey:@"data"];
+                [noticeDataArray addObjectsFromArray:(NSArray*)[result objectForKey:@"data"]];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -177,10 +178,17 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-        noticeDataArray = (NSArray*)[result objectForKey:@"data"];
-        if (noticeDataArray == nil || noticeDataArray.count == 0)
+        if ((NSArray*)[result objectForKey:@"data"] == nil || ((NSArray*)[result objectForKey:@"data"]).count == 0)
         {
-            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            if(currentPage == 1)
+            {
+                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [noticeDataArray removeAllObjects];
+            }else{
+                [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            }
+        }else{
+            [noticeDataArray addObjectsFromArray:(NSArray*)[result objectForKey:@"data"]];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];

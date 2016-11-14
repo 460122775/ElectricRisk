@@ -71,9 +71,9 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         currentPage = 1;
         if (isCheckList == YES)
         {
-            [self requestCheckListDataByPage:currentPage + 1];
+            [self requestCheckListDataByPage:currentPage];
         }else{
-            [self requestVerifyListDataByPage:currentPage + 1];
+            [self requestVerifyListDataByPage:currentPage];
         }
     }
 }
@@ -124,6 +124,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 
 -(void)requestCheckListDataByPage:(int)page
 {
+    if (page == 1) [checkDataArray removeAllObjects];
     if (OFFLINE)
     {
         [self testCheckData];
@@ -154,12 +155,12 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
                 if(currentPage == 1)
                 {
                     [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
-                    checkDataArray = (NSArray*)[result objectForKey:@"data"];
+                    [checkDataArray removeAllObjects];
                 }else{
                     [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
                 }
             }else{
-                checkDataArray = (NSArray*)[result objectForKey:@"data"];
+                [checkDataArray addObjectsFromArray:(NSArray*)[result objectForKey:@"data"]];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -185,14 +186,21 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
-    
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-        checkDataArray = (NSArray*)[result objectForKey:@"data"];
-        if (checkDataArray == nil || checkDataArray.count == 0)
+        if ((NSArray*)[result objectForKey:@"data"] == nil ||
+            ((NSArray*)[result objectForKey:@"data"]).count == 0)
         {
-            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            if(currentPage == 1)
+            {
+                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [checkDataArray removeAllObjects];
+            }else{
+                [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            }
+        }else{
+            [checkDataArray addObjectsFromArray:(NSArray*)[result objectForKey:@"data"]];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -216,6 +224,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 
 -(void)requestVerifyListDataByPage:(int)page
 {
+    if (page == 1) [verifyDataArray removeAllObjects];
     if (OFFLINE)
     {
         [self testVerifyData];
@@ -246,12 +255,12 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
                 if(currentPage == 1)
                 {
                     [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
-                    verifyDataArray = (NSArray*)[result objectForKey:@"data"];
+                    [verifyDataArray removeAllObjects];
                 }else{
                     [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
                 }
             }else{
-                verifyDataArray = (NSArray*)[result objectForKey:@"data"];
+                [verifyDataArray addObjectsFromArray:(NSArray*)[result objectForKey:@"data"]];
             }
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -280,10 +289,17 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-        verifyDataArray = (NSArray*)[result objectForKey:@"data"];
-        if (verifyDataArray == nil || verifyDataArray.count == 0)
+        if ((NSArray*)[result objectForKey:@"data"] == nil || ((NSArray*)[result objectForKey:@"data"]).count == 0)
         {
-            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            if(currentPage == 1)
+            {
+                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
+                [verifyDataArray removeAllObjects];
+            }else{
+                [[JTToast toastWithText:@"已经是最后一页了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            }
+        }else{
+            [verifyDataArray addObjectsFromArray:(NSArray*)[result objectForKey:@"data"]];
         }
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
