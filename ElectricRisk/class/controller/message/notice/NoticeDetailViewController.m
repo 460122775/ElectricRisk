@@ -152,7 +152,7 @@
             {
                 [[JTToast toastWithText:@"该公告还没有人回复" configuration:[JTToastConfiguration defaultConfiguration]]show];
             }
-            [self initViewByDetailData];
+//            [self initViewByDetailData];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.commentTableView reloadData];
             });

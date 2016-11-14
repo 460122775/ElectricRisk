@@ -422,10 +422,10 @@
     }else if (self.zgSwitch.isOn && currentSelectWrongDic == nil){
         [[JTToast toastWithText:@"请选择违章内容" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }else if (self.zgContentView.text == nil || self.zgContentView.text.length == 0){
-        [[JTToast toastWithText:
-          [NSString stringWithFormat:@"请填写%@情况", (self.zgSwitch.isOn) ? @"违章" : @"整改"] configuration:[JTToastConfiguration defaultConfiguration]]show];
-        return;
+//    }else if (self.zgContentView.text == nil || self.zgContentView.text.length == 0){
+//        [[JTToast toastWithText:
+//          [NSString stringWithFormat:@"请填写%@情况", (self.zgSwitch.isOn) ? @"违章" : @"整改"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+//        return;
     }else if (self.sgContentView.text == nil || self.sgContentView.text.length == 0){
         [[JTToast toastWithText:@"请填写施工进度情况" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
@@ -437,9 +437,13 @@
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     BOOL isMatch = [pred evaluateWithObject:self.sgProcessInput.text];
     int proccess = [self.sgProcessInput.text intValue];
-    if (!isMatch || proccess > 100 || proccess < 0)
+    int currentProccess = [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] intValue];
+    if (!isMatch || proccess > 100)
     {
         [[JTToast toastWithText:@"施工进度填写错误" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }else if (proccess < currentProccess){
+        [[JTToast toastWithText:@"进度值应大于已完成进度" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
     }
     

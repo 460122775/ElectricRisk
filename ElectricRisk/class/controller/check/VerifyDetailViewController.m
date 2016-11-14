@@ -108,7 +108,7 @@
 -(void)testData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"data\": {        \"bslc\": 2,        \"bsxx\": {            \"code\": \"dlg\",            \"content\": \"报审内容\",            \"create_time\": 1471449600000,            \"name\": \"dlg-sg-1\",            \"project_name\": \"第六个\"        },        \"sp_state\": 0,        \"spxx\": {            \"jl_content\": \"Hello world.\",            \"jl_name\": \"dlg-jl-1\",            \"jl_time\": 1471449600000,            \"jl_yj\": 2,            \"yz_content\": \"\",            \"yz_name\": \"dlg-yz-1\",            \"yz_time\": 1471449600000,            \"yz_yj\": 2        }    },    \"state\": 1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\": {        \"bslc\": 3,        \"bsxx\": {            \"code\": \"dlg\",            \"content\": \"报审内容\",            \"create_time\": 1471449600000,            \"name\": \"dlg-sg-1\",            \"project_name\": \"第六个\"        },        \"sp_state\": 0,        \"spxx\": {            \"jl_content\": \"Hello world.\",            \"jl_name\": \"dlg-jl-1\",            \"jl_time\": 1471449600000,            \"jl_yj\": 2,            \"yz_content\": \"\",            \"yz_name\": \"dlg-yz-1\",            \"yz_time\": 1471449600000,            \"yz_yj\": 2        }    },    \"state\": 1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
@@ -244,8 +244,7 @@
     NSDictionary *spDic = [self.verifyDetailDataDic objectForKey:@"spxx"];
     
     int right = [SystemConfig instance].currentUserRole;
-//    self.agreeEnableView.hidden = YES;
-    [self.agreeView setHidden:NO];
+    bool isShowAgreeView = NO;
     if (spDic != nil)
     {
         if (currentLCValue > 0)
@@ -259,16 +258,16 @@
             self.spTimeLabel.text = [dtfrm stringFromDate:spDate];
             
             self.process_spImgView.image = [UIImage imageNamed:@"31"];
-            self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + 12;
+            self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height;
+            isShowAgreeView = NO;
         }else{
             self.process_spImgView.image = [UIImage imageNamed:@"30"];
             if(right == ROLE_A || right == ROLE_5)
             {
                 self.agreeViewTopPadding.constant = 30;
+                isShowAgreeView = YES;
             }else{
                 self.agreeViewTopPadding.constant = -30;
-//                self.agreeEnableView.hidden = NO;
-                [self.agreeView setHidden:NO];
             }
         }
         
@@ -282,20 +281,14 @@
             self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
             
             self.process_yzImgView.image = [UIImage imageNamed:@"41"];
-            self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + 12;
-//            self.agreeEnableView.hidden = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.agreeView setHidden:YES];
-            });
+            self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height;
+            isShowAgreeView = NO;
         }else{
             self.process_yzImgView.image = [UIImage imageNamed:@"40"];
-            if (!(right == ROLE_A || right == ROLE_4))
+            if ((currentLCValue > 0) && (right == ROLE_A || right == ROLE_4))
             {
-                self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + 12 - 30;
-//                self.agreeEnableView.hidden = NO;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.agreeView setHidden:NO];
-                });
+                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30;
+                isShowAgreeView = YES;
             }
         }
         
@@ -309,20 +302,14 @@
             self.jgTimeLabel.text = [dtfrm stringFromDate:jgDate];
             
             self.process_jgImgView.image = [UIImage imageNamed:@"51"];
-            self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerView.frame.size.height + 12;
-//            self.agreeEnableView.hidden = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.agreeView setHidden:YES];
-            });
+            self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerView.frame.size.height;
+            isShowAgreeView = NO;
         }else{
             self.process_jgImgView.image = [UIImage imageNamed:@"50"];
-            if (!(right == ROLE_A || right == ROLE_8))
+            if ((currentLCValue > 1) && (right == ROLE_A || right == ROLE_8))
             {
-                self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + 12 - 30;
-//                self.agreeEnableView.hidden = NO;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self.agreeView setHidden:NO];
-                });
+                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30;
+                isShowAgreeView = YES;
             }
         }
         
@@ -333,8 +320,19 @@
             self.process_overImgView.image = [UIImage imageNamed:@"60"];
         }
         [self agreeSwitchChanged:nil];
-        self.checkContainerHeight.constant = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + 10;
-        agreeViewHeight = self.agreeView.frame.origin.y + self.agreeView.frame.size.height + 10;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.agreeEnableView setHidden:isShowAgreeView];
+        });
+        
+        if (isShowAgreeView)
+        {
+            agreeViewHeight = self.agreeViewTopPadding.constant + self.agreeView.frame.size.height;
+            self.checkContainerHeight.constant = agreeViewHeight;
+        }else{
+            agreeViewHeight = 0;
+            self.checkContainerHeight.constant = self.agreeViewTopPadding.constant + 30;
+        }
     }
 }
 
