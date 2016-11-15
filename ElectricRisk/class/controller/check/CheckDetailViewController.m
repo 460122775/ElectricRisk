@@ -283,7 +283,11 @@
             isShowAgreeView = NO;
         }else{
             self.process_yzImgView.image = [UIImage imageNamed:@"40"];
-            if(right == ROLE_A || right == ROLE_4) isShowAgreeView = YES;
+            if(right == ROLE_A || right == ROLE_4)
+            {
+                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30;
+                isShowAgreeView = YES;
+            }
         }
         
         if (currentLCValue >= 2)

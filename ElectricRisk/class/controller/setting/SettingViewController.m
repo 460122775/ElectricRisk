@@ -116,7 +116,7 @@
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"version":VERSION,
                            @"os":@"ios"};
-    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_REPORTDETAIL) parameter:dict header:nil content:nil success:^(id responseData) {
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_APP_UPDATE) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)

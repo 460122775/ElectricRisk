@@ -9,12 +9,12 @@
 #ifndef CommonDefine_h
 #define CommonDefine_h
 
-#define OFFLINE YES // YES or NO, YES for test.
+#define OFFLINE NO // YES or NO, YES for test.
 #define VERSION @"1.0.0"
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 
-#define URL_SERVER @"http://49833801.vicp.net/jj"
+#define URL_SERVER @"http://192.168.2.211:8080/jj"
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
@@ -39,6 +39,7 @@
 #define PATH_WARN_PUBLISH @"/api/risk/approvalPub.do"   //发布公告
 #define PATH_WARN_MODIFY @"/api/risk/updaterisk.do "    //风险修改
 #define PATH_PWD_UPDATE @"/api/user/upUpd.do"           //修改密码
+#define PATH_APP_UPDATE @"/api/login/version.do"        //更新APP
 
 /**  Color Define **/
 #define Color_oneGrade [UIColor colorWithRed:92/255.0 green:172/255.0 blue:238/255.0 alpha:1]
