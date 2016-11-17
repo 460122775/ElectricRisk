@@ -44,8 +44,8 @@
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-        level3Count = [(NSNumber*)[result objectForKey:@"level3"] intValue];
-        level4Count = [(NSNumber*)[result objectForKey:@"level4"] intValue];
+//        level3Count = [(NSNumber*)[result objectForKey:@"level3"] intValue];
+//        level4Count = [(NSNumber*)[result objectForKey:@"level4"] intValue];
         type3Arr = [result objectForKey:@"type3"];
         type4Arr = [result objectForKey:@"type4"];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -70,26 +70,28 @@
     
     if(dict == nil) dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                              @"uid":[SystemConfig instance].currentUserId};
-    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_LIST) parameter:dict header:nil content:nil success:^(id responseData) {
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_STATISTICS) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            NSArray *dataArr = [result objectForKey:@"data"];
-            if (dataArr != nil)
-            {
-                for (NSDictionary *_dataDic in dataArr)
-                {
-                    if ([(NSNumber*)[_dataDic objectForKey:@"grade"] intValue] == 3)
-                    {
-                        type3Arr = [_dataDic objectForKey:@"content"];
-                    }else if ([(NSNumber*)[_dataDic objectForKey:@"grade"] intValue] == 4){
-                        type4Arr = [_dataDic objectForKey:@"content"];
-                    }
-                }
-            }else{
-                [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }
+            type3Arr = [result objectForKey:@"type3"];
+            type4Arr = [result objectForKey:@"type3"];
+//            NSArray *dataArr = [result objectForKey:@"data"];
+//            if (dataArr != nil)
+//            {
+//                for (NSDictionary *_dataDic in dataArr)
+//                {
+//                    if ([(NSNumber*)[_dataDic objectForKey:@"grade"] intValue] == 3)
+//                    {
+//                        type3Arr = [_dataDic objectForKey:@"content"];
+//                    }else if ([(NSNumber*)[_dataDic objectForKey:@"grade"] intValue] == 4){
+//                        type4Arr = [_dataDic objectForKey:@"content"];
+//                    }
+//                }
+//            }else{
+//                [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+//            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self initStatistic];
             });
@@ -106,7 +108,7 @@
 
 -(void)initStatistic
 {
-    self.type3Label.text = [NSString stringWithFormat:@"重要3级风险(%i)", level3Count];
+    self.type3Label.text = [NSString stringWithFormat:@"重要3级风险(%lu)", (unsigned long)type3Arr.count];
     NSArray *fgColorArr = [[NSArray alloc] initWithObjects:@"FF3366",@"CC0099",@"0066CC",@"3C3C3C",@"600000",@"9F0050",@"750075",@"ADADAD",@"FF2D2D",@"FF79BC",@"FF77FF",@"DDDDFF",@"C4E1FF",@"D9FFFF",@"D7FFEE", nil];
     NSArray *bgColorArr = [[NSArray alloc] initWithObjects:@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000", nil];
     
@@ -114,8 +116,8 @@
     NSMutableArray *type3ValueArr = [[NSMutableArray alloc] init];
     for (NSDictionary *dataDicTemp in type3Arr)
     {
-        [type3TitleArr addObject:[dataDicTemp objectForKey:@"title"]];
-        [type3ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"schedule"] intValue]]];
+        [type3TitleArr addObject:[dataDicTemp objectForKey:@"type"]];
+        [type3ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"total"] intValue]]];
     }
     NSArray *type3Array = [self.type3ChartView createChartDataWithTitles:type3TitleArr
                                  values:type3ValueArr
@@ -126,13 +128,13 @@
     [self.type3ChartView setupBarViewShadow:BarShadowLight];
     [self.type3ChartView setDataWithArray:type3Array showAxis:DisplayBothAxes withColor:[UIColor darkGrayColor] shouldPlotVerticalLines:YES];
     
-    self.type4Label.text = [NSString stringWithFormat:@"4级风险(%i)", level4Count];
+    self.type4Label.text = [NSString stringWithFormat:@"4级风险(%lu)", (unsigned long)type4Arr.count];
     NSMutableArray *type4TitleArr = [[NSMutableArray alloc] init];
     NSMutableArray *type4ValueArr = [[NSMutableArray alloc] init];
     for (NSDictionary *dataDicTemp in type4Arr)
     {
-        [type4TitleArr addObject:[dataDicTemp objectForKey:@"title"]];
-        [type4ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"schedule"] intValue]]];
+        [type4TitleArr addObject:[dataDicTemp objectForKey:@"type"]];
+        [type4ValueArr addObject:[NSString stringWithFormat:@"%i", [(NSNumber*)[dataDicTemp objectForKey:@"total"] intValue]]];
     }
     NSArray *type4Array = [self.type4ChartView createChartDataWithTitles:type4TitleArr
                                                                   values:type4ValueArr
