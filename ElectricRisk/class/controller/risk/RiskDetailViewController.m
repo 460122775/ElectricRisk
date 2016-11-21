@@ -46,7 +46,6 @@
 
 -(BOOL)getRight:(UIView*)view
 {
-    return YES;
     if (view == self.writeBtn)
     {
         switch ([SystemConfig instance].currentUserRole)
@@ -61,11 +60,7 @@
     }else if (view == self.stopBtn){
         switch ([SystemConfig instance].currentUserRole)
         {
-            case ROLE_1:
-            case ROLE_2:
-            case ROLE_3:
-            case ROLE_4:
-            case ROLE_8:
+            case ROLE_5:
             case ROLE_A: return YES; break;
             default: return NO; break;
         }

@@ -144,21 +144,20 @@
         [dict setObject:ryDic forKey:@"personSG"];
     }
     
-    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_DETAIL) parameter:dict header:nil content:nil success:^(id responseData) {
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_ADD) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
-            self.riskDetailDataDic = (NSDictionary*)[result objectForKey:@"data"];
-            if (self.riskDetailDataDic == nil)
-            {
-                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }else{
-                [self initViewByDetailData];
-            }
+            [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (self.delegate != nil) [self.delegate riskExecutiveInfoAddSuccess];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
+        [HUD hideByCustomView:YES];
     } failed:^(id responseData) {
         [HUD hideByCustomView:YES];
         [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
@@ -359,7 +358,10 @@
     }
     imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     imagePickerController.delegate = self;
-    [self presentViewController:imagePickerController animated:YES completion:nil];
+    [self.view addSubview:imagePickerController.view];
+    [imagePickerController viewWillAppear:YES];
+    [imagePickerController viewDidAppear:YES];
+//    [self presentViewController:imagePickerController animated:YES completion:nil];
 }
 
 - (void) navigationController: (UINavigationController *) navigationController  willShowViewController: (UIViewController *) viewController animated: (BOOL) animated {
@@ -382,16 +384,17 @@
     imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info
 {
     currentImage = [info valueForKey:UIImagePickerControllerOriginalImage];
     if (OFFLINE)
     {
         [self testImgUploadData];
     }else{
-        [self requestImgUploadData: UIImagePNGRepresentation(currentImage)];
+        [self requestImgUploadData: UIImageJPEGRepresentation(currentImage, 0)];
     }
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [imagePickerController.view removeFromSuperview];
+//    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)backBtnClick:(id)sender

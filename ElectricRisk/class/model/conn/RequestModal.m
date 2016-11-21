@@ -68,10 +68,14 @@
 +(void)uploadPhoto:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSData *)imageData success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    AFHTTPRequestOperation *op = [manager POST:path parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSDictionary *parameters = @{@"foo": @"bar"};
+    AFHTTPRequestOperation *op = [manager POST:path parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:imageData name:@"upfile" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successBlock(responseObject);
+        NSString  *rsString = [MMDesManager getDecryptWithString:[[NSString alloc] initWithData:(NSData*)(responseObject) encoding:NSUTF8StringEncoding] keyString:CodingKey ivString:CodingKey];
+        if(responseObject != nil) successBlock([NSJSONSerialization JSONObjectWithData:[rsString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failedBlock(nil);
         NSLog(@"Error: %@ ***** %@", operation.responseString, error);

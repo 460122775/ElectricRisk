@@ -14,7 +14,7 @@
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 
-#define URL_SERVER @"http://192.168.2.211:8080/jj"      //49833801.vicp.net
+#define URL_SERVER @"http://49833801.vicp.net/jj"       //192.168.2.211:8080
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
@@ -23,9 +23,11 @@
 #define PATH_RISK_STATISTICS @"/api/risk/countrisk.do"  //获取风险统计
 #define PATH_RISK_DETAIL @"/api/project/getOneInfo.do"  //获取风险详情
 #define PATH_RISK_DAYINFO @"/api/project/getOneDay.do"  //获取风险天执行情况
+#define PATH_RISK_ADD @"/api/risk/riskfilladd.do"       //风险实施填报
 #define PATH_RISK_UPDATESTATE @"/api/project/updateState.do"  //控制施工停止、启动
 #define PATH_RISK_WRONG @"/api/project/getriskDeal.do"  //获取违章列表
 #define PATH_RISK_UPLOADIMG @"/api/risk/imageUP.do"     //上传图片
+//#define PATH_RISK_UPLOADIMG @"/project/imageUP.do"     //上传图片
 #define PATH_RISK_CHECKLIST @"/api/risk/myrisks.do"     //获取风险审批
 #define PATH_RISK_VERIFYLIST @"/api/risk/risklistdata.do"//获取风险验收列表
 #define PATH_RISK_REPORTDETAIL @"/api/risk/riskap.do"   //获取报审详情
