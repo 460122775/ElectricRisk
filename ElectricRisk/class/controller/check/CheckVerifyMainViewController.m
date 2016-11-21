@@ -87,6 +87,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
 
 -(BOOL)getRight:(UIView*)view
 {
+    return YES;
     if (view == self.checkBtn)
     {
         switch ([SystemConfig instance].currentUserRole)

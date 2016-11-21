@@ -89,30 +89,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ElectricRisk/class/controller/check/VerifyDetailViewController.m"
-            timestampString = "500810256.334824"
+            filePath = "ElectricRisk/class/controller/setting/SettingViewController.m"
+            timestampString = "500875948.598525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
-            landmarkName = "-initViewByDetailData"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-requestUpdateData"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ElectricRisk/class/controller/check/VerifyDetailViewController.m"
-            timestampString = "500810259.264504"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "-initViewByDetailData"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[SettingViewController requestUpdateData]"
+                  moduleName = "ElectricRisk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasinzhang/Documents/SourceTree/ElectricRisk/ElectricRisk/class/controller/setting/SettingViewController.m"
+                  timestampString = "501401982.484968"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "796">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[SettingViewController requestUpdateData]_block_invoke"
+                  moduleName = "ElectricRisk"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasinzhang/Documents/SourceTree/ElectricRisk/ElectricRisk/class/controller/setting/SettingViewController.m"
+                  timestampString = "501401982.486439"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

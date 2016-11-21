@@ -46,6 +46,7 @@
 
 -(BOOL)getRight:(UIView*)view
 {
+    return YES;
     if (view == self.writeBtn)
     {
         switch ([SystemConfig instance].currentUserRole)

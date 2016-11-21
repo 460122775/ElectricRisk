@@ -14,12 +14,13 @@
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 
-#define URL_SERVER @"http://192.168.2.211:8080/jj"
+#define URL_SERVER @"http://192.168.2.211:8080/jj"      //49833801.vicp.net
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
 #define PATH_LOGIN @"/api/login/login.do"               //登录
 #define PATH_RISK_LIST @"/api/project/getList.do"       //获取今日风险列表
+#define PATH_RISK_STATISTICS @"/api/risk/countrisk.do"  //获取风险统计
 #define PATH_RISK_DETAIL @"/api/project/getOneInfo.do"  //获取风险详情
 #define PATH_RISK_DAYINFO @"/api/project/getOneDay.do"  //获取风险天执行情况
 #define PATH_RISK_UPDATESTATE @"/api/project/updateState.do"  //控制施工停止、启动

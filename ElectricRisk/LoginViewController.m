@@ -67,7 +67,7 @@
 -(void)testData
 {
     NSError *jsonError;
-    NSData *objectData = [@"{\"data\":{\"baidu_token\":\"3856325673642991365\",\"createTimeCaption\":\"\",\"id_card\":\"\",\"organ_id\":\"1\",\"user_email\":\"\",\"user_id\":\"1\",\"user_mobile\":\"\",\"user_name\":\"admin\",\"user_nickname\":\"admin\",\"user_password\":\"E10ADC3949BA59ABBE56E057F20F883E\",\"user_status\":\"0\",\"user_telephone\":\"\",\"user_type\":\"1\"},\"msg\":\"登录成功\",\"role\":99,\"roles\":[{\"ROLE_ID\":\"1\",\"role_id\":\"1\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *objectData = [@"{\"data\":{\"baidu_token\":\"3856325673642991365\",\"createTimeCaption\":\"\",\"id_card\":\"\",\"organ_id\":\"1\",\"user_email\":\"\",\"user_id\":\"1\",\"user_mobile\":\"\",\"user_name\":\"admin\",\"user_nickname\":\"admin\",\"user_password\":\"E10ADC3949BA59ABBE56E057F20F883E\",\"user_status\":\"0\",\"user_telephone\":\"\",\"user_type\":\"1\"},\"msg\":\"登录成功\",\"role\":5,\"roles\":[{\"ROLE_ID\":\"5\",\"role_id\":\"1\"}],\"state\":1}" dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
                                                            options:NSJSONReadingMutableContainers
                                                              error:&jsonError];
@@ -154,7 +154,7 @@
             if (userData == nil) return;
             [[JTToast toastWithText:@"登录成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
             // Save data.
-            [SystemConfig instance].currentUserRole = ROLE_A; //[(NSNumber*)[result objectForKey:@"role"] intValue];
+            [SystemConfig instance].currentUserRole = [(NSNumber*)[result objectForKey:@"role"] intValue];
             [SystemConfig instance].currentUserName = self.nameTF.text;
             [SystemConfig instance].currentUserPwd = self.pwdTF.text;
             [SystemConfig instance].currentUserId = [userData objectForKey:@"user_id"];

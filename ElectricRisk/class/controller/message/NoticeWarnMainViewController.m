@@ -88,6 +88,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
             default: return NO; break;
         }
     }else if(view == self.warnBtn){
+        return YES;
         switch ([SystemConfig instance].currentUserRole)
         {
             case ROLE_8:
