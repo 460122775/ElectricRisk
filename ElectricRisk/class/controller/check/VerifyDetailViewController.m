@@ -247,7 +247,7 @@
     bool isShowAgreeView = NO;
     if (spDic != nil)
     {
-        if (currentLCValue > 0)
+        if (currentLCValue > 1)
         {
             self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                        ([(NSNumber*)[spDic objectForKey:@"jl_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
@@ -271,7 +271,7 @@
             }
         }
         
-        if (currentLCValue > 1)
+        if (currentLCValue > 2)
         {
             self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                        ([(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
@@ -292,7 +292,7 @@
             }
         }
         
-        if (currentLCValue > 2)
+        if (currentLCValue > 3)
         {
             self.jgContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                        ([(NSNumber*)[spDic objectForKey:@"jg_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
@@ -313,14 +313,19 @@
             }
         }
         
-        if (currentLCValue >= 3)
+        if (currentLCValue >= 4)
         {
             self.process_overImgView.image = [UIImage imageNamed:@"61"];
         }else{
             self.process_overImgView.image = [UIImage imageNamed:@"60"];
         }
         [self agreeSwitchChanged:nil];
-        
+        // 驳回
+        if (currentLCValue == 0)
+        {
+            isShowAgreeView = NO;
+            self.agreeViewTopPadding.constant = -30;
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.agreeEnableView setHidden:isShowAgreeView];
         });
