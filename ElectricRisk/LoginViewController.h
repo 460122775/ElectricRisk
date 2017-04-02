@@ -10,6 +10,15 @@
 #import "GTMBase64.h"
 #import "MBProgressHUD+MBProgressHUDView.h"
 
+/** Use for get Mac Address & IP Address. **/
+#include <ifaddrs.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <sys/sysctl.h>
+#include <net/if.h>
+#include <net/if_dl.h>
+/*******************************************/
+
 @interface LoginViewController : UIViewController<UITextFieldDelegate>{
     MBProgressHUD *HUD;
 }

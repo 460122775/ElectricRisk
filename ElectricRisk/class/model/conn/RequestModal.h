@@ -24,6 +24,8 @@ typedef enum
 //@property(nonatomic,strong) NSString  *requestUrl;
 //@property(nonatomic,strong) NSString  *content;
 
++(void)setUserId:(NSString*)userId;
+
 +(void)requestServer:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSDictionary *)param  header:(NSDictionary *)headerDic content:(NSString*) content
              success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock;
 

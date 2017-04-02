@@ -10,10 +10,17 @@
 
 @implementation RequestModal
 
+static NSString *userid;
+
 +(NSString *)curTimeStamp
 {
     NSTimeInterval time = [NSDate timeIntervalSinceReferenceDate];
     return [NSString stringWithFormat:@"%lld",(long long)(time*1000000)];
+}
+
++(void)setUserId:(NSString*)userId
+{
+    userid = userId;
 }
 
 +(void)requestServer:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSDictionary *)param  header:(NSDictionary *)headerDic content:(NSString*) content
@@ -36,9 +43,18 @@
     // Update Http Header.
 //    [manager.requestSerializer  setValue:[NSString stringWithFormat:@"SPEEDCDN=%@",[self curTimeStamp]] forHTTPHeaderField:@"Cookie"];
     
+    NSMutableDictionary *paramDic = nil;
+    if (param == nil)
+    {
+        paramDic = [[NSMutableDictionary alloc] init];
+    }else{
+        paramDic = [[NSMutableDictionary alloc] initWithDictionary:param];
+    }
+    if (userid != nil && userid.length > 0) [paramDic setObject:userid forKey:@"userid"];
+    
     // DES.
     NSError * err;
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:param options:0 error:&err];
+    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:paramDic options:0 error:&err];
     NSString * paramString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     param = @{@"data":[MMDesManager getEncryptWithString:paramString keyString:CodingKey ivString:CodingKey]};
     DLog(@"%@?data=%@",path,[MMDesManager getEncryptWithString:paramString keyString:CodingKey ivString:CodingKey])
