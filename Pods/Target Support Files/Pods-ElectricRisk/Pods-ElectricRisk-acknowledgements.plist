@@ -41,9 +41,15 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>LICENSE &#169;2016 Baidu, Inc. All rights reserved.</string>
+			<string>Public Domain License
+
+The CocoaAsyncSocket project is in the public domain.
+
+The original TCP version (AsyncSocket) was created by Dustin Voss in January 2003.
+Updated and maintained by Deusty LLC and the Apple development community.
+</string>
 			<key>Title</key>
-			<string>BPushSDK</string>
+			<string>CocoaAsyncSocket</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

@@ -123,6 +123,7 @@
         {
             [self testData];
         }else{
+//            if (sender == nil) return;
             if (HUD == nil)
             {
                 HUD = [[MBProgressHUD alloc]init];

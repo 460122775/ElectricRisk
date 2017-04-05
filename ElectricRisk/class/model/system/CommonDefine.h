@@ -14,7 +14,9 @@
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 
-#define URL_SERVER @"http://49833801.vicp.net/jj"       //192.168.2.211:8080
+#define URL_SERVER @"http://sctxy.kmdns.net:9999/jj"       //192.168.2.211:8080
+#define URL_SOCKET @"sctxy.kmdns.net"
+#define PORT_SOCKET 9998
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
@@ -45,6 +47,7 @@
 #define PATH_APP_UPDATE @"/api/login/version.do"        //更新APP
 
 /**  Color Define **/
+#define Color_THEME [UIColor colorWithRed:5/255.0 green:128/255.0 blue:107/255.0 alpha:1]
 #define Color_oneGrade [UIColor colorWithRed:92/255.0 green:172/255.0 blue:238/255.0 alpha:1]
 #define Color_twoGrade [UIColor colorWithRed:255/255.0 green:185/255.0 blue:15/255.0 alpha:1]
 #define Color_threeGrade [UIColor colorWithRed:255/255.0 green:140/255.0 blue:0/255.0 alpha:1]
@@ -58,6 +61,13 @@
 #define Color_red [UIColor colorWithRed:255/255.0 green:0/255.0 blue:0/255.0 alpha:1]
 #define Color_me [UIColor colorWithRed:30/255.0 green:158/255.0 blue:133/255.0 alpha:1]
 #define Color_border [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.05]
+
+/** Size Define **/
+#define ScreenWidth  ([UIScreen mainScreen].bounds.size.width)
+#define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
+
+/** Notification Name Define **/
+#define ReceiveNotificationFromSocket @"ReceiveNotificationFromSocket"
 
 /** Define operation **/
 #define State_Success 1

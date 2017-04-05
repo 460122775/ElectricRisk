@@ -61,6 +61,8 @@
 		BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */; };
 		BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6941D7915D700E40A09 /* AboutUsViewController.m */; };
 		BA360DC41DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */; };
+		BA3EFF4A1E94AC6700F2479D /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3EFF481E94AC6700F2479D /* AlertViewController.m */; };
+		BA3EFF4B1E94AC6700F2479D /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3EFF491E94AC6700F2479D /* AlertViewController.xib */; };
 		BA4B46FF1D8684F0009CA1F7 /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */; };
 		BA4B47001D8684F0009CA1F7 /* BarLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46ED1D8684F0009CA1F7 /* BarLabel.m */; };
 		BA4B47011D8684F0009CA1F7 /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46F01D8684F0009CA1F7 /* BarView.m */; };
@@ -75,6 +77,8 @@
 		BA4B470C1D868519009CA1F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4B470B1D868519009CA1F7 /* QuartzCore.framework */; };
 		BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */ = {isa = PBXBuildFile; fileRef = BA55C6941D78010000FDA2F6 /* RequestModal.m */; };
 		BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */; };
+		BA6FF4221E947F4300AA0490 /* SocketService.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6FF4211E947F4300AA0490 /* SocketService.m */; };
+		BA6FF4241E94801300AA0490 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6FF4231E94801300AA0490 /* CFNetwork.framework */; };
 		BA8074A41DC71F46006E0426 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA80749C1DC71F46006E0426 /* MJRefresh.bundle */; };
 		BA8074A51DC71F46006E0426 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA80749F1DC71F46006E0426 /* MJRefreshBaseView.m */; };
 		BA8074A61DC71F46006E0426 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA8074A11DC71F46006E0426 /* MJRefreshFooterView.m */; };
@@ -188,6 +192,9 @@
 		BA360DC21DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MBProgressHUDView.h"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.h"; sourceTree = "<group>"; };
 		BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
 		BA360DC61DC2399C00EFB07D /* ElectricRisk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ElectricRisk.entitlements; sourceTree = "<group>"; };
+		BA3EFF471E94AC6700F2479D /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertViewController.h; path = class/ThirdParty/AlertView/AlertViewController.h; sourceTree = "<group>"; };
+		BA3EFF481E94AC6700F2479D /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertViewController.m; path = class/ThirdParty/AlertView/AlertViewController.m; sourceTree = "<group>"; };
+		BA3EFF491E94AC6700F2479D /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlertViewController.xib; path = class/ThirdParty/AlertView/AlertViewController.xib; sourceTree = "<group>"; };
 		BA4B46EA1D8684F0009CA1F7 /* BarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarChartView.h; path = "class/ThirdParty/BarChart Library/BarChartView.h"; sourceTree = "<group>"; };
 		BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BarChartView.m; path = "class/ThirdParty/BarChart Library/BarChartView.m"; sourceTree = "<group>"; };
 		BA4B46EC1D8684F0009CA1F7 /* BarLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BarLabel.h; path = "class/ThirdParty/BarChart Library/BarLabel.h"; sourceTree = "<group>"; };
@@ -214,6 +221,9 @@
 		BA55C6931D78010000FDA2F6 /* RequestModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RequestModal.h; path = class/model/conn/RequestModal.h; sourceTree = "<group>"; };
 		BA55C6941D78010000FDA2F6 /* RequestModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RequestModal.m; path = class/model/conn/RequestModal.m; sourceTree = "<group>"; };
 		BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = "Pods/../build/Release-iphoneos/AFNetworking.framework"; sourceTree = "<group>"; };
+		BA6FF4201E947F4300AA0490 /* SocketService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketService.h; path = class/model/conn/SocketService.h; sourceTree = "<group>"; };
+		BA6FF4211E947F4300AA0490 /* SocketService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketService.m; path = class/model/conn/SocketService.m; sourceTree = "<group>"; };
+		BA6FF4231E94801300AA0490 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BA80749C1DC71F46006E0426 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		BA80749D1DC71F46006E0426 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		BA80749E1DC71F46006E0426 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
@@ -236,6 +246,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA6FF4241E94801300AA0490 /* CFNetwork.framework in Frameworks */,
 				BA4B470C1D868519009CA1F7 /* QuartzCore.framework in Frameworks */,
 				BA4B470A1D868511009CA1F7 /* CoreGraphics.framework in Frameworks */,
 				BA55C6971D78029B00FDA2F6 /* AFNetworking.framework in Frameworks */,
@@ -451,6 +462,7 @@
 		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				BA3EFF4C1E94AC7600F2479D /* AlertView */,
 				BA80749B1DC71F46006E0426 /* MJRefresh */,
 				BA360DC51DC2376800EFB07D /* MBProgressHUD */,
 				BA4B46E91D8684DD009CA1F7 /* BarChart */,
@@ -483,6 +495,7 @@
 		7EEB6ED4AD958E19C3A4B958 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA6FF4231E94801300AA0490 /* CFNetwork.framework */,
 				BA4B470B1D868519009CA1F7 /* QuartzCore.framework */,
 				BA4B47091D868511009CA1F7 /* CoreGraphics.framework */,
 				BA55C6961D78029B00FDA2F6 /* AFNetworking.framework */,
@@ -545,6 +558,16 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		BA3EFF4C1E94AC7600F2479D /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				BA3EFF471E94AC6700F2479D /* AlertViewController.h */,
+				BA3EFF481E94AC6700F2479D /* AlertViewController.m */,
+				BA3EFF491E94AC6700F2479D /* AlertViewController.xib */,
+			);
+			name = AlertView;
+			sourceTree = "<group>";
+		};
 		BA4B46E91D8684DD009CA1F7 /* BarChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +601,8 @@
 			children = (
 				BA55C6931D78010000FDA2F6 /* RequestModal.h */,
 				BA55C6941D78010000FDA2F6 /* RequestModal.m */,
+				BA6FF4201E947F4300AA0490 /* SocketService.h */,
+				BA6FF4211E947F4300AA0490 /* SocketService.m */,
 			);
 			name = conn;
 			sourceTree = "<group>";
@@ -769,6 +794,7 @@
 				015259BB1D70918F00AD3E67 /* Main.storyboard in Resources */,
 				01FFB9B21D806AC900D844E9 /* RiskClassChooseViewController.xib in Resources */,
 				BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */,
+				BA3EFF4B1E94AC6700F2479D /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -867,12 +893,14 @@
 				BA30A68F1D790C5A00E40A09 /* SettingViewController.m in Sources */,
 				BA4B47051D8684F0009CA1F7 /* UIViewSizeShortcuts.m in Sources */,
 				0150566B1D78722A00C1F8D8 /* RiskMainListCell.m in Sources */,
+				BA3EFF4A1E94AC6700F2479D /* AlertViewController.m in Sources */,
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
 				01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
 				BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */,
 				BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */,
 				BA4B47011D8684F0009CA1F7 /* BarView.m in Sources */,
+				BA6FF4221E947F4300AA0490 /* SocketService.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
 				014389001D855DA200099E86 /* WarnDetailViewController.m in Sources */,
 				BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */,

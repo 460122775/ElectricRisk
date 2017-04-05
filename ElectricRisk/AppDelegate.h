@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SocketService.h"
+#import "AlertViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
