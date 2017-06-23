@@ -38,6 +38,7 @@
     self.sgContentView.delegate = self;
     self.xcContentView.delegate = self;
     self.zgContentView.delegate = self;
+    self.sgProcessInput.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -527,6 +528,12 @@
         [textView resignFirstResponder];
         return NO;
     }
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self resignKeyboard];
     return YES;
 }
 

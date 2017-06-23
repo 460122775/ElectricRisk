@@ -87,7 +87,7 @@
                            @"old_pasword":self.oldPwdTextField.text,
                            @"new_password":self.pwdNewTextField1.text};
     //设置请求
-    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_LOGIN) parameter:dict header:nil content:nil success:^(id responseData) {
+    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_PWD_UPDATE) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)

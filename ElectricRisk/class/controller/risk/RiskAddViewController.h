@@ -19,7 +19,7 @@
 
 @end
 
-@interface RiskAddViewController : UIViewController<UIWebViewDelegate, RiskWrongListChooseDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate>{
+@interface RiskAddViewController : UIViewController<UIWebViewDelegate, RiskWrongListChooseDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UITextFieldDelegate>{
     MBProgressHUD *HUD;
     int currentKeyboardHeight;
     NSDictionary *currentSelectWrongDic;

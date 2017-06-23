@@ -76,7 +76,7 @@
         if (state == State_Success)
         {
             type3Arr = [result objectForKey:@"type3"];
-            type4Arr = [result objectForKey:@"type3"];
+            type4Arr = [result objectForKey:@"type4"];
 //            NSArray *dataArr = [result objectForKey:@"data"];
 //            if (dataArr != nil)
 //            {

@@ -157,8 +157,7 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
                 {
                     for (NSDictionary *tempDic in dataArr)
                     {
-                        int grade = [(NSNumber*)[tempDic objectForKey:@"grade"] intValue];
-                        if (i == grade)
+                        if ([[tempDic objectForKey:@"grade"] rangeOfString:[NSString stringWithFormat:@"%i", i]].location != NSNotFound)
                         {
                             [totalDataArray addObject:tempDic];
                         }
@@ -169,13 +168,12 @@ static NSString *RiskMainListCellId = @"RiskMainListCell";
                 NSMutableArray* dataArrTemp = nil;
                 for (NSDictionary* tempDic in totalDataArray)
                 {
-                    int grade = [(NSNumber*)[tempDic objectForKey:@"grade"] intValue];
-                    dataArrTemp = [dataDic objectForKey:[NSString stringWithFormat:@"%i", grade]];
+                    dataArrTemp = [dataDic objectForKey:[NSString stringWithFormat:@"%@", [tempDic objectForKey:@"grade"]]];
                     if (dataArrTemp == nil)
                     {
                         dataArrTemp = [tempDic objectForKey:@"content"];
-                        [dataDic setObject:dataArrTemp forKey:[NSString stringWithFormat:@"%i", grade]];
-                        [headerNameArray addObject:[NSString stringWithFormat:@"%i", grade]];
+                        [dataDic setObject:dataArrTemp forKey:[NSString stringWithFormat:@"%@", [tempDic objectForKey:@"grade"]]];
+                        [headerNameArray addObject:[NSString stringWithFormat:@"%@", [tempDic objectForKey:@"grade"]]];
                     }
                 }
             }

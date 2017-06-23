@@ -340,12 +340,12 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
     if (isCheckList)
     {
         CheckMainListCell *cell= [tableView dequeueReusableCellWithIdentifier:CheckMainListCellId];
-        cell.dataDic = [checkDataArray objectAtIndex:indexPath.row];
+        cell.dataDic = (checkDataArray == nil || checkDataArray.count == 0) ? nil : [checkDataArray objectAtIndex:indexPath.row];
         [cell setViewByData];
         return cell;
     }else{
         VerifyMainListCell *cell= [tableView dequeueReusableCellWithIdentifier:CheckMainListCellId];
-        cell.dataDic = [verifyDataArray objectAtIndex:indexPath.row];
+        cell.dataDic = (verifyDataArray == nil || verifyDataArray.count == 0) ? nil : [verifyDataArray objectAtIndex:indexPath.row];
         [cell setViewByData];
         return cell;
     }

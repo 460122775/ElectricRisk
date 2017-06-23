@@ -375,12 +375,12 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     if (isNoticeList)
     {
         NoticeMainListCell *cell= [tableView dequeueReusableCellWithIdentifier:NoticeMainListCellId];
-        cell.dataDic = [noticeDataArray objectAtIndex:indexPath.row];
+        cell.dataDic = (noticeDataArray == nil || noticeDataArray.count == 0) ? nil : [noticeDataArray objectAtIndex:indexPath.row];
         [cell setViewByData];
         return cell;
     }else{
         WarnMainListCell *cell= [tableView dequeueReusableCellWithIdentifier:WarnMainListCellId];
-        cell.dataDic = [warnDataArray objectAtIndex:indexPath.row];
+        cell.dataDic = (warnDataArray == nil || warnDataArray.count == 0) ? nil : [warnDataArray objectAtIndex:indexPath.row];
         [cell setViewByData];
         return cell;
     }

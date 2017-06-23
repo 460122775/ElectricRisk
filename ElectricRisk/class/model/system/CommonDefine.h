@@ -14,7 +14,7 @@
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 
-#define URL_SERVER @"http://sctxy.kmdns.net:9999/jj"       //192.168.2.211:8080
+#define URL_SERVER @"http://sctxy.kmdns.net:1111/jj"       //192.168.2.211:8080
 #define URL_SOCKET @"sctxy.kmdns.net"
 #define PORT_SOCKET 9998
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]

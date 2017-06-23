@@ -246,7 +246,7 @@
     if (spDic != nil)
     {
         // 监理
-        if (currentLCValue > 1)
+        if (currentLCValue >= 0)
         {
             self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                        ([(NSNumber*)[spDic objectForKey:@"jl_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
