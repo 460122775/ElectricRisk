@@ -10,13 +10,14 @@
 #define CommonDefine_h
 
 #define OFFLINE NO // YES or NO, YES for test.
-#define VERSION @"1.0.0"
 #define CodingKey @"DLJIJIAN"   //密钥
 #define CodingOffset @"01234567"//偏移量
 
-#define URL_SERVER @"http://sctxy.kmdns.net:1111/jj"       //192.168.2.211:8080
-#define URL_SOCKET @"sctxy.kmdns.net"
-#define PORT_SOCKET 9998
+//服务ip:192.168.2.193,服务端口：8080；推送端口：3322
+//服务:http://sctxy.kmdns.net:1111/jj,服务端口：8080；推送端口：3322
+#define URL_SERVER @"http://192.168.2.193:8080/jj"
+#define URL_SOCKET @"192.168.2.193"
+#define PORT_SOCKET 3322
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/

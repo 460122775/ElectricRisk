@@ -144,7 +144,7 @@ static NSString *NoticeMainListCellId = @"NoticeMainListCell";
     if ([[segue identifier] isEqualToString:@"ToMyNoticeDetailView"])
     {
         NoticeDetailViewController *noticeDetailViewController = [segue destinationViewController];
-        [noticeDetailViewController initViewWithData:currentSelectedNotice];
+        [noticeDetailViewController initViewWithData:currentSelectedNotice withReply:NO];
     }
 }
 

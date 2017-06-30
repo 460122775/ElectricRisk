@@ -30,7 +30,7 @@
     int checkState = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
     switch (checkState)
     {
-        case Check_State_None: self.addressLabel.text = @"无状态"; break;
+        case Check_State_None: self.addressLabel.text = @"待审核"; break;
         case Check_State_Wait: self.addressLabel.text = @"待审核"; break;
         case Check_State_No: self.addressLabel.text = @"已驳回"; break;
         case Check_State_Yes: self.addressLabel.text = @"已审核"; break;

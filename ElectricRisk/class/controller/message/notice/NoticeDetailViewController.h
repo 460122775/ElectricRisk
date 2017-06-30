@@ -15,6 +15,7 @@
 }
 
 @property (strong, nonatomic) NSDictionary *noticeDataDic;
+@property (assign, nonatomic) BOOL canReply;
 @property (strong, nonatomic) NSArray* commentArray;
 
 @property (strong, nonatomic) IBOutlet UILabel *noticeTitleLabel;
@@ -32,6 +33,6 @@
 - (IBAction)commentBtnClick:(id)sender;
 - (IBAction)goBackBtnClick:(id)sender;
 
-- (void)initViewWithData:(NSDictionary*)dataDic;
+- (void)initViewWithData:(NSDictionary*)noticeDataDic withReply:(BOOL)canReplay;
 
 @end

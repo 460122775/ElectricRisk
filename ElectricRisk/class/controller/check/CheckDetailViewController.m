@@ -203,6 +203,7 @@
                            @"uid":[SystemConfig instance].currentUserId,
                            @"id":[self.checkDataDic objectForKey:@"id"],
                            @"flag":@"sp",
+                           @"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"reason":(self.agreeContentTextView.text == nil) ? @"" : self.agreeContentTextView.text};
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_RISK_REPORTOPERATE) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;

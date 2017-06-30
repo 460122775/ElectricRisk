@@ -113,6 +113,8 @@
     {
         self.pwdTF.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserPwd"];
     }
+    [self.nameTF resignFirstResponder];
+    [self.pwdTF resignFirstResponder];
     // Login.
     if ((self.nameTF.text == nil || [self.nameTF.text isEqualToString:@""] ||
         self.pwdTF.text == nil || [self.pwdTF.text isEqualToString:@""]))

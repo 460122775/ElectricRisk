@@ -63,7 +63,7 @@
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    [self initViewWithData:self.noticeDataDic];
+    [self initViewWithData:self.noticeDataDic withReply:self.canReply];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -78,9 +78,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)initViewWithData:(NSDictionary*)noticeDataDic
+- (void)initViewWithData:(NSDictionary*)noticeDataDic withReply:(BOOL)canReplay
 {
     self.noticeDataDic = noticeDataDic;
+    self.canReply = canReplay;
     if (self.noticeTitleLabel == nil) return;
     [self initViewByDetailData];
     if (OFFLINE)
@@ -139,9 +140,18 @@
     [HUD removeFromSuperViewOnHide];
     [HUD showByCustomView:YES];
     
-    NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"uid":[SystemConfig instance].currentUserId,
-                           @"id":[self.noticeDataDic objectForKey:@"notice_id"]};
+    NSDictionary *dict = nil;
+  
+    if([self.noticeDataDic objectForKey:@"notice_id"] != nil)
+    {
+        dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
+                 @"uid":[SystemConfig instance].currentUserId,
+                 @"id":[self.noticeDataDic objectForKey:@"notice_id"]};
+    }else{
+        dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
+                 @"uid":[SystemConfig instance].currentUserId,
+                 @"id":[self.noticeDataDic objectForKey:@"id"]};
+    }
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_NOTICE_COMMENT_LIST) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
@@ -222,7 +232,7 @@
     {
         [[JTToast toastWithText:@"回复成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
         self.commentInput.text = @"";
-        [self initViewWithData:self.noticeDataDic];
+        [self initViewWithData:self.noticeDataDic withReply:self.canReply];
     }else{
         [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
     }
@@ -251,7 +261,7 @@
         {
             [[JTToast toastWithText:@"回复成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
             self.commentInput.text = @"";
-            [self initViewWithData:self.noticeDataDic];
+            [self initViewWithData:self.noticeDataDic withReply:self.canReply];
         }else{
             [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
@@ -265,6 +275,7 @@
 -(void)initViewByDetailData
 {
     if(self.noticeTitleLabel == nil) return;
+    [self.commentView setHidden:!(self.canReply)];
     NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
     [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     

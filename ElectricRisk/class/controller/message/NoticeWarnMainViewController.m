@@ -241,16 +241,17 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_WARN_LSIT) parameter:dict header:nil content:nil success:^(id responseData) {
         NSDictionary *result = responseData;
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
-        if (state == State_Success)
+        warnDataArray = (NSArray*)[result objectForKey:@"rows"];
+        if (warnDataArray == nil || warnDataArray.count == 0)
         {
-            warnDataArray = (NSArray*)[result objectForKey:@"data"];
-            if (warnDataArray == nil || warnDataArray.count == 0)
-            {
-                [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
-            }
-        }else{
-            [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+            [[JTToast toastWithText:@"未获取到数据，或数据为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
         }
+//        if (state == State_Success)
+//        {
+//            
+//        }else{
+//            [[JTToast toastWithText:(NSString*)[result objectForKey:@"msg"] configuration:[JTToastConfiguration defaultConfiguration]]show];
+//        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
             [self.header endRefreshing];
@@ -397,6 +398,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
             [self performSegueWithIdentifier:@"ToNoticeDetail" sender:self];
         }
     }else{
+        return;
         currentSelectedWarn = [warnDataArray objectAtIndex:indexPath.row];
         if(currentSelectedWarn != nil)
         {
@@ -455,7 +457,7 @@ static NSString *WarnMainListCellId = @"WarnMainListCell";
     if ([[segue identifier] isEqualToString:@"ToNoticeDetail"])
     {
         NoticeDetailViewController *noticeDetailViewController = [segue destinationViewController];
-        [noticeDetailViewController initViewWithData:currentSelectedNotice];
+        [noticeDetailViewController initViewWithData:currentSelectedNotice withReply:YES];
     }else if ([[segue identifier] isEqualToString:@"ToAddNotice"]){
         NoticeAddViewController *noticeAddViewController = [segue destinationViewController];
         noticeAddViewController.delegate = self;

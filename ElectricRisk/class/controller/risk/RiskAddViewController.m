@@ -357,6 +357,11 @@
     {
         imagePickerController = [[UIImagePickerController alloc] init];
     }
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [[JTToast toastWithText:@"或由于没有权限，无法使用相机" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
     imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     imagePickerController.delegate = self;
     [self.view addSubview:imagePickerController.view];

@@ -8,7 +8,7 @@ target 'ElectricRisk' do
 
   # Pods for ElectricRisk
 	
-	pod 'AFNetworking', '~> 2.6.0'
+	pod 'AFNetworking', '~> 3.1.0'
  	pod 'MBProgressHUD', '~> 1.0.0' 
     pod 'CocoaAsyncSocket'
     
