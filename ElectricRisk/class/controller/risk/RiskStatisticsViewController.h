@@ -14,8 +14,8 @@
     MBProgressHUD *HUD;
     NSMutableDictionary *dataDic;
     
-//    int level3Count;
-//    int level4Count;
+    int level3Count;
+    int level4Count;
     NSArray *type3Arr;
     NSArray *type4Arr;
 }

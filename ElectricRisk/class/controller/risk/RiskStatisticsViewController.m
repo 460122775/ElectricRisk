@@ -44,8 +44,8 @@
     int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
     if (state == State_Success)
     {
-//        level3Count = [(NSNumber*)[result objectForKey:@"level3"] intValue];
-//        level4Count = [(NSNumber*)[result objectForKey:@"level4"] intValue];
+        level3Count = [(NSNumber*)[result objectForKey:@"level3"] intValue];
+        level4Count = [(NSNumber*)[result objectForKey:@"level4"] intValue];
         type3Arr = [result objectForKey:@"type3"];
         type4Arr = [result objectForKey:@"type4"];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -75,6 +75,8 @@
         int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
         if (state == State_Success)
         {
+            level3Count = [(NSNumber*)[result objectForKey:@"level3"] intValue];
+            level4Count = [(NSNumber*)[result objectForKey:@"level4"] intValue];
             type3Arr = [result objectForKey:@"type3"];
             type4Arr = [result objectForKey:@"type4"];
 //            NSArray *dataArr = [result objectForKey:@"data"];
@@ -108,7 +110,7 @@
 
 -(void)initStatistic
 {
-    self.type3Label.text = [NSString stringWithFormat:@"重要3级风险(%lu)", (unsigned long)type3Arr.count];
+    self.type3Label.text = [NSString stringWithFormat:@"重要3级风险(%i)", level3Count];
     NSArray *fgColorArr = [[NSArray alloc] initWithObjects:@"FF3366",@"CC0099",@"0066CC",@"3C3C3C",@"600000",@"9F0050",@"750075",@"ADADAD",@"FF2D2D",@"FF79BC",@"FF77FF",@"DDDDFF",@"C4E1FF",@"D9FFFF",@"D7FFEE", nil];
     NSArray *bgColorArr = [[NSArray alloc] initWithObjects:@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000",@"000000", nil];
     
@@ -128,7 +130,7 @@
     [self.type3ChartView setupBarViewShadow:BarShadowLight];
     [self.type3ChartView setDataWithArray:type3Array showAxis:DisplayBothAxes withColor:[UIColor darkGrayColor] shouldPlotVerticalLines:YES];
     
-    self.type4Label.text = [NSString stringWithFormat:@"4级风险(%lu)", (unsigned long)type4Arr.count];
+    self.type4Label.text = [NSString stringWithFormat:@"4级风险(%i)", level4Count];
     NSMutableArray *type4TitleArr = [[NSMutableArray alloc] init];
     NSMutableArray *type4ValueArr = [[NSMutableArray alloc] init];
     for (NSDictionary *dataDicTemp in type4Arr)

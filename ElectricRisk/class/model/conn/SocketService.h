@@ -13,6 +13,7 @@ typedef void (^ IteratorSocketBlock)(id receiveData);
 
 @interface SocketService : NSObject<GCDAsyncSocketDelegate>{
     GCDAsyncSocket  *socket;
+    NSDate *lastConnectTime;
 }
 
 @property (nonatomic, copy) IteratorSocketBlock receiveBlock;

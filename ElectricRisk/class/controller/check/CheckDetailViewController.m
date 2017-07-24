@@ -277,6 +277,7 @@
                                        ([(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
                                        [spDic objectForKey:@"yz_content"]];
             self.yzCompanyNameLabel.text = [spDic objectForKey:@"yz_name"];
+            self.yzContentViewHeight.constant = self.yzContentView.contentSize.height;
             NSDate *yzDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"yz_time"] doubleValue] / 1000.0)];
             self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
             
@@ -300,7 +301,8 @@
         }
         [self agreeSwitchChanged:nil];
         // 驳回
-        if (currentLCValue == 0)
+        int state = [(NSNumber*)[_checkDataDic objectForKey:@"state"] intValue];
+        if (currentLCValue == 0 || state == Check_State_No)
         {
             isShowAgreeView = NO;
             self.agreeViewTopPadding.constant = -30;

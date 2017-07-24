@@ -277,6 +277,7 @@
             self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                        ([(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
                                        [spDic objectForKey:@"yz_content"]];
+            self.yzContentViewHeight.constant = self.yzContentView.contentSize.height;
             self.yzCompanyNameLabel.text = [spDic objectForKey:@"yz_name"];
             NSDate *yzDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"yz_time"] doubleValue] / 1000.0)];
             self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
@@ -298,6 +299,7 @@
             self.jgContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                        ([(NSNumber*)[spDic objectForKey:@"jg_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
                                        [spDic objectForKey:@"jg_content"]];
+            self.jgContentViewHeight.constant = self.jgContentView.contentSize.height;
             self.jgCompanyNameLabel.text = [spDic objectForKey:@"jg_name"];
             NSDate *jgDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"jg_time"] doubleValue] / 1000.0)];
             self.jgTimeLabel.text = [dtfrm stringFromDate:jgDate];
@@ -322,7 +324,8 @@
         }
         [self agreeSwitchChanged:nil];
         // 驳回
-        if (currentLCValue == 0)
+        int state = [(NSNumber*)[_verifyDataDic objectForKey:@"state"] intValue];
+        if (currentLCValue == 0 || state == Check_State_No)
         {
             isShowAgreeView = NO;
             self.agreeViewTopPadding.constant = -30;

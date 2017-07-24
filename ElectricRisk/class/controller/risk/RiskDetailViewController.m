@@ -333,6 +333,11 @@
     [self updateViewConstraints];
 }
 
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    DLog(@"ERROR>>>>>%@", error.description)
+}
+
 - (IBAction)backBtnClick:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -340,6 +345,11 @@
 
 - (IBAction)writeBtnClick:(id)sender
 {
+    if([(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] intValue] == 100)
+    {
+        [[JTToast toastWithText:@"进度达到100%，无法进行填报" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
     [self performSegueWithIdentifier:@"ToAddRiskExecutiveInfo" sender:self];
 }
 

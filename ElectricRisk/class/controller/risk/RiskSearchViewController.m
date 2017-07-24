@@ -82,6 +82,7 @@
             case 4: [self.startClassBtn setTitle:@"重要3级" forState:UIControlStateNormal]; break;
             case 5: [self.startClassBtn setTitle:@"4级" forState:UIControlStateNormal]; break;
             case 6: [self.startClassBtn setTitle:@"5级" forState:UIControlStateNormal]; break;
+            case 31: [self.startClassBtn setTitle:@"3级" forState:UIControlStateNormal]; break;
             default: [self.startClassBtn setTitle:[NSString stringWithFormat:@"%i级", classValue] forState:UIControlStateNormal]; break;
         }
     }else{
@@ -92,6 +93,7 @@
             case 4: [self.endClassBtn setTitle:@"重要3级" forState:UIControlStateNormal]; break;
             case 5: [self.endClassBtn setTitle:@"4级" forState:UIControlStateNormal]; break;
             case 6: [self.endClassBtn setTitle:@"5级" forState:UIControlStateNormal]; break;
+            case 31: [self.endClassBtn setTitle:@"3级" forState:UIControlStateNormal]; break;
             default: [self.endClassBtn setTitle:[NSString stringWithFormat:@"%i级", classValue] forState:UIControlStateNormal]; break;
         }
     }
@@ -112,7 +114,7 @@
 
 - (IBAction)searchBtnClick:(id)sender
 {
-    if (self.startClassBtn.tag >= self.endClassBtn.tag && self.startClassBtn.tag != 0)
+    if (self.startClassBtn.tag > self.endClassBtn.tag || self.startClassBtn.tag == 0)
     {
         [[JTToast toastWithText:@"项目等级的顺序应从低到高" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
@@ -120,7 +122,7 @@
     if (self.delegate != nil)
     {
         [self.delegate riskSearchWithArea:self.areaNameTextField.text
-                             andProjectid:[NSString stringWithFormat:@"%@", (self.currentProject == nil)?@"":[self.currentProject objectForKey:@"id"]]
+                             andProjectid:[NSString stringWithFormat:@"%@", (self.currentProject == nil)?@"":[self.currentProject objectForKey:@"projectid"]]
                                 andSLevel:self.startClass
                               andEndLevel:self.endClass];
         [self dismissViewControllerAnimated:YES completion:nil];

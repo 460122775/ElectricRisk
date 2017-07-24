@@ -118,7 +118,12 @@
     [dict setObject:[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000] forKey:@"c_time"];
     [dict setObject:[SystemConfig instance].currentUserId forKey:@"uid"];
     [dict setObject:[self.riskDataDic objectForKey:@"id"] forKey:@"id"];
-    [dict setObject:self.sgProcessInput.text forKey:@"progressValue"];
+    if (self.sgProcessInput.text == nil || self.sgProcessInput.text.length == 0)
+    {
+        [dict setObject:[self.riskDataDic objectForKey:@"schedule"] forKey:@"progressValue"];
+    }else{
+        [dict setObject:self.sgProcessInput.text forKey:@"progressValue"];
+    }
     NSMutableDictionary *xcDic = [[NSMutableDictionary alloc] init];
     [xcDic setObject:self.xcContentView.text forKey:@"content"];
     [xcDic setObject:self.xcImgArray forKey:@"imgids"];
@@ -435,25 +440,38 @@
 //        [[JTToast toastWithText:
 //          [NSString stringWithFormat:@"请填写%@情况", (self.zgSwitch.isOn) ? @"违章" : @"整改"] configuration:[JTToastConfiguration defaultConfiguration]]show];
 //        return;
-    }else if (self.sgContentView.text == nil || self.sgContentView.text.length == 0){
+    }
+    int right = [SystemConfig instance].currentUserRole;
+    if (right == ROLE_6 && (self.sgContentView.text == nil || self.sgContentView.text.length == 0))
+    {
         [[JTToast toastWithText:@"请填写施工进度情况" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }else if (self.sgProcessInput.text == nil || self.sgProcessInput.text.length == 0){
+    }else if (right == ROLE_6 && (self.sgProcessInput.text == nil || self.sgProcessInput.text.length == 0)){
         [[JTToast toastWithText:@"请填写施工进度" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
+    }else if (right != ROLE_6 && (self.sgContentView.text != nil && self.sgContentView.text.length > 0)){
+        [[JTToast toastWithText:@"非施工方不可以填写施工情况" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }else if (right != ROLE_6 && (self.sgProcessInput.text != nil && self.sgProcessInput.text.length > 0)){
+        [[JTToast toastWithText:@"非施工方不可以填写施工进度" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
     }
-    NSString *pattern = @"^\\d{1,3}$";
-    NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
-    BOOL isMatch = [pred evaluateWithObject:self.sgProcessInput.text];
-    int proccess = [self.sgProcessInput.text intValue];
-    int currentProccess = [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] intValue];
-    if (!isMatch || proccess > 100)
+    
+    if (self.sgProcessInput.text != nil && self.sgProcessInput.text.length > 0)
     {
-        [[JTToast toastWithText:@"施工进度填写错误" configuration:[JTToastConfiguration defaultConfiguration]]show];
-        return;
-    }else if (proccess < currentProccess){
-        [[JTToast toastWithText:@"进度值应大于已完成进度" configuration:[JTToastConfiguration defaultConfiguration]]show];
-        return;
+        NSString *pattern = @"^\\d{1,3}$";
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+        BOOL isMatch = [pred evaluateWithObject:self.sgProcessInput.text];
+        int proccess = [self.sgProcessInput.text intValue];
+        int currentProccess = [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] intValue];
+        if (!isMatch || proccess > 100)
+        {
+            [[JTToast toastWithText:@"施工进度填写错误" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            return;
+        }else if (proccess < currentProccess){
+            [[JTToast toastWithText:@"进度值应大于已完成进度" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            return;
+        }
     }
     
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:@"确定提交本次填报的内容吗？" preferredStyle:UIAlertControllerStyleAlert];

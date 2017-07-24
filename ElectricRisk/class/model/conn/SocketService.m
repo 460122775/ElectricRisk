@@ -31,6 +31,12 @@ singleton_implementation(SocketService)
 // 如果对象关闭了 这里也会调用
 - (void)socketDidDisconnect:(GCDAsyncSocket*)sock withError:(NSError*)err
 {
+    if(lastConnectTime == nil) lastConnectTime = [NSDate date];
+    if ([[NSDate date] timeIntervalSinceDate: lastConnectTime] < 20)
+    {
+        return;
+    }
+    lastConnectTime = [NSDate date];
     //断线重连
     [socket connectToHost:URL_SOCKET onPort:PORT_SOCKET error:&err];
     DLog(@"=========== SOCKET CLOSE.")
