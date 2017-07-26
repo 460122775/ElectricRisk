@@ -229,6 +229,7 @@
 -(void)initViewByDetailData
 {
     if (self.checkDetailDataDic == nil) return;
+    int spState = [(NSNumber*)[self.checkDetailDataDic objectForKey:@"sp_state"] intValue];
     NSDictionary *bsDic = [self.checkDetailDataDic objectForKey:@"bsxx"];
     if (bsDic != nil)
     {
@@ -242,56 +243,122 @@
     currentLCValue = [(NSNumber*)[self.checkDetailDataDic  objectForKey:@"bslc"] doubleValue];
     NSDictionary *spDic = [self.checkDetailDataDic objectForKey:@"spxx"];
     
+    // 总状态，被驳回...
+    int state = [(NSNumber*)[_checkDataDic objectForKey:@"state"] intValue];
+    // 当前用户权限.
     int right = [SystemConfig instance].currentUserRole;
     bool isShowAgreeView = NO;
     if (spDic != nil)
     {
-        // 监理
-        if (currentLCValue >= 0)
+        int jl_yj = 0;
+        if ([spDic objectForKey:@"jl_yj"] != nil)
         {
-            self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
-                                       ([(NSNumber*)[spDic objectForKey:@"jl_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
-                                       [spDic objectForKey:@"jl_content"]];
-            self.spContentViewHeight.constant = self.spContentView.contentSize.height;
-            self.spCompanyNameLabel.text = [spDic objectForKey:@"jl_name"];
-            NSDate *spDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"jl_time"] doubleValue] / 1000.0)];
-            self.spTimeLabel.text = [dtfrm stringFromDate:spDate];
-            
-            self.process_spImgView.image = [UIImage imageNamed:@"31"];
-            self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height;
-            isShowAgreeView = NO;
-        }else{
-            self.process_spImgView.image = [UIImage imageNamed:@"30"];
-            if(right == ROLE_A || right == ROLE_5)
+            jl_yj = [(NSNumber*)[spDic objectForKey:@"jl_yj"] intValue];
+        }
+        // 看不见监理审批内容.
+        if(jl_yj == 0)
+        {
+            self.process_spImgView.image = [UIImage imageNamed:(currentLCValue >= 0) ? @"31" : @"30"];
+            if((right == ROLE_A || right == ROLE_5) && spState == 1)
             {
                 self.agreeViewTopPadding.constant = 30;
                 isShowAgreeView = YES;
             }else{
                 self.agreeViewTopPadding.constant = -30;
             }
-        }
-        // 业主
-        if (currentLCValue > 2)
-        {
-            self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
-                                       ([(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
-                                       [spDic objectForKey:@"yz_content"]];
-            self.yzCompanyNameLabel.text = [spDic objectForKey:@"yz_name"];
-            self.yzContentViewHeight.constant = self.yzContentView.contentSize.height;
-            NSDate *yzDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"yz_time"] doubleValue] / 1000.0)];
-            self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
-            
-            self.process_yzImgView.image = [UIImage imageNamed:@"41"];
-            self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height;
-            isShowAgreeView = NO;
         }else{
-            self.process_yzImgView.image = [UIImage imageNamed:@"40"];
-            if(right == ROLE_A || right == ROLE_4)
+            // 施工阶段，允许监理操作
+            if (currentLCValue >= 0 || state == Check_State_No)
+            {
+                self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
+                                           (jl_yj == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
+                                           [spDic objectForKey:@"jl_content"]];
+                self.spContentViewHeight.constant = self.spContentView.contentSize.height;
+                self.spCompanyNameLabel.text = [spDic objectForKey:@"jl_name"];
+                NSDate *spDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"jl_time"] doubleValue] / 1000.0)];
+                self.spTimeLabel.text = [dtfrm stringFromDate:spDate];
+                
+                self.process_spImgView.image = [UIImage imageNamed:@"31"];
+                self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height;
+                isShowAgreeView = NO;
+            }
+        }
+//        // 施工阶段，允许监理操作
+//        if (currentLCValue >= 0)
+//        {
+//            self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
+//                                       ([(NSNumber*)[spDic objectForKey:@"jl_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
+//                                       [spDic objectForKey:@"jl_content"]];
+//            self.spContentViewHeight.constant = self.spContentView.contentSize.height;
+//            self.spCompanyNameLabel.text = [spDic objectForKey:@"jl_name"];
+//            NSDate *spDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"jl_time"] doubleValue] / 1000.0)];
+//            self.spTimeLabel.text = [dtfrm stringFromDate:spDate];
+//            
+//            self.process_spImgView.image = [UIImage imageNamed:@"31"];
+//            self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height;
+//            isShowAgreeView = NO;
+//        }else{
+//            self.process_spImgView.image = [UIImage imageNamed:@"30"];
+//            if((right == ROLE_A || right == ROLE_5) && spState == 1)
+//            {
+//                self.agreeViewTopPadding.constant = 30;
+//                isShowAgreeView = YES;
+//            }else{
+//                self.agreeViewTopPadding.constant = -30;
+//            }
+//        }
+        int yz_yj = 0;
+        if ([spDic objectForKey:@"yz_yj"] != nil)
+        {
+            yz_yj = [(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue];
+        }
+        if (yz_yj == 0)
+        {
+            self.process_yzImgView.image = [UIImage imageNamed:(currentLCValue >= 2) ? @"41" : @"40"];
+            if((right == ROLE_A || right == ROLE_4) && spState == 1 && state != Check_State_No)
             {
                 self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30;
                 isShowAgreeView = YES;
             }
+        }else{
+            // 监理阶段，允许业主操作
+            if (currentLCValue > 2)
+            {
+                self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
+                                           (yz_yj == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
+                                           [spDic objectForKey:@"yz_content"]];
+                self.yzCompanyNameLabel.text = [spDic objectForKey:@"yz_name"];
+                self.yzContentViewHeight.constant = self.yzContentView.contentSize.height;
+                NSDate *yzDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"yz_time"] doubleValue] / 1000.0)];
+                self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
+                
+                self.process_yzImgView.image = [UIImage imageNamed:@"41"];
+                self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height;
+                isShowAgreeView = NO;
+            }
         }
+//        // 监理阶段，允许业主操作
+//        if (currentLCValue > 2)
+//        {
+//            self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
+//                                       ([(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
+//                                       [spDic objectForKey:@"yz_content"]];
+//            self.yzCompanyNameLabel.text = [spDic objectForKey:@"yz_name"];
+//            self.yzContentViewHeight.constant = self.yzContentView.contentSize.height;
+//            NSDate *yzDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"yz_time"] doubleValue] / 1000.0)];
+//            self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
+//            
+//            self.process_yzImgView.image = [UIImage imageNamed:@"41"];
+//            self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height;
+//            isShowAgreeView = NO;
+//        }else{
+//            self.process_yzImgView.image = [UIImage imageNamed:@"40"];
+//            if((right == ROLE_A || right == ROLE_4) && spState == 1)
+//            {
+//                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30;
+//                isShowAgreeView = YES;
+//            }
+//        }
         
         if (currentLCValue >= 3)
         {
@@ -300,13 +367,6 @@
             self.process_overImgView.image = [UIImage imageNamed:@"60"];
         }
         [self agreeSwitchChanged:nil];
-        // 驳回
-        int state = [(NSNumber*)[_checkDataDic objectForKey:@"state"] intValue];
-        if (currentLCValue == 0 || state == Check_State_No)
-        {
-            isShowAgreeView = NO;
-            self.agreeViewTopPadding.constant = -30;
-        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.agreeEnableView setHidden:isShowAgreeView];
         });
