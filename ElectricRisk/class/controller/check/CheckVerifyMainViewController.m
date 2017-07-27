@@ -344,7 +344,7 @@ static NSString *VerifyMainListCellId = @"VerifyMainListCell";
         [cell setViewByData];
         return cell;
     }else{
-        VerifyMainListCell *cell= [tableView dequeueReusableCellWithIdentifier:CheckMainListCellId];
+        VerifyMainListCell *cell= [tableView dequeueReusableCellWithIdentifier:VerifyMainListCellId];
         cell.dataDic = (verifyDataArray == nil || verifyDataArray.count == 0) ? nil : [verifyDataArray objectAtIndex:indexPath.row];
         [cell setViewByData];
         return cell;

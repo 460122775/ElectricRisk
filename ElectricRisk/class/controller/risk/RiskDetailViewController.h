@@ -38,6 +38,8 @@
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *repairInfoWebViewHeight;
 @property (strong, nonatomic) IBOutlet UIWebView *processInfoWebView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *processInfoWebViewHeight;
+@property (strong, nonatomic) IBOutlet UILabel *sgProcessLabel;
+@property (strong, nonatomic) IBOutlet UIProgressView *sgProcessView;
 
 
 - (IBAction)backBtnClick:(id)sender;

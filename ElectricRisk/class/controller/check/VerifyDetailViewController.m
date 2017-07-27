@@ -265,7 +265,7 @@
                 self.agreeViewTopPadding.constant = -30;
             }
         }else{
-            if (currentLCValue > 1)
+            if (currentLCValue > 1 || state == Check_State_No)
             {
                 self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            ([(NSNumber*)[spDic objectForKey:@"jl_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
@@ -294,7 +294,7 @@
                 isShowAgreeView = YES;
             }
         }else{
-            if (currentLCValue > 2)
+            if (currentLCValue > 2 || state == Check_State_No)
             {
                 self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            ([(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
@@ -315,6 +315,7 @@
         {
             jg_yj = [(NSNumber*)[spDic objectForKey:@"jg_yj"] intValue];
         }
+        self.jgContentViewHeight.constant = 0;
         if (jg_yj == 0)
         {
             self.process_jgImgView.image = [UIImage imageNamed:(currentLCValue > 2) ? @"51" : @"50"];
@@ -324,7 +325,7 @@
                 isShowAgreeView = YES;
             }
         }else{
-            if (currentLCValue > 3)
+            if (currentLCValue > 3 || state == Check_State_No)
             {
                 self.jgContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            (jg_yj == CHECKSTATE_AGREE) ? @"同意" : @"不同意",

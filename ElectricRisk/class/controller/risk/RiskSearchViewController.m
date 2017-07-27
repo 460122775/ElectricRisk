@@ -18,6 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.areaNameTextField.delegate = self;
+    
+    classArray = @[@{@"name":@"1级", @"value":@"1"},
+                   @{@"name":@"2级", @"value":@"2"},
+                   @{@"name":@"3级", @"value":@"31"},
+                   @{@"name":@"重要3级", @"value":@"4"},
+                   @{@"name":@"4级", @"value":@"5"},
+                   @{@"name":@"5级", @"value":@"6"}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,24 +84,28 @@
     {
         self.startClassBtn.tag = classValue;
         self.startClass = [NSString stringWithFormat:@"%i", classValue];
-        switch (classValue)
+        for (int i = 0; i < classArray.count; i++)
         {
-            case 4: [self.startClassBtn setTitle:@"重要3级" forState:UIControlStateNormal]; break;
-            case 5: [self.startClassBtn setTitle:@"4级" forState:UIControlStateNormal]; break;
-            case 6: [self.startClassBtn setTitle:@"5级" forState:UIControlStateNormal]; break;
-            case 31: [self.startClassBtn setTitle:@"3级" forState:UIControlStateNormal]; break;
-            default: [self.startClassBtn setTitle:[NSString stringWithFormat:@"%i级", classValue] forState:UIControlStateNormal]; break;
+            if ([[[classArray objectAtIndex:i] objectForKey:@"value"]
+                 isEqualToString:[NSString stringWithFormat:@"%i", classValue]])
+            {
+                startIndex = i;
+                [self.startClassBtn setTitle:[[classArray objectAtIndex:i] objectForKey:@"name"] forState:UIControlStateNormal];
+                break;
+            }
         }
     }else{
         self.endClassBtn.tag = classValue;
         self.endClass = [NSString stringWithFormat:@"%i", classValue];
-        switch (classValue)
+        for (int i = 0; i < classArray.count; i++)
         {
-            case 4: [self.endClassBtn setTitle:@"重要3级" forState:UIControlStateNormal]; break;
-            case 5: [self.endClassBtn setTitle:@"4级" forState:UIControlStateNormal]; break;
-            case 6: [self.endClassBtn setTitle:@"5级" forState:UIControlStateNormal]; break;
-            case 31: [self.endClassBtn setTitle:@"3级" forState:UIControlStateNormal]; break;
-            default: [self.endClassBtn setTitle:[NSString stringWithFormat:@"%i级", classValue] forState:UIControlStateNormal]; break;
+            if ([[[classArray objectAtIndex:i] objectForKey:@"value"]
+                 isEqualToString:[NSString stringWithFormat:@"%i", classValue]])
+            {
+                endIndex = i;
+                [self.endClassBtn setTitle:[[classArray objectAtIndex:i] objectForKey:@"name"] forState:UIControlStateNormal];
+                break;
+            }
         }
     }
 }
@@ -114,7 +125,7 @@
 
 - (IBAction)searchBtnClick:(id)sender
 {
-    if (self.startClassBtn.tag > self.endClassBtn.tag || self.startClassBtn.tag == 0)
+    if (startIndex > endIndex || self.startClassBtn.tag == 0)
     {
         [[JTToast toastWithText:@"项目等级的顺序应从低到高" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;

@@ -16,7 +16,11 @@
 
 @end
 
-@interface RiskSearchViewController : UIViewController<RiskProjectChooseDelegate, RiskClassChooseDelegate, UITextFieldDelegate>
+@interface RiskSearchViewController : UIViewController<RiskProjectChooseDelegate, RiskClassChooseDelegate, UITextFieldDelegate>{
+    NSArray *classArray;
+    int startIndex;
+    int endIndex;
+}
 
 @property (strong, nonatomic) NSArray* projectArray;
 @property (strong, nonatomic) NSDictionary *currentProject;

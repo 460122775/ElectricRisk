@@ -302,6 +302,8 @@
         [self.dateBtn setTitle:[[[dtfrm stringFromDate:executiveTimeDate] componentsSeparatedByString:@" "] objectAtIndex:0] forState:UIControlStateNormal];
         [self timeChooseControl:[(NSNumber*)[(NSDictionary*)[self.riskExecutiveTimeArray objectAtIndex:0] objectForKey:@"creat_time"] doubleValue]];
     }
+    self.sgProcessLabel.text = [NSString stringWithFormat:@"%.0f%%", [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue]];
+    [self.sgProcessView setProgress: [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue]];
 }
 
 -(void)initViewByExecutiveData

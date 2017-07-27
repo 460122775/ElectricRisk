@@ -426,14 +426,14 @@
 - (IBAction)finishBtnClick:(id)sender
 {
     [self resignKeyboard];
-    if (self.ryContentView.text == nil || self.ryContentView.text.length == 0)
+    if (self.ryImgArray != nil && self.ryImgArray.count != 0 && (self.ryContentView.text == nil || self.ryContentView.text.length == 0))
     {
         [[JTToast toastWithText:@"请填写人员到岗情况" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }else if (self.xcContentView.text == nil || self.xcContentView.text.length == 0){
+    }else if (self.xcImgArray != nil && self.xcImgArray.count != 0 && (self.xcContentView.text == nil || self.xcContentView.text.length == 0)){
         [[JTToast toastWithText:@"请填写施工现场执行情况" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }else if (self.zgSwitch.isOn && currentSelectWrongDic == nil){
+    }else if (self.zgImgArray != nil && self.zgImgArray.count != 0 && (self.zgSwitch.isOn && currentSelectWrongDic == nil)){
         [[JTToast toastWithText:@"请选择违章内容" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
 //    }else if (self.zgContentView.text == nil || self.zgContentView.text.length == 0){
@@ -442,7 +442,7 @@
 //        return;
     }
     int right = [SystemConfig instance].currentUserRole;
-    if (right == ROLE_6 && (self.sgContentView.text == nil || self.sgContentView.text.length == 0))
+    if (self.sgImgArray != nil && self.sgImgArray.count != 0 && (self.sgContentView.text == nil || self.sgContentView.text.length == 0))
     {
         [[JTToast toastWithText:@"请填写施工进度情况" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
