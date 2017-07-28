@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtfrm setDateFormat:@"yyyy-MM-dd"];
     
     // Do any additional setup after loading the view.
     self.agreeContentTextView.layer.borderWidth = 1;
@@ -333,7 +333,7 @@
                 self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
                 
                 self.process_yzImgView.image = [UIImage imageNamed:@"41"];
-                self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height;
+                self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height + 30;
                 isShowAgreeView = NO;
             }
         }

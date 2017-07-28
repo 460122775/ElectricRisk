@@ -449,9 +449,6 @@
     }else if (right == ROLE_6 && (self.sgProcessInput.text == nil || self.sgProcessInput.text.length == 0)){
         [[JTToast toastWithText:@"请填写施工进度" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }else if (right != ROLE_6 && (self.sgContentView.text != nil && self.sgContentView.text.length > 0)){
-        [[JTToast toastWithText:@"非施工方不可以填写施工情况" configuration:[JTToastConfiguration defaultConfiguration]]show];
-        return;
     }else if (right != ROLE_6 && (self.sgProcessInput.text != nil && self.sgProcessInput.text.length > 0)){
         [[JTToast toastWithText:@"非施工方不可以填写施工进度" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;

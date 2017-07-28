@@ -23,7 +23,7 @@
     self.processInfoWebView.delegate = self;
     
     dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtfrm setDateFormat:@"yyyy-MM-dd"];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -303,7 +303,7 @@
         [self timeChooseControl:[(NSNumber*)[(NSDictionary*)[self.riskExecutiveTimeArray objectAtIndex:0] objectForKey:@"creat_time"] doubleValue]];
     }
     self.sgProcessLabel.text = [NSString stringWithFormat:@"%.0f%%", [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue]];
-    [self.sgProcessView setProgress: [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue]];
+    [self.sgProcessView setProgress: [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue] / 100.0];
 }
 
 -(void)initViewByExecutiveData
@@ -314,6 +314,10 @@
     }
     if (self.riskExecutiveDataDic != nil)
     {
+        NSString *htmlString = @"";
+        if([self.riskExecutiveDataDic objectForKey:@"yzOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"yzOnWork"]];
+        if([self.riskExecutiveDataDic objectForKey:@"sgOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"sgOnWork"]];
+        if([self.riskExecutiveDataDic objectForKey:@"jlOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"jlOnWork"]];
         [self.executiveInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"working"] baseURL:[NSURL URLWithString:URL_SERVER]];
         [self.personInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"yzOnWork"] baseURL:[NSURL URLWithString:URL_SERVER]];
         [self.processInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"progress"] baseURL:[NSURL URLWithString:URL_SERVER]];

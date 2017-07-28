@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtfrm setDateFormat:@"yyyy-MM-dd"];
 }
 
 - (void)viewDidAppear:(BOOL)animated

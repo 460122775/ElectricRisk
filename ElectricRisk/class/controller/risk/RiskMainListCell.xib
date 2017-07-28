@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RiskMainListCell" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnn-cx-uRo">
@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hte-2f-1KI">
-                                <rect key="frame" x="48" y="64" width="134" height="15"/>
+                                <rect key="frame" x="48" y="64" width="126" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="Kf5-Pk-SE8"/>
                                 </constraints>
@@ -48,8 +48,8 @@
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-08-08 08:08:08" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaP-UB-Msp">
-                                <rect key="frame" x="186" y="64" width="130" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-08-08" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RaP-UB-Msp">
+                                <rect key="frame" x="178" y="64" width="130" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="0vm-k6-Wds"/>
                                     <constraint firstAttribute="height" constant="15" id="tEN-5u-RMh"/>
@@ -75,7 +75,7 @@
                             <constraint firstItem="sck-wT-6k2" firstAttribute="leading" secondItem="02z-B5-y9f" secondAttribute="trailing" constant="4" id="HYj-Ka-NUW"/>
                             <constraint firstItem="cqd-cV-t5Q" firstAttribute="width" secondItem="sck-wT-6k2" secondAttribute="width" id="IFv-nO-PUw"/>
                             <constraint firstItem="sck-wT-6k2" firstAttribute="width" secondItem="wnn-cx-uRo" secondAttribute="width" constant="-20" id="NHO-vy-hvY"/>
-                            <constraint firstAttribute="trailing" secondItem="RaP-UB-Msp" secondAttribute="trailing" constant="4" id="Qfa-w1-ujW"/>
+                            <constraint firstAttribute="trailing" secondItem="RaP-UB-Msp" secondAttribute="trailing" constant="12" id="Qfa-w1-ujW"/>
                             <constraint firstItem="cqd-cV-t5Q" firstAttribute="leading" secondItem="sck-wT-6k2" secondAttribute="leading" id="S3Y-Az-wkc"/>
                             <constraint firstItem="Hte-2f-1KI" firstAttribute="leading" secondItem="cqd-cV-t5Q" secondAttribute="leading" id="bXN-rn-TUB"/>
                             <constraint firstItem="Hte-2f-1KI" firstAttribute="top" secondItem="cqd-cV-t5Q" secondAttribute="bottom" constant="10" id="llA-r2-BHu"/>

@@ -46,6 +46,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *yzTimeLabel;
 
 @property (strong, nonatomic) IBOutlet UIView *jgContainerView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *jgContainerHeightCons;
 @property (strong, nonatomic) IBOutlet UITextView *jgContentView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *jgContentViewHeight;
 @property (strong, nonatomic) IBOutlet UILabel *jgCompanyNameLabel;

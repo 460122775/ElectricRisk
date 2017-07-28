@@ -44,7 +44,7 @@
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"c_time"] doubleValue] / 1000.0)];
     NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtfrm setDateFormat:@"yyyy-MM-dd"];
     self.timeLabel.text = [dtfrm stringFromDate:date];
 }
 

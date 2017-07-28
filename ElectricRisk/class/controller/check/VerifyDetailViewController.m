@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtfrm setDateFormat:@"yyyy-MM-dd"];
     
     // Do any additional setup after loading the view.
     self.agreeContentTextView.layer.borderWidth = 1;
@@ -231,6 +231,7 @@
 -(void)initViewByDetailData
 {
     if (self.verifyDetailDataDic == nil) return;
+    float scale = ScreenHeight / 667.0;
     NSDictionary *bsDic = [self.verifyDetailDataDic objectForKey:@"bsxx"];
     if (bsDic != nil)
     {
@@ -259,10 +260,10 @@
             self.process_spImgView.image = [UIImage imageNamed:(currentLCValue > 0) ? @"31" : @"30"];
             if((right == ROLE_A || right == ROLE_5) && state != Check_State_No)
             {
-                self.agreeViewTopPadding.constant = 30;
+                self.agreeViewTopPadding.constant = 30 * scale;
                 isShowAgreeView = YES;
             }else{
-                self.agreeViewTopPadding.constant = -30;
+                self.agreeViewTopPadding.constant = -30 * scale;
             }
         }else{
             if (currentLCValue > 1 || state == Check_State_No)
@@ -290,7 +291,7 @@
             self.process_yzImgView.image = [UIImage imageNamed:(currentLCValue > 1) ? @"41" : @"40"];
             if ((currentLCValue > 0) && (right == ROLE_A || right == ROLE_4) && state != Check_State_No)
             {
-                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30;
+                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30 * scale;
                 isShowAgreeView = YES;
             }
         }else{
@@ -321,7 +322,7 @@
             self.process_jgImgView.image = [UIImage imageNamed:(currentLCValue > 2) ? @"51" : @"50"];
             if ((currentLCValue > 1) && (right == ROLE_A || right == ROLE_8) && state != Check_State_No)
             {
-                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30;
+                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30 * scale;
                 isShowAgreeView = YES;
             }
         }else{
@@ -329,14 +330,15 @@
             {
                 self.jgContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            (jg_yj == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
-                                           [spDic objectForKey:@"jg_content"]];
+                                           ([spDic objectForKey:@"jg_content"] == nil) ? @"" : [spDic objectForKey:@"jg_content"]];
                 self.jgContentViewHeight.constant = self.jgContentView.contentSize.height;
                 self.jgCompanyNameLabel.text = [spDic objectForKey:@"jg_name"];
                 NSDate *jgDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[spDic objectForKey:@"jg_time"] doubleValue] / 1000.0)];
                 self.jgTimeLabel.text = [dtfrm stringFromDate:jgDate];
                 
                 self.process_jgImgView.image = [UIImage imageNamed:@"51"];
-                self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerView.frame.size.height;
+                self.jgContainerHeightCons.constant = self.jgTimeLabel.frame.origin.y + self.jgTimeLabel.frame.size.height + 20 * scale;
+                self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerHeightCons.constant + 30 * scale;
                 isShowAgreeView = NO;
             }
         }
@@ -358,7 +360,7 @@
             self.checkContainerHeight.constant = agreeViewHeight;
         }else{
             agreeViewHeight = 0;
-            self.checkContainerHeight.constant = self.agreeViewTopPadding.constant + 30;
+            self.checkContainerHeight.constant = self.agreeViewTopPadding.constant + 30 * scale;
         }
     }
 }

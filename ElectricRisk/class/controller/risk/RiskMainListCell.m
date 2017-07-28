@@ -24,7 +24,7 @@
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.dataDic objectForKey:@"time"] doubleValue] / 1000.0)];
     NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtfrm setDateFormat:@"yyyy-MM-dd"];
     self.timeLabel.text = [dtfrm stringFromDate:date];
     int isActive = [(NSNumber*)[self.dataDic objectForKey:@"is_active"] intValue];
     if (isActive == Active_State_Normal)

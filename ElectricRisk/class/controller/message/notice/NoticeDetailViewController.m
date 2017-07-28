@@ -277,7 +277,7 @@
     if(self.noticeTitleLabel == nil) return;
     [self.commentView setHidden:!(self.canReply)];
     NSDateFormatter *dtfrm = [[NSDateFormatter alloc] init];
-    [dtfrm setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dtfrm setDateFormat:@"yyyy-MM-dd"];
     
     self.noticeTitleLabel.text = [self.noticeDataDic objectForKey:@"title"];
     NSDate *timeDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[self.noticeDataDic objectForKey:@"publish_date"] doubleValue] / 1000.0)];
