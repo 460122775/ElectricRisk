@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.personInfoWebView.delegate = self;
+    self.sgpersonInfoWebView.delegate = self;
+    self.jlPersonInfoWebView.delegate = self;
+    self.yzPersonInfoWebView.delegate = self;
     self.executiveInfoWebView.delegate = self;
     self.repairInfoWebView.delegate = self;
     self.processInfoWebView.delegate = self;
@@ -316,19 +318,44 @@
     {
         NSString *htmlString = @"";
         if([self.riskExecutiveDataDic objectForKey:@"yzOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"yzOnWork"]];
+        if (htmlString == nil || htmlString.length < 2)
+        {
+            self.yzPersonInfoContainerHeightCons.constant = 0;
+        }else{
+            [self.yzPersonInfoWebView loadHTMLString:htmlString baseURL:nil];
+        }
         if([self.riskExecutiveDataDic objectForKey:@"sgOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"sgOnWork"]];
+        if (htmlString == nil || htmlString.length < 2)
+        {
+            self.sgPersonInfoContainerHeightCons.constant = 0;
+        }else{
+            [self.sgpersonInfoWebView loadHTMLString:htmlString baseURL:nil];
+        }
         if([self.riskExecutiveDataDic objectForKey:@"jlOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"jlOnWork"]];
-        [self.executiveInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"working"] baseURL:[NSURL URLWithString:URL_SERVER]];
-        [self.personInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"yzOnWork"] baseURL:[NSURL URLWithString:URL_SERVER]];
-        [self.processInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"progress"] baseURL:[NSURL URLWithString:URL_SERVER]];
+        if (htmlString == nil || htmlString.length < 2)
+        {
+            self.jlPersonInfoContainerHeightCons.constant = 0;
+        }else{
+            [self.jlPersonInfoWebView loadHTMLString:htmlString baseURL:nil];
+        }
+        [self.executiveInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"working"] baseURL:nil];
+        [self.processInfoWebView loadHTMLString:(NSString *)[self.riskExecutiveDataDic objectForKey:@"progress"] baseURL:nil];
     }
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    if(webView == self.personInfoWebView)
+    float scale = ScreenHeight / 667;
+    if(webView == self.yzPersonInfoWebView)
     {
-        self.personInfoWebViewHeight.constant = self.personInfoWebView.scrollView.contentSize.height;
+        self.yzPersonInfoWebViewHeight.constant = self.yzPersonInfoWebView.scrollView.contentSize.height;
+        self.yzPersonInfoContainerHeightCons.constant = 30 * scale + self.yzPersonInfoWebViewHeight.constant;
+    }else if(webView == self.jlPersonInfoWebView){
+        self.jlPersonInfoWebViewHeight.constant = self.jlPersonInfoWebView.scrollView.contentSize.height;
+        self.jlPersonInfoContainerHeightCons.constant = 30 * scale + self.jlPersonInfoWebViewHeight.constant;
+    }else if(webView == self.sgpersonInfoWebView){
+        self.sgPersonInfoWebViewHeight.constant = self.sgpersonInfoWebView.scrollView.contentSize.height;
+        self.sgPersonInfoContainerHeightCons.constant = 30 * scale + self.sgPersonInfoWebViewHeight.constant;
     }else if(webView == self.executiveInfoWebView){
         self.executiveInfoWebViewHeight.constant = self.executiveInfoWebView.scrollView.contentSize.height;
     }else if(webView == self.repairInfoWebView){
@@ -342,6 +369,31 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
     DLog(@"ERROR>>>>>%@", error.description)
+    if (error.code == 101)
+    {
+        [[JTToast toastWithText:@"不可以在APP内部打开此链接" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    if(webView == self.yzPersonInfoWebView)
+    {
+        [[JTToast toastWithText:[NSString stringWithFormat:@"业主人员到岗情况加载失败(%ld)，请重试", (long)error.code]
+                  configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }else if(webView == self.jlPersonInfoWebView){
+        [[JTToast toastWithText:[NSString stringWithFormat:@"监理人员到岗情况加载失败(%ld)，请重试", (long)error.code]
+                  configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }else if(webView == self.sgpersonInfoWebView){
+        [[JTToast toastWithText:[NSString stringWithFormat:@"施工人员到岗情况加载失败(%ld)，请重试", (long)error.code]
+                  configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }else if(webView == self.executiveInfoWebView){
+        [[JTToast toastWithText:[NSString stringWithFormat:@"施工现场执行情况加载失败(%ld)，请重试", (long)error.code]
+                  configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }else if(webView == self.repairInfoWebView){
+        [[JTToast toastWithText:[NSString stringWithFormat:@"违章整改情况加载失败(%ld)，请重试", (long)error.code]
+                  configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }else if(webView == self.processInfoWebView){
+        [[JTToast toastWithText:[NSString stringWithFormat:@"施工进度信息加载失败(%ld)，请重试", (long)error.code]
+                  configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
 }
 
 - (IBAction)backBtnClick:(id)sender

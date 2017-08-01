@@ -30,8 +30,19 @@
 @property (strong, nonatomic) IBOutlet UILabel *endTimeLabel;
 @property (strong, nonatomic) IBOutlet UIButton *dateBtn;
 
-@property (strong, nonatomic) IBOutlet UIWebView *personInfoWebView;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *personInfoWebViewHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *sgPersonInfoContainerHeightCons;
+@property (strong, nonatomic) IBOutlet UIWebView *sgpersonInfoWebView;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *sgPersonInfoWebViewHeight;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *jlPersonInfoContainerHeightCons;
+@property (strong, nonatomic) IBOutlet UIWebView *jlPersonInfoWebView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *jlPersonInfoWebViewHeight;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *yzPersonInfoContainerHeightCons;
+@property (strong, nonatomic) IBOutlet UIWebView *yzPersonInfoWebView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *yzPersonInfoWebViewHeight;
+
 @property (strong, nonatomic) IBOutlet UIWebView *executiveInfoWebView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *executiveInfoWebViewHeight;
 @property (strong, nonatomic) IBOutlet UIWebView *repairInfoWebView;
