@@ -15,7 +15,7 @@
 
 @protocol RiskAddDelegate <NSObject>
 
--(void)riskExecutiveInfoAddSuccess;
+-(void)riskExecutiveInfoAddSuccessWithProcess:(float)process;
 
 @end
 
@@ -30,6 +30,7 @@
     NSLayoutConstraint *currentScrollViewHeight;
     UIScrollView *currentScrollView;
     UIImage *currentImage;
+    float currentProcess;
 }
 
 @property (strong, nonatomic) NSDictionary *riskDataDic;
@@ -89,6 +90,6 @@
 - (IBAction)backBtnClick:(id)sender;
 - (IBAction)finishBtnClick:(id)sender;
 
-- (void)initViewWithRisk:(NSDictionary*)riskDataDic andDetail:(NSDictionary*) riskDetailDic;
+- (void)initViewWithRisk:(NSDictionary*)riskDataDic andDetail:(NSDictionary*) riskDetailDic andProcess:(float)process;
 
 @end

@@ -266,8 +266,8 @@
                 self.agreeViewTopPadding.constant = -30 * scale;
             }
         }else{
-            if (currentLCValue > 1 || state == Check_State_No)
-            {
+//            if (currentLCValue > 1 || state == Check_State_No)
+//            {
                 self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            ([(NSNumber*)[spDic objectForKey:@"jl_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
                                            [spDic objectForKey:@"jl_content"]];
@@ -277,9 +277,9 @@
                 self.spTimeLabel.text = [dtfrm stringFromDate:spDate];
                 
                 self.process_spImgView.image = [UIImage imageNamed:@"31"];
-                self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height;
+                self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height + 30 * scale;
                 isShowAgreeView = NO;
-            }
+//            }
         }
         int yz_yj = 0;
         if ([spDic objectForKey:@"yz_yj"] != nil)
@@ -291,12 +291,12 @@
             self.process_yzImgView.image = [UIImage imageNamed:(currentLCValue > 1) ? @"41" : @"40"];
             if ((currentLCValue > 0) && (right == ROLE_A || right == ROLE_4) && state != Check_State_No)
             {
-                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30 * scale;
+                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 40 * scale;
                 isShowAgreeView = YES;
             }
         }else{
-            if (currentLCValue > 2 || state == Check_State_No)
-            {
+//            if (currentLCValue > 2 || state == Check_State_No)
+//            {
                 self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            ([(NSNumber*)[spDic objectForKey:@"yz_yj"] intValue] == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
                                            [spDic objectForKey:@"yz_content"]];
@@ -306,9 +306,9 @@
                 self.yzTimeLabel.text = [dtfrm stringFromDate:yzDate];
                 
                 self.process_yzImgView.image = [UIImage imageNamed:@"41"];
-                self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height;
+                self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height + 30 * scale;
                 isShowAgreeView = NO;
-            }
+//            }
         }
         
         int jg_yj = 0;
@@ -322,12 +322,14 @@
             self.process_jgImgView.image = [UIImage imageNamed:(currentLCValue > 2) ? @"51" : @"50"];
             if ((currentLCValue > 1) && (right == ROLE_A || right == ROLE_8) && state != Check_State_No)
             {
-                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 30 * scale;
+                self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 40 * scale;
+                self.agreeContentTextView.frame = CGRectMake(self.agreeContentTextView.frame.origin.x, self.agreeContentTextView.frame.origin.y
+                                                             , self.agreeContentTextView.frame.size.width, 0);
                 isShowAgreeView = YES;
             }
         }else{
-            if (currentLCValue > 3 || state == Check_State_No)
-            {
+//            if (currentLCValue > 3 || state == Check_State_No)
+//            {
                 self.jgContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            (jg_yj == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
                                            ([spDic objectForKey:@"jg_content"] == nil) ? @"" : [spDic objectForKey:@"jg_content"]];
@@ -337,10 +339,10 @@
                 self.jgTimeLabel.text = [dtfrm stringFromDate:jgDate];
                 
                 self.process_jgImgView.image = [UIImage imageNamed:@"51"];
-                self.jgContainerHeightCons.constant = self.jgTimeLabel.frame.origin.y + self.jgTimeLabel.frame.size.height + 20 * scale;
+                self.jgContainerHeightCons.constant = self.jgTimeLabel.frame.origin.y + self.jgTimeLabel.frame.size.height + 30 * scale;
                 self.agreeViewTopPadding.constant = self.jgContainerView.frame.origin.y + self.jgContainerHeightCons.constant + 30 * scale;
                 isShowAgreeView = NO;
-            }
+//            }
         }
         
         if (currentLCValue >= 4)

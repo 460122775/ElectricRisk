@@ -14,6 +14,7 @@
 @interface RiskDetailViewController : UIViewController<UIWebViewDelegate, RiskExecutiveTimeChooseDelegate, RiskAddDelegate>{
     NSDateFormatter *dtfrm;
     MBProgressHUD *HUD;
+    float currentProcess;
 }
 
 @property (strong, nonatomic) NSDictionary *riskDataDic;

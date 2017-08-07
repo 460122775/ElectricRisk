@@ -44,7 +44,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self initViewWithRisk:self.riskDataDic andDetail:self.riskDetailDataDic];
+    [self initViewWithRisk:self.riskDataDic andDetail:self.riskDetailDataDic andProcess:currentProcess];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
@@ -68,8 +68,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)initViewWithRisk:(NSDictionary*)riskDataDic andDetail:(NSDictionary*) riskDetailDic
+- (void)initViewWithRisk:(NSDictionary*)riskDataDic andDetail:(NSDictionary*) riskDetailDic andProcess:(float)process
 {
+    currentProcess = process;
     self.riskDataDic = riskDataDic;
     self.riskDetailDataDic = riskDetailDic;
     if (self.addressLabel == nil) return;
@@ -94,7 +95,7 @@
     {
         [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (self.delegate != nil) [self.delegate riskExecutiveInfoAddSuccess];
+            if (self.delegate != nil) [self.delegate riskExecutiveInfoAddSuccessWithProcess:[(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue]];
             [self dismissViewControllerAnimated:YES completion:nil];
         });
     }else{
@@ -157,7 +158,12 @@
         {
             [[JTToast toastWithText:@"提交成功" configuration:[JTToastConfiguration defaultConfiguration]]show];
             dispatch_async(dispatch_get_main_queue(), ^{
-                if (self.delegate != nil) [self.delegate riskExecutiveInfoAddSuccess];
+                if (self.sgProcessInput.text == nil || self.sgProcessInput.text.length == 0)
+                {
+                    [self.delegate riskExecutiveInfoAddSuccessWithProcess:[(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue]];
+                }else{
+                    if (self.delegate != nil) [self.delegate riskExecutiveInfoAddSuccessWithProcess:[self.sgProcessInput.text floatValue]];
+                }
                 [self dismissViewControllerAnimated:YES completion:nil];
             });
         }else{
@@ -460,12 +466,12 @@
         NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
         BOOL isMatch = [pred evaluateWithObject:self.sgProcessInput.text];
         int proccess = [self.sgProcessInput.text intValue];
-        int currentProccess = [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] intValue];
+//        int currentProccess = [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] intValue];
         if (!isMatch || proccess > 100)
         {
             [[JTToast toastWithText:@"施工进度填写错误" configuration:[JTToastConfiguration defaultConfiguration]]show];
             return;
-        }else if (proccess < currentProccess){
+        }else if (proccess < currentProcess){
             [[JTToast toastWithText:@"进度值应大于已完成进度" configuration:[JTToastConfiguration defaultConfiguration]]show];
             return;
         }

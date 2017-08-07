@@ -268,8 +268,8 @@
             }
         }else{
             // 施工阶段，允许监理操作
-            if (currentLCValue >= 0 || state == Check_State_No)
-            {
+//            if (currentLCValue >= 0 || state == Check_State_No)
+//            {
                 self.spContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            (jl_yj == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
                                            [spDic objectForKey:@"jl_content"]];
@@ -281,7 +281,7 @@
                 self.process_spImgView.image = [UIImage imageNamed:@"31"];
                 self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height;
                 isShowAgreeView = NO;
-            }
+//            }
         }
 //        // 施工阶段，允许监理操作
 //        if (currentLCValue >= 0)
@@ -322,8 +322,8 @@
             }
         }else{
             // 监理阶段，允许业主操作
-            if (currentLCValue > 2)
-            {
+//            if (currentLCValue > 2)
+//            {
                 self.yzContentView.text = [NSString stringWithFormat:@"%@\n%@",
                                            (yz_yj == CHECKSTATE_AGREE) ? @"同意" : @"不同意",
                                            [spDic objectForKey:@"yz_content"]];
@@ -335,7 +335,7 @@
                 self.process_yzImgView.image = [UIImage imageNamed:@"41"];
                 self.agreeViewTopPadding.constant = self.yzContainerView.frame.origin.y + self.yzContainerView.frame.size.height + 30;
                 isShowAgreeView = NO;
-            }
+//            }
         }
 //        // 监理阶段，允许业主操作
 //        if (currentLCValue > 2)

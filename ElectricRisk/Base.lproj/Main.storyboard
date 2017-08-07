@@ -4161,13 +4161,13 @@
                                                 <rect key="frame" x="8" y="216" width="359" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="施工人员到岗情况：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gd-oq-UkM">
-                                                        <rect key="frame" x="12" y="0.0" width="119.5" height="21"/>
+                                                        <rect key="frame" x="12" y="0.0" width="138" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="102" id="cjO-1K-ulY"/>
                                                             <constraint firstAttribute="height" constant="21" id="hTE-54-6u0"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                        <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="default">
                                                             <mask key="constraints">
@@ -4176,7 +4176,7 @@
                                                         </variation>
                                                     </label>
                                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FhR-X2-ZN4">
-                                                        <rect key="frame" x="0.0" y="29" width="359" height="1"/>
+                                                        <rect key="frame" x="22" y="29" width="315" height="1"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="PPv-bw-J82"/>
@@ -4187,7 +4187,7 @@
                                                 <constraints>
                                                     <constraint firstItem="FhR-X2-ZN4" firstAttribute="centerX" secondItem="5yN-q5-a6A" secondAttribute="centerX" id="BSH-W2-r13"/>
                                                     <constraint firstAttribute="bottom" secondItem="FhR-X2-ZN4" secondAttribute="bottom" id="Cqx-e6-2R8"/>
-                                                    <constraint firstItem="FhR-X2-ZN4" firstAttribute="width" secondItem="5yN-q5-a6A" secondAttribute="width" id="IN1-4o-9X3"/>
+                                                    <constraint firstItem="FhR-X2-ZN4" firstAttribute="leading" secondItem="8gd-oq-UkM" secondAttribute="leading" constant="10" id="KVU-Nm-YDT"/>
                                                     <constraint firstAttribute="height" constant="30" id="cIX-ly-pgo"/>
                                                     <constraint firstItem="FhR-X2-ZN4" firstAttribute="top" secondItem="8gd-oq-UkM" secondAttribute="bottom" constant="8" id="hQZ-WU-OR8"/>
                                                     <constraint firstItem="8gd-oq-UkM" firstAttribute="leading" secondItem="5yN-q5-a6A" secondAttribute="leading" constant="12" id="p8t-Ai-XCJ"/>
@@ -4198,13 +4198,13 @@
                                                 <rect key="frame" x="8" y="254" width="359" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="监理人员到岗情况：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWg-kE-DII">
-                                                        <rect key="frame" x="12" y="0.0" width="119.5" height="21"/>
+                                                        <rect key="frame" x="12" y="0.0" width="138" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="EXw-NV-lng"/>
                                                             <constraint firstAttribute="width" constant="102" id="wl8-CX-zqu"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="default">
                                                             <mask key="constraints">
@@ -4213,7 +4213,7 @@
                                                         </variation>
                                                     </label>
                                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfk-FH-LUl">
-                                                        <rect key="frame" x="0.0" y="29" width="359" height="1"/>
+                                                        <rect key="frame" x="22" y="29" width="315" height="1"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="aQT-0y-KHS"/>
@@ -4226,8 +4226,8 @@
                                                     <constraint firstItem="kWg-kE-DII" firstAttribute="top" secondItem="hfg-hi-OHy" secondAttribute="top" id="BVF-rm-lHP"/>
                                                     <constraint firstItem="kWg-kE-DII" firstAttribute="leading" secondItem="hfg-hi-OHy" secondAttribute="leading" constant="12" id="GY4-8L-ccJ"/>
                                                     <constraint firstAttribute="bottom" secondItem="sfk-FH-LUl" secondAttribute="bottom" id="Igf-TO-6VB"/>
-                                                    <constraint firstItem="sfk-FH-LUl" firstAttribute="width" secondItem="hfg-hi-OHy" secondAttribute="width" id="Kp9-jb-LeK"/>
                                                     <constraint firstItem="sfk-FH-LUl" firstAttribute="centerX" secondItem="hfg-hi-OHy" secondAttribute="centerX" id="OcD-CD-WWz"/>
+                                                    <constraint firstItem="sfk-FH-LUl" firstAttribute="leading" secondItem="kWg-kE-DII" secondAttribute="leading" constant="10" id="nLl-j2-nOd"/>
                                                     <constraint firstItem="sfk-FH-LUl" firstAttribute="top" secondItem="kWg-kE-DII" secondAttribute="bottom" constant="8" id="uLF-lH-Jyq"/>
                                                 </constraints>
                                             </view>
@@ -4235,13 +4235,13 @@
                                                 <rect key="frame" x="8" y="290" width="359" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="业主人员到岗情况：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqK-Hb-q80">
-                                                        <rect key="frame" x="12" y="0.0" width="119.5" height="21"/>
+                                                        <rect key="frame" x="12" y="0.0" width="138" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="102" id="rTI-CM-LYY"/>
                                                             <constraint firstAttribute="height" constant="21" id="rbl-ef-DKt"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <variation key="default">
                                                             <mask key="constraints">
@@ -4250,7 +4250,7 @@
                                                         </variation>
                                                     </label>
                                                     <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vpf-EC-rzo">
-                                                        <rect key="frame" x="0.0" y="29" width="359" height="1"/>
+                                                        <rect key="frame" x="22" y="29" width="315" height="1"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="KiI-rA-6GI"/>
@@ -4264,7 +4264,7 @@
                                                     <constraint firstItem="Vpf-EC-rzo" firstAttribute="top" secondItem="DqK-Hb-q80" secondAttribute="bottom" constant="8" id="OMV-XW-OLF"/>
                                                     <constraint firstItem="Vpf-EC-rzo" firstAttribute="centerX" secondItem="hmt-wP-k2e" secondAttribute="centerX" id="PYS-rI-VGK"/>
                                                     <constraint firstAttribute="bottom" secondItem="Vpf-EC-rzo" secondAttribute="bottom" id="VtI-GW-laB"/>
-                                                    <constraint firstItem="Vpf-EC-rzo" firstAttribute="width" secondItem="hmt-wP-k2e" secondAttribute="width" id="jog-Rc-Kqa"/>
+                                                    <constraint firstItem="Vpf-EC-rzo" firstAttribute="leading" secondItem="DqK-Hb-q80" secondAttribute="leading" constant="10" id="qaK-tQ-iFP"/>
                                                     <constraint firstAttribute="height" constant="30" id="s71-ES-TUF"/>
                                                 </constraints>
                                             </view>

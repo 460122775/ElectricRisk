@@ -33,12 +33,12 @@
     [super viewWillAppear:animated];
     [self.writeBtn setHidden:![self getRight:self.writeBtn]];
     [self.stopBtn setHidden:![self getRight:self.stopBtn]];
+    [self initViewWithData:self.riskDataDic];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self initViewWithData:self.riskDataDic];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +72,7 @@
 
 - (void)initViewWithData:(NSDictionary*)dataDic
 {
+    if(self.riskDataDic != dataDic) currentProcess = [(NSNumber*)[dataDic objectForKey:@"schedule"] floatValue];
     self.riskDataDic = dataDic;
     if (self.addressLabel == nil) return;
     if (OFFLINE)
@@ -302,10 +303,10 @@
     }else{
         NSDate *executiveTimeDate = [NSDate dateWithTimeIntervalSince1970:([(NSNumber*)[(NSDictionary*)[self.riskExecutiveTimeArray objectAtIndex:0] objectForKey:@"creat_time"] doubleValue] / 1000.0)];
         [self.dateBtn setTitle:[[[dtfrm stringFromDate:executiveTimeDate] componentsSeparatedByString:@" "] objectAtIndex:0] forState:UIControlStateNormal];
-        [self timeChooseControl:[(NSNumber*)[(NSDictionary*)[self.riskExecutiveTimeArray objectAtIndex:0] objectForKey:@"creat_time"] doubleValue]];
+        [self timeChooseControl:[(NSNumber*)[(NSDictionary*)[self.riskExecutiveTimeArray lastObject] objectForKey:@"creat_time"] doubleValue]];
     }
-    self.sgProcessLabel.text = [NSString stringWithFormat:@"%.0f%%", [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue]];
-    [self.sgProcessView setProgress: [(NSNumber*)[self.riskDataDic objectForKey:@"schedule"] floatValue] / 100.0];
+    self.sgProcessLabel.text = [NSString stringWithFormat:@"%.0f%%", currentProcess];
+    [self.sgProcessView setProgress: currentProcess / 100.0];
 }
 
 -(void)initViewByExecutiveData
@@ -320,21 +321,24 @@
         if([self.riskExecutiveDataDic objectForKey:@"yzOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"yzOnWork"]];
         if (htmlString == nil || htmlString.length < 2)
         {
-            self.yzPersonInfoContainerHeightCons.constant = 0;
+//            self.yzPersonInfoContainerHeightCons.constant = 0;
+            [self.yzPersonInfoWebView loadHTMLString:@"暂无情况。" baseURL:nil];
         }else{
             [self.yzPersonInfoWebView loadHTMLString:htmlString baseURL:nil];
         }
         if([self.riskExecutiveDataDic objectForKey:@"sgOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"sgOnWork"]];
         if (htmlString == nil || htmlString.length < 2)
         {
-            self.sgPersonInfoContainerHeightCons.constant = 0;
+//            self.sgPersonInfoContainerHeightCons.constant = 0;
+            [self.sgpersonInfoWebView loadHTMLString:@"暂无情况。" baseURL:nil];
         }else{
             [self.sgpersonInfoWebView loadHTMLString:htmlString baseURL:nil];
         }
         if([self.riskExecutiveDataDic objectForKey:@"jlOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"jlOnWork"]];
         if (htmlString == nil || htmlString.length < 2)
         {
-            self.jlPersonInfoContainerHeightCons.constant = 0;
+//            self.jlPersonInfoContainerHeightCons.constant = 0;
+            [self.jlPersonInfoWebView loadHTMLString:@"暂无情况。" baseURL:nil];
         }else{
             [self.jlPersonInfoWebView loadHTMLString:htmlString baseURL:nil];
         }
@@ -468,13 +472,14 @@
     {
         RiskAddViewController *riskAddViewController = [segue destinationViewController];
         riskAddViewController.delegate = self;
-        [riskAddViewController initViewWithRisk:self.riskDataDic andDetail:self.riskDetailDataDic];
+        [riskAddViewController initViewWithRisk:self.riskDataDic andDetail:self.riskDetailDataDic andProcess:currentProcess];
     }
 }
 
--(void)riskExecutiveInfoAddSuccess
+-(void)riskExecutiveInfoAddSuccessWithProcess:(float)process
 {
     [self initViewWithData:self.riskDataDic];
+    currentProcess = process;
 }
 
 @end
