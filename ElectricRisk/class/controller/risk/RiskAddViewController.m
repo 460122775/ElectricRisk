@@ -408,7 +408,18 @@
     {
         [self testImgUploadData];
     }else{
-        [self requestImgUploadData: UIImageJPEGRepresentation(currentImage, 0)];
+        CGFloat compression = 0.9f;
+        CGFloat maxCompression = 0.1f;
+        int maxFileSize = 1334*750*0.6;
+        
+        NSData *imageData = UIImageJPEGRepresentation(currentImage, compression);
+        
+        while ([imageData length] > maxFileSize && compression > maxCompression)
+        {
+            compression -= 0.1;
+            imageData = UIImageJPEGRepresentation(currentImage, compression);
+        }
+        [self requestImgUploadData: imageData];
     }
     [imagePickerController.view removeFromSuperview];
 //    [picker dismissViewControllerAnimated:YES completion:nil];

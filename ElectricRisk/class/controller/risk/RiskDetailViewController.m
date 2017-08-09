@@ -326,6 +326,7 @@
         }else{
             [self.yzPersonInfoWebView loadHTMLString:htmlString baseURL:nil];
         }
+        htmlString = @"";
         if([self.riskExecutiveDataDic objectForKey:@"sgOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"sgOnWork"]];
         if (htmlString == nil || htmlString.length < 2)
         {
@@ -334,6 +335,7 @@
         }else{
             [self.sgpersonInfoWebView loadHTMLString:htmlString baseURL:nil];
         }
+        htmlString = @"";
         if([self.riskExecutiveDataDic objectForKey:@"jlOnWork"] != nil) htmlString = [htmlString stringByAppendingString:[self.riskExecutiveDataDic objectForKey:@"jlOnWork"]];
         if (htmlString == nil || htmlString.length < 2)
         {

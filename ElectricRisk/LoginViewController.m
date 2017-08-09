@@ -105,11 +105,11 @@
 - (IBAction)loginBtnClick:(id)sender
 {
     // Auto fill.
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserName"] != nil)
+    if ((self.nameTF.text == nil || self.nameTF.text.length == 0) && [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserName"] != nil)
     {
         self.nameTF.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserName"];
     }
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserPwd"] != nil)
+    if ((self.pwdTF.text == nil || self.pwdTF.text.length == 0) && [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserPwd"] != nil)
     {
         self.pwdTF.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentUserPwd"];
     }

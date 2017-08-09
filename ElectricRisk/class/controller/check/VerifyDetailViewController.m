@@ -277,7 +277,7 @@
                 self.spTimeLabel.text = [dtfrm stringFromDate:spDate];
                 
                 self.process_spImgView.image = [UIImage imageNamed:@"31"];
-                self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height + 30 * scale;
+                self.agreeViewTopPadding.constant = self.spContainerView.frame.origin.y + self.spContainerView.frame.size.height;
                 isShowAgreeView = NO;
 //            }
         }
@@ -362,7 +362,7 @@
             self.checkContainerHeight.constant = agreeViewHeight;
         }else{
             agreeViewHeight = 0;
-            self.checkContainerHeight.constant = self.agreeViewTopPadding.constant + 30 * scale;
+            self.checkContainerHeight.constant = self.agreeViewTopPadding.constant;
         }
     }
 }

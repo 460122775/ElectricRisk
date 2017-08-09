@@ -22,11 +22,11 @@
     NSString *nickName = [self.dataDic objectForKey:@"nickname"];
     if (nickName != nil && nickName.length > 0)
     {
-        self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"content"], [self.dataDic objectForKey:@"nickname"]];
+        self.titleLabel.text = [NSString stringWithFormat:@"%@(%@)", [self.dataDic objectForKey:@"name"], nickName];
     }else{
-        self.titleLabel.text = [NSString stringWithFormat:@"%@（%@）", [self.dataDic objectForKey:@"content"], [self.dataDic objectForKey:@"user_name"]];
+        self.titleLabel.text = [NSString stringWithFormat:@"%@(%@)", [self.dataDic objectForKey:@"name"], [self.dataDic objectForKey:@"user_name"]];
     }
-    self.contentLabel.text = [self.dataDic objectForKey:@"name"];
+    self.contentLabel.text = [self.dataDic objectForKey:@"content"];
     self.addressLabel.text = [self.dataDic objectForKey:@"state_name"];
 //    int checkState = [(NSNumber*)[self.dataDic objectForKey:@"state"] intValue];
 //    switch (checkState)
