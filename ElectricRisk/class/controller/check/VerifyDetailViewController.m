@@ -261,6 +261,7 @@
             if((right == ROLE_A || right == ROLE_5) && state != Check_State_No)
             {
                 self.agreeViewTopPadding.constant = 30 * scale;
+                [self.agreeContentTextView setHidden:NO];
                 isShowAgreeView = YES;
             }else{
                 self.agreeViewTopPadding.constant = -30 * scale;
@@ -292,6 +293,7 @@
             if ((currentLCValue > 0) && (right == ROLE_A || right == ROLE_4) && state != Check_State_No)
             {
                 self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 40 * scale;
+                [self.agreeContentTextView setHidden:NO];
                 isShowAgreeView = YES;
             }
         }else{
@@ -323,8 +325,7 @@
             if ((currentLCValue > 1) && (right == ROLE_A || right == ROLE_8) && state != Check_State_No)
             {
                 self.agreeViewTopPadding.constant = self.agreeViewTopPadding.constant + 40 * scale;
-                self.agreeContentTextView.frame = CGRectMake(self.agreeContentTextView.frame.origin.x, self.agreeContentTextView.frame.origin.y
-                                                             , self.agreeContentTextView.frame.size.width, 0);
+                [self.agreeContentTextView setHidden:YES];
                 isShowAgreeView = YES;
             }
         }else{
