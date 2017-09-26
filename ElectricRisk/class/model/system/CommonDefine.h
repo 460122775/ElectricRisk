@@ -10,8 +10,8 @@
 #define CommonDefine_h
 
 #define OFFLINE NO // YES or NO, YES for test.
-#define CodingKey @"DLJIJIAN"   //密钥
-#define CodingOffset @"01234567"//偏移量
+#define CodingKey @"Cuit#@1234567890"   //密钥
+#define CodingOffset @"1234567890123456"//偏移量
 
 //#define URL_SERVER @"http://192.168.2.204:8080/jj"
 //#define URL_SOCKET @"192.168.2.204"

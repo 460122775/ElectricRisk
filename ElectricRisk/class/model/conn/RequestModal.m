@@ -56,9 +56,11 @@ static NSString *userid;
     NSError * err;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:paramDic options:0 error:&err];
     NSString * paramString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    param = @{@"data":[MMDesManager getEncryptWithString:paramString keyString:CodingKey ivString:CodingKey]};
-    DLog(@"%@?data=%@",path,[MMDesManager getEncryptWithString:paramString keyString:CodingKey ivString:CodingKey])
-    
+//    paramString = [paramString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    param = @{@"data":[MMDesManager AES128Encrypt:paramString]};
+    DLog(@"%@?data=%@",path,[MMDesManager AES128Encrypt:paramString])
+    DLog(@"%@?data=%@",path,[MMDesManager AES128Encrypt:@"abcd"])
+    DLog(@"%@?data=%@",path,[MMDesManager AES128Decrypt:[MMDesManager AES128Encrypt:@"abcd"]])
     // Do POST.
     if(methed == HTTP_METHED_POST)
     {
@@ -92,7 +94,7 @@ static NSString *userid;
     {
         [formData appendPartWithFileData:imageData name:@"upfile" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
     } success:^(NSURLSessionDataTask *operation, id responseObject) {
-        NSString  *rsString = [MMDesManager getDecryptWithString:[[NSString alloc] initWithData:(NSData*)(responseObject) encoding:NSUTF8StringEncoding] keyString:CodingKey ivString:CodingKey];
+        NSString  *rsString = [MMDesManager AES128Decrypt:[[NSString alloc] initWithData:(NSData*)(responseObject) encoding:NSUTF8StringEncoding]];
         if(responseObject != nil) successBlock([NSJSONSerialization JSONObjectWithData:[rsString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failedBlock(nil);
@@ -103,8 +105,8 @@ static NSString *userid;
 
 +(void)responseSuccessHandler:(NSURLSessionTask*) operation responseObject:(id) _responseObject parameter:(NSDictionary *)param content:(NSString*) _contentStr path:(NSString*) _path returnBlock:(void(^)(id responseData)) _returnBlock
 {
-    NSString  *rsString = [MMDesManager getDecryptWithString:[[NSString alloc] initWithData:(NSData*)(_responseObject) encoding:NSUTF8StringEncoding] keyString:CodingKey ivString:CodingKey];
-    if(_returnBlock != nil) _returnBlock([NSJSONSerialization JSONObjectWithData:[rsString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
+    NSString  *rsString = [MMDesManager AES128Decrypt:[[NSString alloc] initWithData:(NSData*)(_responseObject) encoding:NSUTF8StringEncoding]];
+    if(_returnBlock != nil && rsString != nil) _returnBlock([NSJSONSerialization JSONObjectWithData:[rsString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
 }
 
 +(void)responseFailureHandler:(NSURLSessionTask*) operation andError:(NSError*) error content:(NSString*) _contentStr path:(NSString*) _path param:(NSDictionary*)parameters returnBlock:(void(^)(id responseData)) _returnBlock

@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface MMDesManager : NSObject
+
++ (NSString *)AES128Encrypt:(NSString *)content;
+//解密
++ (NSString *)AES128Decrypt:(NSString *)content;
+
+
 /**
  *  3des加密
  *
