@@ -164,6 +164,7 @@
             [SystemConfig instance].currentUserName = self.nameTF.text;
             [SystemConfig instance].currentUserPwd = self.pwdTF.text;
             [SystemConfig instance].currentUserId = [userData objectForKey:@"user_id"];
+            [SystemConfig instance].currentUserToken = [result objectForKey:@"token"];
             [RequestModal setUserId:[userData objectForKey:@"user_id"]];
             [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[SystemConfig instance].currentUserRole] forKey:@"currentUserRole"];
             [[NSUserDefaults standardUserDefaults] setObject:[SystemConfig instance].currentUserId forKey:@"currentUserId"];

@@ -11,12 +11,12 @@
 
 #define OFFLINE NO // YES or NO, YES for test.
 #define CodingKey @"Cuit#@1234567890"   //密钥
-#define CodingOffset @"1234567890123456"//偏移量
+#define CodingOffset @"@23456Ak9012345!"//偏移量
 
 //#define URL_SERVER @"http://192.168.2.204:8080/jj"
 //#define URL_SOCKET @"192.168.2.204"
 
-#define URL_SERVER @"http://sctxy.kmdns.net:1111/jj"
+#define URL_SERVER @"http://sctxy.kmdns.net:1112/jj"
 #define URL_SOCKET @"http://sctxy.kmdns.net"
 
 #define PORT_SOCKET 3322

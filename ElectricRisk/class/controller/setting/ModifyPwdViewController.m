@@ -37,21 +37,27 @@
 
 - (IBAction)saveBtnClick:(id)sender
 {
-    if (self.oldPwdTextField.text == nil || self.oldPwdTextField.text.length < 6)
+    if (self.oldPwdTextField.text == nil || self.oldPwdTextField.text.length < 8)
     {
         [[JTToast toastWithText:@"原始密码长度有误" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }
-    if (self.pwdNewTextField1.text == nil || self.pwdNewTextField1.text.length < 6)
-    {
-        [[JTToast toastWithText:@"新密码的长度至少为6位" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }else if (self.pwdNewTextField1.text == nil || self.pwdNewTextField1.text.length < 8 || self.pwdNewTextField1.text.length > 20){
+        [[JTToast toastWithText:@"新密码的长度应为8～20位之间" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }
-    if (self.pwdNewTextField2.text == nil || self.pwdNewTextField2.text.length < 6
+    }else if (self.pwdNewTextField2.text == nil || self.pwdNewTextField2.text.length < 8
         || ![self.pwdNewTextField1.text isEqualToString:self.pwdNewTextField2.text])
     {
         [[JTToast toastWithText:@"两次输入的新密码不一致" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
+    }else{
+        NSString *pattern =@"^(?!\d+$)(?![a-zA-Z]+$)(?![@#$%^&]+$)[\da-zA-Z@#$%^&]+$";
+        NSError *error = nil;
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
+        if ([regex matchesInString:self.pwdNewTextField1.text options:0 range:NSMakeRange(0, self.pwdNewTextField1.text.length)])
+        {
+            [[JTToast toastWithText:@"密码必须包含字母、数字、特殊符号." configuration:[JTToastConfiguration defaultConfiguration]]show];
+            return;
+        }
     }
     if (OFFLINE)
     {

@@ -51,16 +51,22 @@ static NSString *userid;
         paramDic = [[NSMutableDictionary alloc] initWithDictionary:param];
     }
     if (userid != nil && userid.length > 0) [paramDic setObject:userid forKey:@"userid"];
+    if ([SystemConfig instance].currentUserToken != nil && [SystemConfig instance].currentUserToken.length > 0)
+    {
+        [paramDic setObject:[SystemConfig instance].currentUserToken forKey:@"token"];
+    }
     
     // DES.
     NSError * err;
     NSData * jsonData = [NSJSONSerialization dataWithJSONObject:paramDic options:0 error:&err];
     NSString * paramString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//    paramString = [paramString stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-    param = @{@"data":[MMDesManager AES128Encrypt:paramString]};
-    DLog(@"%@?data=%@",path,[MMDesManager AES128Encrypt:paramString])
-    DLog(@"%@?data=%@",path,[MMDesManager AES128Encrypt:@"abcd"])
-    DLog(@"%@?data=%@",path,[MMDesManager AES128Decrypt:[MMDesManager AES128Encrypt:@"abcd"]])
+    DLog(@"Json后：data=%@",paramString)
+    paramString = [MMDesManager AES128Encrypt:paramString];
+    DLog(@"加密后：data=%@",paramString)
+    paramString = [RequestModal encodeToPercentEscapeString:paramString];
+    DLog(@"转码后：%@?data=%@",path,paramString)
+    param = @{@"data":paramString};
+
     // Do POST.
     if(methed == HTTP_METHED_POST)
     {
@@ -105,7 +111,9 @@ static NSString *userid;
 
 +(void)responseSuccessHandler:(NSURLSessionTask*) operation responseObject:(id) _responseObject parameter:(NSDictionary *)param content:(NSString*) _contentStr path:(NSString*) _path returnBlock:(void(^)(id responseData)) _returnBlock
 {
-    NSString  *rsString = [MMDesManager AES128Decrypt:[[NSString alloc] initWithData:(NSData*)(_responseObject) encoding:NSUTF8StringEncoding]];
+    NSString *content = [[NSString alloc] initWithData:(NSData*)(_responseObject) encoding:NSUTF8StringEncoding];
+    content = [RequestModal decodeFromPercentEscapeString:content];
+    NSString  *rsString = [MMDesManager AES128Decrypt:content];
     if(_returnBlock != nil && rsString != nil) _returnBlock([NSJSONSerialization JSONObjectWithData:[rsString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
 }
 
@@ -118,6 +126,30 @@ static NSString *userid;
         DLog(@"网络不给力，请稍后重试!");
     }
     if(_returnBlock != nil) _returnBlock(nil);
+}
+
++ (NSString *)encodeToPercentEscapeString: (NSString *) input
+{
+    if (input == nil || input.length == 0) return @"";
+    NSString *outputStr = (NSString *)
+    CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                              (CFStringRef)input,
+                                                              NULL,
+                                                              (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                              kCFStringEncodingUTF8));
+    return outputStr;
+}
+
++ (NSString *)decodeFromPercentEscapeString: (NSString *) input
+{
+    if (input == nil || input.length == 0) return @"";
+    NSMutableString *outputStr = [NSMutableString stringWithString:input];
+    [outputStr replaceOccurrencesOfString:@"+"
+                               withString:@" "
+                                  options:NSLiteralSearch
+                                    range:NSMakeRange(0, [outputStr length])];
+    
+    return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 @end
