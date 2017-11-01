@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ElectricRisk/AppDelegate.m"
-            timestampString = "528101293.095369"
+            timestampString = "528199528.683821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
@@ -42,7 +42,7 @@
                   moduleName = "ElectricRisk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yasinzhang/ElectricRisk/ElectricRisk/class/controller/setting/SettingViewController.m"
-                  timestampString = "528106733.151153"
+                  timestampString = "529842589.75643"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "119"
@@ -57,7 +57,7 @@
                   moduleName = "ElectricRisk"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yasinzhang/ElectricRisk/ElectricRisk/class/controller/setting/SettingViewController.m"
-                  timestampString = "528106733.153771"
+                  timestampString = "529842589.757947"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "120"
@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ElectricRisk/LoginViewController.m"
-            timestampString = "528081528.7412"
+            filePath = "ElectricRisk/class/controller/setting/ModifyPwdViewController.m"
+            timestampString = "528363949.817307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-login"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "-saveBtnClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,12 +90,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ElectricRisk/class/model/conn/RequestModal.m"
-            timestampString = "528106733.115088"
+            timestampString = "529842589.652241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "+responseFailureHandler:andError:content:path:param:returnBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/model/conn/RequestModal.m"
+            timestampString = "529842589.652653"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "+requestServer:Url:parameter:header:content:success:failed:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ElectricRisk/class/model/conn/RequestModal.m"
+            timestampString = "529842589.652942"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
+            landmarkName = "+extractIdentity:andTrust:fromPKCS12Data:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

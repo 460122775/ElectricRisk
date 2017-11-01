@@ -16,7 +16,7 @@ typedef enum
     HTTP_METHED_GET
 } HTTP_METHED;
 
-@interface RequestModal : NSObject
+@interface RequestModal : NSObject<NSURLConnectionDelegate>
 
 //@property(nonatomic,strong) NSString * code;
 //@property(nonatomic,strong) NSString *errorMessage;
@@ -30,5 +30,11 @@ typedef enum
              success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock;
 
 +(void)uploadPhoto:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSData *)imageData success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock;
+
+/**
+ 自定义证书安全策略
+ @return 返回自定义的证书安全策略
+ */
++ (AFSecurityPolicy*)customSecurityPolicy;
 
 @end

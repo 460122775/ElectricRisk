@@ -61,6 +61,8 @@
 		BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */; };
 		BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6941D7915D700E40A09 /* AboutUsViewController.m */; };
 		BA360DC41DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */; };
+		BA38D0FD1F94A62B004C81DE /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = BA38D0FB1F94A62B004C81DE /* client.p12 */; };
+		BA38D0FE1F94A62B004C81DE /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = BA38D0FC1F94A62B004C81DE /* server.cer */; };
 		BA3EFF4A1E94AC6700F2479D /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3EFF481E94AC6700F2479D /* AlertViewController.m */; };
 		BA3EFF4B1E94AC6700F2479D /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3EFF491E94AC6700F2479D /* AlertViewController.xib */; };
 		BA4B46FF1D8684F0009CA1F7 /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */; };
@@ -192,6 +194,8 @@
 		BA360DC21DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MBProgressHUDView.h"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.h"; sourceTree = "<group>"; };
 		BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
 		BA360DC61DC2399C00EFB07D /* ElectricRisk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ElectricRisk.entitlements; sourceTree = "<group>"; };
+		BA38D0FB1F94A62B004C81DE /* client.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.p12; sourceTree = "<group>"; };
+		BA38D0FC1F94A62B004C81DE /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
 		BA3EFF471E94AC6700F2479D /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertViewController.h; path = class/ThirdParty/AlertView/AlertViewController.h; sourceTree = "<group>"; };
 		BA3EFF481E94AC6700F2479D /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertViewController.m; path = class/ThirdParty/AlertView/AlertViewController.m; sourceTree = "<group>"; };
 		BA3EFF491E94AC6700F2479D /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlertViewController.xib; path = class/ThirdParty/AlertView/AlertViewController.xib; sourceTree = "<group>"; };
@@ -430,6 +434,8 @@
 		015259B01D70918F00AD3E67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BA38D0FB1F94A62B004C81DE /* client.p12 */,
+				BA38D0FC1F94A62B004C81DE /* server.cer */,
 				015259BC1D70918F00AD3E67 /* Assets.xcassets */,
 				015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */,
 				015259C11D70918F00AD3E67 /* Info.plist */,
@@ -779,9 +785,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				010A14631D7C71B60064AF63 /* RiskWrongListViewController.xib in Resources */,
+				BA38D0FD1F94A62B004C81DE /* client.p12 in Resources */,
 				010A145E1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib in Resources */,
 				015056831D78A3DF00C1F8D8 /* NoticeMainListCell.xib in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
+				BA38D0FE1F94A62B004C81DE /* server.cer in Resources */,
 				015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */,
 				014389011D855DA200099E86 /* WarnDetailViewController.xib in Resources */,
 				01FFB9AD1D80656500D844E9 /* RiskProjectChooseViewController.xib in Resources */,

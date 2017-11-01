@@ -16,8 +16,8 @@
 //#define URL_SERVER @"http://192.168.2.204:8080/jj"
 //#define URL_SOCKET @"192.168.2.204"
 
-#define URL_SERVER @"http://sctxy.kmdns.net:1112/jj"
-#define URL_SOCKET @"http://sctxy.kmdns.net"
+#define URL_SERVER @"https://sctxy.kmdns.net:1112/jj"
+#define URL_SOCKET @"https://sctxy.kmdns.net"
 
 #define PORT_SOCKET 3322
 
