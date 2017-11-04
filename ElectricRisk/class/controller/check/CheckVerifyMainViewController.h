@@ -12,8 +12,9 @@
 #import "CheckDetailViewController.h"
 #import "VerifyDetailViewController.h"
 #import "MJRefresh.h"
+#import "CommonVC.h"
 
-@interface CheckVerifyMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, MJRefreshBaseViewDelegate>{
+@interface CheckVerifyMainViewController :CommonVC<UITableViewDelegate, UITableViewDataSource, MJRefreshBaseViewDelegate>{
     BOOL isCheckList;
     MBProgressHUD *HUD;
     int currentPage;

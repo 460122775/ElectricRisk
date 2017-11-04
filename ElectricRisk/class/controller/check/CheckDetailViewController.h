@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
-@interface CheckDetailViewController : UIViewController<UITextViewDelegate>{
+@interface CheckDetailViewController :CommonVC <UITextViewDelegate>{
     MBProgressHUD *HUD;
     NSDateFormatter *dtfrm;
     int currentLCValue;

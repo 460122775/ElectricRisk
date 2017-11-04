@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
 @protocol NoticeAddDelegate <NSObject>
 
@@ -15,7 +16,7 @@
 
 @end
 
-@interface NoticeAddViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate>{
+@interface NoticeAddViewController : CommonVC<UITextFieldDelegate, UITextViewDelegate>{
     MBProgressHUD *HUD;
     BOOL isOnlySave;
     int currentKeyboardHeight;

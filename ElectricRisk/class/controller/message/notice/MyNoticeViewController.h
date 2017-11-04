@@ -10,8 +10,9 @@
 #import "NoticeMainListCell.h"
 #import "NoticeDetailViewController.h"
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
-@interface MyNoticeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>{
+@interface MyNoticeViewController : CommonVC<UITableViewDelegate, UITableViewDataSource>{
     MBProgressHUD *HUD;
     NSDictionary* currentSelectedNotice;
 }

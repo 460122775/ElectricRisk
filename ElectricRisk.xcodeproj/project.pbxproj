@@ -61,8 +61,6 @@
 		BA30A6921D79131D00E40A09 /* ModifyPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */; };
 		BA30A6951D7915D700E40A09 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA30A6941D7915D700E40A09 /* AboutUsViewController.m */; };
 		BA360DC41DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */; };
-		BA38D0FD1F94A62B004C81DE /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = BA38D0FB1F94A62B004C81DE /* client.p12 */; };
-		BA38D0FE1F94A62B004C81DE /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = BA38D0FC1F94A62B004C81DE /* server.cer */; };
 		BA3EFF4A1E94AC6700F2479D /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3EFF481E94AC6700F2479D /* AlertViewController.m */; };
 		BA3EFF4B1E94AC6700F2479D /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA3EFF491E94AC6700F2479D /* AlertViewController.xib */; };
 		BA4B46FF1D8684F0009CA1F7 /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4B46EB1D8684F0009CA1F7 /* BarChartView.m */; };
@@ -89,6 +87,9 @@
 		BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718931D714F87009AB399 /* RiskSearchViewController.m */; };
 		BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718941D714F87009AB399 /* RiskSearchViewController.xib */; };
 		BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718981D7179FF009AB399 /* RiskDetailViewController.m */; };
+		CEBDFE9A1FAC12C0005C894B /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = CEBDFE981FAC12C0005C894B /* server.cer */; };
+		CEBDFED81FAC6503005C894B /* LoginTimeOutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBDFED61FAC6503005C894B /* LoginTimeOutManager.m */; };
+		CEBDFEDB1FAC703C005C894B /* CommonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBDFEDA1FAC703C005C894B /* CommonVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,8 +195,6 @@
 		BA360DC21DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+MBProgressHUDView.h"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.h"; sourceTree = "<group>"; };
 		BA360DC31DC2364000EFB07D /* MBProgressHUD+MBProgressHUDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+MBProgressHUDView.m"; path = "class/ThirdParty/HUD/MBProgressHUD+MBProgressHUDView.m"; sourceTree = "<group>"; };
 		BA360DC61DC2399C00EFB07D /* ElectricRisk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ElectricRisk.entitlements; sourceTree = "<group>"; };
-		BA38D0FB1F94A62B004C81DE /* client.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.p12; sourceTree = "<group>"; };
-		BA38D0FC1F94A62B004C81DE /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
 		BA3EFF471E94AC6700F2479D /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertViewController.h; path = class/ThirdParty/AlertView/AlertViewController.h; sourceTree = "<group>"; };
 		BA3EFF481E94AC6700F2479D /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertViewController.m; path = class/ThirdParty/AlertView/AlertViewController.m; sourceTree = "<group>"; };
 		BA3EFF491E94AC6700F2479D /* AlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlertViewController.xib; path = class/ThirdParty/AlertView/AlertViewController.xib; sourceTree = "<group>"; };
@@ -243,6 +242,11 @@
 		BAE718941D714F87009AB399 /* RiskSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskSearchViewController.xib; path = class/controller/risk/RiskSearchViewController.xib; sourceTree = "<group>"; };
 		BAE718971D7179FF009AB399 /* RiskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailViewController.h; path = class/controller/risk/RiskDetailViewController.h; sourceTree = "<group>"; };
 		BAE718981D7179FF009AB399 /* RiskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskDetailViewController.m; path = class/controller/risk/RiskDetailViewController.m; sourceTree = "<group>"; };
+		CEBDFE981FAC12C0005C894B /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
+		CEBDFED61FAC6503005C894B /* LoginTimeOutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTimeOutManager.m; sourceTree = "<group>"; };
+		CEBDFED71FAC6503005C894B /* LoginTimeOutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTimeOutManager.h; sourceTree = "<group>"; };
+		CEBDFED91FAC703C005C894B /* CommonVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonVC.h; sourceTree = "<group>"; };
+		CEBDFEDA1FAC703C005C894B /* CommonVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,8 +438,7 @@
 		015259B01D70918F00AD3E67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BA38D0FB1F94A62B004C81DE /* client.p12 */,
-				BA38D0FC1F94A62B004C81DE /* server.cer */,
+				CEBDFE981FAC12C0005C894B /* server.cer */,
 				015259BC1D70918F00AD3E67 /* Assets.xcassets */,
 				015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */,
 				015259C11D70918F00AD3E67 /* Info.plist */,
@@ -468,6 +471,7 @@
 		0154B11D1D72BE030066D8B7 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				CEBDFED51FAC6503005C894B /* DisplayLinkManager */,
 				BA3EFF4C1E94AC7600F2479D /* AlertView */,
 				BA80749B1DC71F46006E0426 /* MJRefresh */,
 				BA360DC51DC2376800EFB07D /* MBProgressHUD */,
@@ -645,6 +649,8 @@
 				015259B31D70918F00AD3E67 /* AppDelegate.h */,
 				015259B41D70918F00AD3E67 /* AppDelegate.m */,
 				015259B91D70918F00AD3E67 /* Main.storyboard */,
+				CEBDFED91FAC703C005C894B /* CommonVC.h */,
+				CEBDFEDA1FAC703C005C894B /* CommonVC.m */,
 			);
 			name = system;
 			sourceTree = "<group>";
@@ -713,6 +719,16 @@
 				BA30A6911D79131D00E40A09 /* ModifyPwdViewController.m */,
 			);
 			name = setting;
+			sourceTree = "<group>";
+		};
+		CEBDFED51FAC6503005C894B /* DisplayLinkManager */ = {
+			isa = PBXGroup;
+			children = (
+				CEBDFED71FAC6503005C894B /* LoginTimeOutManager.h */,
+				CEBDFED61FAC6503005C894B /* LoginTimeOutManager.m */,
+			);
+			name = DisplayLinkManager;
+			path = class/ThirdParty/DisplayLinkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -785,11 +801,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				010A14631D7C71B60064AF63 /* RiskWrongListViewController.xib in Resources */,
-				BA38D0FD1F94A62B004C81DE /* client.p12 in Resources */,
 				010A145E1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib in Resources */,
 				015056831D78A3DF00C1F8D8 /* NoticeMainListCell.xib in Resources */,
+				CEBDFE9A1FAC12C0005C894B /* server.cer in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
-				BA38D0FE1F94A62B004C81DE /* server.cer in Resources */,
 				015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */,
 				014389011D855DA200099E86 /* WarnDetailViewController.xib in Resources */,
 				01FFB9AD1D80656500D844E9 /* RiskProjectChooseViewController.xib in Resources */,
@@ -903,9 +918,11 @@
 				BA3EFF4A1E94AC6700F2479D /* AlertViewController.m in Sources */,
 				0154B11B1D72B11E0066D8B7 /* SystemConfig.m in Sources */,
 				01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */,
+				CEBDFED81FAC6503005C894B /* LoginTimeOutManager.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
 				BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */,
 				BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */,
+				CEBDFEDB1FAC703C005C894B /* CommonVC.m in Sources */,
 				BA4B47011D8684F0009CA1F7 /* BarView.m in Sources */,
 				BA6FF4221E947F4300AA0490 /* SocketService.m in Sources */,
 				015259B51D70918F00AD3E67 /* AppDelegate.m in Sources */,
@@ -1050,6 +1067,7 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.electric.risk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1074,6 +1092,7 @@
 					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				INFOPLIST_FILE = ElectricRisk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.electric.risk;
 				PRODUCT_NAME = "$(TARGET_NAME)";

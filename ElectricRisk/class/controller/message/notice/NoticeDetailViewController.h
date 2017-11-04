@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
-@interface NoticeDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIWebViewDelegate>{
+@interface NoticeDetailViewController : CommonVC<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIWebViewDelegate>{
     MBProgressHUD *HUD;
     int currentKeyboardHeight;
 }

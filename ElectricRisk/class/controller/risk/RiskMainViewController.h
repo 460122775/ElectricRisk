@@ -11,8 +11,9 @@
 #import "RiskDetailViewController.h"
 #import "RiskMainListCell.h"
 #import "MJRefresh.h"
+#import "CommonVC.h"
 
-@interface RiskMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, RishSearchDelegate, MJRefreshBaseViewDelegate>{
+@interface RiskMainViewController : CommonVC<UITableViewDelegate, UITableViewDataSource, RishSearchDelegate, MJRefreshBaseViewDelegate>{
     MBProgressHUD *HUD;
     NSMutableArray *totalDataArray;
     NSMutableArray *headerNameArray;

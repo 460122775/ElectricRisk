@@ -7,6 +7,7 @@
 
 #import "RequestModal.h"
 #import "MMDesManager.h"
+#import "LoginTimeOutManager.h"
 
 @implementation RequestModal
 
@@ -26,6 +27,8 @@ static NSString *userid;
 +(void)requestServer:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSDictionary *)param  header:(NSDictionary *)headerDic content:(NSString*) content
              success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock
 {
+    [[LoginTimeOutManager instance] startCount]; //只要有请求就不会去验证登录超时
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -33,48 +36,48 @@ static NSString *userid;
     
     /**************** https协议 *********开始*******/
     [manager setSecurityPolicy:[RequestModal customSecurityPolicy]];
-    __weak typeof(self)weakSelf = self;
-    [manager setSessionDidReceiveAuthenticationChallengeBlock:^NSURLSessionAuthChallengeDisposition(NSURLSession*session, NSURLAuthenticationChallenge *challenge, NSURLCredential *__autoreleasing*_credential) {
-        NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-        __autoreleasing NSURLCredential *credential =nil;
-        if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-            if([manager.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:challenge.protectionSpace.host]) {
-                credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-                if(credential) {
-                    disposition = NSURLSessionAuthChallengeUseCredential;
-                } else {
-                    disposition =NSURLSessionAuthChallengePerformDefaultHandling;
-                }
-            } else {
-                disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
-            }
-        } else {
-            // client authentication
-            SecIdentityRef identity = NULL;
-            SecTrustRef trust = NULL;
-            NSString *p12 = [[NSBundle mainBundle] pathForResource:@"client"ofType:@"p12"];
-            NSFileManager *fileManager =[NSFileManager defaultManager];
-            
-            if(![fileManager fileExistsAtPath:p12])
-            {
-                NSLog(@"client.p12:not exist");
-            } else {
-                NSData *PKCS12Data = [NSData dataWithContentsOfFile:p12];
-                
-                if ([[weakSelf class] extractIdentity:&identity andTrust:&trust fromPKCS12Data:PKCS12Data])
-                {
-                    SecCertificateRef certificate = NULL;
-                    SecIdentityCopyCertificate(identity, &certificate);
-                    const void*certs[] = {certificate};
-                    CFArrayRef certArray =CFArrayCreate(kCFAllocatorDefault, certs,1,NULL);
-                    credential =[NSURLCredential credentialWithIdentity:identity certificates:nil persistence:NSURLCredentialPersistenceNone];
-                    disposition =NSURLSessionAuthChallengeUseCredential;
-                }
-            }
-        }
-        *_credential = credential;
-        return disposition;
-    }];
+//    __weak typeof(self)weakSelf = self;
+//    [manager setSessionDidReceiveAuthenticationChallengeBlock:^NSURLSessionAuthChallengeDisposition(NSURLSession*session, NSURLAuthenticationChallenge *challenge, NSURLCredential *__autoreleasing*_credential) {
+//        NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+//        __autoreleasing NSURLCredential *credential =nil;
+//        if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+//            if([manager.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:challenge.protectionSpace.host]) {
+//                credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+//                if(credential) {
+//                    disposition = NSURLSessionAuthChallengeUseCredential;
+//                } else {
+//                    disposition =NSURLSessionAuthChallengePerformDefaultHandling;
+//                }
+//            } else {
+//                disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+//            }
+//        } else {
+//            // client authentication
+//            SecIdentityRef identity = NULL;
+//            SecTrustRef trust = NULL;
+//            NSString *p12 = [[NSBundle mainBundle] pathForResource:@"app"ofType:@"p12"];//p12
+//            NSFileManager *fileManager =[NSFileManager defaultManager];
+//
+//            if(![fileManager fileExistsAtPath:p12])
+//            {
+//                NSLog(@"client.p12:not exist");
+//            } else {
+//                NSData *PKCS12Data = [NSData dataWithContentsOfFile:p12];
+//
+//                if ([[weakSelf class] extractIdentity:&identity andTrust:&trust fromPKCS12Data:PKCS12Data])
+//                {
+//                    SecCertificateRef certificate = NULL;
+//                    SecIdentityCopyCertificate(identity, &certificate);
+//                    const void*certs[] = {certificate};
+//                    CFArrayRef certArray =CFArrayCreate(kCFAllocatorDefault, certs,1,NULL);
+//                    credential =[NSURLCredential credentialWithIdentity:identity certificates:(__bridge  NSArray*)certArray persistence:NSURLCredentialPersistencePermanent];
+//                    disposition =NSURLSessionAuthChallengeUseCredential;
+//                }
+//            }
+//        }
+//        *_credential = credential;
+//        return disposition;
+//    }];
     /**************** https协议 *********结束*******/
     
     
@@ -104,11 +107,12 @@ static NSString *userid;
     }
     
     // DES.
-    NSError * err;
-    NSData * jsonData = [NSJSONSerialization dataWithJSONObject:paramDic options:0 error:&err];
-    NSString * paramString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:paramDic options:0 error:&err];
+    NSString *paramString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     DLog(@"Json后：data=%@",paramString)
-    paramString = [MMDesManager AES128Encrypt:paramString];
+//    paramString = [MMDesManager AES128Encrypt:paramString];
+    paramString = [MMDesManager doubleAES128Encrypt: paramString];
     DLog(@"加密后：data=%@",paramString)
     paramString = [RequestModal encodeToPercentEscapeString:paramString];
     DLog(@"转码后：%@?data=%@",path,paramString)
@@ -120,7 +124,6 @@ static NSString *userid;
         [manager POST:path parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
         {
             [self responseSuccessHandler:task responseObject:responseObject parameter:param content:content path:path returnBlock:successBlock];
-            
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [self responseFailureHandler:task andError:error content:content path:path param:param returnBlock:failedBlock];
         }];
@@ -139,6 +142,7 @@ static NSString *userid;
 
 +(void)uploadPhoto:(HTTP_METHED) methed Url:(NSString *)path parameter:(NSData *)imageData success:(void(^)(id responseData)) successBlock failed:(void(^)(id responseData)) failedBlock
 {
+    [[LoginTimeOutManager instance] startCount];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -160,7 +164,7 @@ static NSString *userid;
 {
     NSString *content = [[NSString alloc] initWithData:(NSData*)(_responseObject) encoding:NSUTF8StringEncoding];
     content = [RequestModal decodeFromPercentEscapeString:content];
-    NSString  *rsString = [MMDesManager AES128Decrypt:content];
+    NSString  *rsString = [MMDesManager doubleAES128Decrypt:content];
     if(_returnBlock != nil && rsString != nil) _returnBlock([NSJSONSerialization JSONObjectWithData:[rsString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
 }
 
@@ -199,25 +203,33 @@ static NSString *userid;
     return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
-+ (AFSecurityPolicy*)customSecurityPolicy
++ (AFSecurityPolicy *)customSecurityPolicy
 {
-    // /先导入证书
-    NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];//证书的路径
-    NSData *certData = [NSData dataWithContentsOfFile:cerPath];
-    NSString *aString = [[NSString alloc] initWithData:certData encoding:NSUTF8StringEncoding];
+    // 先导入证书，在这加证书，一般情况适用于单项认证
+    // 证书的路径
+    NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"server" ofType:@"cer"];
     
-    // AFSSLPinningModeCertificate 使用证书验证模式
+    NSData *cerData = [NSData dataWithContentsOfFile:cerPath];
+    
+    if (cerData == nil) {
+        return nil;
+    }
+    NSSet *setData = [NSSet setWithObject:cerData];
+    //AFSSLPinningModeCertificate 使用证书验证模式
     AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
-    // allowInvalidCertificates 是否允许无效证书（也就是自建的证书），默认为NO
+    
+    // allowInvalidCertificates 是否允许无效证书(也就是自建的证书)，默认为NO
     // 如果是需要验证自建证书，需要设置为YES
     securityPolicy.allowInvalidCertificates = YES;
     
-    //validatesDomainName 是否需要验证域名，默认为YES；
-    //假如证书的域名与你请求的域名不一致，需把该项设置为NO；如设成NO的话，即服务器使用其他可信任机构颁发的证书，也可以建立连接，这个非常危险，建议打开。
-    //置为NO，主要用于这种情况：客户端请求的是子域名，而证书上的是另外一个域名。因为SSL证书上的域名是独立的，假如证书上注册的域名是www.google.com，那么mail.google.com是无法验证通过的；当然，有钱可以注册通配符的域名*.google.com，但这个还是比较贵的。
-    //如置为NO，建议自己添加对应域名的校验逻辑。
+    // validatesDomainName 是否需要验证域名，默认为YES;
+    // 假如证书的域名与你请求的域名不一致，需要把该项设置为NO；如设成NO的话，即服务器使用其他可信任机构颁发的证书，也可以建立连接，这个非常危险，建议打开。
+    // 设置为NO，主要用于这种情况：客户端请求的事子域名，而证书上的是另外一个域名。因为SSL证书上的域名是独立的，假如证书上注册的域名是www.google.com,那么mail.google.com是无法验证通过的；当然有钱可以注册通配符的域名*.google.com，但这个还是比较贵的。
+    // 如设置为NO，建议自己添加对应域名的校验逻辑。
     securityPolicy.validatesDomainName = NO;
-    securityPolicy.pinnedCertificates = @[certData];
+    
+    [securityPolicy setPinnedCertificates:setData];
+    
     return securityPolicy;
 }
 

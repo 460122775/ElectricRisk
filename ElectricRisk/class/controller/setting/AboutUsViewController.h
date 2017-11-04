@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AboutUsViewController.h"
+#import "CommonVC.h"
 
-@interface AboutUsViewController : UIViewController
+@interface AboutUsViewController : CommonVC
 
 @property (strong, nonatomic) IBOutlet UILabel *versionLabel;
 

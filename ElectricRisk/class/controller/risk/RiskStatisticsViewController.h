@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "BarChartView.h"
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
-@interface RiskStatisticsViewController : UIViewController{
+@interface RiskStatisticsViewController : CommonVC{
     MBProgressHUD *HUD;
     NSMutableDictionary *dataDic;
     

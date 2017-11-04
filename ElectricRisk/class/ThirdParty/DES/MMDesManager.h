@@ -10,9 +10,13 @@
 
 @interface MMDesManager : NSObject
 
++ (NSString *)doubleAES128Encrypt:(NSString *)content;
+
 + (NSString *)AES128Encrypt:(NSString *)content;
 //解密
 + (NSString *)AES128Decrypt:(NSString *)content;
+
++ (NSString *)doubleAES128Decrypt:(NSString *)content;
 
 
 /**

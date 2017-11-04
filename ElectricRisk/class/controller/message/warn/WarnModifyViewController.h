@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MSNPickerView.h"
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
 #define Tag_StartTime 0
 #define Tag_EndTime 1
@@ -19,7 +20,7 @@
 
 @end
 
-@interface WarnModifyViewController : UIViewController<MSPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate>{
+@interface WarnModifyViewController : CommonVC<MSPickerViewDelegate, UITextFieldDelegate, UITextViewDelegate>{
     MBProgressHUD *HUD;
     int currentKeyboardHeight;
     NSDateFormatter *dtfrm;

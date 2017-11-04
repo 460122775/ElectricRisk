@@ -9,6 +9,7 @@
 #import "ModifyPwdViewController.h"
 
 @interface ModifyPwdViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *pwdWarnLabel;
 
 @end
 
@@ -37,27 +38,41 @@
 
 - (IBAction)saveBtnClick:(id)sender
 {
+    self.pwdWarnLabel.hidden = YES;
     if (self.oldPwdTextField.text == nil || self.oldPwdTextField.text.length < 8)
     {
         [[JTToast toastWithText:@"原始密码长度有误" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }else if (self.pwdNewTextField1.text == nil || self.pwdNewTextField1.text.length < 8 || self.pwdNewTextField1.text.length > 20){
-        [[JTToast toastWithText:@"新密码的长度应为8～20位之间" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    }
+//    NSString *pattern =@"^(?!\d+$)(?![a-zA-Z]+$)(?![@#$%^&]+$)[\da-zA-Z@#$%^&]+$";
+    NSRange range = [self.oldPwdTextField.text rangeOfString:@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" options:NSRegularExpressionSearch];
+    if (range.location == NSNotFound) {
+        [[JTToast toastWithText:@"原始密码格式不正确" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        self.pwdWarnLabel.hidden = NO;
         return;
-    }else if (self.pwdNewTextField2.text == nil || self.pwdNewTextField2.text.length < 8
+    }
+    if (self.pwdNewTextField1.text == nil || self.pwdNewTextField1.text.length < 8)
+    {
+        [[JTToast toastWithText:@"新密码的长度至少为8位" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    NSRange range1 = [self.pwdNewTextField1.text rangeOfString:@"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" options:NSRegularExpressionSearch];
+    if (range1.location == NSNotFound) {
+        [[JTToast toastWithText:@"新密码格式不正确" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        self.pwdWarnLabel.hidden = NO;
+        return;
+    }
+    if (self.pwdNewTextField2.text == nil || self.pwdNewTextField2.text.length < 8
         || ![self.pwdNewTextField1.text isEqualToString:self.pwdNewTextField2.text])
     {
         [[JTToast toastWithText:@"两次输入的新密码不一致" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
-    }else{
-        NSString *pattern =@"^(?!\d+$)(?![a-zA-Z]+$)(?![@#$%^&]+$)[\da-zA-Z@#$%^&]+$";
-        NSError *error = nil;
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
-        if ([regex matchesInString:self.pwdNewTextField1.text options:0 range:NSMakeRange(0, self.pwdNewTextField1.text.length)])
-        {
-            [[JTToast toastWithText:@"密码必须包含字母、数字、特殊符号." configuration:[JTToastConfiguration defaultConfiguration]]show];
-            return;
-        }
+    }
+    if([self.pwdNewTextField1.text isEqualToString: [SystemConfig instance].currentUserName])
+    {
+        [[JTToast toastWithText:@"新密码不能与用户名相同" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        self.pwdWarnLabel.hidden = NO;
+        return;
     }
     if (OFFLINE)
     {

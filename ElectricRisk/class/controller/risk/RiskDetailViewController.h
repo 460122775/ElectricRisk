@@ -10,8 +10,9 @@
 #import "RiskExecutiveTimeListViewController.h"
 #import "RiskAddViewController.h"
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
-@interface RiskDetailViewController : UIViewController<UIWebViewDelegate, RiskExecutiveTimeChooseDelegate, RiskAddDelegate>{
+@interface RiskDetailViewController :CommonVC<UIWebViewDelegate, RiskExecutiveTimeChooseDelegate, RiskAddDelegate>{
     NSDateFormatter *dtfrm;
     MBProgressHUD *HUD;
     float currentProcess;

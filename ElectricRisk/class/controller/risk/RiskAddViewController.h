@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RiskWrongListViewController.h"
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
 #define HEIGHT_SCROLLVIEW 60
 #define ImgPadding 6
@@ -19,7 +20,7 @@
 
 @end
 
-@interface RiskAddViewController : UIViewController<UIWebViewDelegate, RiskWrongListChooseDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UITextFieldDelegate>{
+@interface RiskAddViewController : CommonVC<UIWebViewDelegate, RiskWrongListChooseDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, UITextFieldDelegate>{
     MBProgressHUD *HUD;
     int currentKeyboardHeight;
     NSDictionary *currentSelectWrongDic;

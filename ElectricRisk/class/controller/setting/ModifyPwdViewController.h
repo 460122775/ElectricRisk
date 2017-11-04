@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD+MBProgressHUDView.h"
+#import "CommonVC.h"
 
 @protocol ModifyPwdDelegate <NSObject>
 
@@ -15,7 +16,7 @@
 
 @end
 
-@interface ModifyPwdViewController : UIViewController<UITextFieldDelegate>{
+@interface ModifyPwdViewController : CommonVC<UITextFieldDelegate>{
     MBProgressHUD *HUD;
 }
 

@@ -14,8 +14,9 @@
 #import "WarnModifyViewController.h"
 #import "WarnDetailViewController.h"
 #import "MJRefresh.h"
+#import "CommonVC.h"
 
-@interface NoticeWarnMainViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, NoticeAddDelegate, WarnModifyDelegate, MJRefreshBaseViewDelegate>{
+@interface NoticeWarnMainViewController : CommonVC<UITableViewDelegate, UITableViewDataSource, NoticeAddDelegate, WarnModifyDelegate, MJRefreshBaseViewDelegate>{
     BOOL isNoticeList;
     MBProgressHUD *HUD;
     int currentPage;
