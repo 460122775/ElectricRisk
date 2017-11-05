@@ -8,6 +8,7 @@
 
 #import "CommonVC.h"
 #import "LoginViewController.h"
+#import "InputPwdViewController.h"
 
 
 @implementation CommonVC
@@ -21,14 +22,21 @@
     
     [super viewDidAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(logOut) name:LoginTimeOutNotification object: nil];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(inputPwd) name:InputPwdNotification object: nil];
 }
 
 -(void)logOut
 {
     [self clearUserData];
-     [[JTToast toastWithText:@"当前会话已超时,请重新登录" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    [[JTToast toastWithText:@"当前会话已超时,请重新登录" configuration:[JTToastConfiguration defaultConfiguration]]show];
     LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Main" bundle: nil] instantiateViewControllerWithIdentifier: @"LoginViewController"];
     [self presentViewController: loginVC animated: YES completion: nil];
+}
+
+-(void)inputPwd
+{
+  InputPwdViewController *inputVC = [[InputPwdViewController alloc] initWithNibName: @"InputPwdViewController" bundle: nil];
+  [self presentViewController:inputVC animated: YES completion: nil];
 }
 
 -(void)dealloc

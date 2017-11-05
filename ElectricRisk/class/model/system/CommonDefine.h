@@ -76,6 +76,11 @@
 /** Notification Name Define **/
 #define ReceiveNotificationFromSocket @"ReceiveNotificationFromSocket"
 #define LoginTimeOutNotification      @"LoginTimeOutNotification"
+#define InputPwdNotification          @"InputPwdNotification"
+
+/** time cache*/
+#define CACHETIME   @"CACHETIME"
+#define CACHETIME_30Minutes  30*60
 
 /** Define operation **/
 #define State_Success 1

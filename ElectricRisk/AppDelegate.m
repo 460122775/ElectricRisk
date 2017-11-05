@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginTimeOutManager.h"
+
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
@@ -177,11 +178,20 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     [[LoginTimeOutManager instance] cancelCount];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey: CACHETIME];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     [[LoginTimeOutManager instance] cancelCount];
-    [[NSNotificationCenter defaultCenter] postNotificationName:LoginTimeOutNotification object: nil];
+    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey: CACHETIME];
+    int timer = ([[NSDate date] timeIntervalSince1970] - [date timeIntervalSince1970]) + ([LoginTimeOutManager instance].number / 60);
+    NSLog(@"退出后台秒数: %d",timer);
+    if(timer > CACHETIME_30Minutes)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:LoginTimeOutNotification object: nil];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:InputPwdNotification object: nil];
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

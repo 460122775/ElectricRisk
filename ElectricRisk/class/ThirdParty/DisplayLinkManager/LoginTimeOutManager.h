@@ -12,6 +12,8 @@
 
 singleton_interface(LoginTimeOutManager)
 
+@property (nonatomic,readonly) int number; //按照屏幕刷新帧率来计算 1s = 60帧
+
 -(void)cancelCount;
 
 -(void)startCount;

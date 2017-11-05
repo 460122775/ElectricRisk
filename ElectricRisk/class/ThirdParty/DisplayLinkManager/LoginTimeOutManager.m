@@ -14,8 +14,6 @@
 
 @property (nonatomic,strong) CADisplayLink *displayLink;
 
-@property (nonatomic,assign) int number;
-
 @end
 
 @implementation LoginTimeOutManager
@@ -26,7 +24,7 @@ singleton_implementation(LoginTimeOutManager)
 {
     [self.displayLink invalidate];
     self.displayLink = nil;
-    self.number = 0;
+    _number = 0;
 }
 
 -(void)startCount
@@ -41,7 +39,7 @@ singleton_implementation(LoginTimeOutManager)
     if(!self.displayLink) return;
     dispatch_queue_t q = dispatch_get_global_queue(0, 0);
     dispatch_async(q, ^{
-        self.number++;
+        _number++;
         if(self.number % 60 == 0)
         {
             NSLog(@"time %d",self.number / 60);
