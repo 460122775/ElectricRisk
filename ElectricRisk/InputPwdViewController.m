@@ -29,7 +29,19 @@
 
 - (IBAction)didClickCommit:(id)sender
 {
-    [self dismissViewControllerAnimated: YES completion: nil];
+    NSString *inputPwdStr = self.pwdTF.text;
+    if([inputPwdStr isEqualToString: @""])
+    {
+        [[JTToast toastWithText: @"请输入登录密码" configuration: [JTToastConfiguration defaultConfiguration]] show];
+    }else {
+        if (![[SystemConfig instance].currentUserPwd isEqualToString: inputPwdStr])
+        {
+            [[JTToast toastWithText: @"登录密码不正确，请重新输入" configuration: [JTToastConfiguration defaultConfiguration]] show];
+            self.pwdTF.text = @"";
+        } else {
+            [self dismissViewControllerAnimated: YES completion: nil];
+        }
+    }
 }
 
 @end

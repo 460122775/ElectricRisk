@@ -18,4 +18,6 @@ singleton_interface(LoginTimeOutManager)
 
 -(void)startCount;
 
+-(void)refreshTimerWithExitSeconds:(int)seconds;
+
 @end

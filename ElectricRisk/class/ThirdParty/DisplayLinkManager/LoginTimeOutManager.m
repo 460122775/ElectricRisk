@@ -8,8 +8,6 @@
 
 #import "LoginTimeOutManager.h"
 
-#define LoginTimeOutTime 108000 //30分钟 按照屏幕刷新帧率来计算 1s = 60帧
-
 @interface LoginTimeOutManager()
 
 @property (nonatomic,strong) CADisplayLink *displayLink;
@@ -34,19 +32,30 @@ singleton_implementation(LoginTimeOutManager)
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
 
+-(void)refreshTimerWithExitSeconds:(int)seconds
+{
+    [self.displayLink invalidate];
+    self.displayLink = nil;
+    
+    _number = seconds * 60;
+    
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(handleDisplayLink)];
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
 -(void)handleDisplayLink
 {
     if(!self.displayLink) return;
     dispatch_queue_t q = dispatch_get_global_queue(0, 0);
     dispatch_async(q, ^{
         _number++;
-        if(self.number % 60 == 0)
+        if(self.number % 3600 == 0)
         {
-            NSLog(@"time %d",self.number / 60);
+            NSLog(@"time %d分",self.number / 3600);
         }
         if(self.number > LoginTimeOutTime)
         {
-            NSLog(@"登录超时:%d分",self.number / LoginTimeOutTime);
+            NSLog(@"登录超时:%d分",self.number/3600);
             [self cancelCount];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [[NSNotificationCenter defaultCenter] postNotificationName:LoginTimeOutNotification object: nil];
