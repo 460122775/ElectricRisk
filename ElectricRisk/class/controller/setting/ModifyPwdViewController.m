@@ -68,10 +68,14 @@
         [[JTToast toastWithText:@"两次输入的新密码不一致" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
     }
-    if([self.pwdNewTextField1.text isEqualToString: [SystemConfig instance].currentUserName])
+    if ([self.pwdNewTextField1.text isEqualToString: [SystemConfig instance].currentUserPwd])
+    {
+        [[JTToast toastWithText:@"新密码不能与当前密码相同" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    if ([self.pwdNewTextField1.text isEqualToString: [SystemConfig instance].currentUserName])
     {
         [[JTToast toastWithText:@"新密码不能与用户名相同" configuration:[JTToastConfiguration defaultConfiguration]]show];
-        self.pwdWarnLabel.hidden = NO;
         return;
     }
     if (OFFLINE)
@@ -102,6 +106,7 @@
 
 -(void)requestUpdatePwd
 {
+    [self.view endEditing: YES];
     //设置登录参数
     NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
                            @"uid":[SystemConfig instance].currentUserId,
@@ -142,9 +147,9 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    if ((textField == self.oldPwdTextField && textField.text.length >= 6)
-        || (textField == self.pwdNewTextField1 && textField.text.length >= 6)
-        || (textField == self.pwdNewTextField2 && textField.text.length >= 6))
+    if ((textField == self.oldPwdTextField && textField.text.length >= 8)
+        || (textField == self.pwdNewTextField1 && textField.text.length >= 8)
+        || (textField == self.pwdNewTextField2 && textField.text.length >= 8))
     {
         [textField resignFirstResponder];
         return YES;

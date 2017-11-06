@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,11 +28,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prC-Jf-aef">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdo-CL-927" userLabel="anchorView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="prC-Jf-aef">
                                 <rect key="frame" x="-0.5" y="-0.5" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXF-EG-r8T">
-                                        <rect key="frame" x="0.5" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.5" y="0.0" width="375" height="647"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_bg_01" translatesAutoresizingMaskIntoConstraints="NO" id="hdS-Jz-5nv">
                                                 <rect key="frame" x="-0.5" y="0.0" width="375" height="282"/>
@@ -106,16 +110,22 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="tXF-EG-r8T" firstAttribute="centerX" secondItem="prC-Jf-aef" secondAttribute="centerX" id="3PS-Dp-NuK"/>
-                                    <constraint firstItem="tXF-EG-r8T" firstAttribute="width" secondItem="prC-Jf-aef" secondAttribute="width" id="GAl-ZD-Eir"/>
-                                    <constraint firstItem="tXF-EG-r8T" firstAttribute="height" secondItem="prC-Jf-aef" secondAttribute="height" id="Ka9-wI-WGl"/>
-                                    <constraint firstItem="tXF-EG-r8T" firstAttribute="centerY" secondItem="prC-Jf-aef" secondAttribute="centerY" id="fwx-gU-7yx"/>
+                                    <constraint firstItem="tXF-EG-r8T" firstAttribute="top" secondItem="prC-Jf-aef" secondAttribute="top" id="5Gh-kP-43e"/>
+                                    <constraint firstAttribute="trailing" secondItem="tXF-EG-r8T" secondAttribute="trailing" id="SYt-0N-4xa"/>
+                                    <constraint firstItem="tXF-EG-r8T" firstAttribute="leading" secondItem="prC-Jf-aef" secondAttribute="leading" id="c95-yN-9rq"/>
+                                    <constraint firstAttribute="bottom" secondItem="tXF-EG-r8T" secondAttribute="bottom" id="jnL-Kk-RbB"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="vdo-CL-927" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5wF-Pg-WKn"/>
+                            <constraint firstItem="tXF-EG-r8T" firstAttribute="width" secondItem="vdo-CL-927" secondAttribute="width" id="AvJ-cn-qlF"/>
                             <constraint firstItem="prC-Jf-aef" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Bge-Wl-Hz6"/>
+                            <constraint firstItem="vdo-CL-927" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Fce-rn-DTn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vdo-CL-927" secondAttribute="bottom" id="IXM-2l-g5I"/>
+                            <constraint firstItem="tXF-EG-r8T" firstAttribute="height" secondItem="vdo-CL-927" secondAttribute="height" id="O1P-Fs-acB"/>
+                            <constraint firstAttribute="trailing" secondItem="vdo-CL-927" secondAttribute="trailing" id="POr-sQ-biS"/>
                             <constraint firstItem="prC-Jf-aef" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Rpy-L9-DSF"/>
                             <constraint firstItem="prC-Jf-aef" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="pCO-QS-Li6"/>
                             <constraint firstItem="prC-Jf-aef" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zN4-A8-GGI"/>

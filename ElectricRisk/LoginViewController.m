@@ -203,7 +203,7 @@
     {
         [self.nameTF resignFirstResponder];
         [self.pwdTF becomeFirstResponder];
-    }else if(textField == self.pwdTF && textField.text.length >= 6){
+    }else if(textField == self.pwdTF && textField.text.length >= 8){
         [self.pwdTF resignFirstResponder];
     }
     return NO;
@@ -213,13 +213,19 @@
 // Called when the UIKeyboardDidShowNotification is sent.
 - (void)keyboardWasShown:(NSNotification*)aNotification
 {
-    CGSize kbSize = [[[aNotification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    CGSize kbSize = [[[aNotification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
     self.mainScrollView.contentInset = contentInsets;
     self.mainScrollView.scrollIndicatorInsets = contentInsets;
-    CGRect aRect = self.mainScrollView.frame;
-    aRect.size.height -= kbSize.height;
-    [self.mainScrollView setContentOffset:CGPointMake(self.mainScrollView.frame.origin.x, self.nameTF.frame.origin.y - kbSize.height) animated:YES];
+    CGRect activeFrame = self.nameTF.isFirstResponder ? self.nameTF.frame : self.pwdTF.frame;
+    [self.mainScrollView scrollRectToVisible:activeFrame animated: YES];
+//    CGSize kbSize = [[[aNotification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+//    self.mainScrollView.contentInset = contentInsets;
+//    self.mainScrollView.scrollIndicatorInsets = contentInsets;
+//    CGRect aRect = self.mainScrollView.frame;
+//    aRect.size.height -= kbSize.height;
+//    [self.mainScrollView setContentOffset:CGPointMake(self.mainScrollView.frame.origin.x, self.nameTF.frame.origin.y - kbSize.height) animated:YES];
 }
 
 // Called when the UIKeyboardWillHideNotification is sent
