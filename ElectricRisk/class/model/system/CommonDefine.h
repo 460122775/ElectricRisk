@@ -80,8 +80,8 @@
 
 /** time cache*/
 #define CACHETIME   @"CACHETIME"
-//#define LoginTimeOutTime 108000 //30分钟 按照屏幕刷新帧率来计算 1s = 60帧
-#define LoginTimeOutTime 18000 //5分钟测试
+#define LoginTimeOutTime 108000 //30分钟 按照屏幕刷新帧率来计算 1s = 60帧
+//#define LoginTimeOutTime 18000 //5分钟测试
 
 /** Define operation **/
 #define State_Success 1

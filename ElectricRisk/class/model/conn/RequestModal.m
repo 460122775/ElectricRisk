@@ -146,17 +146,23 @@ static NSString *userid;
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    NSDictionary *parameters = @{@"foo": @"bar"};
-    NSURLSessionDataTask *op = [manager POST:path parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-    {
+    [manager setSecurityPolicy:[RequestModal customSecurityPolicy]];
+//    NSDictionary *parameters = @{@"foo": @"bar"};
+    
+    NSURLSessionDataTask *op = [manager POST: path parameters: nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:imageData name:@"upfile" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
-    } success:^(NSURLSessionDataTask *operation, id responseObject) {
-        NSString  *rsString = [MMDesManager AES128Decrypt:[[NSString alloc] initWithData:(NSData*)(responseObject) encoding:NSUTF8StringEncoding]];
+    } progress: nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        
+        NSString *content = [[NSString alloc] initWithData:(NSData*)(responseObject) encoding:NSUTF8StringEncoding];
+        content = [RequestModal decodeFromPercentEscapeString:content];
+        NSString  *rsString = [MMDesManager doubleAES128Decrypt:content];
         if(responseObject != nil) successBlock([NSJSONSerialization JSONObjectWithData:[rsString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil]);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failedBlock(nil);
         NSLog(@"Error: %@ *****", error);
     }];
+
     [op resume];
 }
 

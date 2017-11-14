@@ -17,7 +17,7 @@
 
 - (IBAction)updatePwdBtnClick:(id)sender;
 
-- (IBAction)updateBtnClick:(id)sender;
+//- (IBAction)updateBtnClick:(id)sender;
 
 - (IBAction)aboutBtnClick:(id)sender;
 

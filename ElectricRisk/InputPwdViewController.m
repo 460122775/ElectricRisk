@@ -83,7 +83,7 @@
         return NO;
     }
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (textField == self.userNameTF && newLength <= 20) || (textField == self.pwdTF && newLength <= 20);
+    return (textField == self.userNameTF && newLength <= 30) || (textField == self.pwdTF && newLength <= 30);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

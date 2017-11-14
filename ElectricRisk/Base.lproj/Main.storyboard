@@ -2455,20 +2455,6 @@
                                                     <constraint firstAttribute="height" constant="1" id="5Hq-KT-wJb"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alb-hu-dyz">
-                                                <rect key="frame" x="0.0" y="51" width="375" height="50"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="SWx-ca-tgq"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="检查更新">
-                                                    <color key="titleColor" red="0.2901960784" green="0.25490196079999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="updateBtnClick:" destination="yvH-gt-ubA" eventType="touchUpInside" id="1Aw-XT-axE"/>
-                                                </connections>
-                                            </button>
                                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpZ-s2-1nl">
                                                 <rect key="frame" x="0.0" y="101" width="375" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -2477,7 +2463,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EC-5M-0Kb">
-                                                <rect key="frame" x="0.0" y="102" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="51" width="375" height="50"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="B5l-Lt-Ela"/>
@@ -2491,14 +2477,14 @@
                                                 </connections>
                                             </button>
                                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3x5-ir-Ba0">
-                                                <rect key="frame" x="0.0" y="152" width="375" height="1"/>
+                                                <rect key="frame" x="0.0" y="101" width="375" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="UZz-V9-Pa9"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kSu-kz-Xni">
-                                                <rect key="frame" x="0.0" y="192" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="141" width="375" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="k7V-52-vDQ"/>
@@ -2523,16 +2509,13 @@
                                             <constraint firstItem="2EC-5M-0Kb" firstAttribute="centerX" secondItem="OKe-pG-ybp" secondAttribute="centerX" id="ag4-tf-CaD"/>
                                             <constraint firstItem="ccX-to-PIY" firstAttribute="leading" secondItem="OKe-pG-ybp" secondAttribute="leading" id="dZn-lE-E0b"/>
                                             <constraint firstItem="kSu-kz-Xni" firstAttribute="centerX" secondItem="OKe-pG-ybp" secondAttribute="centerX" id="eJA-Tj-VTE"/>
-                                            <constraint firstItem="alb-hu-dyz" firstAttribute="width" secondItem="OKe-pG-ybp" secondAttribute="width" id="gDI-Ew-dWX"/>
-                                            <constraint firstItem="2EC-5M-0Kb" firstAttribute="top" secondItem="alb-hu-dyz" secondAttribute="bottom" constant="1" id="hcO-49-Ofl"/>
-                                            <constraint firstItem="alb-hu-dyz" firstAttribute="centerX" secondItem="OKe-pG-ybp" secondAttribute="centerX" id="i5h-C9-dpQ"/>
+                                            <constraint firstItem="2EC-5M-0Kb" firstAttribute="top" secondItem="ccX-to-PIY" secondAttribute="bottom" constant="1" id="eKp-Pd-lMM"/>
                                             <constraint firstItem="8di-l0-4JA" firstAttribute="width" secondItem="OKe-pG-ybp" secondAttribute="width" id="iFm-tg-Dcs"/>
-                                            <constraint firstItem="ZpZ-s2-1nl" firstAttribute="top" secondItem="alb-hu-dyz" secondAttribute="bottom" id="iXa-OD-QkL"/>
                                             <constraint firstItem="3x5-ir-Ba0" firstAttribute="centerX" secondItem="OKe-pG-ybp" secondAttribute="centerX" id="lQu-9I-CEV"/>
                                             <constraint firstItem="kSu-kz-Xni" firstAttribute="width" secondItem="OKe-pG-ybp" secondAttribute="width" id="nCH-Vw-iQ7"/>
+                                            <constraint firstItem="ZpZ-s2-1nl" firstAttribute="top" secondItem="3x5-ir-Ba0" secondAttribute="top" id="pFg-rm-oGQ"/>
                                             <constraint firstItem="ZpZ-s2-1nl" firstAttribute="width" secondItem="OKe-pG-ybp" secondAttribute="width" id="rcR-RF-unz"/>
                                             <constraint firstItem="8di-l0-4JA" firstAttribute="top" secondItem="ccX-to-PIY" secondAttribute="bottom" id="t7c-5E-Zi4"/>
-                                            <constraint firstItem="alb-hu-dyz" firstAttribute="top" secondItem="ccX-to-PIY" secondAttribute="bottom" constant="1" id="tZ7-Mu-zgE"/>
                                             <constraint firstItem="ZpZ-s2-1nl" firstAttribute="centerX" secondItem="OKe-pG-ybp" secondAttribute="centerX" id="v6R-RN-qSr"/>
                                             <constraint firstItem="8di-l0-4JA" firstAttribute="centerX" secondItem="OKe-pG-ybp" secondAttribute="centerX" id="vx9-oB-sKA"/>
                                             <constraint firstItem="ccX-to-PIY" firstAttribute="top" secondItem="OKe-pG-ybp" secondAttribute="top" id="wx7-mq-Bav"/>
@@ -2683,7 +2666,7 @@
                                                     <action selector="saveBtnClick:" destination="Xyr-oW-Djm" eventType="touchUpInside" id="bXw-lJ-WDD"/>
                                                 </connections>
                                             </button>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码应包含大小写字母、数字、特殊字符、长度在8-20位之间" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWc-sY-Zfn">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码应包含大小写字母、数字、特殊字符、长度在8-30位之间" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWc-sY-Zfn">
                                                 <rect key="frame" x="20" y="297" width="335" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>

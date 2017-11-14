@@ -29,15 +29,15 @@
     [self performSegueWithIdentifier:@"ToModifyPwd" sender:self];
 }
 
-- (IBAction)updateBtnClick:(id)sender
-{
-    if (OFFLINE)
-    {
-        [self testUpdateData];
-    }else{
-        [self requestUpdateData];
-    }
-}
+//- (IBAction)updateBtnClick:(id)sender
+//{
+//    if (OFFLINE)
+//    {
+//        [self testUpdateData];
+//    }else{
+//        [self requestUpdateData];
+//    }
+//}
 
 - (IBAction)aboutBtnClick:(id)sender
 {
@@ -72,78 +72,78 @@
     }
 }
 
--(void)testUpdateData
-{
-    NSError *jsonError;
-    NSData *objectData = [@"{\"version\":\"1.2.0\", \"uri\":\"itms-services://?action=download-manifest&url=https://phone16.trsd001.com/testapp/manifest.plist\", \"state\": 0}" dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
-                                                           options:NSJSONReadingMutableContainers
-                                                             error:&jsonError];
-    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
-    if (state == State_Success)
-    {
-        [[JTToast toastWithText:@"已经是最新版本了" configuration:[JTToastConfiguration defaultConfiguration]]show];
-    }else{
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:[NSString stringWithFormat:@"发现新版本:%@，确认要更新吗？", [result objectForKey:@"version"]] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"立即升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-             {
-                 [alert dismissViewControllerAnimated:YES completion:nil];
-                 NSURL *url = [NSURL URLWithString:[result objectForKey:@"uri"]];
-                 if(url != nil) [[UIApplication sharedApplication] openURL:url];
-             }];
-        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-             {
-                 [alert dismissViewControllerAnimated:YES completion:nil];
-             }];
-        [alert addAction:ok];
-        [alert addAction:cancel];
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-}
-
--(void)requestUpdateData
-{
-    if (HUD == nil)
-    {
-        HUD = [[MBProgressHUD alloc]init];
-    }
-    [self.view addSubview:HUD];
-    HUD.dimBackground =YES;
-    HUD.labelText = @"正在检查更新...";
-    [HUD removeFromSuperViewOnHide];
-    [HUD showByCustomView:YES];
-    
-    NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
-                           @"version":[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],
-                           @"os":@"ios"};
-    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_APP_UPDATE) parameter:dict header:nil content:nil success:^(id responseData) {
-        NSDictionary *result = responseData;
-        int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
-        if (state == State_Success)
-        {
-            [[JTToast toastWithText:@"已经是最新版本了" configuration:[JTToastConfiguration defaultConfiguration]]show];
-        }else{
-            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:[NSString stringWithFormat:@"发现新版本:%@，确认要更新吗？", [result objectForKey:@"version"]] preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"立即升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-                                 {
-                                     [alert dismissViewControllerAnimated:YES completion:nil];
-                                     NSURL *url = [NSURL URLWithString:[result objectForKey:@"uri"]];
-                                     if(url != nil) [[UIApplication sharedApplication] openURL:url];
-                                 }];
-            UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
-                                     {
-                                         [alert dismissViewControllerAnimated:YES completion:nil];
-                                     }];
-            [alert addAction:ok];
-            [alert addAction:cancel];
-            [self presentViewController:alert animated:YES completion:nil];
-        }
-        [HUD hideByCustomView:YES];
-    } failed:^(id responseData) {
-        [HUD hideByCustomView:YES];
-        [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
-    }];
-}
+//-(void)testUpdateData
+//{
+//    NSError *jsonError;
+//    NSData *objectData = [@"{\"version\":\"1.2.0\", \"uri\":\"itms-services://?action=download-manifest&url=https://phone16.trsd001.com/testapp/manifest.plist\", \"state\": 0}" dataUsingEncoding:NSUTF8StringEncoding];
+//    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:objectData
+//                                                           options:NSJSONReadingMutableContainers
+//                                                             error:&jsonError];
+//    int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+//    if (state == State_Success)
+//    {
+//        [[JTToast toastWithText:@"已经是最新版本了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+//    }else{
+//        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:[NSString stringWithFormat:@"发现新版本:%@，确认要更新吗？", [result objectForKey:@"version"]] preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"立即升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+//             {
+//                 [alert dismissViewControllerAnimated:YES completion:nil];
+//                 NSURL *url = [NSURL URLWithString:[result objectForKey:@"uri"]];
+//                 if(url != nil) [[UIApplication sharedApplication] openURL:url];
+//             }];
+//        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+//             {
+//                 [alert dismissViewControllerAnimated:YES completion:nil];
+//             }];
+//        [alert addAction:ok];
+//        [alert addAction:cancel];
+//        [self presentViewController:alert animated:YES completion:nil];
+//    }
+//}
+//
+//-(void)requestUpdateData
+//{
+//    if (HUD == nil)
+//    {
+//        HUD = [[MBProgressHUD alloc]init];
+//    }
+//    [self.view addSubview:HUD];
+//    HUD.dimBackground =YES;
+//    HUD.labelText = @"正在检查更新...";
+//    [HUD removeFromSuperViewOnHide];
+//    [HUD showByCustomView:YES];
+//
+//    NSDictionary *dict = @{@"c_time":[NSString stringWithFormat:@"%.f", [[NSDate date] timeIntervalSince1970] * 1000],
+//                           @"version":[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"],
+//                           @"os":@"ios"};
+//    [RequestModal requestServer:HTTP_METHED_POST Url:SERVER_URL_WITH(PATH_APP_UPDATE) parameter:dict header:nil content:nil success:^(id responseData) {
+//        NSDictionary *result = responseData;
+//        int state = [(NSNumber*)[result objectForKey:@"state"] intValue];
+//        if (state == State_Success)
+//        {
+//            [[JTToast toastWithText:@"已经是最新版本了" configuration:[JTToastConfiguration defaultConfiguration]]show];
+//        }else{
+//            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:[NSString stringWithFormat:@"发现新版本:%@，确认要更新吗？", [result objectForKey:@"version"]] preferredStyle:UIAlertControllerStyleAlert];
+//            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"立即升级" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+//                                 {
+//                                     [alert dismissViewControllerAnimated:YES completion:nil];
+//                                     NSURL *url = [NSURL URLWithString:[result objectForKey:@"url"]];
+//                                     if(url != nil) [[UIApplication sharedApplication] openURL:url];
+//                                 }];
+//            UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
+//                                     {
+//                                         [alert dismissViewControllerAnimated:YES completion:nil];
+//                                     }];
+//            [alert addAction:ok];
+//            [alert addAction:cancel];
+//            [self presentViewController:alert animated:YES completion:nil];
+//        }
+//        [HUD hideByCustomView:YES];
+//    } failed:^(id responseData) {
+//        [HUD hideByCustomView:YES];
+//        [[JTToast toastWithText:@"网络错误，请重新尝试。" configuration:[JTToastConfiguration defaultConfiguration]]show];
+//    }];
+//}
 
 -(void)modifyPwdSuccess
 {

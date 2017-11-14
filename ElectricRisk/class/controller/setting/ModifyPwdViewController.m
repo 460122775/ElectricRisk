@@ -140,9 +140,9 @@
         return NO;
     }
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (textField == self.oldPwdTextField && newLength <= 20)
-    || (textField == self.pwdNewTextField1 && newLength <= 20)
-    || (textField == self.pwdNewTextField2 && newLength <= 20);
+    return (textField == self.oldPwdTextField && newLength <= 30)
+    || (textField == self.pwdNewTextField1 && newLength <= 30)
+    || (textField == self.pwdNewTextField2 && newLength <= 30);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
