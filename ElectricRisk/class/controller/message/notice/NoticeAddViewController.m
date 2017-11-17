@@ -73,6 +73,19 @@
         [[JTToast toastWithText:@"您还没有填写内容" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
     }
+    
+    if (![self.titleTextField.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"标题填写不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    
+    if (![self.contentTextView.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"内容填写不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:@"要发布该通知的内容吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"发布" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
      {

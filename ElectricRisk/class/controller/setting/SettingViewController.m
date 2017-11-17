@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "LogOutModal.h"
 
 @interface SettingViewController ()
 
@@ -49,8 +50,8 @@
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:@"确定要注销当前用户吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
                          {
-                             [alert dismissViewControllerAnimated:YES completion:nil];
-                             [self clearUserData];
+                            [LogOutModal logOut];
+                            [alert dismissViewControllerAnimated:YES completion:nil];
                             [self dismissViewControllerAnimated:YES completion:nil];
                          }];
     UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action)
@@ -147,20 +148,8 @@
 
 -(void)modifyPwdSuccess
 {
-    [self clearUserData];
+    [LogOutModal logOut];
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)clearUserData
-{
-    [SystemConfig instance].currentUserId = nil;
-    [SystemConfig instance].currentUserPwd = nil;
-    [SystemConfig instance].currentUserName = nil;
-    [SystemConfig instance].currentUserRole = -1;
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentUserRole"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentUserId"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentUserName"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentUserPwd"];
 }
 
 @end

@@ -147,13 +147,16 @@ static NSString *userid;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json",nil];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager setSecurityPolicy:[RequestModal customSecurityPolicy]];
-//    NSDictionary *parameters = @{@"foo": @"bar"};
     
-    NSURLSessionDataTask *op = [manager POST: path parameters: nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    NSMutableDictionary *paramDic = [NSMutableDictionary dictionary];
+    if ([SystemConfig instance].currentUserToken != nil && [SystemConfig instance].currentUserToken.length > 0)
+    {
+        [paramDic setObject:[SystemConfig instance].currentUserToken forKey:@"token"];
+    }
+    
+    NSURLSessionDataTask *op = [manager POST: path parameters: paramDic constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         [formData appendPartWithFileData:imageData name:@"upfile" fileName:@"photo.jpg" mimeType:@"image/jpeg"];
     } progress: nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        
         NSString *content = [[NSString alloc] initWithData:(NSData*)(responseObject) encoding:NSUTF8StringEncoding];
         content = [RequestModal decodeFromPercentEscapeString:content];
         NSString  *rsString = [MMDesManager doubleAES128Decrypt:content];
@@ -239,29 +242,29 @@ static NSString *userid;
     return securityPolicy;
 }
 
-+(BOOL)extractIdentity:(SecIdentityRef*)outIdentity andTrust:(SecTrustRef *)outTrust fromPKCS12Data:(NSData *)inPKCS12Data {
-    OSStatus securityError = errSecSuccess;
-    //client certificate password
-    NSDictionary*optionsDictionary = [NSDictionary dictionaryWithObject:@"123456"
-                                                                 forKey:(__bridge id)kSecImportExportPassphrase];
-    
-    CFArrayRef items = CFArrayCreate(NULL, 0, 0, NULL);
-    securityError = SecPKCS12Import((__bridge CFDataRef)inPKCS12Data,(__bridge CFDictionaryRef)optionsDictionary,&items);
-    
-    if(securityError == 0)
-    {
-        CFDictionaryRef myIdentityAndTrust =CFArrayGetValueAtIndex(items,0);
-        const void*tempIdentity =NULL;
-        tempIdentity= CFDictionaryGetValue (myIdentityAndTrust,kSecImportItemIdentity);
-        *outIdentity = (SecIdentityRef)tempIdentity;
-        const void*tempTrust =NULL;
-        tempTrust = CFDictionaryGetValue(myIdentityAndTrust,kSecImportItemTrust);
-        *outTrust = (SecTrustRef)tempTrust;
-    } else {
-        NSLog(@"Failedwith error code %d",(int)securityError);
-        return NO;
-    }
-    return YES;
-}
+//+(BOOL)extractIdentity:(SecIdentityRef*)outIdentity andTrust:(SecTrustRef *)outTrust fromPKCS12Data:(NSData *)inPKCS12Data {
+//    OSStatus securityError = errSecSuccess;
+//    //client certificate password
+//    NSDictionary*optionsDictionary = [NSDictionary dictionaryWithObject:@"123456"
+//                                                                 forKey:(__bridge id)kSecImportExportPassphrase];
+//
+//    CFArrayRef items = CFArrayCreate(NULL, 0, 0, NULL);
+//    securityError = SecPKCS12Import((__bridge CFDataRef)inPKCS12Data,(__bridge CFDictionaryRef)optionsDictionary,&items);
+//
+//    if(securityError == 0)
+//    {
+//        CFDictionaryRef myIdentityAndTrust =CFArrayGetValueAtIndex(items,0);
+//        const void*tempIdentity =NULL;
+//        tempIdentity= CFDictionaryGetValue (myIdentityAndTrust,kSecImportItemIdentity);
+//        *outIdentity = (SecIdentityRef)tempIdentity;
+//        const void*tempTrust =NULL;
+//        tempTrust = CFDictionaryGetValue(myIdentityAndTrust,kSecImportItemTrust);
+//        *outTrust = (SecTrustRef)tempTrust;
+//    } else {
+//        NSLog(@"Failedwith error code %d",(int)securityError);
+//        return NO;
+//    }
+//    return YES;
+//}
 
 @end

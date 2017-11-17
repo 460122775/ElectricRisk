@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
 
-#define SERVER_REQUEST_TIME_OUT (30)
+#define SERVER_REQUEST_TIME_OUT (60)
 
 typedef enum
 {

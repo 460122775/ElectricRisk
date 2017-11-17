@@ -22,12 +22,18 @@
 #define URL_SERVER @"https://sctxy.kmdns.net:1112/jj"
 #define URL_SOCKET @"https://sctxy.kmdns.net"
 
+//#define URL_SERVER @"https://192.168.3.10:8443/jj"
+//#define URL_SOCKET @"https://192.168.3.10"
+
+//#define PORT_SOCKET 8443
+
 #define PORT_SOCKET 3322
 
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
 #define PATH_LOGIN @"/api/login/login.do"               //登录
+#define PATH_LOGIN_OUT @"/api/login/loginOut.do"        //退出登录
 #define PATH_RISK_LIST @"/api/project/getList.do"       //获取今日风险列表
 #define PATH_RISK_STATISTICS @"/api/risk/countrisk.do"  //获取风险统计
 #define PATH_RISK_DETAIL @"/api/project/getOneInfo.do"  //获取风险详情
@@ -80,8 +86,8 @@
 
 /** time cache*/
 #define CACHETIME   @"CACHETIME"
-#define LoginTimeOutTime 108000 //30分钟 按照屏幕刷新帧率来计算 1s = 60帧
-//#define LoginTimeOutTime 18000 //5分钟测试
+//#define LoginTimeOutTime 108000 //30分钟 按照屏幕刷新帧率来计算 1s = 60帧
+#define LoginTimeOutTime 7200 //1分钟测试
 
 /** Define operation **/
 #define State_Success 1

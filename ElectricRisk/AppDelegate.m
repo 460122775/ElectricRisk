@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginTimeOutManager.h"
+#import "LogOutModal.h"
 
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
@@ -177,24 +178,29 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey: CACHETIME];
+//    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey: CACHETIME];
+    [[LoginTimeOutManager instance] cancelCount];
+    [LogOutModal logOut];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey: CACHETIME];
-    int activeTime = ([LoginTimeOutManager instance].number / 60); //进入后台前活跃时间
-    int exitTime = [[NSDate date] timeIntervalSince1970] - [date timeIntervalSince1970];//进入后台时间
-    NSLog(@"活跃时间%d====退出后台秒数: %d",activeTime,exitTime);
-    if((activeTime+exitTime) * 60 > LoginTimeOutTime)
-    {
-        NSLog(@"超时，重新登录");
-        [[LoginTimeOutManager instance] cancelCount];
-        [[NSNotificationCenter defaultCenter] postNotificationName:LoginTimeOutNotification object: nil];
-    } else {
-        NSLog(@"未超时，重新输入密码");
-        [[LoginTimeOutManager instance] refreshTimerWithExitSeconds: activeTime+exitTime];
-        [[NSNotificationCenter defaultCenter] postNotificationName:InputPwdNotification object: nil];
-    }
+    [[LoginTimeOutManager instance] cancelCount];
+    [[NSNotificationCenter defaultCenter] postNotificationName:LoginTimeOutNotification object: nil];
+
+    //    NSDate *date = [[NSUserDefaults standardUserDefaults] objectForKey: CACHETIME];
+//    int activeTime = ([LoginTimeOutManager instance].number / 60); //进入后台前活跃时间
+//    int exitTime = [[NSDate date] timeIntervalSince1970] - [date timeIntervalSince1970];//进入后台时间
+//    NSLog(@"活跃时间%d====退出后台秒数: %d",activeTime,exitTime);
+//    if((activeTime+exitTime) * 60 > LoginTimeOutTime)
+//    {
+//        NSLog(@"超时，重新登录");
+//        [[LoginTimeOutManager instance] cancelCount];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:LoginTimeOutNotification object: nil];
+//    } else {
+//        NSLog(@"未超时，重新输入密码");
+//        [[LoginTimeOutManager instance] refreshTimerWithExitSeconds: activeTime+exitTime];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:InputPwdNotification object: nil];
+//    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

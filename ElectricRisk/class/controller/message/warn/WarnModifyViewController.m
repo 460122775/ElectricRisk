@@ -193,6 +193,19 @@
         [[JTToast toastWithText:@"开始时间应早于结束时间" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
     }
+    
+    if (![self.valueKTextField.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"K值输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    
+    if (![self.reasonTextView.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"修改原因输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认"
                                                                     message:@"确定要保存修改吗？"
                                                              preferredStyle:UIAlertControllerStyleAlert];

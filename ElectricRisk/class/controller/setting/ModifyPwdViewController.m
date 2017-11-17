@@ -78,6 +78,19 @@
         [[JTToast toastWithText:@"新密码不能与用户名相同" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
     }
+    
+    if (![self.oldPwdTextField.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"原始密码输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    
+    if (![self.pwdNewTextField1.text checkContentIsEffective] || ![self.pwdNewTextField2.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"新密码输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+    
     if (OFFLINE)
     {
         [self testData];

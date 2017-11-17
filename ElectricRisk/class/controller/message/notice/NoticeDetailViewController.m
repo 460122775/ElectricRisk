@@ -305,6 +305,11 @@
         [[JTToast toastWithText:@"请输入回复的内容" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
     }
+    if (![self.commentInput.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"回复内容输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
     if (OFFLINE)
     {
         [self testCommentData];

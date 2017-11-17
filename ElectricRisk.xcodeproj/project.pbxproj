@@ -87,9 +87,11 @@
 		BAE718951D714F87009AB399 /* RiskSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718931D714F87009AB399 /* RiskSearchViewController.m */; };
 		BAE718961D714F87009AB399 /* RiskSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAE718941D714F87009AB399 /* RiskSearchViewController.xib */; };
 		BAE7189A1D7179FF009AB399 /* RiskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE718981D7179FF009AB399 /* RiskDetailViewController.m */; };
+		CEAF2A151FBC0BCD00D6EEE1 /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = CEAF2A141FBC0BCD00D6EEE1 /* server.cer */; };
+		CEAF2A781FBC678700D6EEE1 /* NSString+Regexp.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAF2A771FBC678700D6EEE1 /* NSString+Regexp.m */; };
+		CEB10CA61FBE92C60069ECC2 /* LogOutModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB10CA51FBE92C60069ECC2 /* LogOutModal.m */; };
 		CEB4CFF51FAEF7B9007622EE /* InputPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4CFF31FAEF7B8007622EE /* InputPwdViewController.m */; };
 		CEB4CFF61FAEF7B9007622EE /* InputPwdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB4CFF41FAEF7B8007622EE /* InputPwdViewController.xib */; };
-		CEBDFE9A1FAC12C0005C894B /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = CEBDFE981FAC12C0005C894B /* server.cer */; };
 		CEBDFED81FAC6503005C894B /* LoginTimeOutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBDFED61FAC6503005C894B /* LoginTimeOutManager.m */; };
 		CEBDFEDB1FAC703C005C894B /* CommonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBDFEDA1FAC703C005C894B /* CommonVC.m */; };
 /* End PBXBuildFile section */
@@ -244,10 +246,14 @@
 		BAE718941D714F87009AB399 /* RiskSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RiskSearchViewController.xib; path = class/controller/risk/RiskSearchViewController.xib; sourceTree = "<group>"; };
 		BAE718971D7179FF009AB399 /* RiskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RiskDetailViewController.h; path = class/controller/risk/RiskDetailViewController.h; sourceTree = "<group>"; };
 		BAE718981D7179FF009AB399 /* RiskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RiskDetailViewController.m; path = class/controller/risk/RiskDetailViewController.m; sourceTree = "<group>"; };
+		CEAF2A141FBC0BCD00D6EEE1 /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
+		CEAF2A761FBC678700D6EEE1 /* NSString+Regexp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Regexp.h"; sourceTree = "<group>"; };
+		CEAF2A771FBC678700D6EEE1 /* NSString+Regexp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Regexp.m"; sourceTree = "<group>"; };
+		CEB10CA41FBE92C60069ECC2 /* LogOutModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogOutModal.h; sourceTree = "<group>"; };
+		CEB10CA51FBE92C60069ECC2 /* LogOutModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogOutModal.m; sourceTree = "<group>"; };
 		CEB4CFF21FAEF7B8007622EE /* InputPwdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputPwdViewController.h; sourceTree = "<group>"; };
 		CEB4CFF31FAEF7B8007622EE /* InputPwdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputPwdViewController.m; sourceTree = "<group>"; };
 		CEB4CFF41FAEF7B8007622EE /* InputPwdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputPwdViewController.xib; sourceTree = "<group>"; };
-		CEBDFE981FAC12C0005C894B /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
 		CEBDFED61FAC6503005C894B /* LoginTimeOutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTimeOutManager.m; sourceTree = "<group>"; };
 		CEBDFED71FAC6503005C894B /* LoginTimeOutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTimeOutManager.h; sourceTree = "<group>"; };
 		CEBDFED91FAC703C005C894B /* CommonVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonVC.h; sourceTree = "<group>"; };
@@ -443,7 +449,7 @@
 		015259B01D70918F00AD3E67 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CEBDFE981FAC12C0005C894B /* server.cer */,
+				CEAF2A141FBC0BCD00D6EEE1 /* server.cer */,
 				015259BC1D70918F00AD3E67 /* Assets.xcassets */,
 				015259BE1D70918F00AD3E67 /* LaunchScreen.storyboard */,
 				015259C11D70918F00AD3E67 /* Info.plist */,
@@ -641,6 +647,7 @@
 		BAE718871D712F84009AB399 /* class */ = {
 			isa = PBXGroup;
 			children = (
+				CEAF2A751FBC676A00D6EEE1 /* category */,
 				BAE718891D712F92009AB399 /* controller */,
 				0154B1151D72AFA10066D8B7 /* model */,
 				0154B11D1D72BE030066D8B7 /* ThirdParty */,
@@ -729,11 +736,23 @@
 			name = setting;
 			sourceTree = "<group>";
 		};
+		CEAF2A751FBC676A00D6EEE1 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				CEAF2A761FBC678700D6EEE1 /* NSString+Regexp.h */,
+				CEAF2A771FBC678700D6EEE1 /* NSString+Regexp.m */,
+			);
+			name = category;
+			path = class/category;
+			sourceTree = "<group>";
+		};
 		CEBDFED51FAC6503005C894B /* DisplayLinkManager */ = {
 			isa = PBXGroup;
 			children = (
 				CEBDFED71FAC6503005C894B /* LoginTimeOutManager.h */,
 				CEBDFED61FAC6503005C894B /* LoginTimeOutManager.m */,
+				CEB10CA41FBE92C60069ECC2 /* LogOutModal.h */,
+				CEB10CA51FBE92C60069ECC2 /* LogOutModal.m */,
 			);
 			name = DisplayLinkManager;
 			path = class/ThirdParty/DisplayLinkManager;
@@ -812,7 +831,7 @@
 				010A14631D7C71B60064AF63 /* RiskWrongListViewController.xib in Resources */,
 				010A145E1D7C6EB40064AF63 /* RiskExecutiveTimeListViewController.xib in Resources */,
 				015056831D78A3DF00C1F8D8 /* NoticeMainListCell.xib in Resources */,
-				CEBDFE9A1FAC12C0005C894B /* server.cer in Resources */,
+				CEAF2A151FBC0BCD00D6EEE1 /* server.cer in Resources */,
 				015259C01D70918F00AD3E67 /* LaunchScreen.storyboard in Resources */,
 				015056741D789BB500C1F8D8 /* CheckMainListCell.xib in Resources */,
 				014389011D855DA200099E86 /* WarnDetailViewController.xib in Resources */,
@@ -911,6 +930,7 @@
 				BA4B47001D8684F0009CA1F7 /* BarLabel.m in Sources */,
 				CEB4CFF51FAEF7B9007622EE /* InputPwdViewController.m in Sources */,
 				010A14721D7C99780064AF63 /* NoticeDetailViewController.m in Sources */,
+				CEAF2A781FBC678700D6EEE1 /* NSString+Regexp.m in Sources */,
 				010A14621D7C71B60064AF63 /* RiskWrongListViewController.m in Sources */,
 				015056851D78A3DF00C1F8D8 /* WarnMainListCell.m in Sources */,
 				010A14661D7C721C0064AF63 /* RiskAddViewController.m in Sources */,
@@ -931,6 +951,7 @@
 				01FFB9B11D806AC900D844E9 /* RiskClassChooseViewController.m in Sources */,
 				CEBDFED81FAC6503005C894B /* LoginTimeOutManager.m in Sources */,
 				015056521D77A33100C1F8D8 /* RiskVerifyListVo.m in Sources */,
+				CEB10CA61FBE92C60069ECC2 /* LogOutModal.m in Sources */,
 				BA1ACAD21D7CFD3600EB96BC /* NoticeAddViewController.m in Sources */,
 				BA55C6951D78010000FDA2F6 /* RequestModal.m in Sources */,
 				CEBDFEDB1FAC703C005C894B /* CommonVC.m in Sources */,

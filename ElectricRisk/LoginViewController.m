@@ -120,7 +120,12 @@
         self.pwdTF.text == nil || [self.pwdTF.text isEqualToString:@""]))
     {
         if (sender != nil) [[JTToast toastWithText:@"用户名和密码不能为空" configuration:[JTToastConfiguration defaultConfiguration]]show];
-    }else{
+    } else if (![self.nameTF.text checkContentIsEffective])
+    {
+        if (sender != nil) [[JTToast toastWithText:@"用户名不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    } else if (![self.pwdTF.text checkContentIsEffective]) {
+        if (sender != nil) [[JTToast toastWithText:@"密码不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+    } else{
         if (OFFLINE)
         {
             [self testData];

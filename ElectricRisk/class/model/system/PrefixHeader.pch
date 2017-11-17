@@ -21,4 +21,6 @@
 #import "SystemConfig.h"
 #import "RequestModal.h"
 
+#import "NSString+Regexp.h"
+
 #endif /* PrefixHeader_pch */

@@ -130,6 +130,11 @@
         [[JTToast toastWithText:@"项目等级的顺序应从低到高" configuration:[JTToastConfiguration defaultConfiguration]]show];
         return;
     }
+    if (![self.areaNameTextField.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"区域关键字输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
     if (self.delegate != nil)
     {
         [self.delegate riskSearchWithArea:self.areaNameTextField.text

@@ -488,6 +488,30 @@
         }
     }
     
+    if (![self.ryContentView.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"人员到岗情况输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+
+    if (![self.xcContentView.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"施工现场执行情况输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+
+    if (![self.sgContentView.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"施工进度信息输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+
+    if (![self.sgProcessInput.text checkContentIsEffective])
+    {
+        [[JTToast toastWithText:@"施工进度输入不合法" configuration:[JTToastConfiguration defaultConfiguration]]show];
+        return;
+    }
+
     UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"请确认" message:@"确定提交本次填报的内容吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
         if (OFFLINE)
