@@ -419,10 +419,45 @@
             compression -= 0.1;
             imageData = UIImageJPEGRepresentation(currentImage, compression);
         }
-        [self requestImgUploadData: imageData];
+        
+        NSString *imageType = [self contentTypeForImageData: imageData];
+        if (imageType != nil && ([imageType isEqualToString: @"png"] || [imageType isEqualToString: @"jpeg"]))
+        {
+            [self requestImgUploadData: imageData];
+        } else {
+            [[JTToast toastWithText:@"上传图片格式错误,只能为png/jpg" configuration:[JTToastConfiguration defaultConfiguration]]show];
+            return;
+        }
     }
     [imagePickerController.view removeFromSuperview];
 //    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+//通过图片Data数据第一个字节 来获取图片扩展名
+- (NSString *)contentTypeForImageData:(NSData *)data{
+    uint8_t c;
+    [data getBytes:&c length:1];
+    switch (c) {
+        case 0xFF:
+            return @"jpeg";
+        case 0x89:
+            return @"png";
+        case 0x47:
+            return @"gif";
+        case 0x49:
+        case 0x4D:
+            return @"tiff";
+        case 0x52:
+            if ([data length] < 12) {
+                return nil;
+            }
+            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
+                return @"webp";
+            }
+            return nil;
+    }
+    return nil;
 }
 
 - (IBAction)backBtnClick:(id)sender
@@ -587,6 +622,38 @@
     if([text isEqualToString:@"\n"])
     {
         [textView resignFirstResponder];
+        return NO;
+    }
+    
+    NSString *str = [NSString stringWithFormat:@"%@%@", textView.text, text];
+    
+    if (str.length > LimitMaxWord)
+    {
+        NSRange rangeIndex = [str rangeOfComposedCharacterSequenceAtIndex:LimitMaxWord];
+        
+        if (rangeIndex.length == 1)//字数超限
+        {
+            textView.text = [str substringToIndex: LimitMaxWord];
+        }else{
+            NSRange rangeRange = [str rangeOfComposedCharacterSequencesForRange:NSMakeRange(0, LimitMaxWord)];
+            textView.text = [str substringWithRange:rangeRange];
+        }
+        return NO;
+    }
+    return YES;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    if (textView.text.length > LimitMaxWord) {
+        textView.text = [textView.text substringToIndex:10];
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField dshouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (range.location > LimitMaxWord)
+    {
         return NO;
     }
     return YES;

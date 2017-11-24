@@ -29,6 +29,8 @@
 
 #define PORT_SOCKET 3322
 
+#define LimitMaxWord 50
+
 #define SERVER_URL_WITH(PATH) [URL_SERVER stringByAppendingString:PATH]
 
 /**  URL Define **/
@@ -86,8 +88,8 @@
 
 /** time cache*/
 #define CACHETIME   @"CACHETIME"
-//#define LoginTimeOutTime 108000 //30分钟 按照屏幕刷新帧率来计算 1s = 60帧
-#define LoginTimeOutTime 7200 //1分钟测试
+#define LoginTimeOutTime 108000 //30分钟 按照屏幕刷新帧率来计算 1s = 60帧
+//#define LoginTimeOutTime 7200 //1分钟测试
 
 /** Define operation **/
 #define State_Success 1
